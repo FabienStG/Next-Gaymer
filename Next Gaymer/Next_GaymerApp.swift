@@ -6,12 +6,30 @@
 //
 
 import SwiftUI
+import Firebase
+import GoogleSignIn
 
 @main
 struct Next_GaymerApp: App {
+    
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    
+    @StateObject var viewRouter = ViewRouter()
+    
+    init() {
+        FirebaseApp.configure()
+    }
+        
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MotherView().environmentObject(viewRouter)
         }
+    }
+}
+
+class AppDelegate: NSObject, UIApplicationDelegate {
+    
+    func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any]) -> Bool {
+      return GIDSignIn.sharedInstance.handle(url)
     }
 }

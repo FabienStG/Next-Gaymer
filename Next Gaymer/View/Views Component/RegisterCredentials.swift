@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SignUpCredentials: View {
+struct RegisterCredentials: View {
     
     @Binding var email: String
     @Binding var password: String
@@ -16,13 +16,7 @@ struct SignUpCredentials: View {
     var body: some View {
         VStack {
             Group{
-                TextField("Email", text:$email)
-                    .padding()
-                    .textInputAutocapitalization(.never)
-                    .keyboardType(.emailAddress)
-                    .disableAutocorrection(true)
-                    .background(.thinMaterial)
-                    .cornerRadius(10)
+                EmailView(email: $email)
                 VStack {
                     SecureField("Mot de passe", text: $password)
                     .textInputAutocapitalization(.never)
@@ -41,6 +35,6 @@ struct SignUpCredentials: View {
 
 struct SignUpCredentials_Previews: PreviewProvider {
     static var previews: some View {
-        SignUpCredentials(email: .constant(""), password: .constant(""), passwordConfirmation: .constant(""))//.previewLayout(.sizeThatFits)
+        RegisterCredentials(email: .constant(""), password: .constant(""), passwordConfirmation: .constant(""))//.previewLayout(.sizeThatFits)
     }
 }

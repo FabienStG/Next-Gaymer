@@ -13,5 +13,7 @@ struct UserDetails {
     var name: String
     var email: String
     var password: String
+    var adress: String
+    var phoneNumber: String
     
 }

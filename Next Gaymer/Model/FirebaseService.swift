@@ -101,4 +101,14 @@ class FirebaseSercice {
             return completionHandler(false, errorMessage)
         }
     }
+    
+    func resetPassword(emailUser: String, completionHandler: @escaping(Bool, String) -> Void) {
+        Auth.auth().sendPasswordReset(withEmail: emailUser) { error in
+            guard error == nil else {
+                let errorMessage = error?.localizedDescription ?? ""
+                return completionHandler(false, errorMessage)
+            }
+            return completionHandler(true, "")
+        }
+    }
 }

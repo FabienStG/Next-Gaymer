@@ -16,7 +16,16 @@ struct LoginView: View {
             VStack(spacing: 15) {
                 LogoView()
                 Spacer()
-                SignInCredentials(email: $loginModel.email, password: $loginModel.password)
+                LoginCredentials(email: $loginModel.email, password: $loginModel.password)
+                if !loginModel.showReset {
+                    NavigationLink("Mot de passe oublié") {
+                        ResetPasswordView()
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.leading)
+                    .padding(.bottom)
+                    
+                }
                 Button {
                     loginModel.loginUser()
                 } label: {
@@ -30,7 +39,7 @@ struct LoginView: View {
                         Image("Google Login")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .frame(width: 200, height: 70, alignment: .center)
+                            .frame(width: 200, height: 90, alignment: .center)
                     }
                 }
                 Spacer()
@@ -45,6 +54,7 @@ struct LoginView: View {
             }
             .padding()
             .alert(loginModel.errorMessage, isPresented: $loginModel.showAlert) {}
+            .navigationBarHidden(true)
         }
     }
 }
@@ -54,4 +64,3 @@ struct SignInView_Previews: PreviewProvider {
         LoginView()
     }
 }
-

@@ -21,9 +21,13 @@ class DataManager {
     var loginViewModel = LoginViewModel()
     var registerViewModel = RegisterViewModel()
     var logoutViewModel = LogoutViewModel()
+    var resetPasswordViewModel = ResetPasswordViewModel()
     
     // Services
     var firebaseService = FirebaseSercice()
+    
+    // Log Storage
+    @AppStorage("log_status") var logStatus = false
     
     
     func createUser(completionHandler: @escaping (Bool) -> Void) {
@@ -50,6 +54,13 @@ class DataManager {
     func logoutUser(completionHandler: @escaping(Bool) -> Void) {
         firebaseService.logoutUser { response, message in
             self.logoutViewModel.errorMessage = message
+            return completionHandler(response)
+        }
+    }
+    
+    func resetPassword(completionHandler: @escaping(Bool) -> Void) {
+        firebaseService.resetPassword(emailUser: resetPasswordViewModel.email) { response, message in
+            self.resetPasswordViewModel.errorMessage = message
             return completionHandler(response)
         }
     }

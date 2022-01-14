@@ -17,10 +17,14 @@
 		D14B898E2790308A005FC4F0 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14B898D2790308A005FC4F0 /* LoginView.swift */; };
 		D14B8990279032AF005FC4F0 /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14B898F279032AF005FC4F0 /* ViewRouter.swift */; };
 		D17C1A452790C64C00EF0633 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D17C1A442790C64B00EF0633 /* GoogleService-Info.plist */; };
-		D1BF606927906DA300F22AAF /* SignUpCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BF606827906DA300F22AAF /* SignUpCredentials.swift */; };
+		D1B3DB2F279214790075A0F7 /* ResetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B3DB2E279214780075A0F7 /* ResetPasswordViewModel.swift */; };
+		D1B3DB31279216F20075A0F7 /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B3DB30279216F20075A0F7 /* ResetPasswordView.swift */; };
+		D1B3DB3327921DFF0075A0F7 /* EmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B3DB3227921DFF0075A0F7 /* EmailView.swift */; };
+		D1B3DB35279225630075A0F7 /* RealTimeMessagingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B3DB34279225630075A0F7 /* RealTimeMessagingView.swift */; };
+		D1BF606927906DA300F22AAF /* RegisterCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BF606827906DA300F22AAF /* RegisterCredentials.swift */; };
 		D1BF606B279071AA00F22AAF /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BF606A279071A900F22AAF /* LogoView.swift */; };
-		D1BF606D2790786B00F22AAF /* SignInCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BF606C2790786B00F22AAF /* SignInCredentials.swift */; };
-		D1BF606F27908A7100F22AAF /* LogButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BF606E27908A7100F22AAF /* LogButtonView.swift */; };
+		D1BF606D2790786B00F22AAF /* LoginCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BF606C2790786B00F22AAF /* LoginCredentials.swift */; };
+		D1BF606F27908A7100F22AAF /* ButtonTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BF606E27908A7100F22AAF /* ButtonTextView.swift */; };
 		D1BF60762790A19A00F22AAF /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = D1BF60752790A19A00F22AAF /* GoogleSignIn */; };
 		D1BF60792790A1CC00F22AAF /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = D1BF60782790A1CC00F22AAF /* FirebaseDatabase */; };
 		D1BF607D2790BE8E00F22AAF /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BF607C2790BE8D00F22AAF /* LoginViewModel.swift */; };
@@ -43,10 +47,14 @@
 		D14B898D2790308A005FC4F0 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		D14B898F279032AF005FC4F0 /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
 		D17C1A442790C64B00EF0633 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
-		D1BF606827906DA300F22AAF /* SignUpCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCredentials.swift; sourceTree = "<group>"; };
+		D1B3DB2E279214780075A0F7 /* ResetPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewModel.swift; sourceTree = "<group>"; };
+		D1B3DB30279216F20075A0F7 /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
+		D1B3DB3227921DFF0075A0F7 /* EmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailView.swift; sourceTree = "<group>"; };
+		D1B3DB34279225630075A0F7 /* RealTimeMessagingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimeMessagingView.swift; sourceTree = "<group>"; };
+		D1BF606827906DA300F22AAF /* RegisterCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCredentials.swift; sourceTree = "<group>"; };
 		D1BF606A279071A900F22AAF /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
-		D1BF606C2790786B00F22AAF /* SignInCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInCredentials.swift; sourceTree = "<group>"; };
-		D1BF606E27908A7100F22AAF /* LogButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogButtonView.swift; sourceTree = "<group>"; };
+		D1BF606C2790786B00F22AAF /* LoginCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCredentials.swift; sourceTree = "<group>"; };
+		D1BF606E27908A7100F22AAF /* ButtonTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTextView.swift; sourceTree = "<group>"; };
 		D1BF607A2790A2B700F22AAF /* Next-Gaymer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Next-Gaymer-Info.plist"; sourceTree = SOURCE_ROOT; };
 		D1BF607C2790BE8D00F22AAF /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		D1F555BC2791CA130005555A /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
@@ -121,6 +129,8 @@
 				D14B898D2790308A005FC4F0 /* LoginView.swift */,
 				D14B898B2790307F005FC4F0 /* RegisterView.swift */,
 				D14B897727902C75005FC4F0 /* HomepageView.swift */,
+				D1B3DB30279216F20075A0F7 /* ResetPasswordView.swift */,
+				D1B3DB34279225630075A0F7 /* RealTimeMessagingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -128,10 +138,11 @@
 		D1BF606727906D7200F22AAF /* Views Component */ = {
 			isa = PBXGroup;
 			children = (
-				D1BF606827906DA300F22AAF /* SignUpCredentials.swift */,
-				D1BF606C2790786B00F22AAF /* SignInCredentials.swift */,
+				D1BF606827906DA300F22AAF /* RegisterCredentials.swift */,
+				D1BF606C2790786B00F22AAF /* LoginCredentials.swift */,
+				D1B3DB3227921DFF0075A0F7 /* EmailView.swift */,
 				D1BF606A279071A900F22AAF /* LogoView.swift */,
-				D1BF606E27908A7100F22AAF /* LogButtonView.swift */,
+				D1BF606E27908A7100F22AAF /* ButtonTextView.swift */,
 			);
 			path = "Views Component";
 			sourceTree = "<group>";
@@ -147,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				D1BF607C2790BE8D00F22AAF /* LoginViewModel.swift */,
+				D1B3DB2E279214780075A0F7 /* ResetPasswordViewModel.swift */,
 				D1F555C42791DECE0005555A /* RegisterViewModel.swift */,
 				D1F555C82791F4450005555A /* LogoutViewModel.swift */,
 				D14B898F279032AF005FC4F0 /* ViewRouter.swift */,
@@ -248,21 +260,25 @@
 			files = (
 				D14B8990279032AF005FC4F0 /* ViewRouter.swift in Sources */,
 				D1F555C52791DECE0005555A /* RegisterViewModel.swift in Sources */,
-				D1BF606D2790786B00F22AAF /* SignInCredentials.swift in Sources */,
+				D1BF606D2790786B00F22AAF /* LoginCredentials.swift in Sources */,
 				D14B897827902C75005FC4F0 /* HomepageView.swift in Sources */,
 				D1F555C12791CE9E0005555A /* DataManager.swift in Sources */,
 				D1F555C32791DAEC0005555A /* MotherView.swift in Sources */,
 				D1F555BF2791CA350005555A /* UserDetails.swift in Sources */,
 				D1F555C72791EF7E0005555A /* View Extension.swift in Sources */,
 				D1F555C92791F4460005555A /* LogoutViewModel.swift in Sources */,
+				D1B3DB3327921DFF0075A0F7 /* EmailView.swift in Sources */,
+				D1B3DB35279225630075A0F7 /* RealTimeMessagingView.swift in Sources */,
 				D14B898C2790307F005FC4F0 /* RegisterView.swift in Sources */,
-				D1BF606927906DA300F22AAF /* SignUpCredentials.swift in Sources */,
+				D1BF606927906DA300F22AAF /* RegisterCredentials.swift in Sources */,
+				D1B3DB2F279214790075A0F7 /* ResetPasswordViewModel.swift in Sources */,
 				D1F555BD2791CA130005555A /* FirebaseService.swift in Sources */,
 				D1BF607D2790BE8E00F22AAF /* LoginViewModel.swift in Sources */,
+				D1B3DB31279216F20075A0F7 /* ResetPasswordView.swift in Sources */,
 				D1BF606B279071AA00F22AAF /* LogoView.swift in Sources */,
 				D14B898E2790308A005FC4F0 /* LoginView.swift in Sources */,
 				D14B897627902C75005FC4F0 /* Next_GaymerApp.swift in Sources */,
-				D1BF606F27908A7100F22AAF /* LogButtonView.swift in Sources */,
+				D1BF606F27908A7100F22AAF /* ButtonTextView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

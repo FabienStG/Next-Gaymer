@@ -21,13 +21,11 @@ class LoginViewModel: ObservableObject  {
     // Error handling
     @Published var errorMessage = ""
     @Published var showAlert = false
+    @Published var showReset = false
 
     // Processing
     @Published var processing = false
-    
-    // Log Storage
-    @AppStorage("log_status") var logStatus = false
-    
+        
     func loginUser() {
      
         processing = true
@@ -36,9 +34,12 @@ class LoginViewModel: ObservableObject  {
                 withAnimation {
                     self.viewRouter.currentPage = .loggedIn
                 }
+                self.showReset = false
                 self.processing = false
+                self.logStatus = true
             } else {
                 self.processing = false
+                self.showReset = true
                 self.showAlert.toggle()
             }
         }

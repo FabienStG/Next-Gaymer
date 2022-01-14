@@ -10,13 +10,14 @@ import SwiftUI
 struct RegisterView: View {
         
     @StateObject var registerModel = RegisterViewModel()
+    
     var body: some View {
         VStack(spacing: 15) {
             LogoView()
             Text("Connexion")
                 .font(.largeTitle)
             Spacer()
-            SignUpCredentials(email: $registerModel.email, password: $registerModel.password, passwordConfirmation: $registerModel.confirmPassword)
+            RegisterCredentials(email: $registerModel.email, password: $registerModel.password, passwordConfirmation: $registerModel.confirmPassword)
             Button {
                 registerModel.createUser()
             } label: {

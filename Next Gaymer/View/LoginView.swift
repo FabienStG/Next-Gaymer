@@ -17,7 +17,7 @@ struct LoginView: View {
                 LogoView()
                 Spacer()
                 LoginCredentials(email: $loginModel.email, password: $loginModel.password)
-                if !loginModel.showReset {
+                if loginModel.showReset {
                     NavigationLink("Mot de passe oublié") {
                         ResetPasswordView()
                     }

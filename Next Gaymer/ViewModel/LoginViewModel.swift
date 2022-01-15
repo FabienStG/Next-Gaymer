@@ -6,8 +6,6 @@
 //
 
 import SwiftUI
-import Firebase
-import GoogleSignIn
 
 class LoginViewModel: ObservableObject  {
     

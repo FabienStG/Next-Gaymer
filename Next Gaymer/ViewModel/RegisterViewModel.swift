@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Firebase
 
 class RegisterViewModel: ObservableObject {
 
@@ -14,7 +13,14 @@ class RegisterViewModel: ObservableObject {
     @EnvironmentObject var viewRouter: ViewRouter
     
     // Info
+    @Published var name = ""
+    @Published var surname = ""
     @Published var email = ""
+    @Published var phoneNumber = ""
+    @Published var street = ""
+    @Published var zipCode = ""
+    @Published var city = ""
+    
     @Published var password = ""
     @Published var confirmPassword = ""
     
@@ -25,10 +31,10 @@ class RegisterViewModel: ObservableObject {
     // Processing
     @Published var processing = false
     
-    func createUser() {
+    func registerUser() {
         
         processing = true
-        DataManager.shared.createUser { success in
+        DataManager.shared.registerUser { success in
             
             if success {
                 withAnimation {

@@ -9,11 +9,13 @@ import Foundation
 
 struct UserDetails {
     
-    var surname: String
     var name: String
+    var surname: String
     var email: String
-    var password: String
-    var adress: String
     var phoneNumber: String
+    var street: String
+    var zipCode: String
+    var city: String
+    var password: String
     
 }

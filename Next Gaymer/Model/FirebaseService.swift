@@ -9,31 +9,54 @@ import Foundation
 import Firebase
 import GoogleSignIn
 
-class FirebaseSercice {
+class FirebaseService {
     
     
     // User Creation
-    func createUser(userEmail: String, userPassword: String, completionHandler: @escaping(Bool, String) -> Void) {
+    func createUser(userEmail: String, userPassword: String, completionHandler: @escaping(Bool, String?) -> Void) {
         
         Auth.auth().createUser(withEmail: userEmail, password: userPassword) { authResult, error in
             guard authResult != nil, error == nil else {
                 let errorMessage = error?.localizedDescription ?? ""
+                print(error?.localizedDescription)
                 return completionHandler(false, errorMessage)
             }
             
             DispatchQueue.main.async {
                 switch authResult {
                 case .none:
+                    print(error?.localizedDescription)
                     let errorMessage = error?.localizedDescription ?? ""
                     return completionHandler(false, errorMessage)
                 case .some(_):
-                    return completionHandler(true, "")
+                    return completionHandler(true, nil)
                 }
             }
         }
     }
     
-    func loginUser(userEmail: String, userPassword: String, completionHandler: @escaping(Bool, String) -> Void) {
+    func registrateUser(with user: UserDetails, completionHandler: @escaping(Bool, String?) -> Void) {
+        
+        let db = Firestore.firestore()
+        let userUID = Auth.auth().currentUser?.uid
+        
+        db.collection("users").document(userUID!).setData([
+            "name" : user.name,
+            "surname" : user.surname,
+            "email": user.email,
+            "phoneNumber": user.phoneNumber,
+            "street": user.street,
+            "zipCode": user.zipCode,
+            "city": user.city]) { error in
+                guard error == nil else {
+                    let errorMessage = error?.localizedDescription ?? ""
+                    return completionHandler(false, errorMessage)
+                }
+                return completionHandler(true, nil)
+            }
+    }
+    
+    func loginUser(userEmail: String, userPassword: String, completionHandler: @escaping(Bool, String?) -> Void) {
         
         Auth.auth().signIn(withEmail: userEmail, password: userPassword) { authResult, error in
             guard authResult != nil, error == nil else {
@@ -47,7 +70,7 @@ class FirebaseSercice {
                     let errorMessage = error?.localizedDescription ?? ""
                     return completionHandler(false, errorMessage)
                 case .some(_):
-                    return completionHandler(true, "")
+                    return completionHandler(true, nil)
                 }
             }
         }
@@ -88,7 +111,7 @@ class FirebaseSercice {
         }
     }
     
-    func logoutUser(completionHandler: @escaping(Bool, String) -> Void) {
+    func logoutUser(completionHandler: @escaping(Bool, String?) -> Void) {
         
         GIDSignIn.sharedInstance.signOut()
         
@@ -102,13 +125,13 @@ class FirebaseSercice {
         }
     }
     
-    func resetPassword(emailUser: String, completionHandler: @escaping(Bool, String) -> Void) {
+    func resetPassword(emailUser: String, completionHandler: @escaping(Bool, String?) -> Void) {
         Auth.auth().sendPasswordReset(withEmail: emailUser) { error in
             guard error == nil else {
                 let errorMessage = error?.localizedDescription ?? ""
                 return completionHandler(false, errorMessage)
             }
-            return completionHandler(true, "")
+            return completionHandler(true, nil)
         }
     }
 }

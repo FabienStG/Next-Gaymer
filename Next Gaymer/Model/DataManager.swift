@@ -28,10 +28,13 @@ class DataManager {
     
     // Log Storage
     @AppStorage("log_status") var logStatus = false
-    
+        
     
     func createUser(completionHandler: @escaping (Bool) -> Void) {
         firebaseService.createUser(userEmail: registerViewModel.email, userPassword: registerViewModel.password) { response, message in
+            if response {
+                self.logStatus = true
+            }
             self.registerViewModel.errorMessage = message
             return completionHandler(response)
             }
@@ -39,6 +42,9 @@ class DataManager {
     
     func loginUser(completionHandler: @escaping(Bool) -> Void) {
         firebaseService.loginUser(userEmail: loginViewModel.email, userPassword: loginViewModel.password) { response, message in
+            if response {
+                self.logStatus = true
+            }
             self.loginViewModel.errorMessage = message
             return completionHandler(response)
         }
@@ -46,6 +52,9 @@ class DataManager {
     
    func googleLoginUser(completionHandler: @escaping(Bool) -> Void) {
         firebaseService.googleLoginUser { response, message in
+            if response {
+                self.logStatus = true
+            }
             self.loginViewModel.errorMessage = message
             return completionHandler(response)
         }
@@ -53,6 +62,9 @@ class DataManager {
     
     func logoutUser(completionHandler: @escaping(Bool) -> Void) {
         firebaseService.logoutUser { response, message in
+            if response {
+                self.logStatus = false
+            }
             self.logoutViewModel.errorMessage = message
             return completionHandler(response)
         }

@@ -36,7 +36,6 @@ class LoginViewModel: ObservableObject  {
                 }
                 self.showReset = false
                 self.processing = false
-                self.logStatus = true
             } else {
                 self.processing = false
                 self.showReset = true

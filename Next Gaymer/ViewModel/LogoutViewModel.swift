@@ -8,9 +8,6 @@
 import SwiftUI
 
 class LogoutViewModel: ObservableObject {
-    
-    // View Routeur
-    @EnvironmentObject var viewRouter: ViewRouter
 
     // Error Handler
     @State var errorMessage = ""
@@ -19,19 +16,19 @@ class LogoutViewModel: ObservableObject {
     // Processing
     @State var processing = false
     
-    func logoutUser() {
+    func logoutUser(completionHandler: @escaping(Bool) -> Void) {
         
         processing = true
-        DataManager.shared.logoutUser { success in
-            if success {
-                withAnimation {
-                    self.viewRouter.currentPage = .loggedOut
-                }
+        DataManager.shared.logoutUser { success, message in
+            if !success {
                 self.processing = false
-            } else {
-                self.processing = false
+                self.errorMessage = message ?? "Erreur"
                 self.showAlert.toggle()
+                return completionHandler(success)
             }
+            self.processing = false
+            return completionHandler(success)
         }
     }
 }
+

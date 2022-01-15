@@ -10,6 +10,7 @@ import SwiftUI
 struct RegisterView2: View {
         
     @StateObject var registerModel = RegisterViewModel()
+    @EnvironmentObject var viewRouter: ViewRouter
     
     var body: some View {
         VStack(spacing: 15) {
@@ -19,7 +20,13 @@ struct RegisterView2: View {
             Spacer()
             RegisterCredentials(email: $registerModel.email, password: $registerModel.password, passwordConfirmation: $registerModel.confirmPassword)
             Button {
-                registerModel.registerUser()
+                registerModel.registerUser { succes in
+                    if succes {
+                        withAnimation {
+                            viewRouter.currentPage = .loggedIn
+                        }
+                    }
+                }
             } label: {
                 ButtonTextView(bool: $registerModel.processing, text: "Créer un compte")
             }

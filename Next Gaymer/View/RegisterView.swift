@@ -10,6 +10,7 @@ import SwiftUI
 struct RegisterView: View {
     
     @StateObject var registerModel = RegisterViewModel()
+    @EnvironmentObject var viewRouter: ViewRouter
     
     var body: some View {
         
@@ -42,7 +43,13 @@ struct RegisterView: View {
                 }
             }
             Button {
-                registerModel.registerUser()
+                registerModel.registerUser { result in
+                    if result {
+                        withAnimation {
+                            viewRouter.currentPage = .loggedIn
+                        }
+                    }
+                }
             } label: {
                 Text("S'enregistrer")
                     .frame(height: 50, alignment: .center)

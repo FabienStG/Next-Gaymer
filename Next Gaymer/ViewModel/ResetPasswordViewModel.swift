@@ -9,7 +9,6 @@ import SwiftUI
 
 class ResetPasswordViewModel: ObservableObject{
     
-    @EnvironmentObject var viewRouter: ViewRouter
 
     @Published var email = ""
     
@@ -21,16 +20,12 @@ class ResetPasswordViewModel: ObservableObject{
     
     func resetPassword() {
         processing = true
-        DataManager.shared.resetPassword { success in
-            if success {
-                withAnimation {
-                    self.viewRouter.currentPage = .loggedOut
-                }
-                self.processing = false
-            } else {
-                self.processing = false
+        DataManager.shared.resetPassword(email: self.email) { success, message in
+            if !success {
+                self.errorMessage = message ?? "Erreur"
                 self.showAlert.toggle()
             }
+            self.processing = false
         }
     }
 }

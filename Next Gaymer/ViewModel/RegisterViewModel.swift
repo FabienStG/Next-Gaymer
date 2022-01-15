@@ -9,8 +9,7 @@ import SwiftUI
 
 class RegisterViewModel: ObservableObject {
 
-    // View Router
-    @EnvironmentObject var viewRouter: ViewRouter
+
     
     // Info
     @Published var name = ""
@@ -31,24 +30,35 @@ class RegisterViewModel: ObservableObject {
     // Processing
     @Published var processing = false
     
-    func registerUser() {
+    func registerUser(completionHandler: @escaping (Bool) -> Void ) {
+        
+        let user = packUserDetail()
         
         processing = true
-        DataManager.shared.registerUser { success in
+        DataManager.shared.registerUser(with: user) { success, message in
             
-            if success {
-                withAnimation {
-                    self.viewRouter.currentPage = .loggedIn
-                }
-                self.processing = false
-            } else {
-                self.processing = false
+            if !success {
+                self.errorMessage = message ?? "Erreur"
                 self.showAlert.toggle()
+                self.processing = false
+                return completionHandler(success)
             }
+            self.processing = false
+            return completionHandler(success)
         }
     }
     
     func disableButton() -> Bool {
         return !processing && !email.isEmpty && !password.isEmpty && !confirmPassword.isEmpty && password == confirmPassword ? false : true
+    }
+    
+    func packUserDetail() -> UserDetails {
+        
+        let user = UserDetails(name: self.name, surname: self.surname,
+                               email: self.email, phoneNumber: self.phoneNumber,
+                               street: self.street, zipCode: self.zipCode,
+                               city: self.city, password: self.password)
+        
+        return user
     }
 }

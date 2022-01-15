@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LoginView: View {
     
+    @EnvironmentObject var viewRouter: ViewRouter
     @StateObject var loginModel = LoginViewModel()
     
     var body: some View {
@@ -27,14 +28,26 @@ struct LoginView: View {
                     
                 }
                 Button {
-                    loginModel.loginUser()
+                    loginModel.loginUser { result in
+                        if result {
+                            withAnimation {
+                                viewRouter.currentPage = .loggedIn
+                            }
+                        }
+                    }
                 } label: {
                     ButtonTextView(bool: $loginModel.processing, text: "Se connecter")
                 }
                 .disabled(loginModel.disableButton())
                 HStack {
                     Button {
-                        loginModel.googleLoginUser()
+                        loginModel.googleLoginUser { result in
+                            if result {
+                                withAnimation {
+                                    viewRouter.currentPage = .loggedIn
+                                }
+                            }
+                        }
                     } label: {
                         Image("Google Login")
                             .resizable()

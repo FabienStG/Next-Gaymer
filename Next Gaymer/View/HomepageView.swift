@@ -10,6 +10,7 @@ import SwiftUI
 struct HomepageView: View {
     
     @StateObject var logoutModel = LogoutViewModel()
+    @EnvironmentObject var viewRouter: ViewRouter
     
     var body: some View {
         NavigationView {
@@ -21,7 +22,11 @@ struct HomepageView: View {
                             ProgressView()
                         } else {
                         Button("Se déconnecter") {
-                            logoutModel.logoutUser()
+                            logoutModel.logoutUser { result in
+                                withAnimation {
+                                    viewRouter.currentPage = .loggedOut
+                                }
+                            }
                         }
                       }
                     }

@@ -18,14 +18,12 @@ class FirebaseService {
         Auth.auth().createUser(withEmail: userEmail, password: userPassword) { authResult, error in
             guard authResult != nil, error == nil else {
                 let errorMessage = error?.localizedDescription ?? ""
-                print(error?.localizedDescription)
                 return completionHandler(false, errorMessage)
             }
             
             DispatchQueue.main.async {
                 switch authResult {
                 case .none:
-                    print(error?.localizedDescription)
                     let errorMessage = error?.localizedDescription ?? ""
                     return completionHandler(false, errorMessage)
                 case .some(_):

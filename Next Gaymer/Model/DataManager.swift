@@ -15,113 +15,70 @@ class DataManager {
     
     private init() {}
     
-    // View Model
-   var loginViewModel = LoginViewModel()
-   var registerViewModel = RegisterViewModel()
-   var logoutViewModel = LogoutViewModel()
-   var resetPasswordViewModel = ResetPasswordViewModel()
-    
     // Services
     var firebaseService = FirebaseService()
     
     // Log Storage
     @AppStorage("log_status") var logStatus = false
         
-    
-  /*  func createUser(completionHandler: @escaping (Bool) -> Void) {
-        firebaseService.createUser(userEmail: registerViewModel.email, userPassword: registerViewModel.password) { response, message in
-            if response {
-                self.logStatus = true
-            } else {
-                self.registerViewModel.errorMessage = message!
-            }
-            return completionHandler(response)
-        }
-    }
-    
-    func registrateUser(completionHandler: @escaping(Bool) -> Void) {
-        firebaseService.registrateUser(with: packUserDetail()) { response, message in
-            if response {
-                self.logStatus = true
-            } else {
-                self.registerViewModel.errorMessage = message!
-            }
-            return completionHandler(response)
-        }
-    }*/
-    
-    func registerUser(completionHandler: @escaping(Bool) -> Void) {
-        
-        let user = packUserDetail()
+    func registerUser(with user: UserDetails, completionHandler: @escaping(Bool, String?) -> Void) {
         
         firebaseService.createUser(userEmail: user.email, userPassword: user.password) { response, authMessage in
             if response {
                 self.firebaseService.registrateUser(with: user) { response, dbMessage in
                     if response {
                         self.logStatus = true
-                        return completionHandler(true)
+                        return completionHandler(true, nil)
                     } else {
-                        self.registerViewModel.errorMessage = dbMessage!
-                        return completionHandler(false)
+                        return completionHandler(false, dbMessage)
                     }
                 }
             } else {
-                self.registerViewModel.errorMessage = authMessage!
-                return completionHandler(false)
+                return completionHandler(false, authMessage)
             }
         }
     }
     
-    func loginUser(completionHandler: @escaping(Bool) -> Void) {
-        firebaseService.loginUser(userEmail: loginViewModel.email, userPassword: loginViewModel.password) { response, message in
+    func loginUser(email: String, password: String, completionHandler: @escaping(Bool, String?) -> Void) {
+        firebaseService.loginUser(userEmail: email, userPassword: password) { response, message in
             if response {
                 self.logStatus = true
+                return completionHandler(response, nil)
             } else {
-                self.loginViewModel.errorMessage = message!
+                return completionHandler(response, message)
             }
-            return completionHandler(response)
         }
     }
     
-   func googleLoginUser(completionHandler: @escaping(Bool) -> Void) {
+   func googleLoginUser(completionHandler: @escaping(Bool, String?) -> Void) {
         firebaseService.googleLoginUser { response, message in
             if response {
                 self.logStatus = true
+                return completionHandler(response, nil)
             } else {
-                self.loginViewModel.errorMessage = message
+               return completionHandler(response, message)
             }
-            return completionHandler(response)
         }
     }
     
-    func logoutUser(completionHandler: @escaping(Bool) -> Void) {
+    func logoutUser(completionHandler: @escaping(Bool, String?) -> Void) {
         firebaseService.logoutUser { response, message in
             if response {
                 self.logStatus = false
+                return completionHandler(response, nil)
             } else {
-                self.logoutViewModel.errorMessage = message!
+                return completionHandler(response, message)
             }
-            return completionHandler(response)
         }
     }
     
-    func resetPassword(completionHandler: @escaping(Bool) -> Void) {
-        firebaseService.resetPassword(emailUser: resetPasswordViewModel.email) { response, message in
+    func resetPassword(email: String, completionHandler: @escaping(Bool, String?) -> Void) {
+        firebaseService.resetPassword(emailUser: email) { response, message in
             if !response {
-                self.resetPasswordViewModel.errorMessage = message!
+                return completionHandler(response, message)
             }
-            return completionHandler(response)
+            return completionHandler(response, nil)
         }
     }
     
-    func packUserDetail() -> UserDetails {
-        
-        let user = UserDetails(name: registerViewModel.name, surname: registerViewModel.surname,
-                               email: registerViewModel.email, phoneNumber: registerViewModel.phoneNumber,
-                               street: registerViewModel.street, zipCode: registerViewModel.zipCode,
-                               city: registerViewModel.city, password: registerViewModel.password)
-        print(user)
-        
-        return user
-    }
 }

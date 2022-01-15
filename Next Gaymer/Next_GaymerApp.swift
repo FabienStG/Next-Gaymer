@@ -22,7 +22,8 @@ struct Next_GaymerApp: App {
         
     var body: some Scene {
         WindowGroup {
-            MotherView().environmentObject(viewRouter)
+            //MotherView().environmentObject(viewRouter)
+            RealTimeMessagingView()
         }
     }
 }

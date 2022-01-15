@@ -25,7 +25,10 @@ class LoginViewModel: ObservableObject  {
 
     // Processing
     @Published var processing = false
-        
+    
+    // Log Storage
+    @AppStorage("log_status") var logStatus = false
+    
     func loginUser() {
      
         processing = true

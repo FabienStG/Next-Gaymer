@@ -11,6 +11,7 @@ import GoogleSignIn
 
 class FirebaseService {
     
+    let db = Firestore.firestore()
     
     // User Creation
     func createUser(userEmail: String, userPassword: String, completionHandler: @escaping(Bool, String?) -> Void) {
@@ -35,7 +36,6 @@ class FirebaseService {
     
     func registrateUser(with user: UserDetails, completionHandler: @escaping(Bool, String?) -> Void) {
         
-        let db = Firestore.firestore()
         let userUID = Auth.auth().currentUser?.uid
         
         db.collection("users").document(userUID!).setData([
@@ -130,6 +130,22 @@ class FirebaseService {
                 return completionHandler(false, errorMessage)
             }
             return completionHandler(true, nil)
+        }
+    }
+    
+    func fetchUser() {
+        
+        let userID = Auth.auth().currentUser?.uid
+        
+        let docRef = db.collection("users").document(userID!)
+        
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let dataDescription = document.data().map(String.init(describing: )) ?? "nil"
+                print(dataDescription)
+            } else {
+                print("fail")
+            }
         }
     }
 }

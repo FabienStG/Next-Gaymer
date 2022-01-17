@@ -12,10 +12,20 @@ struct HomepageView: View {
     @StateObject var logoutModel = LogoutViewModel()
     @EnvironmentObject var viewRouter: ViewRouter
     
+    let firebase = FirebaseService()
+    
     var body: some View {
         NavigationView {
-            Text("HomeView")
-                .navigationTitle("Next Gaymer")
+            VStack {
+                Text("HomeView")
+                    .navigationTitle("Next Gaymer")
+                Button {
+                    firebase.fetchUser()
+                } label: {
+                    Text("Afficher profil")
+                }
+
+            }
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         if logoutModel.processing  {

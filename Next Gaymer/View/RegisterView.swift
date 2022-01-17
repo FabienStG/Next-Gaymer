@@ -20,10 +20,13 @@ struct RegisterView: View {
                 .font(.title)
             Form {
                 Section {
-                    TextField("Nom", text: $registerModel.name)
-                    TextField("Prénom", text: $registerModel.surname)
+                    TextField("Prénom", text: $registerModel.name)
+                    TextField("Nom", text: $registerModel.surname)
                     TextField("Téléphone", text: $registerModel.phoneNumber)
+                        .keyboardType(.phonePad)
                     TextField("Email", text: $registerModel.email)
+                        .textInputAutocapitalization(.never)
+                        .keyboardType(.emailAddress)
                     
                 } header: {
                     Text("Contact")
@@ -31,13 +34,15 @@ struct RegisterView: View {
                 Section {
                     TextField("Adresse", text: $registerModel.street)
                     TextField("Code Postal", text: $registerModel.zipCode)
-                    TextField("Pays", text: $registerModel.city)
+                        .keyboardType(.numberPad)
+                    TextField("Ville", text: $registerModel.city)
                 } header: {
                     Text("Adresse")
                 }
                 Section {
                     SecureField("Mot de passe", text: $registerModel.password)
                     SecureField("Confirmer", text: $registerModel.confirmPassword)
+                        .border(Color.red, width: registerModel.confirmPassword != registerModel.password ? 1 : 0)
                 } header: {
                     Text("Mot de passe")
                 }

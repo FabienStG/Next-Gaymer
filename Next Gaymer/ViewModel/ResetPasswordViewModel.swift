@@ -9,23 +9,20 @@ import SwiftUI
 
 class ResetPasswordViewModel: ObservableObject{
     
-
     @Published var email = ""
-    
     @Published var errorMessage = ""
     @Published var showAlert = false
     
-    @Published var processing = false
-    
+    @Published var requestStatus: RequestStatus = .initial
     
     func resetPassword() {
-        processing = true
+        requestStatus = .processing
         DataManager.shared.resetPassword(email: self.email) { success, message in
             if !success {
                 self.errorMessage = message ?? "Erreur"
                 self.showAlert.toggle()
             }
-            self.processing = false
+            self.requestStatus = .initial
         }
     }
 }

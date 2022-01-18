@@ -17,5 +17,6 @@ struct UserDetails {
     var zipCode: String
     var city: String
     var password: String
+    var isAdmin = false
     
 }

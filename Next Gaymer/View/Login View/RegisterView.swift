@@ -15,10 +15,10 @@ struct RegisterView: View {
     var body: some View {
         
         VStack {
-            LogoView()
-            Text("Creer ton compte")
-                .font(.title)
             Form {
+                PhotoPickerView(changeProfileImage: $registerModel.changeProfileImage, openCameraRool: $registerModel.openCameraRool, imageSelected: $registerModel.profilImage)
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .listRowBackground(Color(UIColor.systemGroupedBackground))
                 Section {
                     TextField("Prénom", text: $registerModel.name)
                     TextField("Nom", text: $registerModel.surname)
@@ -46,20 +46,27 @@ struct RegisterView: View {
                 } header: {
                     Text("Mot de passe")
                 }
-            }
-            Button {
-                registerModel.registerUser { result in
-                    if result {
-                        withAnimation {
-                            viewRouter.currentPage = .loggedIn
+                Button {
+                    registerModel.registerUser()
+                    if registerModel.requestStatus == .success {
+                            withAnimation {
+                                viewRouter.currentPage = .loggedIn
+                            }
                         }
-                    }
+                } label: {
+                    Text("Valider l'inscription")
+                        .font(.title3)
+                        .foregroundColor(.white)
+                        .multilineTextAlignment(.center)
+                        .padding()
+                        .frame(width: 200, height: 46)
+                        .background(Color.blue)
+                        .cornerRadius(15.0)
                 }
-            } label: {
-                Text("S'enregistrer")
-                    .frame(height: 50, alignment: .center)
+                .frame(maxWidth: .infinity, alignment: .center)
+                .listRowBackground(Color(UIColor.systemGroupedBackground))
+                .disabled(registerModel.disableButton())
             }
-            .disabled(registerModel.disableButton())
             .alert(registerModel.errorMessage, isPresented: $registerModel.showAlert) {}
         }
     }

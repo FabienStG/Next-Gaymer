@@ -8,10 +8,9 @@
 import SwiftUI
 
 class RegisterViewModel: ObservableObject {
-
-
     
     // Info
+    @Published var profilImage = UIImage()
     @Published var name = ""
     @Published var surname = ""
     @Published var email = ""
@@ -28,28 +27,31 @@ class RegisterViewModel: ObservableObject {
     @Published var showAlert = false
     
     // Processing
-    @Published var processing = false
+    @Published var requestStatus: RequestStatus = .initial
     
-    func registerUser(completionHandler: @escaping (Bool) -> Void ) {
+    @Published var changeProfileImage = false
+    @Published var openCameraRool = false
+   
+    
+    func registerUser() {
         
         let user = packUserDetail()
         
-        processing = true
+        requestStatus = .processing
         DataManager.shared.registerUser(with: user) { success, message in
             
             if !success {
                 self.errorMessage = message ?? "Erreur"
                 self.showAlert.toggle()
-                self.processing = false
-                return completionHandler(success)
+                self.requestStatus = .fail
+            } else {
+                self.requestStatus = .success
             }
-            self.processing = false
-            return completionHandler(success)
         }
     }
     
     func disableButton() -> Bool {
-        return !processing && !email.isEmpty && !password.isEmpty && !confirmPassword.isEmpty && password == confirmPassword ? false : true
+        return requestStatus != .initial && !email.isEmpty && !password.isEmpty && !confirmPassword.isEmpty && password == confirmPassword ? false : true
     }
     
     func packUserDetail() -> UserDetails {

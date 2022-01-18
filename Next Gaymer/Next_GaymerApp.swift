@@ -15,6 +15,8 @@ struct Next_GaymerApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
     @StateObject var viewRouter = ViewRouter()
+    @StateObject var tabBarRouter = TabBarRouter()
+
     
     init() {
         FirebaseApp.configure()
@@ -22,7 +24,7 @@ struct Next_GaymerApp: App {
         
     var body: some Scene {
         WindowGroup {
-            MotherView().environmentObject(viewRouter)
+            MotherView().environmentObject(viewRouter).environmentObject(tabBarRouter)
         }
     }
 }

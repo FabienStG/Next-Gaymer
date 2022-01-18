@@ -45,7 +45,8 @@ class FirebaseService {
             "phoneNumber": user.phoneNumber,
             "street": user.street,
             "zipCode": user.zipCode,
-            "city": user.city]) { error in
+            "city": user.city,
+            "isAdmin": user.isAdmin]) { error in
                 guard error == nil else {
                     let errorMessage = error?.localizedDescription ?? ""
                     return completionHandler(false, errorMessage)
@@ -135,17 +136,26 @@ class FirebaseService {
     
     func fetchUser() {
         
-        let userID = Auth.auth().currentUser?.uid
+  /*      let userID = Auth.auth().currentUser?.uid
         
         let docRef = db.collection("users").document(userID!)
         
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
-                let dataDescription = document.data().map(String.init(describing: )) ?? "nil"
+                let user = document.data()!
+                let dataDescription = document.data()!.map { (key, value) in
+                    if key == "name" {
+                        let userName = user[key]
+                    }
+                }
                 print(dataDescription)
             } else {
                 print("fail")
             }
-        }
+        }*/
     }
 }
+
+
+// SWIFT Dictionnary to decodable
+

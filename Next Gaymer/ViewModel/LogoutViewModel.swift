@@ -10,24 +10,23 @@ import SwiftUI
 class LogoutViewModel: ObservableObject {
 
     // Error Handler
-    @State var errorMessage = ""
-    @State var showAlert = false
+    @Published var errorMessage = ""
+    @Published var showAlert = false
     
     // Processing
-    @State var processing = false
+    @Published var requestStatus: RequestStatus = .initial
     
-    func logoutUser(completionHandler: @escaping(Bool) -> Void) {
+    func logoutUser() {
         
-        processing = true
+        requestStatus = .processing
         DataManager.shared.logoutUser { success, message in
             if !success {
-                self.processing = false
+                self.requestStatus = .fail
                 self.errorMessage = message ?? "Erreur"
                 self.showAlert.toggle()
-                return completionHandler(success)
+            } else {
+                self.requestStatus = .success
             }
-            self.processing = false
-            return completionHandler(success)
         }
     }
 }

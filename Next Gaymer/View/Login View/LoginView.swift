@@ -15,10 +15,12 @@ struct LoginView: View {
     var body: some View {
         NavigationView {
             VStack(spacing: 15) {
-                LogoView()
+                LogoView(width: 150, height: 150)
+                Text("Next Gaymer")
+                    .font(.title)
                 Spacer()
                 LoginCredentials(email: $loginModel.email, password: $loginModel.password)
-                if loginModel.showReset {
+                if loginModel.requestStatus == .fail {
                     NavigationLink("Mot de passe oublié") {
                         ResetPasswordView()
                     }
@@ -28,26 +30,24 @@ struct LoginView: View {
                     
                 }
                 Button {
-                    loginModel.loginUser { result in
-                        if result {
+                    loginModel.loginUser()
+                    if loginModel.requestStatus == .success {
                             withAnimation {
                                 viewRouter.currentPage = .loggedIn
                             }
                         }
-                    }
                 } label: {
-                    ButtonTextView(bool: $loginModel.processing, text: "Se connecter")
+                    ButtonTextView(status: $loginModel.requestStatus, text: "Se connecter")
                 }
                 .disabled(loginModel.disableButton())
                 HStack {
                     Button {
-                        loginModel.googleLoginUser { result in
-                            if result {
+                        loginModel.googleLoginUser()
+                        if loginModel.requestStatus == .success {
                                 withAnimation {
                                     viewRouter.currentPage = .loggedIn
                                 }
                             }
-                        }
                     } label: {
                         Image("Google Login")
                             .resizable()

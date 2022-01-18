@@ -8,8 +8,17 @@
 import SwiftUI
 
 class ViewRouter: ObservableObject {
+    
+    init() {
+        if DataManager.shared.logStatus {
+           currentPage =  .loggedIn
+        } else {
+           currentPage =  .loggedOut
+        }
+    }
      
-    @Published var currentPage: Page = .loggedOut
+    @Published var currentPage: Page
+        
 }
 
 enum Page {

@@ -10,9 +10,10 @@ import SwiftUI
 struct ResetPasswordView: View {
     
     @StateObject var resetPasswordModel = ResetPasswordViewModel()
+    
     var body: some View {
         VStack(spacing: 15) {
-            LogoView()
+            LogoView(width: 150, height: 150)
             Spacer()
             Text("Entrez le mail associé au compte")
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -21,7 +22,7 @@ struct ResetPasswordView: View {
             Button {
                 resetPasswordModel.resetPassword()
             } label : {
-                ButtonTextView(bool: $resetPasswordModel.processing, text: "Envoyer un mail")
+                ButtonTextView(status: $resetPasswordModel.requestStatus, text: "Envoyer un mail")
             }
             Spacer()
         }

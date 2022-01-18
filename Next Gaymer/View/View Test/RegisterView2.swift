@@ -5,7 +5,7 @@
 //  Created by Fabien Saint Germain on 13/01/2022.
 //
 
-import SwiftUI
+/*import SwiftUI
 
 struct RegisterView2: View {
         
@@ -14,7 +14,7 @@ struct RegisterView2: View {
     
     var body: some View {
         VStack(spacing: 15) {
-            LogoView()
+            LogoView(width: 60, height: 60)
             Text("Connexion")
                 .font(.largeTitle)
             Spacer()
@@ -43,3 +43,5 @@ struct SignUpView_Previews: PreviewProvider {
         RegisterView2()
     }
 }
+
+*/

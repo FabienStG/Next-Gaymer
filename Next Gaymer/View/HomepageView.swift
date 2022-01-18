@@ -1,53 +1,57 @@
 //
-//  ContentView.swift
+//  HomePageView2.swift
 //  Next Gaymer
 //
-//  Created by Fabien Saint Germain on 13/01/2022.
+//  Created by Fabien Saint Germain on 17/01/2022.
 //
 
 import SwiftUI
 
 struct HomepageView: View {
     
-    @StateObject var logoutModel = LogoutViewModel()
+    @Namespace var animation
+    @EnvironmentObject var tabBarRouter: TabBarRouter
     @EnvironmentObject var viewRouter: ViewRouter
     
-    let firebase = FirebaseService()
-    
     var body: some View {
-        NavigationView {
-            VStack {
-                Text("HomeView")
-                    .navigationTitle("Next Gaymer")
-                Button {
-                    firebase.fetchUser()
-                } label: {
-                    Text("Afficher profil")
-                }
-
+                    
+        GeometryReader { proxy in
+            
+            let size = proxy.size
+            let bottomEdge = proxy.safeAreaInsets.bottom
+            
+            ZStack(alignment: .bottom) {
+                TabView(selection: $tabBarRouter.currentTab) {
+                
+                UserProfilView()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(Color.black.opacity(0.04).ignoresSafeArea())
+                    .tag(Tab.home)
+                Text("Search")
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(Color.black.opacity(0.04).ignoresSafeArea())
+                    .tag(Tab.search)
+                Text("Liked")
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(Color.black.opacity(0.04).ignoresSafeArea())
+                    .tag(Tab.liked)
+                Text("Settings")
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(Color.black.opacity(0.04).ignoresSafeArea())
+                    .tag(Tab.settings)
             }
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        if logoutModel.processing  {
-                            ProgressView()
-                        } else {
-                        Button("Se déconnecter") {
-                            logoutModel.logoutUser { result in
-                                withAnimation {
-                                    viewRouter.currentPage = .loggedOut
-                                }
-                            }
-                        }
-                      }
-                    }
-                }
-                .alert(logoutModel.errorMessage, isPresented: $logoutModel.showAlert) {}
+            
+            CustomTabBar(animation: animation, size: size, bottomEdge: bottomEdge)
+                .background(Color.white)
+            }
         }
+        .ignoresSafeArea(.all, edges: .bottom)
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct HomepageView_Previews: PreviewProvider {
+
     static var previews: some View {
-        HomepageView()
+        HomepageView().environmentObject(TabBarRouter())
     }
 }

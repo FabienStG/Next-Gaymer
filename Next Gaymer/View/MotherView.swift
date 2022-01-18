@@ -10,9 +10,10 @@ import SwiftUI
 struct MotherView: View {
     
     @EnvironmentObject var viewRouter: ViewRouter
+    @EnvironmentObject var tabBarRouter: TabBarRouter
     
     var body: some View {
-        
+            
         switch viewRouter.currentPage {
         case .loggedOut:
             LoginView()
@@ -22,8 +23,9 @@ struct MotherView: View {
     }
 }
 
+
 struct MotherView_Previews: PreviewProvider {
     static var previews: some View {
-        MotherView().environmentObject(ViewRouter())
+        MotherView().environmentObject(ViewRouter()).environmentObject(TabBarRouter())
     }
 }

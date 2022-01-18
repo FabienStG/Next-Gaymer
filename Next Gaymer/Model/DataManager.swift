@@ -16,7 +16,7 @@ class DataManager {
     private init() {}
     
     // Services
-    var firebaseService = FirebaseService()
+   private let firebaseService = FirebaseService()
     
     // Log Storage
     @AppStorage("log_status") var logStatus = false

@@ -9,12 +9,12 @@ import SwiftUI
 
 struct ButtonTextView: View {
     
-    @Binding var bool: Bool
+    @Binding var status: RequestStatus
     
     var text: String
     
     var body: some View {
-        if bool {
+        if status == .processing {
             ProgressView()
                 .frame(width: 150, height: 60, alignment: .center)
         } else {
@@ -29,6 +29,6 @@ struct ButtonTextView: View {
 
 struct ButtonTextView_Previews: PreviewProvider {
     static var previews: some View {
-        ButtonTextView(bool: .constant(false), text: "Test").previewLayout(.sizeThatFits)
+        ButtonTextView(status: .constant(RequestStatus.initial), text: "Test").previewLayout(.sizeThatFits)
     }
 }

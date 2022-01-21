@@ -71,7 +71,7 @@ struct RegisterView: View {
         }
         .frame(maxWidth: .infinity, alignment: .center)
         .listRowBackground(Color(UIColor.systemGroupedBackground))
-       // .disabled(registerModel.disableButton())
+        .disabled(registerModel.disableButton())
       }
       .alert(registerModel.errorMessage, isPresented: $registerModel.showAlert) {}
     }

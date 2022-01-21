@@ -38,7 +38,7 @@ struct PhotoPickerView: View {
                 .clipShape(Circle())
         }
         .sheet(isPresented: $openCameraRool) {
-            ImagePicker(selectedImage: $imageSelected, sourceType: .photoLibrary)
+            ImagePicker(selectedImage: $imageSelected)
         }
     }
 }

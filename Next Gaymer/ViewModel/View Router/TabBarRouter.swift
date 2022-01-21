@@ -8,13 +8,13 @@
 import SwiftUI
 
 class TabBarRouter: ObservableObject {
-    
-    @Published var currentTab: Tab = .home
-    
+
+  @Published var currentTab: Tab = .home
+
 }
 
-enum Tab: String, CaseIterable {
-    
+  enum Tab: String, CaseIterable {
+
     case home = "house.fill"
     case settings = "gearshape.fill"
     case liked = "suit.heart.fill"

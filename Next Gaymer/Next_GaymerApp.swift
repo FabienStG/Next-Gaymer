@@ -11,27 +11,26 @@ import GoogleSignIn
 
 @main
 struct Next_GaymerApp: App {
-    
-    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-    
-    @StateObject var viewRouter = ViewRouter()
-    @StateObject var tabBarRouter = TabBarRouter()
 
-    
-    init() {
-        FirebaseApp.configure()
+  @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+
+  @StateObject var viewRouter = ViewRouter()
+  @StateObject var tabBarRouter = TabBarRouter()
+
+  init() {
+    FirebaseApp.configure()
+  }
+
+  var body: some Scene {
+    WindowGroup {
+      MotherView().environmentObject(viewRouter).environmentObject(tabBarRouter)
     }
-        
-    var body: some Scene {
-        WindowGroup {
-            MotherView().environmentObject(viewRouter).environmentObject(tabBarRouter)
-        }
-    }
+  }
 }
 
 class AppDelegate: NSObject, UIApplicationDelegate {
-    
-    func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any]) -> Bool {
-      return GIDSignIn.sharedInstance.handle(url)
-    }
+
+  func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any]) -> Bool {
+    return GIDSignIn.sharedInstance.handle(url)
+  }
 }

@@ -34,7 +34,7 @@ struct RegisterView: View {
           TextField("Pseudo", text: $registerModel.pseudo)
           TextField("#0000Discord", text: $registerModel.discordPseudo)
         } header: {
-          Text("Autre")
+          Text("Résaux")
         }
         Section {
           TextField("Adresse", text: $registerModel.street)

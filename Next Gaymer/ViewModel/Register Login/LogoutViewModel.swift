@@ -13,6 +13,8 @@ class LogoutViewModel: ObservableObject {
   @Published var showAlert = false
 
   @Published var requestStatus: RequestStatus = .initial
+  
+  @EnvironmentObject var viewRouter: ViewRouter
 
   func logoutUser() {
 

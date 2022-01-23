@@ -14,6 +14,9 @@ class DataManager {
   private init() {}
 
   private let firebaseUserService = FirebaseUserService()
+  private let firebaseChatService = FirebaseChatServices()
+  
+  let firebaseAdminService = FirebaseAdminService()
 
   @AppStorage("log_status") var logStatus = false
 
@@ -76,6 +79,39 @@ class DataManager {
       return completionHandler(response, nil)
     }
   }
+  
+  func fetchCurrentUser(completionHandler: @escaping(UserRegistered?, String?) -> Void) {
+    firebaseUserService.fetchCurrentUser { user in
+      return completionHandler(user, nil)
+    } errorHandler: { error in
+      return completionHandler(nil, error)
+    }
+  }
+  
+  func fetchAllUsers(completionHandler: @escaping([UserRegistered]?, String?) -> Void) {
+    firebaseAdminService.fetchAllUsers { allUsers in
+      return completionHandler(allUsers, nil)
+    } errorHandler: { error in
+      return completionHandler(nil, error)
+    }
+  }
+  
+  func saveMessage(textMessage: String, senderUser: UserRegistered, recipientUser: UserLimitedDetails, completionHandler: @escaping(Bool, String?) -> Void) {
+    firebaseChatService.saveMessage(textMessage: textMessage, recipientUserId: recipientUser.id) { saveResponse, saveError in
+      if saveResponse {
+        self.firebaseChatService.saveRecentMessage(textMessage: textMessage, senderUser: senderUser, recipientUser: recipientUser) { recentResponse, recentError in
+          if recentResponse {
+            return completionHandler(true, nil)
+          } else {
+            return completionHandler(false, recentError)
+          }
+        }
+      } else {
+        return completionHandler(false, saveError)
+      }
+    }
+  }
+  
 }
 
 enum RequestStatus {

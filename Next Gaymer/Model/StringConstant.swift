@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct StringConstant {
+struct UserConstant {
   
   static let userId = "userId"
   static let name = "name"
@@ -22,7 +22,11 @@ struct StringConstant {
   static let city = "city"
   
   static let users = "users"
-  
-  
+}
 
+struct MessageConstant {
+  
+  static let messages = "messages"
+  static let timestamp = "timestamp"
+  static let recentMessages = "recentMessages"
 }

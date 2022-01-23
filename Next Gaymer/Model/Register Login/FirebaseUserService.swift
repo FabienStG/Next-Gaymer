@@ -15,6 +15,23 @@ class FirebaseUserService {
   private let db = Firestore.firestore()
   private let auth = Auth.auth()
   private let storage = Storage.storage()
+  
+  func fetchCurrentUser(successHandler: @escaping(UserRegistered) -> Void, errorHandler: @escaping(String) -> Void) {
+    guard let userId = auth.currentUser?.uid else { return }
+    let docRef = db.collection(UserConstant.users).document(userId)
+    
+    docRef.getDocument { document, error in
+      if let error = error {
+        return errorHandler(error.localizedDescription)
+      }
+      guard let document = document, document.exists else {
+        return errorHandler("Impossible de trouver l'utilisateur")
+      }
+      if let user = try? document.data(as: UserRegistered.self) {
+        return successHandler(user)
+      }
+    }
+  }
 
   func createUser(userEmail: String, userPassword: String, completionHandler: @escaping(Bool, String?) -> Void) {
 
@@ -134,23 +151,6 @@ class FirebaseUserService {
     }
   }
 
-/*  func fetchUser(completionHandler: @escaping(UserDetails?, String?) -> Void) {
-
-    guard let userID = auth.currentUser?.uid else { return }
-    let docRef = db.collection("users").document(userID)
-
-    docRef.getDocument { (document, error) in
-      if let error = error {
-        return completionHandler(nil, error.localizedDescription)
-      }
-      if let document = document, document.exists {
-        if let user = try? document.data(as: UserDetails.self) {
-          return completionHandler(user, nil)
-        }
-      }
-    }
-  }*/
-
   func registrateUser(with user: UserDetailsForm, image: UIImage, completionHandler: @escaping(Bool, String?) -> Void) {
 
     guard let userId = auth.currentUser?.uid else { return }
@@ -159,7 +159,7 @@ class FirebaseUserService {
   
         let userRegistered = UserRegistered(id: userId, name: user.name, surname: user.surname, pseudo: user.pseudo, profileImageUrl: url, email: user.email, phoneNumber: user.phoneNumber, discordPseudo: user.discordPseudo, street: user.street, zipCode: user.zipCode, city: user.city, isAdmin: false)
         
-        try? self.db.collection(StringConstant.users).document(userId).setData(from: userRegistered) { error in
+        try? self.db.collection(UserConstant.users).document(userId).setData(from: userRegistered) { error in
           if let error = error {
             return completionHandler(false, error.localizedDescription)
           }

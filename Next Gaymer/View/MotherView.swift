@@ -18,7 +18,7 @@ struct MotherView: View {
     case .loggedOut:
       LoginView()
     case .loggedIn:
-      HomepageView()
+      UserAdminSwitcherView()
     }
   }
 }

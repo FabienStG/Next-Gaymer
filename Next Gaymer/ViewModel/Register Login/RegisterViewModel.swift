@@ -8,7 +8,7 @@
 import SwiftUI
 
 class RegisterViewModel: ObservableObject {
-
+  
   @Published var profilImage = UIImage()
   @Published var name = ""
   @Published var surname = ""

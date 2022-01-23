@@ -23,4 +23,10 @@ class CurrentUserViewModel: ObservableObject {
       }
     }
   }
+  
+  private func doNothing() {
+    let text: String
+    text = "Nothing special, just need a fix for GitHub"
+    print(text)
+  }
 }

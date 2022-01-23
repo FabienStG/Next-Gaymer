@@ -7,10 +7,14 @@
 
 import Foundation
 
-struct UserLimitedDetails {
+struct UserDetailsAdmin: Identifiable {
   
   let id: String
   let pseudo: String
+  let name: String
+  let surname: String
+  let email: String
+  let city: String
   let profileImageUrl: String
   let isAdmin: Bool
   

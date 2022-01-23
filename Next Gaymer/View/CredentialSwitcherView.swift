@@ -7,21 +7,21 @@
 
 import SwiftUI
 
-struct UserAdminSwitcherView: View {
+struct CredentialSwitcherView: View {
   
   @StateObject var currentUserModel = CurrentUserViewModel()
   @EnvironmentObject var tabBarRouter: TabBarRouter
   @EnvironmentObject var viewRouter: ViewRouter
   
     var body: some View {
-      
+
       switch currentUserModel.currentUser?.isAdmin {
         
       case true:
-        AdminView()
+        AdminMainView()
           .environmentObject(currentUserModel)
       case false:
-        UserView()
+        UserMainView()
           .environmentObject(currentUserModel)
       default:
         LoginView()
@@ -31,6 +31,6 @@ struct UserAdminSwitcherView: View {
 
 struct UserAdminSwitcherView_Previews: PreviewProvider {
     static var previews: some View {
-      UserAdminSwitcherView().environmentObject(CurrentUserViewModel())
+      CredentialSwitcherView().environmentObject(CurrentUserViewModel())
     }
 }

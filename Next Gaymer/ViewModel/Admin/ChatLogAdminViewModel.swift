@@ -8,11 +8,8 @@
 import SwiftUI
 import Firebase
 
-class ChatLogViewModel: ObservableObject {
-  
-  @EnvironmentObject var currentUserModel: CurrentUserViewModel
-  @EnvironmentObject var usersAdminModel: UsersAdminViewModel
-  
+class ChatLogAdminViewModel: ObservableObject {
+
   @Published var chatText = ""
   @Published var chatMessages = [ChatMessage]()
   
@@ -21,23 +18,17 @@ class ChatLogViewModel: ObservableObject {
   @Published var count = 0
   
   var firestoreListener: ListenerRegistration?
-  
-  init() {
-    fetchMessages()
-  }
-  
-  func fetchMessages() {
+
+  func fetchMessages(senderUser: UserRegistered, recipientUser: UserDetailsAdmin) {
     print("Fetching Messages")
-    guard let senderId = currentUserModel.currentUser?.id else { return }
-    guard let recipentId = usersAdminModel.selectedUser?.id else { return }
-    
+
     firestoreListener?.remove()
     chatMessages.removeAll()
     
     firestoreListener = DataManager.shared.firebaseAdminService.db
       .collection(MessageConstant.messages)
-      .document(senderId)
-      .collection(recipentId)
+      .document(senderUser.id)
+      .collection(recipientUser.id)
       .order(by: MessageConstant.timestamp)
       .addSnapshotListener { querySnapshop, error in
         if let error = error {
@@ -57,12 +48,9 @@ class ChatLogViewModel: ObservableObject {
       }
   }
   
-  func saveMessage() {
-    
-    guard let currentUser = currentUserModel.currentUser else { return }
-    guard let recipientUser = usersAdminModel.selectedUser else { return }
-    
-    DataManager.shared.saveMessage(textMessage: chatText, senderUser: currentUser, recipientUser: recipientUser) { response, error in
+  func saveMessage(senderUser: UserRegistered, recipientUser: UserDetailsAdmin) {
+        
+    DataManager.shared.saveMessage(textMessage: chatText, senderUser: senderUser, recipientUser: recipientUser) { response, error in
       if !response {
         self.errorMessage = error ?? ""
         self.showAlert.toggle()

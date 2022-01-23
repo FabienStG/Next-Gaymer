@@ -96,7 +96,7 @@ class DataManager {
     }
   }
   
-  func saveMessage(textMessage: String, senderUser: UserRegistered, recipientUser: UserLimitedDetails, completionHandler: @escaping(Bool, String?) -> Void) {
+  func saveMessage(textMessage: String, senderUser: UserRegistered, recipientUser: UserDetailsAdmin, completionHandler: @escaping(Bool, String?) -> Void) {
     firebaseChatService.saveMessage(textMessage: textMessage, recipientUserId: recipientUser.id) { saveResponse, saveError in
       if saveResponse {
         self.firebaseChatService.saveRecentMessage(textMessage: textMessage, senderUser: senderUser, recipientUser: recipientUser) { recentResponse, recentError in

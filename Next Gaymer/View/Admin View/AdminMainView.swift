@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AdminView: View {
+struct AdminMainView: View {
 
   @Namespace var animation
   @EnvironmentObject var tabBarRouter: TabBarRouter
@@ -50,8 +50,8 @@ struct AdminView: View {
   }
 }
 
-struct AdminView_Previews: PreviewProvider {
+struct AdminMainView_Previews: PreviewProvider {
     static var previews: some View {
-      AdminView().environmentObject(TabBarRouter()).environmentObject(CurrentUserViewModel())
+      AdminMainView().environmentObject(TabBarRouter()).environmentObject(CurrentUserViewModel())
     }
 }

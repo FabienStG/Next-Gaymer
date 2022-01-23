@@ -9,9 +9,7 @@ import SwiftUI
 
 class UsersAdminViewModel: ObservableObject {
 
-  @Published var usersLimitedDetailsList = [UserLimitedDetails]()
-  @Published var selectedUser: UserLimitedDetails?
-  @Published var isShowingUsersDetailsView = false
+  @Published var usersLimitedDetailsList = [UserDetailsAdmin]()
   
   init() {
     fetchUsersList()
@@ -28,7 +26,7 @@ class UsersAdminViewModel: ObservableObject {
   
   private func limitUsersDetails(_ usersList: [UserRegistered]) {
     usersList.forEach { user in
-      let userLimitedDetails = UserLimitedDetails(id: user.id, pseudo: user.pseudo, profileImageUrl: user.profileImageUrl, isAdmin: user.isAdmin)
+      let userLimitedDetails = UserDetailsAdmin(id: user.id, pseudo: user.pseudo, name: user.name, surname: user.surname, email: user.email, city: user.city, profileImageUrl: user.profileImageUrl, isAdmin: user.isAdmin)
       usersLimitedDetailsList.append(userLimitedDetails)
     }
   }

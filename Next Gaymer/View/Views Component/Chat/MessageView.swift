@@ -14,7 +14,7 @@ struct MessageView: View {
   
   var body: some View {
     VStack {
-      if message.id == currentUserId {
+      if message.senderUserId == currentUserId {
         HStack {
           Spacer()
           HStack {

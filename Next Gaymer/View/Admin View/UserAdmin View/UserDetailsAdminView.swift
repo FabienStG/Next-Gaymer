@@ -13,7 +13,6 @@ struct UserDetailsAdminView: View {
   @StateObject var userDetails: UserDetailsAdminViewModel
   
     var body: some View {
-      NavigationView {
       VStack {
         WebImage(url: URL(string: userDetails.selectedUser.profileImageUrl) )
           .resizable()
@@ -48,6 +47,8 @@ struct UserDetailsAdminView: View {
 
             Text("Envoyer un Message")
           }
+        .navigationTitle("Profil")
+        .navigationBarTitleDisplayMode(.inline)
           .padding()
         
 
@@ -59,7 +60,7 @@ struct UserDetailsAdminView: View {
         .padding()
 
       }
-      }
+      
     }
 }
 

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AdminMainView: View {
+struct TabBarAdminView: View {
 
   @Namespace var animation
   @EnvironmentObject var tabBarRouter: TabBarRouter
@@ -24,22 +24,22 @@ struct AdminMainView: View {
       ZStack(alignment: .bottom) {
         TabView(selection: $tabBarRouter.currentTab) {
 
-          UserProfileView()
+          MainAdminView()
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color.black.opacity(0.04).ignoresSafeArea())
             .tag(Tab.home)
+          MainMessageAdminView()
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color.black.opacity(0.04).ignoresSafeArea())
+            .tag(Tab.message)
+          HelpPageView()
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color.black.opacity(0.04).ignoresSafeArea())
+            .tag(Tab.map)
           UsersListAdminView()
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color.black.opacity(0.04).ignoresSafeArea())
-            .tag(Tab.search)
-          Text("Liked")
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color.black.opacity(0.04).ignoresSafeArea())
-            .tag(Tab.liked)
-          Text("Settings")
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color.black.opacity(0.04).ignoresSafeArea())
-            .tag(Tab.settings)
+            .tag(Tab.profile)
         }
 
         CustomTabBar(animation: animation, size: size, bottomEdge: bottomEdge)
@@ -50,8 +50,8 @@ struct AdminMainView: View {
   }
 }
 
-struct AdminMainView_Previews: PreviewProvider {
+struct TabBarAdminView_Previews: PreviewProvider {
     static var previews: some View {
-      AdminMainView().environmentObject(TabBarRouter()).environmentObject(CurrentUserViewModel())
+      TabBarAdminView().environmentObject(TabBarRouter()).environmentObject(CurrentUserViewModel())
     }
 }

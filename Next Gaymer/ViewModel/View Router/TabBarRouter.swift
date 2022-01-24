@@ -16,7 +16,8 @@ class TabBarRouter: ObservableObject {
   enum Tab: String, CaseIterable {
 
     case home = "house.fill"
-    case settings = "gearshape.fill"
-    case liked = "suit.heart.fill"
-    case search = "magnifyingglass"
+    case message = "message.fill"
+    case map = "mappin.circle.fill"
+    case profile = "person.crop.circle.fill"
+
 }

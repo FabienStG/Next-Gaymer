@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct UserProfileView: View {
+struct SelfDetailsView: View {
 
   @StateObject var logoutModel = LogoutViewModel()
   @EnvironmentObject var viewRouter: ViewRouter
@@ -38,8 +38,8 @@ struct UserProfileView: View {
 }
 
 
-struct UserProfileView_Previews: PreviewProvider {
+struct SeflDetailsView_Previews: PreviewProvider {
   static var previews: some View {
-    UserProfileView()
+    SelfDetailsView()
   }
 }

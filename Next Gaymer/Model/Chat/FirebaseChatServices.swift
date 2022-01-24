@@ -73,4 +73,19 @@ class FirebaseChatServices {
     
     return completionHandler(true, nil)
   }
+  
+/*  func fetchSpecificUser(selectedUserId: String, completionHandler: @escaping(UserDetailsAdmin?, String?) -> Void) {
+    
+    db.collection(UserConstant.users)
+      .document(selectedUserId)
+      .getDocument { user, error in
+        if let error = error {
+          return completionHandler(nil, error.localizedDescription)
+        }
+        
+        let userDetails = try? user!.data(as: UserDetailsAdmin.self) {
+          return completionHandler(userDetails, nil)
+        }
+      }
+  }*/
 }

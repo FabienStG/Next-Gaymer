@@ -5,7 +5,7 @@
 //  Created by Fabien Saint Germain on 17/01/2022.
 //
 
-import SwiftUI
+/*import SwiftUI
 
 struct HomepageView: View {
 
@@ -23,14 +23,14 @@ struct HomepageView: View {
       ZStack(alignment: .bottom) {
         TabView(selection: $tabBarRouter.currentTab) {
 
-          UserProfileView()
+          Text("Home")
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color.black.opacity(0.04).ignoresSafeArea())
             .tag(Tab.home)
           Text("Search")
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color.black.opacity(0.04).ignoresSafeArea())
-            .tag(Tab.search)
+            .tag(Tab.)
           Text("Liked")
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color.black.opacity(0.04).ignoresSafeArea())
@@ -55,3 +55,5 @@ struct HomepageView_Previews: PreviewProvider {
     HomepageView().environmentObject(TabBarRouter())
   }
 }
+
+*/

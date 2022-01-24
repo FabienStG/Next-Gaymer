@@ -19,4 +19,10 @@ struct RecentMessage: Codable, Identifiable {
   let profileImageUrl: String
   let pseudo: String
   let isAdmin: Bool
+  
+  var timeAgo: String {
+    let formatter = RelativeDateTimeFormatter()
+    formatter.unitsStyle = .abbreviated
+    return formatter.localizedString(for: timestamp, relativeTo: Date())
+  }
 }

@@ -18,10 +18,11 @@ struct CredentialSwitcherView: View {
       switch currentUserModel.currentUser?.isAdmin {
         
       case true:
-        AdminMainView()
+        TabBarAdminView()
           .environmentObject(currentUserModel)
       case false:
-        UserMainView()
+        LoginView()
+        TabBarUserView()
           .environmentObject(currentUserModel)
       default:
         LoginView()

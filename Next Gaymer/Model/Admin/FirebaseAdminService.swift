@@ -15,7 +15,9 @@ class FirebaseAdminService {
   let db = Firestore.firestore()
   
   func fetchAllUsers(successHandler: @escaping ([UserRegistered]) -> Void, errorHandler: @escaping(String) -> Void) {
+    
     var usersResponse = [UserRegistered]()
+    
     db.collection(UserConstant.users).getDocuments { documentsSnapshot, error in
       if let error = error {
         return errorHandler(error.localizedDescription)
@@ -32,5 +34,4 @@ class FirebaseAdminService {
       return successHandler(usersResponse)
     }
   }
-  
 }

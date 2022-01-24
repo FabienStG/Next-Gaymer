@@ -88,11 +88,27 @@ class DataManager {
     }
   }
   
-  func fetchAllUsers(completionHandler: @escaping([UserRegistered]?, String?) -> Void) {
+  private func fetchAllUsers(completionHandler: @escaping([UserRegistered]?, String?) -> Void) {
     firebaseAdminService.fetchAllUsers { allUsers in
       return completionHandler(allUsers, nil)
     } errorHandler: { error in
       return completionHandler(nil, error)
+    }
+  }
+  
+  func fetchlimitUsersDetailsAdmin(completionHandler: @escaping([UserDetailsAdmin]?, String?) -> Void) {
+    var usersLimitedDetailsList = [UserDetailsAdmin]()
+    
+    fetchAllUsers { allUsers, error in
+      if let allUsers = allUsers {
+        allUsers.forEach { user in
+          let userDetailAdmin = UserDetailsAdmin(id: user.id, pseudo: user.pseudo, name: user.name, surname: user.surname, email: user.email, city: user.city, profileImageUrl: user.profileImageUrl, isAdmin: user.isAdmin)
+          usersLimitedDetailsList.append(userDetailAdmin)
+        }
+        return completionHandler(usersLimitedDetailsList, nil)
+      } else {
+        return completionHandler(nil, error)
+      }
     }
   }
   

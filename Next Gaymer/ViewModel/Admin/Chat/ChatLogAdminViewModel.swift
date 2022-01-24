@@ -15,16 +15,13 @@ class ChatLogAdminViewModel: ObservableObject {
   
   @Published var errorMessage = ""
   @Published var showAlert = false
-  @Published var count = 0
+
   
   var firestoreListener: ListenerRegistration?
 
   func fetchMessages(senderUser: UserRegistered, recipientUser: UserDetailsAdmin) {
-    print("Fetching Messages")
-
-    firestoreListener?.remove()
     chatMessages.removeAll()
-    
+
     firestoreListener = DataManager.shared.firebaseAdminService.db
       .collection(MessageConstant.messages)
       .document(senderUser.id)
@@ -54,7 +51,17 @@ class ChatLogAdminViewModel: ObservableObject {
       if !response {
         self.errorMessage = error ?? ""
         self.showAlert.toggle()
+      } else {
+        self.chatText = ""
       }
     }
   }
+  
+  func disableButton() -> Bool {
+    return chatText.isEmpty
+  }
 }
+
+/// Protocole : deux fonctions = un qui dit qu'il y a un message, l'autre une erreur
+/// Remettre le bloc au service, avec comme paramètre le protocole  et au data manager
+///

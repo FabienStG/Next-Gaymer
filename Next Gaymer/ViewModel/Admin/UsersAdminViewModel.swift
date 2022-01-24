@@ -12,23 +12,16 @@ class UsersAdminViewModel: ObservableObject {
   @Published var usersLimitedDetailsList = [UserDetailsAdmin]()
   
   init() {
-    fetchUsersList()
+    fetchUserDetailsAdminList()
   }
-  
-  private func fetchUsersList() {
-    print("Fetch UsersList")
-    DataManager.shared.fetchAllUsers { users, error in
-      if let users = users {
-        self.limitUsersDetails(users)
+    
+  private func fetchUserDetailsAdminList() {
+    DataManager.shared.fetchlimitUsersDetailsAdmin { usersList, error in
+      if let usersList = usersList {
+        self.usersLimitedDetailsList = usersList
+      } else {
+        print(error ?? "Failed to fetch list")
       }
     }
   }
-  
-  private func limitUsersDetails(_ usersList: [UserRegistered]) {
-    usersList.forEach { user in
-      let userLimitedDetails = UserDetailsAdmin(id: user.id, pseudo: user.pseudo, name: user.name, surname: user.surname, email: user.email, city: user.city, profileImageUrl: user.profileImageUrl, isAdmin: user.isAdmin)
-      usersLimitedDetailsList.append(userLimitedDetails)
-    }
-  }
-
 }

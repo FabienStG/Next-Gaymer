@@ -15,23 +15,11 @@ struct ChatLogAdminView: View {
   
     var body: some View {
       NavigationView {
-      ZStack {
         VStack {
           ScrollView {
-            ScrollViewReader { scrollViewProxy in
               VStack {
                 ForEach(chatLogAdminModel.chatMessages) { message in
                   MessageView(message: message, currentUserId: currentUser.currentUser!.id)
-                }
-                
-                HStack {
-                  Spacer()
-                }
-                .id("Empty")
-              }
-              .onReceive(chatLogAdminModel.$count) { _ in
-                withAnimation(.easeOut(duration: 0.5)) {
-                  scrollViewProxy.scrollTo("empty", anchor: .bottom)
                 }
               }
             }
@@ -41,13 +29,11 @@ struct ChatLogAdminView: View {
             Button("Envoyer") {
               chatLogAdminModel.saveMessage(senderUser: currentUser.currentUser!, recipientUser: selectedUser.selectedUser)
             }
+            .disabled(chatLogAdminModel.disableButton())
           }
-        }
-      }
       }
       .onDisappear(perform: {
         chatLogAdminModel.firestoreListener?.remove()
-        print("removed")
       })
       .onAppear {
        chatLogAdminModel.fetchMessages(senderUser: currentUser.currentUser!, recipientUser: selectedUser.selectedUser)

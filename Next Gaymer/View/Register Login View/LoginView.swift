@@ -11,7 +11,7 @@ struct LoginView: View {
 
   @EnvironmentObject var viewRouter: ViewRouter
   @StateObject var loginModel = LoginViewModel()
-
+    
   var body: some View {
     NavigationView {
       VStack(spacing: 15) {
@@ -28,13 +28,22 @@ struct LoginView: View {
           .padding(.leading)
           .padding(.bottom)
         }
+        if loginModel.requestStatus == .success {
+          Button {
+            withAnimation {
+              viewRouter.currentPage = .loggedIn
+             }
+          } label: {
+            Text("Valider")
+          }
+        }
         Button {
           loginModel.loginUser()
           if loginModel.requestStatus == .success {
-            withAnimation {
-              viewRouter.currentPage = .loggedIn
+           withAnimation {
+               viewRouter.currentPage = .loggedIn
             }
-          }
+           }
         } label: {
           ButtonTextView(status: $loginModel.requestStatus, text: "Se connecter")
         }

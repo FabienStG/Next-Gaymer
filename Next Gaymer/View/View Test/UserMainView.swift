@@ -5,7 +5,7 @@
 //  Created by Fabien Saint Germain on 22/01/2022.
 //
 
-import SwiftUI
+/*import SwiftUI
 
 struct UserMainView: View {
     var body: some View {
@@ -18,3 +18,4 @@ struct UserMainView_Previews: PreviewProvider {
         UserMainView()
     }
 }
+*/

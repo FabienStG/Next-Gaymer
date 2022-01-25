@@ -74,18 +74,20 @@ class FirebaseChatServices {
     return completionHandler(true, nil)
   }
   
-/*  func fetchSpecificUser(selectedUserId: String, completionHandler: @escaping(UserDetailsAdmin?, String?) -> Void) {
+  func fetchSpecificUser(selectedUser: String, completionHandler: @escaping(UserRegistered?, String?) -> Void) {
     
-    db.collection(UserConstant.users)
-      .document(selectedUserId)
-      .getDocument { user, error in
-        if let error = error {
-          return completionHandler(nil, error.localizedDescription)
-        }
-        
-        let userDetails = try? user!.data(as: UserDetailsAdmin.self) {
-          return completionHandler(userDetails, nil)
-        }
+    db.collection(UserConstant.users).document(selectedUser).getDocument { document, error in
+      if let error = error {
+        return completionHandler(nil, error.localizedDescription)
       }
-  }*/
+      
+      guard let document = document, document.exists else {
+        return completionHandler(nil, "Impossible de retrouver l'utilisateur")
+      }
+      
+      if let user = try? document.data(as: UserRegistered.self) {
+        return completionHandler(user, nil)
+      }
+    }
+  }
 }

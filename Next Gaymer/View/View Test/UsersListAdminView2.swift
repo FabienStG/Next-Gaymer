@@ -5,7 +5,7 @@
 //  Created by Fabien Saint Germain on 23/01/2022.
 //
 
-import SwiftUI
+/*import SwiftUI
 
 struct PlayerView: View {
     let name: String
@@ -51,3 +51,4 @@ struct UsersListAdminView2_Previews: PreviewProvider {
         UsersListAdminView2()
     }
 }
+*/

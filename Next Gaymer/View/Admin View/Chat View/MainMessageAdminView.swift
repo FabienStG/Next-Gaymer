@@ -17,8 +17,8 @@ struct MainMessageAdminView: View {
     var body: some View {
       NavigationView {
         List(mainMessageAdminModel.recentMessages) { recentMessage in
-          NavigationLink {
-            //
+          Button {
+            mainMessageAdminModel.fetchSelectedUser(currentUser: currentUser.currentUser!, messageSelected: recentMessage)
           } label: {
             HStack(spacing: 16) {
               WebImage(url: URL(string: recentMessage.profileImageUrl))
@@ -46,8 +46,12 @@ struct MainMessageAdminView: View {
                 .foregroundColor(Color(.label))
             }
           }
-
         }
+        .background(
+          NavigationLink(isActive: $mainMessageAdminModel.isShowingLogchat) {
+            ChatLogAdminView(selectedUser: mainMessageAdminModel.selectedUser)
+          } label: { EmptyView() }
+        )
       }
       .onAppear {
         mainMessageAdminModel.fetchRecentMessages(currentUser: currentUser.currentUser!)

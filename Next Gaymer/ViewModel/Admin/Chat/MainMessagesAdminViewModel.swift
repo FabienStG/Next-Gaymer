@@ -12,12 +12,13 @@ class MainMessageAdminViewModel: ObservableObject {
   
   @Published var errorMessage = ""
   @Published var recentMessages = [RecentMessage]()
+  @Published var isShowingLogchat = false
+  
+  @Published var selectedUser: UserDetailsAdmin?
   
   var firestoreListener: ListenerRegistration?
 
   func fetchRecentMessages(currentUser: UserRegistered) {
-    print("Fetching Recent Messages")
-        
     firestoreListener?.remove()
     recentMessages.removeAll()
     
@@ -48,5 +49,25 @@ class MainMessageAdminViewModel: ObservableObject {
           }
         })
       })
+  }
+  
+  func fetchSelectedUser(currentUser: UserRegistered, messageSelected: RecentMessage) {
+    DataManager.shared.fetchSpecificUser(selectedUser: selectUserId(currentUser: currentUser, messageSelected: messageSelected)) { user, error in
+      if let user = user {
+        self.selectedUser = user
+        self.isShowingLogchat = true
+      } else {
+        self.errorMessage = error ?? "Impossible de récupérer l'utilisateur"
+      }
+    }
+  }
+  
+  private func selectUserId(currentUser: UserRegistered, messageSelected: RecentMessage) -> String {
+    
+    let currentUserId = currentUser.id
+    let senderId = messageSelected.senderUserId
+    let recipientId = messageSelected.recipientUserId
+    
+    return currentUserId == senderId ? recipientId : senderId
   }
 }

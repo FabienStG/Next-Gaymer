@@ -28,22 +28,8 @@ struct LoginView: View {
           .padding(.leading)
           .padding(.bottom)
         }
-        if loginModel.requestStatus == .success {
-          Button {
-            withAnimation {
-              viewRouter.currentPage = .loggedIn
-             }
-          } label: {
-            Text("Valider")
-          }
-        }
         Button {
           loginModel.loginUser()
-          if loginModel.requestStatus == .success {
-           withAnimation {
-               viewRouter.currentPage = .loggedIn
-            }
-           }
         } label: {
           ButtonTextView(status: $loginModel.requestStatus, text: "Se connecter")
         }
@@ -51,11 +37,6 @@ struct LoginView: View {
         HStack {
           Button {
             loginModel.googleLoginUser()
-            if loginModel.requestStatus == .success {
-              withAnimation {
-                viewRouter.currentPage = .loggedIn
-              }
-            }
           } label: {
             Image("Google Login")
               .resizable()
@@ -76,6 +57,11 @@ struct LoginView: View {
       .padding()
       .alert(loginModel.errorMessage, isPresented: $loginModel.showAlert) {}
       .navigationBarHidden(true)
+    }
+    .onReceive(loginModel.$requestStatus) { newValue in
+      if newValue == .success {
+          viewRouter.currentPage = .loggedIn
+      }
     }
   }
 }

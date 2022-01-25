@@ -128,6 +128,19 @@ class DataManager {
     }
   }
   
+  func fetchSpecificUser(selectedUser: String, completionHandler: @escaping(UserDetailsAdmin?, String?) -> Void) {
+    firebaseChatService.fetchSpecificUser(selectedUser: selectedUser) { userRegistered, error in
+      if let error = error {
+        return completionHandler(nil, error)
+      } else if let userRegistered = userRegistered {
+        let user = UserDetailsAdmin(id: userRegistered.id, pseudo: userRegistered.pseudo, name: userRegistered.name, surname: userRegistered.surname, email: userRegistered.email, city: userRegistered.city, profileImageUrl: userRegistered.profileImageUrl, isAdmin: userRegistered.isAdmin)
+        
+        return completionHandler(user, nil)
+      } else {
+        return completionHandler(nil, "Impossible de retrouver l'utilisateur")
+      }
+    }
+  }
 }
 
 enum RequestStatus {

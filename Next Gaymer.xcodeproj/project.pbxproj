@@ -13,6 +13,7 @@
 		D12576CD27971A7600DC6BA3 /* PhotoPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12576CC27971A7600DC6BA3 /* PhotoPickerView.swift */; };
 		D12576CF2797215500DC6BA3 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12576CE2797215500DC6BA3 /* ImagePicker.swift */; };
 		D1428DF02792E38A00269B0C /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1428DEF2792E38A00269B0C /* RegisterView.swift */; };
+		D1442407279FFFFB00DD82F2 /* MainMessageAdminView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1442406279FFFFA00DD82F2 /* MainMessageAdminView2.swift */; };
 		D14B897627902C75005FC4F0 /* Next_GaymerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14B897527902C75005FC4F0 /* Next_GaymerApp.swift */; };
 		D14B897A27902C76005FC4F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D14B897927902C76005FC4F0 /* Assets.xcassets */; };
 		D14B897D27902C76005FC4F0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D14B897C27902C76005FC4F0 /* Preview Assets.xcassets */; };
@@ -84,6 +85,7 @@
 		D12576CC27971A7600DC6BA3 /* PhotoPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerView.swift; sourceTree = "<group>"; };
 		D12576CE2797215500DC6BA3 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		D1428DEF2792E38A00269B0C /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		D1442406279FFFFA00DD82F2 /* MainMessageAdminView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMessageAdminView2.swift; sourceTree = "<group>"; };
 		D14B897227902C75005FC4F0 /* Next Gaymer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Next Gaymer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D14B897527902C75005FC4F0 /* Next_GaymerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Next_GaymerApp.swift; sourceTree = "<group>"; };
 		D14B897927902C76005FC4F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 		D19B0BF42795DF8E000C059C /* View Test */ = {
 			isa = PBXGroup;
 			children = (
+				D1442406279FFFFA00DD82F2 /* MainMessageAdminView2.swift */,
 				D1D66C63279C123E00EEC95E /* UserMainView.swift */,
 				D19B0BEA2795C268000C059C /* HomepageView.swift */,
 				D1EB16E3279DF64C0043624F /* UsersListAdminView2.swift */,
@@ -558,6 +561,7 @@
 				D1BFA19C279EFD1B00FF0B47 /* MapView.swift in Sources */,
 				D1BF606D2790786B00F22AAF /* LoginCredentials.swift in Sources */,
 				D1DA3902279E9BB600A571E2 /* MainMessagesAdminViewModel.swift in Sources */,
+				D1442407279FFFFB00DD82F2 /* MainMessageAdminView2.swift in Sources */,
 				D19B0BEB2795C269000C059C /* HomepageView.swift in Sources */,
 				D1D66C7A279C866900EEC95E /* RecentMessage.swift in Sources */,
 				D19B0BED2795C4D8000C059C /* CustomTabBar.swift in Sources */,

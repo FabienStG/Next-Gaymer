@@ -15,7 +15,6 @@ class ChatLogAdminViewModel: ObservableObject {
   
   @Published var errorMessage = ""
   @Published var showAlert = false
-
   
   var firestoreListener: ListenerRegistration?
 

@@ -11,7 +11,8 @@ struct ChatLogAdminView: View {
   
   @StateObject var chatLogAdminModel = ChatLogAdminViewModel()
   @EnvironmentObject var currentUser: CurrentUserViewModel
-  @EnvironmentObject var selectedUser: UserDetailsAdminViewModel
+  
+  let selectedUser: UserDetailsAdmin?
   
     var body: some View {
       NavigationView {
@@ -27,7 +28,7 @@ struct ChatLogAdminView: View {
           .safeAreaInset(edge: .bottom) {
             TextField("Message", text: $chatLogAdminModel.chatText)
             Button("Envoyer") {
-              chatLogAdminModel.saveMessage(senderUser: currentUser.currentUser!, recipientUser: selectedUser.selectedUser)
+              chatLogAdminModel.saveMessage(senderUser: currentUser.currentUser!, recipientUser: selectedUser!)
             }
             .disabled(chatLogAdminModel.disableButton())
           }
@@ -36,7 +37,8 @@ struct ChatLogAdminView: View {
         chatLogAdminModel.firestoreListener?.remove()
       })
       .onAppear {
-       chatLogAdminModel.fetchMessages(senderUser: currentUser.currentUser!, recipientUser: selectedUser.selectedUser)
+        print("Appear")
+       chatLogAdminModel.fetchMessages(senderUser: currentUser.currentUser!, recipientUser: selectedUser!)
       }
     }
 }

@@ -40,8 +40,7 @@ struct UserDetailsAdminView: View {
         .frame(maxWidth: .infinity, alignment: .leading)
         NavigationLink {
           withAnimation {
-            ChatLogAdminView()
-              .environmentObject(userDetails)
+            ChatLogAdminView(selectedUser: userDetails.selectedUser)
           }
         } label: {
 

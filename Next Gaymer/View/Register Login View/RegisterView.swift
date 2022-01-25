@@ -53,11 +53,6 @@ struct RegisterView: View {
         }
         Button {
           registerModel.registerUser()
-          if registerModel.requestStatus == .success {
-            withAnimation {
-              viewRouter.currentPage = .loggedIn
-            }
-          }
         } label: {
           Text("Valider l'inscription")
             .font(.title3)
@@ -72,6 +67,9 @@ struct RegisterView: View {
         .frame(maxWidth: .infinity, alignment: .center)
         .listRowBackground(Color(UIColor.systemGroupedBackground))
         .disabled(registerModel.disableButton())
+      }
+      .onReceive(registerModel.$requestStatus) { newValue in
+            viewRouter.currentPage = .loggedIn
       }
       .alert(registerModel.errorMessage, isPresented: $registerModel.showAlert) {}
     }

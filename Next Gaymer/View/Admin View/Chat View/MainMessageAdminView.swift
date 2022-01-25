@@ -49,7 +49,7 @@ struct MainMessageAdminView: View {
         }
         .background(
           NavigationLink(isActive: $mainMessageAdminModel.isShowingLogchat) {
-            ChatLogAdminView(selectedUser: mainMessageAdminModel.selectedUser)
+            ChatLogAdminView(selectedUser: SelectedUserViewModel(selectedUser: mainMessageAdminModel.selectedUser!))
           } label: { EmptyView() }
         )
       }

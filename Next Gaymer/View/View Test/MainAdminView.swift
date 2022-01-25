@@ -26,7 +26,7 @@ struct MainAdminView: View {
         }
         
       }
-        .navigationTitle("Évènements")
+        //.navigationTitle("Évènements")
       }
     }
 }

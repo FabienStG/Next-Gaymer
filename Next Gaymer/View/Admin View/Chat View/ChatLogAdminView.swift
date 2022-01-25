@@ -10,9 +10,10 @@ import SwiftUI
 struct ChatLogAdminView: View {
   
   @StateObject var chatLogAdminModel = ChatLogAdminViewModel()
+  @StateObject var selectedUser: SelectedUserViewModel
   @EnvironmentObject var currentUser: CurrentUserViewModel
   
-  let selectedUser: UserDetailsAdmin?
+  //let selectedUser: UserDetailsAdmin?
   
     var body: some View {
       NavigationView {
@@ -28,7 +29,7 @@ struct ChatLogAdminView: View {
           .safeAreaInset(edge: .bottom) {
             TextField("Message", text: $chatLogAdminModel.chatText)
             Button("Envoyer") {
-              chatLogAdminModel.saveMessage(senderUser: currentUser.currentUser!, recipientUser: selectedUser!)
+              chatLogAdminModel.saveMessage(senderUser: currentUser.currentUser!, recipientUser: selectedUser.selectedUser)
             }
             .disabled(chatLogAdminModel.disableButton())
           }
@@ -38,7 +39,7 @@ struct ChatLogAdminView: View {
       })
       .onAppear {
         print("Appear")
-       chatLogAdminModel.fetchMessages(senderUser: currentUser.currentUser!, recipientUser: selectedUser!)
+        chatLogAdminModel.fetchMessages(senderUser: currentUser.currentUser!, recipientUser: selectedUser.selectedUser)
       }
     }
 }

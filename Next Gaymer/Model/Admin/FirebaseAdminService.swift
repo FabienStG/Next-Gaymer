@@ -34,4 +34,33 @@ class FirebaseAdminService {
       return successHandler(usersResponse)
     }
   }
+  
+  func setUserAdminCredentials(userId: String, completionHandler: @escaping(Bool, String) -> Void) {
+    
+    let userRef = db.collection(UserConstant.users).document(userId)
+    
+    userRef.updateData([
+      "isAdmin": true]) { error in
+        if let error = error {
+          return completionHandler(false, error.localizedDescription)
+        } else {
+          return completionHandler(true, "Modification effectuée")
+        }
+      }
+  }
+  
+  func updateUserInfo(userInfo: [String: Any], completionHandler: @escaping(Bool, String) -> Void) {
+    
+    guard let userId = auth.currentUser?.uid else { return }
+    
+    let userRef = db.collection(UserConstant.users).document(userId)
+    
+    userRef.updateData(userInfo) { error in
+      if let error = error {
+        return completionHandler(false, error.localizedDescription)
+      } else {
+        return completionHandler(true, "Modification effectée")
+      }
+    }
+  }
 }

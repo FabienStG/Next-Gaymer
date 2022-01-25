@@ -9,7 +9,25 @@ import SwiftUI
 
 struct EventListAdminView: View {
     var body: some View {
-      Text("Liste des évènements")
+      NavigationView {
+        VStack {
+          HStack {
+            
+          Spacer()
+        NavigationLink {
+          //
+        } label: {
+          Text("Mes évènements")
+        }
+        .padding(.trailing)
+          }
+        List(0..<15) { even in
+          Text("Évenement")
+        }
+        .navigationTitle("Évènements")
+      }
+
+      }
     }
 }
 

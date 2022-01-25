@@ -16,6 +16,8 @@ class ChatLogAdminViewModel: ObservableObject {
   @Published var errorMessage = ""
   @Published var showAlert = false
   
+  @Published var selectedUser: UserRegistered?
+  
   var firestoreListener: ListenerRegistration?
 
   func fetchMessages(senderUser: UserRegistered, recipientUser: UserDetailsAdmin) {

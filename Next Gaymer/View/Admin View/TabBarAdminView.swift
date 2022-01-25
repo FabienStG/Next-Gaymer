@@ -24,7 +24,7 @@ struct TabBarAdminView: View {
       ZStack(alignment: .bottom) {
         TabView(selection: $tabBarRouter.currentTab) {
 
-          MainAdminView()
+          EventListAdminView()
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color.black.opacity(0.04).ignoresSafeArea())
             .tag(Tab.home)

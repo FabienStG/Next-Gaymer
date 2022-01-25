@@ -40,7 +40,7 @@ struct UserDetailsAdminView: View {
         .frame(maxWidth: .infinity, alignment: .leading)
         NavigationLink {
           withAnimation {
-            ChatLogAdminView(selectedUser: userDetails.selectedUser)
+            ChatLogAdminView(selectedUser: SelectedUserViewModel(selectedUser: userDetails.selectedUser))
           }
         } label: {
 
@@ -50,16 +50,15 @@ struct UserDetailsAdminView: View {
         .navigationBarTitleDisplayMode(.inline)
           .padding()
         
-
-        Button {
-          //set to admin
-        } label: {
-          Text("Modifier les droits")
+        if !userDetails.selectedUser.isAdmin {
+          Button {
+            //set to admin
+          } label: {
+            Text("Modifier les droits")
+          }
+          .padding()
         }
-        .padding()
-
       }
-      
     }
 }
 

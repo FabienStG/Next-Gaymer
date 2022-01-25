@@ -15,12 +15,20 @@ struct UsersListAdminView: View {
   var body: some View {
       NavigationView {
         VStack {
-          NavigationLink {
-            SelfDetailsView()
-          } label: {
-            Text("Afficher son profil")
+          HStack {
+            Spacer()
+            NavigationLink {
+              SelfDetailsView()
+            } label: {
+    
+            
+                Image(systemName: "person.circle.fill")
+                  .font(.system(size: 30))
+                  .foregroundColor(Color("Purple"))
+                  .padding()
+              
+            }
           }
-
        List(usersAdminModel.usersLimitedDetailsList.sorted(by: { $0.pseudo < $1.pseudo })) { user in
          NavigationLink {
           UserDetailsAdminView(userDetails: UserDetailsAdminViewModel(selectedUser: user))
@@ -35,6 +43,7 @@ struct UsersListAdminView: View {
                .overlay(RoundedRectangle(cornerRadius: 70)
                           .stroke(user.isAdmin ? Color(.yellow) : Color("Purple"),
                                  lineWidth: 2))
+               .shadow(radius: 5)
            }
            Text(user.pseudo)
           }

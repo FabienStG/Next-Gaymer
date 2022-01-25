@@ -34,6 +34,7 @@ struct UserDetailsAdminView: View {
             .padding()
           Text(userDetails.selectedUser.city)
             .padding()
+
           Spacer()
         }
         .padding()
@@ -43,20 +44,34 @@ struct UserDetailsAdminView: View {
             ChatLogAdminView(selectedUser: SelectedUserViewModel(selectedUser: userDetails.selectedUser))
           }
         } label: {
-
             Text("Envoyer un Message")
           }
-        .navigationTitle("Profil")
-        .navigationBarTitleDisplayMode(.inline)
           .padding()
-        
+          .foregroundColor(.white)
+          .background(Color.blue)
+          .cornerRadius(10)
+          .navigationTitle("Profil")
+          .navigationBarTitleDisplayMode(.inline)
         if !userDetails.selectedUser.isAdmin {
+          Divider()
           Button {
-            //set to admin
+            userDetails.presentConfirmation.toggle()
           } label: {
-            Text("Modifier les droits")
+            Text("Passer Administrateur")
+              .foregroundColor(.red)
           }
           .padding()
+        }
+      }
+      .alert(userDetails.confirmationMessage, isPresented: $userDetails.presentAlert) {}
+      .confirmationDialog("Valider ?", isPresented: $userDetails.presentConfirmation) {
+        Button(role: .cancel) {} label: {
+          Text("Annuler")
+        }
+        Button(role: .destructive) {
+          userDetails.setUserAdminCrentials()
+        } label: {
+          Text("Valider l'accès Administrateur")
         }
       }
     }

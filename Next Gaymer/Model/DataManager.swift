@@ -141,6 +141,12 @@ class DataManager {
       }
     }
   }
+  
+  func setUserAdminCredentials(userId: String, completionHandler: @escaping(String) -> Void) {
+    firebaseAdminService.setUserAdminCredentials(userId: userId) { message in
+      return completionHandler(message)
+    }
+  }
 }
 
 enum RequestStatus {

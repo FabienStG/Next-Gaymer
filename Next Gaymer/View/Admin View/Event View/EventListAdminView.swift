@@ -23,8 +23,9 @@ struct EventListAdminView: View {
           }
         List(0..<15) { even in
           Text("Évenement")
+            .navigationTitle("Évènements")
         }
-        .navigationTitle("Évènements")
+
       }
 
       }

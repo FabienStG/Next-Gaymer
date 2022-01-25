@@ -46,6 +46,7 @@ struct MainMessageAdminView: View {
                 .foregroundColor(Color(.label))
             }
           }
+          .navigationTitle("Messagerie")
         }
         .background(
           NavigationLink(isActive: $mainMessageAdminModel.isShowingLogchat) {
@@ -59,8 +60,8 @@ struct MainMessageAdminView: View {
     }
 }
 
-struct MainMessageAdminView_Previews: PreviewProvider {
+/*struct MainMessageAdminView_Previews: PreviewProvider {
     static var previews: some View {
       MainMessageAdminView().environmentObject(CurrentUserViewModel())
     }
-}
+}*/

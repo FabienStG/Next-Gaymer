@@ -17,7 +17,7 @@ class ChatLogAdminViewModel: ObservableObject {
   @Published var showAlert = false
   
   @Published var selectedUser: UserRegistered?
-  
+
   var firestoreListener: ListenerRegistration?
 
   func fetchMessages(senderUser: UserRegistered, recipientUser: UserDetailsAdmin) {
@@ -44,7 +44,8 @@ class ChatLogAdminViewModel: ObservableObject {
           }
         }
       }
-  }
+    }
+  
   
   func saveMessage(senderUser: UserRegistered, recipientUser: UserDetailsAdmin) {
         
@@ -66,3 +67,12 @@ class ChatLogAdminViewModel: ObservableObject {
 /// Protocole : deux fonctions = un qui dit qu'il y a un message, l'autre une erreur
 /// Remettre le bloc au service, avec comme paramètre le protocole  et au data manager
 ///
+
+protocol MessageListener: AnyObject {
+  
+  func newMessageArrived(newMessage: ChatMessage)
+  func errorInFetching(errorMessage: String)
+  func startListening()
+  func stopListening()
+  
+}

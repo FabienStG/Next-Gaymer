@@ -11,6 +11,7 @@ struct SelfDetailsView: View {
 
   @StateObject var logoutModel = LogoutViewModel()
   @EnvironmentObject var viewRouter: ViewRouter
+  @EnvironmentObject var currentUser: RegisterViewModel
 
   let firebase = FirebaseUserService()
 

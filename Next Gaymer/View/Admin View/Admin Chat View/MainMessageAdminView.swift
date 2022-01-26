@@ -60,8 +60,8 @@ struct MainMessageAdminView: View {
     }
 }
 
-/*struct MainMessageAdminView_Previews: PreviewProvider {
+struct MainMessageAdminView_Previews: PreviewProvider {
     static var previews: some View {
-      MainMessageAdminView().environmentObject(CurrentUserViewModel())
+      MainMessageAdminView().environmentObject(FakePreviewData.currentAdminUser)
     }
-}*/
+}

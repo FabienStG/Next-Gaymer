@@ -8,7 +8,7 @@
 import SwiftUI
 import SDWebImageSwiftUI
 
-struct UsersListAdminView: View {
+struct UsersAdminView: View {
   
   @StateObject var usersAdminModel = UsersAdminViewModel()
   
@@ -18,7 +18,7 @@ struct UsersListAdminView: View {
           HStack {
             Spacer()
             NavigationLink {
-              SelfDetailsView()
+              ProfileView()
             } label: {
     
             
@@ -54,8 +54,8 @@ struct UsersListAdminView: View {
   }
 }
 
-struct NewMessageView_Previews: PreviewProvider {
+struct UsersAdminView_Previews: PreviewProvider {
     static var previews: some View {
-      UsersListAdminView()
+      UsersAdminView()
     }
 }

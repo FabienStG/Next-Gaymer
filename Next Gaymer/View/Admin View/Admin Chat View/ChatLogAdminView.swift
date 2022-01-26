@@ -12,9 +12,7 @@ struct ChatLogAdminView: View {
   @StateObject var chatLogAdminModel = ChatLogAdminViewModel()
   @StateObject var selectedUser: SelectedUserViewModel
   @EnvironmentObject var currentUser: CurrentUserViewModel
-  
-  //let selectedUser: UserDetailsAdmin?
-  
+    
     var body: some View {
       NavigationView {
         VStack {
@@ -44,10 +42,10 @@ struct ChatLogAdminView: View {
     }
 }
 
-/*  struct ChatLogView_Previews: PreviewProvider {
+struct ChatLogViewAdmin_Previews: PreviewProvider {
   
     static var previews: some View {
-      ChatLogAdminView()
+      ChatLogAdminView(selectedUser: FakePreviewData.selectedUser).environmentObject(FakePreviewData.currentAdminUser)
     }
-}*/
+}
   

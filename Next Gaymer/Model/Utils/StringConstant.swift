@@ -30,3 +30,8 @@ struct MessageConstant {
   static let timestamp = "timestamp"
   static let recentMessages = "recentMessages"
 }
+
+struct EventConstant {
+  
+  
+}

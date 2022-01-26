@@ -14,7 +14,7 @@ class MainMessageAdminViewModel: ObservableObject {
   @Published var recentMessages = [RecentMessage]()
   @Published var isShowingLogchat = false
   
-  @Published var selectedUser: UserDetailsAdmin?
+  @Published var selectedUser: UserDetails?
   
   var firestoreListener: ListenerRegistration?
 

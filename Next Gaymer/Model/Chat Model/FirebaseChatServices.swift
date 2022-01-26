@@ -43,7 +43,7 @@ class FirebaseChatServices {
     
   }
   
-  func saveRecentMessage(textMessage: String, senderUser: UserRegistered, recipientUser: UserDetailsAdmin, completionHandler: @escaping(Bool, String?) -> Void) {
+  func saveRecentMessage(textMessage: String, senderUser: UserRegistered, recipientUser: UserDetails, completionHandler: @escaping(Bool, String?) -> Void) {
     
     guard let senderUserId = auth.currentUser?.uid else { return }
     

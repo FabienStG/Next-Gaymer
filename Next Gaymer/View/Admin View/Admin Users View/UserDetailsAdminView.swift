@@ -79,7 +79,7 @@ struct UserDetailsAdminView: View {
 
 struct UserDetailsAdminView_Previews: PreviewProvider {
     static var previews: some View {
-      UserDetailsAdminView(userDetails: UserDetailsAdminViewModel(selectedUser: UserDetailsAdmin(id: "FakeID", pseudo: "Pseudo", name: "Prénom", surname: "Nom", email: "email", city: "Ville", profileImageUrl: "https://d5nunyagcicgy.cloudfront.net/external_assets/hero_examples/hair_beach_v391182663/original.jpeg", isAdmin: false)))
+      UserDetailsAdminView(userDetails: UserDetailsAdminViewModel(selectedUser: UserDetails(id: "FakeID", pseudo: "Pseudo", name: "Prénom", surname: "Nom", email: "email", city: "Ville", profileImageUrl: "https://d5nunyagcicgy.cloudfront.net/external_assets/hero_examples/hair_beach_v391182663/original.jpeg", isAdmin: false)))
     }
 }
 

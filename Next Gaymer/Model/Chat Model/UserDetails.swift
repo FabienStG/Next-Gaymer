@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct UserDetailsAdmin: Codable, Identifiable {
+struct UserDetails: Codable, Identifiable {
   
   let id: String
   let pseudo: String

@@ -20,7 +20,7 @@ class ChatLogAdminViewModel: ObservableObject {
 
   var firestoreListener: ListenerRegistration?
 
-  func fetchMessages(senderUser: UserRegistered, recipientUser: UserDetailsAdmin) {
+  func fetchMessages(senderUser: UserRegistered, recipientUser: UserDetails) {
     chatMessages.removeAll()
 
     firestoreListener = DataManager.shared.firebaseAdminService.db
@@ -47,7 +47,7 @@ class ChatLogAdminViewModel: ObservableObject {
     }
   
   
-  func saveMessage(senderUser: UserRegistered, recipientUser: UserDetailsAdmin) {
+  func saveMessage(senderUser: UserRegistered, recipientUser: UserDetails) {
         
     DataManager.shared.saveMessage(textMessage: chatText, senderUser: senderUser, recipientUser: recipientUser) { response, error in
       if !response {

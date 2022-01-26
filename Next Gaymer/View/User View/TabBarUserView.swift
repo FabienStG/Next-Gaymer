@@ -27,7 +27,7 @@ struct TabBarUserView: View {
             Text("Évènements")
               .frame(maxWidth: .infinity, maxHeight: .infinity)
               .background(Color.black.opacity(0.04).ignoresSafeArea())
-              .tag(Tab.home)
+              .tag(Tab.event)
             Text("Messagerie")
               .frame(maxWidth: .infinity, maxHeight: .infinity)
               .background(Color.black.opacity(0.04).ignoresSafeArea())
@@ -35,7 +35,7 @@ struct TabBarUserView: View {
             Text("Centres d'aide")
               .frame(maxWidth: .infinity, maxHeight: .infinity)
               .background(Color.black.opacity(0.04).ignoresSafeArea())
-              .tag(Tab.map)
+              .tag(Tab.help)
             Text("Profil")
               .frame(maxWidth: .infinity, maxHeight: .infinity)
               .background(Color.black.opacity(0.04).ignoresSafeArea())
@@ -52,6 +52,6 @@ struct TabBarUserView: View {
 
 struct TabBarUserView_Previews: PreviewProvider {
     static var previews: some View {
-        TabBarUserView()
+      TabBarUserView().environmentObject(TabBarRouter()).environmentObject(FakePreviewData.currentUser)
     }
 }

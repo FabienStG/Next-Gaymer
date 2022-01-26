@@ -9,12 +9,12 @@ import SwiftUI
 
 class UserDetailsAdminViewModel: ObservableObject {
   
-  @Published var selectedUser: UserDetailsAdmin
+  @Published var selectedUser: UserDetails
   @Published var confirmationMessage = ""
   @Published var presentConfirmation = false
   @Published var presentAlert = false
   
-  init(selectedUser: UserDetailsAdmin) {
+  init(selectedUser: UserDetails) {
     self.selectedUser = selectedUser
   }
   

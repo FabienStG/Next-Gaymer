@@ -9,15 +9,15 @@ import SwiftUI
 
 class TabBarRouter: ObservableObject {
 
-  @Published var currentTab: Tab = .home
+  @Published var currentTab: Tab = .event
 
 }
 
   enum Tab: String, CaseIterable {
 
-    case home = "house.fill"
+    case event = "calendar.circle.fill"
     case message = "message.fill"
-    case map = "mappin.circle.fill"
+    case help = "questionmark.circle.fill"
     case profile = "person.crop.circle.fill"
 
 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 class UsersAdminViewModel: ObservableObject {
 
-  @Published var usersLimitedDetailsList = [UserDetailsAdmin]()
+  @Published var usersLimitedDetailsList = [UserDetails]()
   
   init() {
     fetchUserDetailsAdminList()

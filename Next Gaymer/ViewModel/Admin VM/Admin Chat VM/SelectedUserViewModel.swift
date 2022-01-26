@@ -9,9 +9,9 @@ import SwiftUI
 
 class SelectedUserViewModel: ObservableObject {
 
-  @Published var selectedUser: UserDetailsAdmin
+  @Published var selectedUser: UserDetails
   
-  init(selectedUser: UserDetailsAdmin) {
+  init(selectedUser: UserDetails) {
     self.selectedUser = selectedUser
   }
 }

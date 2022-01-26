@@ -27,7 +27,7 @@ struct TabBarAdminView: View {
           EventListAdminView()
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color.black.opacity(0.04).ignoresSafeArea())
-            .tag(Tab.home)
+            .tag(Tab.event)
           MainMessageAdminView()
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color.black.opacity(0.04).ignoresSafeArea())
@@ -35,8 +35,8 @@ struct TabBarAdminView: View {
           HelpPageView()
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color.black.opacity(0.04).ignoresSafeArea())
-            .tag(Tab.map)
-          UsersListAdminView()
+            .tag(Tab.help)
+          UsersAdminView()
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color.black.opacity(0.04).ignoresSafeArea())
             .tag(Tab.profile)
@@ -52,6 +52,6 @@ struct TabBarAdminView: View {
 
 struct TabBarAdminView_Previews: PreviewProvider {
     static var previews: some View {
-      TabBarAdminView().environmentObject(TabBarRouter()).environmentObject(CurrentUserViewModel())
+      TabBarAdminView().environmentObject(TabBarRouter()).environmentObject(FakePreviewData.currentAdminUser)
     }
 }

@@ -7,19 +7,18 @@
 
 import SwiftUI
 
-struct SelfDetailsView: View {
+struct ProfileView: View {
 
   @StateObject var logoutModel = LogoutViewModel()
   @EnvironmentObject var viewRouter: ViewRouter
-  @EnvironmentObject var currentUser: RegisterViewModel
+  @EnvironmentObject var currentUser: CurrentUserViewModel
 
   let firebase = FirebaseUserService()
 
   var body: some View {
 
     VStack {
-      Text("HomeView")
-        .navigationTitle("Next Gaymer")
+      Text(currentUser.currentUser!.name)
       Button {
         //
       } label: {
@@ -41,6 +40,6 @@ struct SelfDetailsView: View {
 
 struct SeflDetailsView_Previews: PreviewProvider {
   static var previews: some View {
-    SelfDetailsView()
+    ProfileView().environmentObject(FakePreviewData.currentAdminUser)
   }
 }

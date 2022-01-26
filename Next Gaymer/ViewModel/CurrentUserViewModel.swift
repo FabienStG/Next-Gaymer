@@ -10,16 +10,20 @@ import SwiftUI
 class CurrentUserViewModel: ObservableObject {
 
   @Published var currentUser: UserRegistered?
+  @Published var errorMessage = ""
+  
+  @Published var showAlert = false
   
   init() {
     fetchCurrentUser()
   }
   
   private func fetchCurrentUser() {
-    print("Fetching current User")
     DataManager.shared.fetchCurrentUser { user, error in
       if let user = user {
         self.currentUser = user
+      } else {
+        self.errorMessage = error ?? "Impossible de récupérer l'utilisateur"
       }
     }
   }

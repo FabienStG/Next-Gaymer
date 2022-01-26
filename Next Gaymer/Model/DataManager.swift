@@ -96,13 +96,13 @@ class DataManager {
     }
   }
   
-  func fetchlimitUsersDetailsAdmin(completionHandler: @escaping([UserDetailsAdmin]?, String?) -> Void) {
-    var usersLimitedDetailsList = [UserDetailsAdmin]()
+  func fetchlimitUsersDetailsAdmin(completionHandler: @escaping([UserDetails]?, String?) -> Void) {
+    var usersLimitedDetailsList = [UserDetails]()
     
     fetchAllUsers { allUsers, error in
       if let allUsers = allUsers {
         allUsers.forEach { user in
-          let userDetailAdmin = UserDetailsAdmin(id: user.id, pseudo: user.pseudo, name: user.name, surname: user.surname, email: user.email, city: user.city, profileImageUrl: user.profileImageUrl, isAdmin: user.isAdmin)
+          let userDetailAdmin = UserDetails(id: user.id, pseudo: user.pseudo, name: user.name, surname: user.surname, email: user.email, city: user.city, profileImageUrl: user.profileImageUrl, isAdmin: user.isAdmin)
           usersLimitedDetailsList.append(userDetailAdmin)
         }
         return completionHandler(usersLimitedDetailsList, nil)
@@ -112,7 +112,7 @@ class DataManager {
     }
   }
   
-  func saveMessage(textMessage: String, senderUser: UserRegistered, recipientUser: UserDetailsAdmin, completionHandler: @escaping(Bool, String?) -> Void) {
+  func saveMessage(textMessage: String, senderUser: UserRegistered, recipientUser: UserDetails, completionHandler: @escaping(Bool, String?) -> Void) {
     firebaseChatService.saveMessage(textMessage: textMessage, recipientUserId: recipientUser.id) { saveResponse, saveError in
       if saveResponse {
         self.firebaseChatService.saveRecentMessage(textMessage: textMessage, senderUser: senderUser, recipientUser: recipientUser) { recentResponse, recentError in
@@ -128,12 +128,12 @@ class DataManager {
     }
   }
   
-  func fetchSpecificUser(selectedUser: String, completionHandler: @escaping(UserDetailsAdmin?, String?) -> Void) {
+  func fetchSpecificUser(selectedUser: String, completionHandler: @escaping(UserDetails?, String?) -> Void) {
     firebaseChatService.fetchSpecificUser(selectedUser: selectedUser) { userRegistered, error in
       if let error = error {
         return completionHandler(nil, error)
       } else if let userRegistered = userRegistered {
-        let user = UserDetailsAdmin(id: userRegistered.id, pseudo: userRegistered.pseudo, name: userRegistered.name, surname: userRegistered.surname, email: userRegistered.email, city: userRegistered.city, profileImageUrl: userRegistered.profileImageUrl, isAdmin: userRegistered.isAdmin)
+        let user = UserDetails(id: userRegistered.id, pseudo: userRegistered.pseudo, name: userRegistered.name, surname: userRegistered.surname, email: userRegistered.email, city: userRegistered.city, profileImageUrl: userRegistered.profileImageUrl, isAdmin: userRegistered.isAdmin)
         
         return completionHandler(user, nil)
       } else {

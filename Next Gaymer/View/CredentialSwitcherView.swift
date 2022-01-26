@@ -26,6 +26,7 @@ struct CredentialSwitcherView: View {
           .environmentObject(currentUserModel)
       default:
         LoginView()
+          .alert(currentUserModel.errorMessage, isPresented: $currentUserModel.showAlert) {}
       }
     }
 }

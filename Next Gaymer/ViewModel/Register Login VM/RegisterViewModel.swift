@@ -52,9 +52,9 @@ class RegisterViewModel: ObservableObject {
     return requestStatus != .processing && !email.isEmpty && !password.isEmpty && !confirmPassword.isEmpty && password == confirmPassword ? false : true
   }
 
-func packUserDetail() -> UserDetailsForm {
+func packUserDetail() -> UserForm {
 
-  let user = UserDetailsForm(name: name, surname: surname, pseudo: pseudo, email: email, phoneNumber: phoneNumber, discordPseudo: discordPseudo, street: street, zipCode: zipCode, city: city)
+  let user = UserForm(name: name, surname: surname, pseudo: pseudo, email: email, phoneNumber: phoneNumber, discordPseudo: discordPseudo, street: street, zipCode: zipCode, city: city)
 
   return user
   }

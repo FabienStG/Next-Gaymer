@@ -90,4 +90,57 @@ class FirebaseChatServices {
       }
     }
   }
+  
+ var listener: ListenerRegistration?
+  
+  func fetchMessages(senderUser: UserRegistered, recipientUser: UserDetails, listen: Listener) {
+
+    listener = db
+      .collection(MessageConstant.messages)
+      .document(senderUser.id)
+      .collection(recipientUser.id)
+      .order(by: MessageConstant.timestamp)
+      .addSnapshotListener { querySnapshop, error in
+        if let error = error {
+          listen.haveError(error.localizedDescription)
+          return
+        }
+        
+        querySnapshop?.documentChanges.forEach { change in
+          if change.type == .added {
+            if let message = try? change.document.data(as: ChatMessage.self) {
+              listen.haveMessage(message)
+            } else {
+              listen.haveError(error?.localizedDescription ?? "")
+            }
+          }
+        }
+      }
+    }
+  
 }
+
+protocol Listener {
+  
+  func haveMessage(_ message: ChatMessage)
+  func haveError(_ errorMessage: String)
+  func stopListening(_ listener: ListenerRegistration)
+  
+}
+
+class Displayer: Listener {
+    
+  func haveMessage(_ message: ChatMessage) {
+    print(message)
+  }
+  
+  func haveError(_ errorMessage: String) {
+    print(errorMessage)
+  }
+  
+  func stopListening(_ listener: ListenerRegistration) {
+    listener.remove()
+  }
+
+  }
+  

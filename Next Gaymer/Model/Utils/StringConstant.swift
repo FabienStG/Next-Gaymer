@@ -33,5 +33,6 @@ struct MessageConstant {
 
 struct EventConstant {
   
+  static let events = "events"
   
 }

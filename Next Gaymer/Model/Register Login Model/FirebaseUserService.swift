@@ -5,10 +5,10 @@
 //  Created by Fabien Saint Germain on 14/01/2022.
 //
 
+import UIKit
 import Firebase
 import FirebaseFirestoreSwift
 import GoogleSignIn
-import UIKit
 
 class FirebaseUserService {
 
@@ -151,7 +151,7 @@ class FirebaseUserService {
     }
   }
 
-  func registrateUser(with user: UserDetailsForm, image: UIImage, completionHandler: @escaping(Bool, String?) -> Void) {
+  func registrateUser(with user: UserForm, image: UIImage, completionHandler: @escaping(Bool, String?) -> Void) {
 
     guard let userId = auth.currentUser?.uid else { return }
     saveProfileImage(image: image) { result, url in

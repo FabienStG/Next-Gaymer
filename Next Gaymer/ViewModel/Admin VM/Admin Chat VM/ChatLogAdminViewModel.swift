@@ -23,6 +23,8 @@ class ChatLogAdminViewModel: ObservableObject {
   func fetchMessages(senderUser: UserRegistered, recipientUser: UserDetails) {
     chatMessages.removeAll()
 
+    fetchMessage2(senderUser: senderUser, recipientUser: recipientUser)
+    
     firestoreListener = DataManager.shared.firebaseAdminService.db
       .collection(MessageConstant.messages)
       .document(senderUser.id)
@@ -46,6 +48,11 @@ class ChatLogAdminViewModel: ObservableObject {
       }
     }
   
+  let displayer = Displayer()
+  
+  func fetchMessage2(senderUser: UserRegistered, recipientUser: UserDetails) {
+    DataManager.shared.messageListener(senderUser: senderUser, recipientUser: recipientUser, listen: displayer)
+  }
   
   func saveMessage(senderUser: UserRegistered, recipientUser: UserDetails) {
         

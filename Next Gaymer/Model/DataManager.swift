@@ -15,12 +15,17 @@ class DataManager {
 
   private let firebaseUserService = FirebaseUserService()
   private let firebaseChatService = FirebaseChatServices()
+  private let firebaseEventService = FirebaseEventServices()
+  
   
   let firebaseAdminService = FirebaseAdminService()
 
   @AppStorage("log_status") var logStatus = false
-
-  func registerUser(with user: UserDetailsForm, password: String, image: UIImage, completionHandler: @escaping(Bool, String?) -> Void) {
+  
+  //
+  // MARK: - Users Services
+  //
+  func registerUser(with user: UserForm, password: String, image: UIImage, completionHandler: @escaping(Bool, String?) -> Void) {
 
     firebaseUserService.createUser(userEmail: user.email, userPassword: password) { response, authMessage in
       if response {
@@ -88,6 +93,10 @@ class DataManager {
     }
   }
   
+  //
+  // MARK: - Admin Services
+  //
+  
   private func fetchAllUsers(completionHandler: @escaping([UserRegistered]?, String?) -> Void) {
     firebaseAdminService.fetchAllUsers { allUsers in
       return completionHandler(allUsers, nil)
@@ -95,7 +104,7 @@ class DataManager {
       return completionHandler(nil, error)
     }
   }
-  
+    
   func fetchlimitUsersDetailsAdmin(completionHandler: @escaping([UserDetails]?, String?) -> Void) {
     var usersLimitedDetailsList = [UserDetails]()
     
@@ -111,6 +120,16 @@ class DataManager {
       }
     }
   }
+  
+  func setUserAdminCredentials(userId: String, completionHandler: @escaping(String) -> Void) {
+    firebaseAdminService.setUserAdminCredentials(userId: userId) { message in
+      return completionHandler(message)
+    }
+  }
+  
+  //
+  // MARK: - Chat Services
+  //
   
   func saveMessage(textMessage: String, senderUser: UserRegistered, recipientUser: UserDetails, completionHandler: @escaping(Bool, String?) -> Void) {
     firebaseChatService.saveMessage(textMessage: textMessage, recipientUserId: recipientUser.id) { saveResponse, saveError in
@@ -142,17 +161,28 @@ class DataManager {
     }
   }
   
-  func setUserAdminCredentials(userId: String, completionHandler: @escaping(String) -> Void) {
-    firebaseAdminService.setUserAdminCredentials(userId: userId) { message in
-      return completionHandler(message)
+  func messageListener(senderUser: UserRegistered, recipientUser: UserDetails, listen: Listener) {
+    firebaseChatService.fetchMessages(senderUser: senderUser, recipientUser: recipientUser, listen: listen)
+  }
+  
+  //
+  // MARK: - Event Services
+  //
+  
+  func createEvent(event: EventForm, image: UIImage, completionHandler: @escaping(Bool, String?) -> Void) {
+    firebaseEventService.saveEventImage(image: image, eventId: event.id.uuidString) { response, url in
+      if response {
+        self.firebaseEventService.registrateEvent(with: event, imageUrl: url) { resonse, error in
+          if let error = error {
+            return completionHandler(false, error)
+          } else {
+            return completionHandler(true, nil)
+          }
+        }
+      } else {
+        return completionHandler(false, url)
+      }
     }
   }
-}
-
-enum RequestStatus {
-
-  case initial
-  case processing
-  case success
-  case fail
+  
 }

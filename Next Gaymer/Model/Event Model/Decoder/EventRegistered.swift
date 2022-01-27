@@ -1,19 +1,17 @@
 //
-//  Event.swift
+//  EventRegistered.swift
 //  Next Gaymer
 //
-//  Created by Fabien Saint Germain on 26/01/2022.
+//  Created by Fabien Saint Germain on 27/01/2022.
 //
 
 import Foundation
-import FirebaseFirestoreSwift
 
-struct Event: Codable, Identifiable {
+struct EventRegistered: Codable {
   
-  @DocumentID var id: String?
-  
-  let eventName: String
+  let id: String
   let imageUrl: String
+  let eventName: String
   let isOffline: Bool
   let date: Date
   let location: String

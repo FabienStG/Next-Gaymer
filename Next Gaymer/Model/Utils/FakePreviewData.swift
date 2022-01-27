@@ -31,7 +31,7 @@ class FakePreviewData {
   
   private static let fakeRegisteredUser = UserRegistered(id: "LEoXQsTtXcNdaiHoUlcmX6I0PsO2", name: "Michel", surname: "Delpomme", pseudo: "Miche", profileImageUrl: FakePreviewData.image, email: "miche@icloud.com", phoneNumber: "0123456789", discordPseudo: "Miche", street: "01 rue de la paix", zipCode: "75001", city: "Paris", isAdmin: false)
   
-  private static let fakeSelectedUser = UserDetailsAdmin(id: "GbuydisSe5ZLo4W5gpodtwozZl62", pseudo: "Maryël", name: "Marie", surname: "Hel", email: "mariel@icloud.com", city: "Paris", profileImageUrl: FakePreviewData.image, isAdmin: false)
+  private static let fakeSelectedUser = UserDetails(id: "GbuydisSe5ZLo4W5gpodtwozZl62", pseudo: "Maryël", name: "Marie", surname: "Hel", email: "mariel@icloud.com", city: "Paris", profileImageUrl: FakePreviewData.image, isAdmin: false)
   
   private static let image = "https://d5nunyagcicgy.cloudfront.net/external_assets/hero_examples/hair_beach_v391182663/original.jpeg"
 }

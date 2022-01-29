@@ -7,6 +7,8 @@
 
 import UIKit
 import Firebase
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 class FirebaseEventServices {
   
@@ -43,7 +45,7 @@ class FirebaseEventServices {
     
     let eventRegistered = EventRegistered(id: event.id.uuidString, imageUrl: imageUrl, eventName: event.eventName, isOffline: event.isOffline, date: event.date, location: event.location, madeBy: event.madeBy, shortDescription: event.shortDescription, longDescription: event.longDescription, maximumPlaces: event.maximumPlaces, takenPlaces: event.takenPlaces)
 
-    try? self.db.collection(EventConstant.events).document(eventRegistered.id).setData(from: eventRegistered.self) { error in
+    try? db.collection(EventConstant.events).document(eventRegistered.id).setData(from: eventRegistered) { error in
       if let error = error {
         return completionHandler(false, error.localizedDescription)
       } else {

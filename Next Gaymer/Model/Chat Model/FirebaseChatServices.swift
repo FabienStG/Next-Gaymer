@@ -7,6 +7,8 @@
 
 import Foundation
 import Firebase
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 class FirebaseChatServices {
   
@@ -23,7 +25,6 @@ class FirebaseChatServices {
       .document()
     
     let message = ChatMessage(id: nil, senderUserId: senderUserId, recipientUserId: recipientUserId, text: textMessage, timestamp: Date())
-    
     try? document.setData(from: message) { error in
       if let error = error {
         return completionHandler(false, error.localizedDescription)

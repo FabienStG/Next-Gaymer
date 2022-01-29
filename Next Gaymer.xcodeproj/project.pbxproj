@@ -54,6 +54,7 @@
 		D1C46FD1279B15C700833440 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = D1C46FD0279B15C700833440 /* SDWebImageSwiftUI */; };
 		D1C46FD3279B1EB200833440 /* UserForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C46FD2279B1EB200833440 /* UserForm.swift */; };
 		D1C46FD5279B1EC100833440 /* UserRegistered.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C46FD4279B1EC100833440 /* UserRegistered.swift */; };
+		D1CACA6A27A45D86002D56A7 /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = D1CACA6927A45D86002D56A7 /* FirebaseFunctions */; };
 		D1D6678927A2925200B1E720 /* FirebaseEventServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D6678827A2925200B1E720 /* FirebaseEventServices.swift */; };
 		D1D6678C27A29D6300B1E720 /* EventRegistered.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D6678B27A29D6200B1E720 /* EventRegistered.swift */; };
 		D1D6678E27A2A09000B1E720 /* RequestStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D6678D27A2A09000B1E720 /* RequestStatus.swift */; };
@@ -169,6 +170,7 @@
 				D1C46FD1279B15C700833440 /* SDWebImageSwiftUI in Frameworks */,
 				D1EB16DC279DBF240043624F /* FirebaseFirestore in Frameworks */,
 				D1EB16DE279DBF240043624F /* FirebaseFirestoreSwift-Beta in Frameworks */,
+				D1CACA6A27A45D86002D56A7 /* FirebaseFunctions in Frameworks */,
 				D1EB16DA279DBF240043624F /* FirebaseAuth in Frameworks */,
 				D1BF60762790A19A00F22AAF /* GoogleSignIn in Frameworks */,
 				D1EB16E2279DBF240043624F /* FirebaseStorageSwift-Beta in Frameworks */,
@@ -577,6 +579,7 @@
 				D1EB16DD279DBF240043624F /* FirebaseFirestoreSwift-Beta */,
 				D1EB16DF279DBF240043624F /* FirebaseStorage */,
 				D1EB16E1279DBF240043624F /* FirebaseStorageSwift-Beta */,
+				D1CACA6927A45D86002D56A7 /* FirebaseFunctions */,
 			);
 			productName = "Next Gaymer";
 			productReference = D14B897227902C75005FC4F0 /* Next Gaymer.app */;
@@ -955,6 +958,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D1C46FCF279B15C600833440 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
 			productName = SDWebImageSwiftUI;
+		};
+		D1CACA6927A45D86002D56A7 /* FirebaseFunctions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D1EB16D8279DBF240043624F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFunctions;
 		};
 		D1EB16D9279DBF240043624F /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;

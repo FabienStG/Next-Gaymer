@@ -41,11 +41,11 @@ class FirebaseEventServices {
     }
   }
   
-  func registrateEvent(with event: EventForm, imageUrl: String, completionHandler: @escaping(Bool, String?) -> Void) {
+  func createEvent(with event: EventForm, imageUrl: String, completionHandler: @escaping(Bool, String?) -> Void) {
     
-    let eventRegistered = EventRegistered(id: event.id.uuidString, imageUrl: imageUrl, eventName: event.eventName, isOffline: event.isOffline, date: event.date, location: event.location, madeBy: event.madeBy, shortDescription: event.shortDescription, longDescription: event.longDescription, maximumPlaces: event.maximumPlaces, takenPlaces: event.takenPlaces)
+    let eventCreated = EventCreated(id: event.id.uuidString, imageUrl: imageUrl, eventName: event.eventName, isOffline: event.isOffline, date: event.date, location: event.location, madeBy: event.madeBy, shortDescription: event.shortDescription, longDescription: event.longDescription, maximumPlaces: event.maximumPlaces, takenPlaces: 0)
 
-    try? db.collection(EventConstant.events).document(eventRegistered.id).setData(from: eventRegistered) { error in
+    try? db.collection(EventConstant.events).document(eventCreated.id).setData(from: eventCreated) { error in
       if let error = error {
         return completionHandler(false, error.localizedDescription)
       } else {

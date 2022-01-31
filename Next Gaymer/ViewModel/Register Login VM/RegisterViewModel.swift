@@ -49,7 +49,22 @@ class RegisterViewModel: ObservableObject {
   }
 
   func disableButton() -> Bool {
-    return requestStatus != .processing && !email.isEmpty && !password.isEmpty && !confirmPassword.isEmpty && password == confirmPassword ? false : true
+    if name.isEmpty,
+       surname.isEmpty,
+       pseudo.isEmpty,
+       email.isEmpty,
+       phoneNumber.isEmpty,
+       discordPseudo.isEmpty,
+       street.isEmpty,
+       zipCode.isEmpty,
+       city.isEmpty,
+       password.isEmpty,
+       confirmPassword.isEmpty,
+       password != confirmPassword {
+      return false
+    } else {
+      return true
+    }
   }
 
 func packUserDetail() -> UserForm {

@@ -79,7 +79,7 @@ struct RegisterView: View {
 struct RegisterView_Previews: PreviewProvider {
   static var previews: some View {
     NavigationView {
-      RegisterView()
+      RegisterView().environmentObject(ViewRouter())
     }
   }
 }

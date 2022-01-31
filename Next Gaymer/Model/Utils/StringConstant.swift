@@ -36,3 +36,18 @@ struct EventConstant {
   static let events = "events"
   
 }
+
+struct DebugConstant {
+  
+  static let emulator = """
+    ***************************
+    Testing on Emulator
+    ***************************
+    """
+  
+  static let debug =  """
+    ***************************
+    Testing on Live Server
+    *************************** 
+   """
+}

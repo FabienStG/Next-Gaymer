@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct EventRegistered: Codable {
+struct EventCreated: Codable {
   
   let id: String
   let imageUrl: String

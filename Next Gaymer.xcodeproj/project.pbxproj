@@ -13,6 +13,9 @@
 		D116C3D7279B5FA6001CC51E /* FirebaseAdminService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D116C3D6279B5FA6001CC51E /* FirebaseAdminService.swift */; };
 		D12576CD27971A7600DC6BA3 /* PhotoPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12576CC27971A7600DC6BA3 /* PhotoPickerView.swift */; };
 		D12576CF2797215500DC6BA3 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12576CE2797215500DC6BA3 /* ImagePicker.swift */; };
+		D13820F427A713D9000BD371 /* EventListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13820F327A713D9000BD371 /* EventListViewModel.swift */; };
+		D13820F727A7148E000BD371 /* EventRegisterAdminViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13820F627A7148E000BD371 /* EventRegisterAdminViewModel.swift */; };
+		D13820FA27A72255000BD371 /* BannerPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13820F927A72255000BD371 /* BannerPickerView.swift */; };
 		D13A887A27A13CD800F606C3 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13A887927A13CD800F606C3 /* Location.swift */; };
 		D13A887D27A1439B00F606C3 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13A887C27A1439A00F606C3 /* MapViewModel.swift */; };
 		D13A888027A1553300F606C3 /* PlaceAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13A887F27A1553300F606C3 /* PlaceAnnotationView.swift */; };
@@ -45,7 +48,7 @@
 		D1BF60762790A19A00F22AAF /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = D1BF60752790A19A00F22AAF /* GoogleSignIn */; };
 		D1BF607D2790BE8E00F22AAF /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BF607C2790BE8D00F22AAF /* LoginViewModel.swift */; };
 		D1BFA196279EF90200FF0B47 /* EventCreationAdminView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BFA195279EF90200FF0B47 /* EventCreationAdminView.swift */; };
-		D1BFA198279EFA9000FF0B47 /* EventListAdminView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BFA197279EFA9000FF0B47 /* EventListAdminView.swift */; };
+		D1BFA198279EFA9000FF0B47 /* EventListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BFA197279EFA9000FF0B47 /* EventListView.swift */; };
 		D1BFA19C279EFD1B00FF0B47 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BFA19B279EFD1B00FF0B47 /* MapView.swift */; };
 		D1BFA19F279EFDC200FF0B47 /* HelpPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BFA19E279EFDC200FF0B47 /* HelpPageView.swift */; };
 		D1BFA1A2279EFF0500FF0B47 /* MainAdminView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BFA1A1279EFF0400FF0B47 /* MainAdminView.swift */; };
@@ -56,7 +59,7 @@
 		D1C46FD5279B1EC100833440 /* UserRegistered.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C46FD4279B1EC100833440 /* UserRegistered.swift */; };
 		D1CACA6A27A45D86002D56A7 /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = D1CACA6927A45D86002D56A7 /* FirebaseFunctions */; };
 		D1D6678927A2925200B1E720 /* FirebaseEventServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D6678827A2925200B1E720 /* FirebaseEventServices.swift */; };
-		D1D6678C27A29D6300B1E720 /* EventRegistered.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D6678B27A29D6200B1E720 /* EventRegistered.swift */; };
+		D1D6678C27A29D6300B1E720 /* EventCreated.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D6678B27A29D6200B1E720 /* EventCreated.swift */; };
 		D1D6678E27A2A09000B1E720 /* RequestStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D6678D27A2A09000B1E720 /* RequestStatus.swift */; };
 		D1D66C60279C05EB00EEC95E /* CurrentUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D66C5F279C05EB00EEC95E /* CurrentUserViewModel.swift */; };
 		D1D66C64279C123E00EEC95E /* UserMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D66C63279C123E00EEC95E /* UserMainView.swift */; };
@@ -94,6 +97,9 @@
 		D116C3D6279B5FA6001CC51E /* FirebaseAdminService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAdminService.swift; sourceTree = "<group>"; };
 		D12576CC27971A7600DC6BA3 /* PhotoPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerView.swift; sourceTree = "<group>"; };
 		D12576CE2797215500DC6BA3 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		D13820F327A713D9000BD371 /* EventListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewModel.swift; sourceTree = "<group>"; };
+		D13820F627A7148E000BD371 /* EventRegisterAdminViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRegisterAdminViewModel.swift; sourceTree = "<group>"; };
+		D13820F927A72255000BD371 /* BannerPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerPickerView.swift; sourceTree = "<group>"; };
 		D13A887927A13CD800F606C3 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		D13A887C27A1439A00F606C3 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		D13A887F27A1553300F606C3 /* PlaceAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAnnotationView.swift; sourceTree = "<group>"; };
@@ -127,7 +133,7 @@
 		D1BF607A2790A2B700F22AAF /* Next-Gaymer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Next-Gaymer-Info.plist"; sourceTree = SOURCE_ROOT; };
 		D1BF607C2790BE8D00F22AAF /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		D1BFA195279EF90200FF0B47 /* EventCreationAdminView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCreationAdminView.swift; sourceTree = "<group>"; };
-		D1BFA197279EFA9000FF0B47 /* EventListAdminView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListAdminView.swift; sourceTree = "<group>"; };
+		D1BFA197279EFA9000FF0B47 /* EventListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListView.swift; sourceTree = "<group>"; };
 		D1BFA19B279EFD1B00FF0B47 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		D1BFA19E279EFDC200FF0B47 /* HelpPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPageView.swift; sourceTree = "<group>"; };
 		D1BFA1A1279EFF0400FF0B47 /* MainAdminView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAdminView.swift; sourceTree = "<group>"; };
@@ -136,7 +142,7 @@
 		D1C46FD2279B1EB200833440 /* UserForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserForm.swift; sourceTree = "<group>"; };
 		D1C46FD4279B1EC100833440 /* UserRegistered.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegistered.swift; sourceTree = "<group>"; };
 		D1D6678827A2925200B1E720 /* FirebaseEventServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseEventServices.swift; sourceTree = "<group>"; };
-		D1D6678B27A29D6200B1E720 /* EventRegistered.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRegistered.swift; sourceTree = "<group>"; };
+		D1D6678B27A29D6200B1E720 /* EventCreated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCreated.swift; sourceTree = "<group>"; };
 		D1D6678D27A2A09000B1E720 /* RequestStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestStatus.swift; sourceTree = "<group>"; };
 		D1D66C5F279C05EB00EEC95E /* CurrentUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserViewModel.swift; sourceTree = "<group>"; };
 		D1D66C63279C123E00EEC95E /* UserMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMainView.swift; sourceTree = "<group>"; };
@@ -216,6 +222,38 @@
 			path = "View Router";
 			sourceTree = "<group>";
 		};
+		D13820F127A71262000BD371 /* Event VM */ = {
+			isa = PBXGroup;
+			children = (
+				D13820F327A713D9000BD371 /* EventListViewModel.swift */,
+			);
+			path = "Event VM";
+			sourceTree = "<group>";
+		};
+		D13820F527A71457000BD371 /* Admin Event VM */ = {
+			isa = PBXGroup;
+			children = (
+				D13820F627A7148E000BD371 /* EventRegisterAdminViewModel.swift */,
+			);
+			path = "Admin Event VM";
+			sourceTree = "<group>";
+		};
+		D13820F827A721D2000BD371 /* Event ViewComp */ = {
+			isa = PBXGroup;
+			children = (
+				D13820F927A72255000BD371 /* BannerPickerView.swift */,
+			);
+			path = "Event ViewComp";
+			sourceTree = "<group>";
+		};
+		D13820FB27A72413000BD371 /* Event View */ = {
+			isa = PBXGroup;
+			children = (
+				D1BFA197279EFA9000FF0B47 /* EventListView.swift */,
+			);
+			path = "Event View";
+			sourceTree = "<group>";
+		};
 		D13A887827A13CBE00F606C3 /* Map Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -232,12 +270,12 @@
 			path = "Map VM";
 			sourceTree = "<group>";
 		};
-		D13A887E27A1551F00F606C3 /* Map View */ = {
+		D13A887E27A1551F00F606C3 /* Map ViewComp */ = {
 			isa = PBXGroup;
 			children = (
 				D13A887F27A1553300F606C3 /* PlaceAnnotationView.swift */,
 			);
-			path = "Map View";
+			path = "Map ViewComp";
 			sourceTree = "<group>";
 		};
 		D13A888327A1931E00F606C3 /* Event Model */ = {
@@ -272,7 +310,7 @@
 			isa = PBXGroup;
 			children = (
 				D13A888427A1933500F606C3 /* EventForm.swift */,
-				D1D6678B27A29D6200B1E720 /* EventRegistered.swift */,
+				D1D6678B27A29D6200B1E720 /* EventCreated.swift */,
 			);
 			path = Decoder;
 			sourceTree = "<group>";
@@ -323,6 +361,7 @@
 				D1BF606727906D7200F22AAF /* Views Component */,
 				D1F555C22791DAEB0005555A /* MotherView.swift */,
 				D1D66C6F279C600A00EEC95E /* CredentialSwitcherView.swift */,
+				D13820FB27A72413000BD371 /* Event View */,
 				D1EB16E6279E02800043624F /* User View */,
 				D1D66C62279C115A00EEC95E /* Admin View */,
 				D1BFA1A0279EFDEC00FF0B47 /* Profile View */,
@@ -334,7 +373,7 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		D19B0BF12795DEA9000C059C /* Register Login View */ = {
+		D19B0BF12795DEA9000C059C /* Register Login ViewComp */ = {
 			isa = PBXGroup;
 			children = (
 				D1BF606827906DA300F22AAF /* RegisterCredentials.swift */,
@@ -344,7 +383,7 @@
 				D1BF606C2790786B00F22AAF /* LoginCredentials.swift */,
 				D12576CC27971A7600DC6BA3 /* PhotoPickerView.swift */,
 			);
-			path = "Register Login View";
+			path = "Register Login ViewComp";
 			sourceTree = "<group>";
 		};
 		D19B0BF22795DEFD000C059C /* Register Login View */ = {
@@ -357,13 +396,13 @@
 			path = "Register Login View";
 			sourceTree = "<group>";
 		};
-		D19B0BF32795DF6C000C059C /* Tab Bar View */ = {
+		D19B0BF32795DF6C000C059C /* TabBar ViewComp */ = {
 			isa = PBXGroup;
 			children = (
 				D19B0BF52795DFCB000C059C /* TapButtonView.swift */,
 				D1622F092796058E00F6B461 /* CircleBackgroundView.swift */,
 			);
-			path = "Tab Bar View";
+			path = "TabBar ViewComp";
 			sourceTree = "<group>";
 		};
 		D19B0BF42795DF8E000C059C /* View Test */ = {
@@ -385,10 +424,11 @@
 				D12576CE2797215500DC6BA3 /* ImagePicker.swift */,
 				D19B0BEC2795C4D8000C059C /* CustomTabBar.swift */,
 				D1F555C62791EF7D0005555A /* View Extension.swift */,
-				D13A887E27A1551F00F606C3 /* Map View */,
-				D1D66C61279C114F00EEC95E /* Chat View */,
-				D19B0BF32795DF6C000C059C /* Tab Bar View */,
-				D19B0BF12795DEA9000C059C /* Register Login View */,
+				D13820F827A721D2000BD371 /* Event ViewComp */,
+				D13A887E27A1551F00F606C3 /* Map ViewComp */,
+				D1D66C61279C114F00EEC95E /* Chat ViewComp */,
+				D19B0BF32795DF6C000C059C /* TabBar ViewComp */,
+				D19B0BF12795DEA9000C059C /* Register Login ViewComp */,
 			);
 			path = "Views Component";
 			sourceTree = "<group>";
@@ -404,6 +444,7 @@
 			isa = PBXGroup;
 			children = (
 				D1D66C5F279C05EB00EEC95E /* CurrentUserViewModel.swift */,
+				D13820F127A71262000BD371 /* Event VM */,
 				D13A887B27A1438700F606C3 /* Map VM */,
 				D1D66C5C279C04E200EEC95E /* Admin VM */,
 				D1D66C5B279C04D700EEC95E /* Tab Bar VM */,
@@ -416,7 +457,6 @@
 		D1BFA194279EF8DD00FF0B47 /* Admin Event View */ = {
 			isa = PBXGroup;
 			children = (
-				D1BFA197279EFA9000FF0B47 /* EventListAdminView.swift */,
 				D1BFA195279EF90200FF0B47 /* EventCreationAdminView.swift */,
 			);
 			path = "Admin Event View";
@@ -478,6 +518,7 @@
 		D1D66C5C279C04E200EEC95E /* Admin VM */ = {
 			isa = PBXGroup;
 			children = (
+				D13820F527A71457000BD371 /* Admin Event VM */,
 				D1D66C74279C6E9300EEC95E /* Admin Chat VM */,
 				D1D66C69279C1B7E00EEC95E /* UsersAdminViewModel.swift */,
 				D1EB16E7279E04480043624F /* UserDetailsAdminViewModel.swift */,
@@ -485,12 +526,12 @@
 			path = "Admin VM";
 			sourceTree = "<group>";
 		};
-		D1D66C61279C114F00EEC95E /* Chat View */ = {
+		D1D66C61279C114F00EEC95E /* Chat ViewComp */ = {
 			isa = PBXGroup;
 			children = (
 				D10BF78C279D55050038EA72 /* MessageView.swift */,
 			);
-			path = "Chat View";
+			path = "Chat ViewComp";
 			sourceTree = "<group>";
 		};
 		D1D66C62279C115A00EEC95E /* Admin View */ = {
@@ -654,6 +695,7 @@
 				D1BFA19C279EFD1B00FF0B47 /* MapView.swift in Sources */,
 				D1BF606D2790786B00F22AAF /* LoginCredentials.swift in Sources */,
 				D1DA3902279E9BB600A571E2 /* MainMessagesAdminViewModel.swift in Sources */,
+				D13820F727A7148E000BD371 /* EventRegisterAdminViewModel.swift in Sources */,
 				D1442407279FFFFB00DD82F2 /* MainMessageAdminView2.swift in Sources */,
 				D1D6678927A2925200B1E720 /* FirebaseEventServices.swift in Sources */,
 				D19B0BEB2795C269000C059C /* HomepageView.swift in Sources */,
@@ -680,7 +722,8 @@
 				D109327427A03FC100B4818F /* SelectedUserViewModel.swift in Sources */,
 				D1B3DB3327921DFF0075A0F7 /* EmailView.swift in Sources */,
 				D1EB16E4279DF64C0043624F /* UsersListAdminView2.swift in Sources */,
-				D1BFA198279EFA9000FF0B47 /* EventListAdminView.swift in Sources */,
+				D1BFA198279EFA9000FF0B47 /* EventListView.swift in Sources */,
+				D13820F427A713D9000BD371 /* EventListViewModel.swift in Sources */,
 				D1AE62302796C0A300FDFAAC /* TabBarRouter.swift in Sources */,
 				D1D66C76279C6EDE00EEC95E /* ChatMessage.swift in Sources */,
 				D14B898C2790307F005FC4F0 /* RegisterView2.swift in Sources */,
@@ -689,6 +732,7 @@
 				D1B3DB2F279214790075A0F7 /* ResetPasswordViewModel.swift in Sources */,
 				D1428DF02792E38A00269B0C /* RegisterView.swift in Sources */,
 				D1F555BD2791CA130005555A /* FirebaseUserService.swift in Sources */,
+				D13820FA27A72255000BD371 /* BannerPickerView.swift in Sources */,
 				D1BF607D2790BE8E00F22AAF /* LoginViewModel.swift in Sources */,
 				D1B3DB31279216F20075A0F7 /* ResetPasswordView.swift in Sources */,
 				D1BF606B279071AA00F22AAF /* LogoView.swift in Sources */,
@@ -699,7 +743,7 @@
 				D14B898E2790308A005FC4F0 /* LoginView.swift in Sources */,
 				D14B897627902C75005FC4F0 /* Next_GaymerApp.swift in Sources */,
 				D1BFA19F279EFDC200FF0B47 /* HelpPageView.swift in Sources */,
-				D1D6678C27A29D6300B1E720 /* EventRegistered.swift in Sources */,
+				D1D6678C27A29D6300B1E720 /* EventCreated.swift in Sources */,
 				D1D66C66279C124900EEC95E /* TabBarAdminView.swift in Sources */,
 				D1BF606F27908A7100F22AAF /* ButtonTextView.swift in Sources */,
 				D1C46FD5279B1EC100833440 /* UserRegistered.swift in Sources */,
@@ -898,6 +942,102 @@
 			};
 			name = Release;
 		};
+		D17D4E5027A5ABF5001EF2CE /* Emulator */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "-D EMULATOR";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Emulator;
+		};
+		D17D4E5127A5ABF5001EF2CE /* Emulator */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Next Gaymer/Preview Content\"";
+				DEVELOPMENT_TEAM = 4M5FSWV6LJ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Next-Gaymer-Info.plist";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Trouvez les centres d'aide LGBT à proximité.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = Launchscreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.fabienstg.Next-Gaymer";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Emulator;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -905,6 +1045,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D14B897E27902C76005FC4F0 /* Debug */,
+				D17D4E5027A5ABF5001EF2CE /* Emulator */,
 				D14B897F27902C76005FC4F0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -914,6 +1055,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D14B898127902C76005FC4F0 /* Debug */,
+				D17D4E5127A5ABF5001EF2CE /* Emulator */,
 				D14B898227902C76005FC4F0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;

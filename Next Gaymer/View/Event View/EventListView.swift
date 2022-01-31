@@ -7,13 +7,23 @@
 
 import SwiftUI
 
-struct EventListAdminView: View {
+struct EventListView: View {
+  
+  @EnvironmentObject var currentUser: CurrentUserViewModel
+  
     var body: some View {
       NavigationView {
         VStack {
           HStack {
             
           Spacer()
+            if currentUser.currentUser?.isAdmin ?? true{
+              NavigationLink {
+                
+              } label: {
+                Image(systemName: "plus")
+              }
+            }
         NavigationLink {
           //
         } label: {
@@ -32,8 +42,8 @@ struct EventListAdminView: View {
     }
 }
 
-struct EventListAdminView_Previews: PreviewProvider {
+struct EventListView_Previews: PreviewProvider {
     static var previews: some View {
-        EventListAdminView()
+      EventListView().environmentObject(CurrentUserViewModel())
     }
 }

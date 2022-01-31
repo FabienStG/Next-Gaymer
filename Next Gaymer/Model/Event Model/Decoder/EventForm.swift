@@ -18,6 +18,5 @@ struct EventForm {
   let shortDescription: String
   let longDescription: String
   let maximumPlaces: Int
-  let takenPlaces: Int
   
 }

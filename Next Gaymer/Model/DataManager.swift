@@ -17,7 +17,6 @@ class DataManager {
   private let firebaseChatService = FirebaseChatServices()
   private let firebaseEventService = FirebaseEventServices()
   
-  
   let firebaseAdminService = FirebaseAdminService()
 
   @AppStorage("log_status") var logStatus = false
@@ -96,7 +95,6 @@ class DataManager {
   //
   // MARK: - Admin Services
   //
-  
   private func fetchAllUsers(completionHandler: @escaping([UserRegistered]?, String?) -> Void) {
     firebaseAdminService.fetchAllUsers { allUsers in
       return completionHandler(allUsers, nil)
@@ -130,7 +128,6 @@ class DataManager {
   //
   // MARK: - Chat Services
   //
-  
   func saveMessage(textMessage: String, senderUser: UserRegistered, recipientUser: UserDetails, completionHandler: @escaping(Bool, String?) -> Void) {
     firebaseChatService.saveMessage(textMessage: textMessage, recipientUserId: recipientUser.id) { saveResponse, saveError in
       if saveResponse {
@@ -168,11 +165,10 @@ class DataManager {
   //
   // MARK: - Event Services
   //
-  
   func createEvent(event: EventForm, image: UIImage, completionHandler: @escaping(Bool, String?) -> Void) {
     firebaseEventService.saveEventImage(image: image, eventId: event.id.uuidString) { response, url in
       if response {
-        self.firebaseEventService.registrateEvent(with: event, imageUrl: url) { resonse, error in
+        self.firebaseEventService.createEvent(with: event, imageUrl: url) { resonse, error in
           if let error = error {
             return completionHandler(false, error)
           } else {
@@ -184,5 +180,4 @@ class DataManager {
       }
     }
   }
-  
 }

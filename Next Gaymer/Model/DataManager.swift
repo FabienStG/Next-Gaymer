@@ -119,6 +119,22 @@ class DataManager {
     }
   }
   
+  func createEvent(event: EventForm, image: UIImage, completionHandler: @escaping(Bool, String?) -> Void) {
+    firebaseEventService.saveEventImage(image: image, eventId: event.id.uuidString) { response, url in
+      if response {
+        self.firebaseEventService.createEvent(with: event, imageUrl: url) { resonse, error in
+          if let error = error {
+            return completionHandler(false, error)
+          } else {
+            return completionHandler(true, nil)
+          }
+        }
+      } else {
+        return completionHandler(false, url)
+      }
+    }
+  }
+  
   func setUserAdminCredentials(userId: String, completionHandler: @escaping(String) -> Void) {
     firebaseAdminService.setUserAdminCredentials(userId: userId) { message in
       return completionHandler(message)
@@ -165,19 +181,12 @@ class DataManager {
   //
   // MARK: - Event Services
   //
-  func createEvent(event: EventForm, image: UIImage, completionHandler: @escaping(Bool, String?) -> Void) {
-    firebaseEventService.saveEventImage(image: image, eventId: event.id.uuidString) { response, url in
-      if response {
-        self.firebaseEventService.createEvent(with: event, imageUrl: url) { resonse, error in
-          if let error = error {
-            return completionHandler(false, error)
-          } else {
-            return completionHandler(true, nil)
-          }
-        }
-      } else {
-        return completionHandler(false, url)
-      }
+  func fetchAllEvents(completionHandler: @escaping([EventCreated]?, String?) -> Void) {
+    firebaseEventService.fetchAllEvents { allEvent in
+      return completionHandler(allEvent, nil)
+    } errorHandler: { error in
+      return completionHandler(nil, error)
     }
   }
+  
 }

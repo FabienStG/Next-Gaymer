@@ -43,7 +43,7 @@ class FirebaseEventServices {
   
   func createEvent(with event: EventForm, imageUrl: String, completionHandler: @escaping(Bool, String?) -> Void) {
     
-    let eventCreated = EventCreated(id: event.id.uuidString, imageUrl: imageUrl, eventName: event.eventName, isOffline: event.isOffline, date: event.date, location: event.location, madeBy: event.madeBy, shortDescription: event.shortDescription, longDescription: event.longDescription, maximumPlaces: event.maximumPlaces, takenPlaces: 0)
+    let eventCreated = EventCreated(id: event.id.uuidString, imageUrl: imageUrl, eventName: event.eventName, isOffline: event.isOffline, date: event.date, startHour: event.startHour, endHour: event.endHour, location: event.location, madeBy: event.madeBy, description: event.description, maximumPlaces: event.maximumPlaces, takenPlaces: 0, registrant: [String]())
 
     try? db.collection(EventConstant.events).document(eventCreated.id).setData(from: eventCreated) { error in
       if let error = error {
@@ -51,6 +51,25 @@ class FirebaseEventServices {
       } else {
         return completionHandler(true, nil)
       }
+    }
+  }
+  
+  func fetchAllEvents(successHandler: @escaping([EventCreated]) -> Void, errorHandler: @escaping(String) -> Void) {
+    
+    var eventList = [EventCreated]()
+    
+    db.collection(EventConstant.events).getDocuments { documentSnapshot, error in
+      if let error = error {
+        return errorHandler(error.localizedDescription)
+      }
+      
+      documentSnapshot?.documents.forEach({ document in
+        guard let event = try? document.data(as: EventCreated.self) else {
+          return errorHandler("Impossible de récupérer la liste des évèenements")
+        }
+        eventList.append(event)
+      })
+      return successHandler(eventList)
     }
   }
 }

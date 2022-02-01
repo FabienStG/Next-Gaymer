@@ -22,16 +22,14 @@ struct BannerPickerView: View {
               if changeProfileImage {
                   Image(uiImage: imageSelected)
                       .resizable()
-                      .aspectRatio(contentMode: .fill)
-                      .frame(maxWidth: .infinity, maxHeight: 80)
+                      .scaledToFill()
+                      .frame(width: 100, height: 70)
                       .clipped()
               } else {
-                  Image("Banniere")
+                  Image("NG logo")
                       .resizable()
-                      .foregroundColor(.primary)
-                      .aspectRatio(contentMode: .fill)
-                      .frame(maxWidth: .infinity, maxHeight: 80)
-                      .clipped()
+                      .scaledToFit()
+                      .frame(height: 70)
               }
           }
           Image(systemName: "plus")

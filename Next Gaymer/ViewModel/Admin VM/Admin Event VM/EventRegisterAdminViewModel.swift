@@ -17,38 +17,30 @@ class EventRegisterAdminViewModel: ObservableObject {
   @Published var endHour = Date()
   @Published var location = ""
   @Published var madeBy = ""
-  @Published var shortDescription = ""
-  @Published var longDescription = ""
-  @Published var maximumPlaces = 0
+  @Published var description = ""
+  @Published var maximumPlaces: CGFloat = 0
   
   @Published var alertMessage = ""
   @Published var showAlert = false
+  @Published var showConfirmation = false
   
   @Published var changeBannerImage = false
   @Published var openCameraRoll = false
   
+  @Published var requestStatus: RequestStatus = .initial
+  
   func registrateEvent() {
     
-    let event = EventForm(eventName: eventName, isOffline: isOffline, date: date, location: location, madeBy: madeBy, shortDescription: shortDescription, longDescription: longDescription, maximumPlaces: maximumPlaces)
+    let event = EventForm(eventName: eventName, isOffline: isOffline, date: date, startHour: startHour, endHour: endHour, location: location, madeBy: madeBy, description: description, maximumPlaces: Int(maximumPlaces))
     
     DataManager.shared.createEvent(event: event, image: image) { result, error in
       if !result {
         self.alertMessage = error ?? "Impossible d'enregister l'évènement"
         self.showAlert.toggle()
+        self.requestStatus = .fail
+      } else if result {
+        self.requestStatus = .success
       }
-    }
-  }
-  
-  func disableButton() -> Bool {
-    if eventName.isEmpty,
-       location.isEmpty,
-       location.isEmpty,
-       madeBy.isEmpty,
-       shortDescription.isEmpty,
-       longDescription.isEmpty {
-      return false
-    } else {
-      return true
     }
   }
 }

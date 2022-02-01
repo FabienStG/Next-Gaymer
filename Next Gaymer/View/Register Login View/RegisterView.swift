@@ -69,7 +69,9 @@ struct RegisterView: View {
         .disabled(registerModel.disableButton())
       }
       .onReceive(registerModel.$requestStatus) { newValue in
+        if registerModel.requestStatus == .success {
             viewRouter.currentPage = .loggedIn
+        }
       }
       .alert(registerModel.errorMessage, isPresented: $registerModel.showAlert) {}
     }

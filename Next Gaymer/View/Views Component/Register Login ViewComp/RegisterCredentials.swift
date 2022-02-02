@@ -18,10 +18,10 @@ struct RegisterCredentials: View {
       Group{
         EmailView(email: $email)
         VStack {
-          SecureField("Mot de passe", text: $password)
+          SecureField(NSLocalizedString("password", comment: ""), text: $password)
             .textInputAutocapitalization(.never)
           Divider()
-          SecureField("Confirmer mot de passe", text: $passwordConfirmation)
+          SecureField(NSLocalizedString("confirmPassword", comment: ""), text: $passwordConfirmation)
             .textInputAutocapitalization(.never)
             border(Color.red, width: passwordConfirmation != password ? 1 : 0)
         }

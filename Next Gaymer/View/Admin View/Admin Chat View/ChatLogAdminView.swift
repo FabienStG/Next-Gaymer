@@ -26,14 +26,14 @@ struct ChatLogAdminView: View {
           }
           .safeAreaInset(edge: .bottom) {
             TextField("Message", text: $chatLogAdminModel.chatText)
-            Button("Envoyer") {
+            Button(NSLocalizedString("send", comment: "")) {
               chatLogAdminModel.saveMessage(senderUser: currentUser.currentUser!, recipientUser: selectedUser.selectedUser)
             }
             .disabled(chatLogAdminModel.disableButton())
           }
       }
       .onDisappear(perform: {
-        chatLogAdminModel.firestoreListener?.remove()
+        chatLogAdminModel.stopListening()
       })
       .onAppear {
         print("Appear")
@@ -48,4 +48,3 @@ struct ChatLogViewAdmin_Previews: PreviewProvider {
       ChatLogAdminView(selectedUser: FakePreviewData.selectedUser).environmentObject(FakePreviewData.currentAdminUser)
     }
 }
-  

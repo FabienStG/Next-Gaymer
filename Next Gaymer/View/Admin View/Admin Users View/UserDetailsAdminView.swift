@@ -44,34 +44,34 @@ struct UserDetailsAdminView: View {
             ChatLogAdminView(selectedUser: SelectedUserViewModel(selectedUser: userDetails.selectedUser))
           }
         } label: {
-            Text("Envoyer un Message")
+            Text(NSLocalizedString("sendMessage", comment: ""))
           }
           .padding()
           .foregroundColor(.white)
           .background(Color.blue)
           .cornerRadius(10)
-          .navigationTitle("Profil")
+          .navigationTitle(NSLocalizedString("profile", comment: ""))
           .navigationBarTitleDisplayMode(.inline)
         if !userDetails.selectedUser.isAdmin {
           Divider()
           Button {
             userDetails.presentConfirmation.toggle()
           } label: {
-            Text("Passer Administrateur")
+            Text(NSLocalizedString("giveAdmin", comment: ""))
               .foregroundColor(.red)
           }
           .padding()
         }
       }
       .alert(userDetails.confirmationMessage, isPresented: $userDetails.presentAlert) {}
-      .confirmationDialog("Valider ?", isPresented: $userDetails.presentConfirmation) {
+      .confirmationDialog(NSLocalizedString("confirm", comment: "") + " ?", isPresented: $userDetails.presentConfirmation) {
         Button(role: .cancel) {} label: {
-          Text("Annuler")
+          Text(NSLocalizedString("cancel", comment: ""))
         }
         Button(role: .destructive) {
           userDetails.setUserAdminCrentials()
         } label: {
-          Text("Valider l'accès Administrateur")
+          Text(NSLocalizedString("validateAdmin", comment: ""))
         }
       }
     }

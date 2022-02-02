@@ -169,13 +169,25 @@ class DataManager {
         
         return completionHandler(user, nil)
       } else {
-        return completionHandler(nil, "Impossible de retrouver l'utilisateur")
+        return completionHandler(nil, NSLocalizedString("failFindUser", comment: ""))
       }
     }
   }
   
-  func messageListener(senderUser: UserRegistered, recipientUser: UserDetails, listen: Listener) {
+  func chatMessageListener(senderUser: UserRegistered, recipientUser: UserDetails, listen: Listener) {
     firebaseChatService.fetchMessages(senderUser: senderUser, recipientUser: recipientUser, listen: listen)
+  }
+  
+  func recentMessageListener(currentUser: UserRegistered, listen: Listener) {
+    firebaseChatService.fetchRecentMessages(currentUser: currentUser, listen: listen)
+  }
+  
+  func stopChatListening() {
+    firebaseChatService.stopChatListening()
+  }
+  
+  func stopRecentMessageListening() {
+    firebaseChatService.stopRecentMessageListening()
   }
   
   //

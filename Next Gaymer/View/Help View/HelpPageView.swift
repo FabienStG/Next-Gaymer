@@ -15,10 +15,10 @@ struct HelpPageView: View {
           NavigationLink {
             MapView()
           } label: {
-            Text("Afficher la carte")
+            Text(NSLocalizedString("showMap", comment: ""))
           }
           }
-        .navigationTitle("Centres d'aide")
+        .navigationTitle(NSLocalizedString("helpCenters", comment: ""))
         }
     }
 }

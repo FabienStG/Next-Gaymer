@@ -12,7 +12,7 @@ import Foundation
 class FirebaseAdminService {
   
   private let auth = Auth.auth()
-  let db = Firestore.firestore()
+  private let db = Firestore.firestore()
   
   func fetchAllUsers(successHandler: @escaping ([UserRegistered]) -> Void, errorHandler: @escaping(String) -> Void) {
     
@@ -25,7 +25,7 @@ class FirebaseAdminService {
       
       documentsSnapshot?.documents.forEach({ document in
         guard let user = try? document.data(as: UserRegistered.self) else {
-          return errorHandler("Impossible de récupérer la liste des utilisateur")
+          return errorHandler(NSLocalizedString("failFetchUserList", comment: ""))
         }
         if user.id != self.auth.currentUser?.uid {
           usersResponse.append(user)
@@ -44,7 +44,7 @@ class FirebaseAdminService {
         if let error = error {
           return completionHandler(error.localizedDescription)
         } else {
-          return completionHandler("Modification effectuée")
+          return completionHandler(NSLocalizedString("modificationComplete", comment: ""))
         }
       }
   }
@@ -52,14 +52,13 @@ class FirebaseAdminService {
   func updateUserInfo(userInfo: [String: Any], completionHandler: @escaping(Bool, String) -> Void) {
     
     guard let userId = auth.currentUser?.uid else { return }
-    
     let userRef = db.collection(UserConstant.users).document(userId)
     
     userRef.updateData(userInfo) { error in
       if let error = error {
         return completionHandler(false, error.localizedDescription)
       } else {
-        return completionHandler(true, "Modification effectée")
+        return completionHandler(true, NSLocalizedString("modificationComplete", comment: ""))
       }
     }
   }

@@ -25,7 +25,7 @@ class FirebaseUserService {
         return errorHandler(error.localizedDescription)
       }
       guard let document = document, document.exists else {
-        return errorHandler("Impossible de trouver l'utilisateur")
+        return errorHandler(NSLocalizedString("failFindUser", comment: ""))
       }
       if let user = try? document.data(as: UserRegistered.self) {
         return successHandler(user)
@@ -37,14 +37,14 @@ class FirebaseUserService {
 
     auth.createUser(withEmail: userEmail, password: userPassword) { authResult, error in
       guard authResult != nil, error == nil else {
-        let errorMessage = error?.localizedDescription ?? ""
+        let errorMessage = error?.localizedDescription ?? NSLocalizedString("failCreateUser", comment: "")
         return completionHandler(false, errorMessage)
       }
 
       DispatchQueue.main.async {
         switch authResult {
         case .none:
-          let errorMessage = error?.localizedDescription ?? ""
+          let errorMessage = error?.localizedDescription ?? NSLocalizedString("failCreateUser", comment: "")
           return completionHandler(false, errorMessage)
         case .some(_):
           return completionHandler(true, nil)
@@ -58,7 +58,7 @@ class FirebaseUserService {
     let ref = storage.reference(withPath: userId)
     
     guard let imageData = image.jpegData(compressionQuality: 0.5) else {
-      return completionHandler(false, "Impossible de compresser l'image")
+      return completionHandler(false, NSLocalizedString("failImageCompression", comment: ""))
     }
     ref.putData(imageData, metadata: nil) { metadata, error in
       if let error = error {
@@ -79,14 +79,14 @@ class FirebaseUserService {
 
     auth.signIn(withEmail: userEmail, password: userPassword) { authResult, error in
       guard authResult != nil, error == nil else {
-        let errorMessage = error?.localizedDescription ?? ""
+        let errorMessage = error?.localizedDescription ?? NSLocalizedString("failLogUser", comment: "")
         return completionHandler(false, errorMessage)
       }
 
       DispatchQueue.main.async {
         switch authResult {
         case .none:
-          let errorMessage = error?.localizedDescription ?? ""
+          let errorMessage = error?.localizedDescription ?? NSLocalizedString("failLogUser", comment: "")
           return completionHandler(false, errorMessage)
         case .some(_):
           return completionHandler(true, nil)
@@ -108,7 +108,7 @@ class FirebaseUserService {
       guard let authentication = user?.authentication,
             let idToken = authentication.idToken
       else {
-        let errorMessage = error?.localizedDescription ?? ""
+        let errorMessage = error?.localizedDescription ?? NSLocalizedString("failLogUser", comment: "")
         return completionHandler(false, errorMessage)
       }
 
@@ -120,7 +120,7 @@ class FirebaseUserService {
         }
 
         guard let user = result?.user else {
-          let errorMessage = error?.localizedDescription ?? ""
+          let errorMessage = error?.localizedDescription ?? NSLocalizedString("failLogUser", comment: "")
           return completionHandler(false, errorMessage)
         }
         

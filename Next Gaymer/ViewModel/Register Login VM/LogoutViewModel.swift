@@ -20,7 +20,7 @@ class LogoutViewModel: ObservableObject {
     DataManager.shared.logoutUser { success, message in
       if !success {
         self.requestStatus = .fail
-        self.errorMessage = message ?? "Erreur"
+        self.errorMessage = message ?? NSLocalizedString("unkownError", comment: "")
         self.showAlert.toggle()
       } else {
         self.requestStatus = .success

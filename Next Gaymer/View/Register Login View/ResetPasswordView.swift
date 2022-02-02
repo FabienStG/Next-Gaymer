@@ -15,14 +15,14 @@ struct ResetPasswordView: View {
     VStack(spacing: 15) {
       LogoView(width: 150, height: 150)
       Spacer()
-      Text("Entrez le mail associé au compte")
+      Text(NSLocalizedString("enterMail", comment: ""))
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding()
       EmailView(email: $resetPasswordModel.email)
       Button {
         resetPasswordModel.resetPassword()
       } label : {
-        ButtonTextView(status: $resetPasswordModel.requestStatus, text: "Envoyer un mail")
+        ButtonTextView(status: $resetPasswordModel.requestStatus, text: NSLocalizedString("sendMail", comment: ""))
       }
       Spacer()
     }

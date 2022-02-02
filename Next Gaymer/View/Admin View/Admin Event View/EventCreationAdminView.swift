@@ -23,19 +23,19 @@ struct EventCreationAdminView: View {
         }
         .listRowBackground(Color(UIColor.systemGroupedBackground))
         Section {
-          TextField("Nom de l'évènement", text: $eventCreationModel.eventName)
-          TextField("Bénévole(s)", text: $eventCreationModel.madeBy)
-          Picker("En ligne", selection: $eventCreationModel.isOffline) {
-            Text("En ligne").tag(false)
-            Text("Hors ligne").tag(true)
+          TextField(NSLocalizedString("eventName", comment: ""), text: $eventCreationModel.eventName)
+          TextField(NSLocalizedString("volunter", comment: ""), text: $eventCreationModel.madeBy)
+          Picker("isOnline", selection: $eventCreationModel.isOffline) {
+            Text(NSLocalizedString("online", comment: "")).tag(false)
+            Text(NSLocalizedString("offline", comment: "")).tag(true)
           }
           .pickerStyle(.segmented)
         } header: {
-          Text("Evènement")
+          Text(NSLocalizedString("event", comment: ""))
         }
         if eventCreationModel.isOffline {
           Section {
-            TextField("Lieu", text: $eventCreationModel.location)
+            TextField(NSLocalizedString("place", comment: ""), text: $eventCreationModel.location)
             VStack {
               HStack {
                 Text("min: 10")
@@ -48,15 +48,15 @@ struct EventCreationAdminView: View {
               Slider(value: $eventCreationModel.maximumPlaces, in: 10...150)
             }
           } header: {
-            Text("Lieu et capacité")
+            Text(NSLocalizedString("placeCapacity", comment: ""))
           }
         }
         Section {
           DatePicker("Date :", selection: $eventCreationModel.date, displayedComponents: [.date])
-          DatePicker("Heure de début :", selection: $eventCreationModel.startHour, displayedComponents: [.hourAndMinute])
-          DatePicker("Heure de fin :", selection: $eventCreationModel.endHour, displayedComponents: [.hourAndMinute])
+          DatePicker(NSLocalizedString("startHour", comment: ""), selection: $eventCreationModel.startHour, displayedComponents: [.hourAndMinute])
+          DatePicker(NSLocalizedString("endHour", comment: ""), selection: $eventCreationModel.endHour, displayedComponents: [.hourAndMinute])
         } header : {
-          Text("Date et heure")
+          Text(NSLocalizedString("dateTime", comment: ""))
         }
         Section {
           TextEditor(text: $eventCreationModel.description)
@@ -66,7 +66,7 @@ struct EventCreationAdminView: View {
         Button {
           eventCreationModel.showConfirmation.toggle()
         } label: {
-          Text("Valider la création")
+          Text(NSLocalizedString("createEvent", comment: ""))
             .font(.title3)
             .foregroundColor(.white)
             .multilineTextAlignment(.center)
@@ -80,14 +80,14 @@ struct EventCreationAdminView: View {
         .listRowBackground(Color(UIColor.systemGroupedBackground))
       }
       .alert(eventCreationModel.alertMessage, isPresented: $eventCreationModel.showAlert) {}
-      .confirmationDialog("Valider ?", isPresented: $eventCreationModel.showConfirmation) {
+      .confirmationDialog(NSLocalizedString("confirm", comment: "") + " ?", isPresented: $eventCreationModel.showConfirmation) {
         Button(role: .cancel) {} label: {
-          Text("Annuler")
+          Text(NSLocalizedString("cancel", comment: ""))
         }
         Button() {
           eventCreationModel.registrateEvent()
         } label: {
-          Text("Créer l'évènement")
+          Text(NSLocalizedString("createEvent", comment: ""))
         }
       }
     }

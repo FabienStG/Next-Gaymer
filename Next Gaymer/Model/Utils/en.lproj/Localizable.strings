@@ -1,0 +1,70 @@
+/* 
+  Localizable.strings
+  Next Gaymer
+
+  Created by Fabien Saint Germain on 02/02/2022.
+  
+*/
+"failImageCompression" = "Failed to compress the image.";
+"failFetchEventList" = "Failed to fetch the event list.";
+"failFindUser" = "Failed to find the selected user.";
+"failFetchMessage" = "Failed to fetch new messages.";
+"failFetchUserList" = "Failed to fetch the users list.";
+"modificationComplete" = "Modification completed.";
+"failCreateUser" = "Failed to create the user account.";
+"failLogUser" = "Failed to login.";
+"localizeNotAllowed" = "You've not allowed the localize services.";
+"localizeLimited" = "The localize service is limited.";
+"unknownError" = "Unknown error.";
+"failCreateEven" = "Failed to create the event.";
+
+"password" = "Password";
+"confirmPassword" = "Confirm password";
+
+"events" = "Events";
+"event" = "Event";
+"myEvents" = "My events";
+"newEvent" = "Create new event";
+"eventName" = "Event name";
+"volunter" = "Volunter(s)";
+"online" = "Online";
+"offline" = "Offline";
+"place" = "Place";
+"placeCapacity" = "Place and capacity";
+"startHour" = "Start hour :";
+"endHour" = "End hour :";
+"dateTime" = "Date and time";
+"createEvent" = "Create event";
+
+"confirm" = "Confirm";
+"cancel" = "Cancel";
+
+"sendMessage" = "Send message";
+"profile" = "Profile";
+"giveAdmin" = "Give admin access";
+"validateAdmin" = "Admin access validation";
+
+"users" = "Users";
+
+"chat" = "Chat";
+"send" = "Send";
+"showProfile" = "Show profile";
+"logout" = "Logout";
+
+"helpCenters" = "Help centers";
+"showMap" = "Show map";
+
+"forgetPassword" = "Forget password";
+"login" = "Login";
+"noAccount" = "No account ?";
+"createAccount" = "Create account";
+"firstName" = "First name";
+"lastName" = "Last name";
+"phone" = "Phone";
+"network" = "Networks";
+"adress" = "Adress";
+"zipCode" = "Zip code";
+"town" = "Town";
+
+"enterMail" = "Enter the associated mail";
+"sendMail" = "Send mail";

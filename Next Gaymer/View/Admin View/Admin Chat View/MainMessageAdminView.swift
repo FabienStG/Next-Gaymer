@@ -46,7 +46,7 @@ struct MainMessageAdminView: View {
                 .foregroundColor(Color(.label))
             }
           }
-          .navigationTitle("Messagerie")
+          .navigationTitle(NSLocalizedString("chat", comment: ""))
         }
         .background(
           NavigationLink(isActive: $mainMessageAdminModel.isShowingLogchat) {

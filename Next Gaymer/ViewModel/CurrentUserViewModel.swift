@@ -23,7 +23,7 @@ class CurrentUserViewModel: ObservableObject {
       if let user = user {
         self.currentUser = user
       } else {
-        self.errorMessage = error ?? "Impossible de récupérer l'utilisateur"
+        self.errorMessage = error ?? NSLocalizedString("failFindUser", comment: "")
       }
     }
   }

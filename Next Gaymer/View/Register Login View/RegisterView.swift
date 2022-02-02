@@ -20,9 +20,9 @@ struct RegisterView: View {
           .frame(maxWidth: .infinity, alignment: .center)
           .listRowBackground(Color(UIColor.systemGroupedBackground))
         Section {
-          TextField("Prénom", text: $registerModel.name)
-          TextField("Nom", text: $registerModel.surname)
-          TextField("Téléphone", text: $registerModel.phoneNumber)
+          TextField(NSLocalizedString("firstName", comment: ""), text: $registerModel.name)
+          TextField(NSLocalizedString("lastName", comment: ""), text: $registerModel.surname)
+          TextField(NSLocalizedString("phone", comment: ""), text: $registerModel.phoneNumber)
             .keyboardType(.phonePad)
           TextField("Email", text: $registerModel.email)
             .textInputAutocapitalization(.never)
@@ -34,27 +34,27 @@ struct RegisterView: View {
           TextField("Pseudo", text: $registerModel.pseudo)
           TextField("#0000Discord", text: $registerModel.discordPseudo)
         } header: {
-          Text("Résaux")
+          Text(NSLocalizedString("network", comment: ""))
         }
         Section {
-          TextField("Adresse", text: $registerModel.street)
-          TextField("Code Postal", text: $registerModel.zipCode)
+          TextField(NSLocalizedString("adress", comment: ""), text: $registerModel.street)
+          TextField(NSLocalizedString("zipCode", comment: ""), text: $registerModel.zipCode)
             .keyboardType(.numberPad)
-          TextField("Ville", text: $registerModel.city)
+          TextField(NSLocalizedString("town", comment: ""), text: $registerModel.city)
         } header: {
-          Text("Adresse")
+          Text(NSLocalizedString("adress", comment: ""))
         }
         Section {
-          SecureField("Mot de passe", text: $registerModel.password)
-          SecureField("Confirmer", text: $registerModel.confirmPassword)
+          SecureField(NSLocalizedString("password", comment: ""), text: $registerModel.password)
+          SecureField(NSLocalizedString("confirm", comment: ""), text: $registerModel.confirmPassword)
             .border(Color.red, width: registerModel.confirmPassword != registerModel.password ? 1 : 0)
         } header: {
-          Text("Mot de passe")
+          Text(NSLocalizedString("password", comment: ""))
         }
         Button {
           registerModel.registerUser()
         } label: {
-          Text("Valider l'inscription")
+          Text(NSLocalizedString("createAccount", comment: ""))
             .font(.title3)
             .foregroundColor(.white)
             .multilineTextAlignment(.center)

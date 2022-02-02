@@ -23,7 +23,7 @@ class LoginViewModel: ObservableObject  {
     requestStatus = .processing
     DataManager.shared.loginUser(email: self.email, password: self.password) { success, message in
       if !success {
-        self.errorMessage = message ?? "Erreur"
+        self.errorMessage = message ?? NSLocalizedString("unknownError", comment: "")
         self.showReset = true
         self.showAlert.toggle()
         self.requestStatus = .fail
@@ -42,7 +42,7 @@ class LoginViewModel: ObservableObject  {
     requestStatus = .processing
     DataManager.shared.googleLoginUser { success, message in
       if !success {
-        self.errorMessage = message ?? "Erreur"
+        self.errorMessage = message ?? NSLocalizedString("unknownError", comment: "")
         self.showAlert.toggle()
         self.requestStatus = .fail
       } else {

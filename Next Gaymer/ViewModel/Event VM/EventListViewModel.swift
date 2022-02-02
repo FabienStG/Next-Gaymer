@@ -11,6 +11,9 @@ class EventListViewModel: ObservableObject {
   
   @Published var eventList = [EventCreated]()
   
+  @Published var errorMessage = ""
+  @Published var showAlert =  false
+  
   init() {
     fetchEventList()
   }
@@ -20,7 +23,8 @@ class EventListViewModel: ObservableObject {
       if let allEvent = allEvent {
         self.eventList = allEvent
       } else {
-        print(error ?? "Failed to fetch list")
+        self.errorMessage = error!
+        self.showAlert.toggle()
       }
     }
   }

@@ -11,6 +11,9 @@ class UsersAdminViewModel: ObservableObject {
 
   @Published var usersLimitedDetailsList = [UserDetails]()
   
+  @Published var errorMessage = ""
+  @Published var showAlert = false
+  
   init() {
     fetchUserDetailsAdminList()
   }
@@ -20,7 +23,7 @@ class UsersAdminViewModel: ObservableObject {
       if let usersList = usersList {
         self.usersLimitedDetailsList = usersList
       } else {
-        print(error ?? "Failed to fetch list")
+        self.errorMessage = error ?? NSLocalizedString("failFetchUserList", comment: "")
       }
     }
   }

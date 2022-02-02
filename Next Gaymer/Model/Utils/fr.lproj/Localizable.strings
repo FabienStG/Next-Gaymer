@@ -1,0 +1,70 @@
+/* 
+  Localizable.strings
+  Next Gaymer
+
+  Created by Fabien Saint Germain on 02/02/2022.
+  
+*/
+"failImageCompression" = "Impossible de compresser l'image.";
+"failFetchEventList" = "Impossible de récupérer la liste des évènements.";
+"failFindUser" = "Impossible de trouver l'utilisateur.";
+"failFetchMessage" = "Impossible de récupérer les messages.";
+"failFetchUserList" = "Impossible de récupérer la liste des utilisateurs.";
+"modificationComplete" = "Modifications enregistrées.";
+"failCreateUser" = "Impossible de créer un compte.";
+"failLogUser" = "Impossible de se connecter.";
+"localizeNotAllowed" = "Vous n'avez pas autorisé la localisation.";
+"localizeLimited" = "La localisation est limité.";
+"unknownError" = "Erreur inconnue.";
+"failCreateEven" = "Impossible de créer l'évènement.";
+
+"password" = "Mot de passe";
+"confirmPassword" = "Confirmer le mot de passe";
+
+"events" = "Évènements";
+"event" = "Évènement";
+"myEvents" = "Mes évènements";
+"newEvent" = "Créer un nouvel évènement";
+"eventName" = "Nom de l'évènement";
+"volunter" = "Bénévole(s)";
+"online" = "En ligne";
+"offline" = "Hors ligne";
+"place" = "Lieu";
+"placeCapacity" = "Lieu et capacité";
+"startHour" = "Heure début :";
+"endHour" = "Heure de fin :";
+"dateTime" = "Jour et heure";
+"createEvent" = "Créer l'évènement";
+
+"confirm" = "Confirmer";
+"cancel" = "Annuler";
+
+"sendMessage" = "Envoyer un message";
+"profile" = "Profil";
+"giveAdmin" = "Passer administrateur";
+"validateAdmin" = "Confirmer l'accès administrateur";
+
+"users" = "Utilisateurs";
+
+"chat" = "Messagerie";
+"send" = "Envoyer";
+"showProfile" = "Afficher profil";
+"logout" = "Se déconnecter";
+
+"helpCenters" = "Centres d'aide";
+"showMap" = "Afficher la carte";
+
+"forgetPassword" = "Mot de passe oublié";
+"login" = "Se connecter";
+"noAccount" = "Pas de compte ?";
+"createAccout" = "Créer un compte";
+"firstName" = "Prénom";
+"lastName" = "Nom";
+"phone" = "Téléphone";
+"network" = "Réseaux";
+"adress" = "Adresse";
+"zipCode" = "Code postal";
+"town" = "Ville";
+
+"enterMail" = "Entrez le mail associé au compte";
+"sendMail" = "Envoyer le mail";

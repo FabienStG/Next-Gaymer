@@ -22,9 +22,9 @@ struct ProfileView: View {
       Button {
         //
       } label: {
-        Text("Afficher profil")
+        Text(NSLocalizedString("showProfile", comment: ""))
       }
-      Button("Se déconnecter") {
+      Button(NSLocalizedString("logout", comment: "")) {
         logoutModel.logoutUser()
         if logoutModel.requestStatus == .success {
           withAnimation {

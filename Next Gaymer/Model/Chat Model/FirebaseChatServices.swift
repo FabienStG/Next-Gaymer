@@ -14,7 +14,9 @@ class FirebaseChatServices {
   
   private let auth = Auth.auth()
   private let db = Firestore.firestore()
-
+  private var firebaseChatListener: ListenerRegistration?
+  private var firebaseRecentMessageListener: ListenerRegistration?
+  
   func saveMessage(textMessage: String, recipientUserId: String, completionHandler: @escaping(Bool, String?) -> Void) {
     
     guard let senderUserId = auth.currentUser?.uid else { return }
@@ -83,7 +85,7 @@ class FirebaseChatServices {
       }
       
       guard let document = document, document.exists else {
-        return completionHandler(nil, "Impossible de retrouver l'utilisateur")
+        return completionHandler(nil, NSLocalizedString("failFindUser", comment: ""))
       }
       
       if let user = try? document.data(as: UserRegistered.self) {
@@ -92,11 +94,9 @@ class FirebaseChatServices {
     }
   }
   
- var listener: ListenerRegistration?
-  
   func fetchMessages(senderUser: UserRegistered, recipientUser: UserDetails, listen: Listener) {
-
-    listener = db
+    
+    firebaseChatListener = db
       .collection(MessageConstant.messages)
       .document(senderUser.id)
       .collection(recipientUser.id)
@@ -110,38 +110,45 @@ class FirebaseChatServices {
         querySnapshop?.documentChanges.forEach { change in
           if change.type == .added {
             if let message = try? change.document.data(as: ChatMessage.self) {
-              listen.haveMessage(message)
+              listen.haveChatMessage(message)
             } else {
-              listen.haveError(error?.localizedDescription ?? "")
+              listen.haveError(error?.localizedDescription ?? NSLocalizedString("failFetchMessage", comment: ""))
             }
           }
         }
       }
-    }
+  }
   
-}
-
-protocol Listener {
+  func stopChatListening() {
+    firebaseChatListener?.remove()
+  }
   
-  func haveMessage(_ message: ChatMessage)
-  func haveError(_ errorMessage: String)
-  func stopListening(_ listener: ListenerRegistration)
+  func stopRecentMessageListening() {
+    firebaseRecentMessageListener?.remove()
+  }
   
-}
-
-class Displayer: Listener {
+  func fetchRecentMessages(currentUser: UserRegistered, listen: Listener) {
     
-  func haveMessage(_ message: ChatMessage) {
-    print(message)
+    firebaseRecentMessageListener = db
+      .collection(MessageConstant.recentMessages)
+      .document(currentUser.id)
+      .collection(MessageConstant.messages)
+      .order(by: MessageConstant.timestamp)
+      .addSnapshotListener({ querySnapshot, error in
+        if let error = error {
+          listen.haveError(error.localizedDescription)
+          return
+        }
+        
+        querySnapshot?.documentChanges.forEach({ change in
+          if let recentMessage = try? change.document.data(as: RecentMessage.self) {
+            listen.haveRecentMessage(recentMessage)
+          } else {
+            listen.haveError(error?.localizedDescription ?? NSLocalizedString("failFetchMessage", comment: ""))
+          }
+        })
+      })
   }
   
-  func haveError(_ errorMessage: String) {
-    print(errorMessage)
-  }
-  
-  func stopListening(_ listener: ListenerRegistration) {
-    listener.remove()
-  }
+}
 
-  }
-  

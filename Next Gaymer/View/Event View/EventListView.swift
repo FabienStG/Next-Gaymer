@@ -19,7 +19,7 @@ struct EventListView: View {
             NavigationLink {
               EventCreationAdminView()
             } label: {
-              Text("Créer un évènement")
+              Text(NSLocalizedString("createEvent", comment: ""))
                 .padding(.leading)
             }
             Spacer()
@@ -27,7 +27,7 @@ struct EventListView: View {
           NavigationLink {
             //
           } label: {
-            Text("Mes inscriptions")
+            Text(NSLocalizedString("myEvents", comment: ""))
           }
           .padding(.trailing)
         }
@@ -36,7 +36,7 @@ struct EventListView: View {
         }
         .listStyle(.plain)
       }
-      .navigationTitle("Évènements")
+      .navigationTitle(NSLocalizedString("events", comment: ""))
     }
     .onAppear {
       eventListModel.fetchEventList()

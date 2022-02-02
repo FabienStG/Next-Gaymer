@@ -21,7 +21,7 @@ struct LoginView: View {
         Spacer()
         LoginCredentials(email: $loginModel.email, password: $loginModel.password)
         if loginModel.requestStatus == .fail {
-          NavigationLink("Mot de passe oublié") {
+          NavigationLink(NSLocalizedString("forgetPassword", comment: "")) {
             ResetPasswordView()
           }
           .frame(maxWidth: .infinity, alignment: .leading)
@@ -31,7 +31,7 @@ struct LoginView: View {
         Button {
           loginModel.loginUser()
         } label: {
-          ButtonTextView(status: $loginModel.requestStatus, text: "Se connecter")
+          ButtonTextView(status: $loginModel.requestStatus, text: NSLocalizedString("login", comment: ""))
         }
         .disabled(loginModel.disableButton())
         HStack {
@@ -46,11 +46,11 @@ struct LoginView: View {
         }
         Spacer()
         HStack {
-          Text("Pas de compte ?")
+          Text(NSLocalizedString("noAccount", comment: ""))
           NavigationLink {
             RegisterView()
           } label: {
-            Text("Créez un compte")
+            Text(NSLocalizedString("createAccount", comment: ""))
           }
         }
       }

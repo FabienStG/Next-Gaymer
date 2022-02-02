@@ -24,7 +24,7 @@ class FirebaseEventServices {
     
     
     guard let imageData = image.jpegData(compressionQuality: 0.5) else {
-      return completionHandler(false, "Impossible de compresser l'image")
+      return completionHandler(false, NSLocalizedString("failImageCompression", comment: ""))
     }
     ref.putData(imageData, metadata: nil) { metadata, error in
       if let error = error {
@@ -65,7 +65,7 @@ class FirebaseEventServices {
       
       documentSnapshot?.documents.forEach({ document in
         guard let event = try? document.data(as: EventCreated.self) else {
-          return errorHandler("Impossible de récupérer la liste des évèenements")
+          return errorHandler(NSLocalizedString("failFetchEventList", comment: ""))
         }
         eventList.append(event)
       })

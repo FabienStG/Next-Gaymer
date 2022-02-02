@@ -16,7 +16,7 @@ struct LoginCredentials: View {
     VStack {
       Group {
         EmailView(email: $email)
-        SecureField("Mot de passe", text: $password)
+        SecureField(NSLocalizedString("password", comment: ""), text: $password)
           .padding()
           .textInputAutocapitalization(.never)
           .background(.thinMaterial)

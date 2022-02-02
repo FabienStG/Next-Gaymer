@@ -35,7 +35,7 @@ class EventRegisterAdminViewModel: ObservableObject {
     
     DataManager.shared.createEvent(event: event, image: image) { result, error in
       if !result {
-        self.alertMessage = error ?? "Impossible d'enregister l'évènement"
+        self.alertMessage = error ?? NSLocalizedString("failCreateEvent", comment: "")
         self.showAlert.toggle()
         self.requestStatus = .fail
       } else if result {

@@ -23,7 +23,7 @@ class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
       locationManager?.desiredAccuracy = kCLLocationAccuracyBest
       locationManager!.delegate = self
     } else {
-      errorMessage = "Vous n'avez pas autorisé les services de localisation."
+      errorMessage = NSLocalizedString("localizeNotAllowed", comment: "")
       showAlert.toggle()
     }
   }
@@ -36,15 +36,15 @@ class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     case .notDetermined:
       locationManager.requestWhenInUseAuthorization()
     case .restricted:
-      errorMessage = "Les services de localisation ont été limités."
+      errorMessage = NSLocalizedString("localizeLimited", comment: "")
       showAlert.toggle()
     case .denied:
-      errorMessage = "Vous n'avez pas autorisé les services de localisation"
+      errorMessage = NSLocalizedString("localizeNotAllowed", comment: "")
       showAlert.toggle()
     case .authorizedAlways, .authorizedWhenInUse:
       region = MKCoordinateRegion(center: locationManager.location!.coordinate, span: MapDetails.zoomedSpin)
     @unknown default:
-      errorMessage = "Erreur inconnue."
+      errorMessage = NSLocalizedString("unknownError", comment: "")
       showAlert.toggle()
       break
     }

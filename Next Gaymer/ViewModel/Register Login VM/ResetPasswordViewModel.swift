@@ -19,7 +19,7 @@ class ResetPasswordViewModel: ObservableObject{
     requestStatus = .processing
     DataManager.shared.resetPassword(email: self.email) { success, message in
       if !success {
-        self.errorMessage = message ?? "Erreur"
+        self.errorMessage = message ?? NSLocalizedString("unkownError", comment: "")
         self.showAlert.toggle()
       }
       self.requestStatus = .initial

@@ -9,7 +9,7 @@ import SwiftUI
 import Firebase
 
 class ChatLogAdminViewModel: ObservableObject {
-
+  
   @Published var chatText = ""
   @Published var chatMessages = [ChatMessage]()
   
@@ -18,40 +18,9 @@ class ChatLogAdminViewModel: ObservableObject {
   
   @Published var selectedUser: UserRegistered?
 
-  var firestoreListener: ListenerRegistration?
-
   func fetchMessages(senderUser: UserRegistered, recipientUser: UserDetails) {
     chatMessages.removeAll()
-
-    fetchMessage2(senderUser: senderUser, recipientUser: recipientUser)
-    
-    firestoreListener = DataManager.shared.firebaseAdminService.db
-      .collection(MessageConstant.messages)
-      .document(senderUser.id)
-      .collection(recipientUser.id)
-      .order(by: MessageConstant.timestamp)
-      .addSnapshotListener { querySnapshop, error in
-        if let error = error {
-          self.errorMessage = error.localizedDescription
-          return
-        }
-        
-        querySnapshop?.documentChanges.forEach { change in
-          if change.type == .added {
-            if let message = try? change.document.data(as: ChatMessage.self) {
-              self.chatMessages.append(message)
-            } else {
-              self.errorMessage = "Impossible de récupérer les messages"
-            }
-          }
-        }
-      }
-    }
-  
-  let displayer = Displayer()
-  
-  func fetchMessage2(senderUser: UserRegistered, recipientUser: UserDetails) {
-    DataManager.shared.messageListener(senderUser: senderUser, recipientUser: recipientUser, listen: displayer)
+    DataManager.shared.chatMessageListener(senderUser: senderUser, recipientUser: recipientUser, listen: self)
   }
   
   func saveMessage(senderUser: UserRegistered, recipientUser: UserDetails) {
@@ -71,15 +40,21 @@ class ChatLogAdminViewModel: ObservableObject {
   }
 }
 
-/// Protocole : deux fonctions = un qui dit qu'il y a un message, l'autre une erreur
-/// Remettre le bloc au service, avec comme paramètre le protocole  et au data manager
-///
-
-protocol MessageListener: AnyObject {
+extension ChatLogAdminViewModel: Listener {
   
-  func newMessageArrived(newMessage: ChatMessage)
-  func errorInFetching(errorMessage: String)
-  func startListening()
-  func stopListening()
+  func haveChatMessage(_ message: ChatMessage) {
+    chatMessages.append(message)
+  }
+  
+  func haveRecentMessage(_ message: RecentMessage) {}
+  
+  func haveError(_ errorMessage: String) {
+    self.errorMessage = errorMessage
+    showAlert.toggle()
+  }
+  
+  func stopListening() {
+    DataManager.shared.stopChatListening()
+  }
   
 }

@@ -39,7 +39,7 @@ class RegisterViewModel: ObservableObject {
     DataManager.shared.registerUser(with: user, password: password, image: profilImage) { success, message in
 
       if !success {
-        self.errorMessage = message ?? "Erreur"
+        self.errorMessage = message ?? NSLocalizedString("unknownError", comment: "")
         self.showAlert.toggle()
         self.requestStatus = .fail
       } else {

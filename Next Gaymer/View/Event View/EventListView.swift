@@ -32,7 +32,11 @@ struct EventListView: View {
           .padding(.trailing)
         }
         List(eventListModel.eventList, id: \.id) { event in
-          EventViewCell(event: event)
+          NavigationLink {
+            EventDetailView(event: event)
+          } label: {
+            EventViewCell(event: event)
+          }
         }
         .listStyle(.plain)
       }
@@ -45,7 +49,7 @@ struct EventListView: View {
 }
 
 struct EventListView_Previews: PreviewProvider {
-    static var previews: some View {
-      EventListView().environmentObject(CurrentUserViewModel())
-    }
+  static var previews: some View {
+    EventListView().environmentObject(CurrentUserViewModel())
+  }
 }

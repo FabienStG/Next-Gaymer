@@ -9,6 +9,7 @@ import UIKit
 import Firebase
 import FirebaseFirestoreSwift
 import GoogleSignIn
+import simd
 
 class FirebaseUserService {
 
@@ -169,5 +170,27 @@ class FirebaseUserService {
        return completionHandler(false, url)
       }
     }
+  }
+  
+  func deleteCurrentUser(completionHandler: @escaping(Bool, String?) -> Void) {
+    
+    guard let user = auth.currentUser else { return }
+    
+    db.collection(UserConstant.users).document(user.uid).delete() { error in
+      if let error = error {
+        return completionHandler(false, error.localizedDescription)
+      }
+    }
+    storage.reference(withPath: user.uid).delete { error in
+      if let error = error {
+        return completionHandler(false, error.localizedDescription)
+      }
+    }
+    user.delete { error in
+      if let error = error {
+        return completionHandler(false, error.localizedDescription)
+      }
+    }
+    return completionHandler(true, nil)
   }
 }

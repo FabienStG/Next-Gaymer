@@ -16,6 +16,7 @@ class EventRegisterAdminViewModel: ObservableObject {
   @Published var startHour = Date()
   @Published var endHour = Date()
   @Published var location = ""
+  @Published var town = ""
   @Published var madeBy = ""
   @Published var description = ""
   @Published var maximumPlaces: CGFloat = 0
@@ -31,7 +32,7 @@ class EventRegisterAdminViewModel: ObservableObject {
   
   func registrateEvent() {
     
-    let event = EventForm(eventName: eventName, isOffline: isOffline, date: date, startHour: startHour, endHour: endHour, location: location, madeBy: madeBy, description: description, maximumPlaces: Int(maximumPlaces))
+    let event = EventForm(eventName: eventName, isOffline: isOffline, date: date, startHour: startHour, endHour: endHour, location: location, town: town, madeBy: madeBy, description: description, maximumPlaces: Int(maximumPlaces))
     
     DataManager.shared.createEvent(event: event, image: image) { result, error in
       if !result {

@@ -16,6 +16,7 @@ struct EventForm {
   let startHour: Date
   let endHour: Date
   let location: String
+  let town: String
   let madeBy: String
   let description: String
   let maximumPlaces: Int

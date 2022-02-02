@@ -26,6 +26,8 @@
 		D1428DF02792E38A00269B0C /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1428DEF2792E38A00269B0C /* RegisterView.swift */; };
 		D1442407279FFFFB00DD82F2 /* MainMessageAdminView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1442406279FFFFA00DD82F2 /* MainMessageAdminView2.swift */; };
 		D1492F1527AA76C2004A28B1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D1492F1727AA76C2004A28B1 /* Localizable.strings */; };
+		D1492F1A27AACB88004A28B1 /* EventDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1492F1927AACB88004A28B1 /* EventDetailView.swift */; };
+		D1492F1C27AAE0E4004A28B1 /* EventDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1492F1B27AAE0E3004A28B1 /* EventDetailViewModel.swift */; };
 		D14B897627902C75005FC4F0 /* Next_GaymerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14B897527902C75005FC4F0 /* Next_GaymerApp.swift */; };
 		D14B897A27902C76005FC4F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D14B897927902C76005FC4F0 /* Assets.xcassets */; };
 		D14B897D27902C76005FC4F0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D14B897C27902C76005FC4F0 /* Preview Assets.xcassets */; };
@@ -116,6 +118,8 @@
 		D1442406279FFFFA00DD82F2 /* MainMessageAdminView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMessageAdminView2.swift; sourceTree = "<group>"; };
 		D1492F1627AA76C2004A28B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D1492F1827AA76D5004A28B1 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D1492F1927AACB88004A28B1 /* EventDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailView.swift; sourceTree = "<group>"; };
+		D1492F1B27AAE0E3004A28B1 /* EventDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewModel.swift; sourceTree = "<group>"; };
 		D14B897227902C75005FC4F0 /* Next Gaymer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Next Gaymer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D14B897527902C75005FC4F0 /* Next_GaymerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Next_GaymerApp.swift; sourceTree = "<group>"; };
 		D14B897927902C76005FC4F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -245,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				D13820F327A713D9000BD371 /* EventListViewModel.swift */,
+				D1492F1B27AAE0E3004A28B1 /* EventDetailViewModel.swift */,
 			);
 			path = "Event VM";
 			sourceTree = "<group>";
@@ -271,6 +276,7 @@
 			isa = PBXGroup;
 			children = (
 				D1BFA197279EFA9000FF0B47 /* EventListView.swift */,
+				D1492F1927AACB88004A28B1 /* EventDetailView.swift */,
 			);
 			path = "Event View";
 			sourceTree = "<group>";
@@ -747,11 +753,13 @@
 				D1D66C6C279C1CF700EEC95E /* UserDetails.swift in Sources */,
 				D13A887D27A1439B00F606C3 /* MapViewModel.swift in Sources */,
 				D109327427A03FC100B4818F /* SelectedUserViewModel.swift in Sources */,
+				D1492F1A27AACB88004A28B1 /* EventDetailView.swift in Sources */,
 				D1B3DB3327921DFF0075A0F7 /* EmailView.swift in Sources */,
 				D1EB16E4279DF64C0043624F /* UsersListAdminView2.swift in Sources */,
 				D1BFA198279EFA9000FF0B47 /* EventListView.swift in Sources */,
 				D13820F427A713D9000BD371 /* EventListViewModel.swift in Sources */,
 				D1AE62302796C0A300FDFAAC /* TabBarRouter.swift in Sources */,
+				D1492F1C27AAE0E4004A28B1 /* EventDetailViewModel.swift in Sources */,
 				D1D66C76279C6EDE00EEC95E /* ChatMessage.swift in Sources */,
 				D14B898C2790307F005FC4F0 /* RegisterView2.swift in Sources */,
 				D1BF606927906DA300F22AAF /* RegisterCredentials.swift in Sources */,

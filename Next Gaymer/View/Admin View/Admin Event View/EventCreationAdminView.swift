@@ -36,6 +36,7 @@ struct EventCreationAdminView: View {
         if eventCreationModel.isOffline {
           Section {
             TextField(NSLocalizedString("place", comment: ""), text: $eventCreationModel.location)
+            TextField(NSLocalizedString("town", comment: ""), text: $eventCreationModel.town)
             VStack {
               HStack {
                 Text("min: 10")

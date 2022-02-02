@@ -18,9 +18,12 @@ struct PlaceAnnotationView: View {
           Text(location.name)
             .font(.callout)
             .bold()
+            .foregroundColor(.black)
           Text(location.adress)
             .font(.callout)
+            .foregroundColor(.black)
           Text(location.phoneNumber)
+            .foregroundColor(.black)
         }
         .padding(5)
         .background(Color(.white))

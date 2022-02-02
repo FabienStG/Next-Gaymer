@@ -62,4 +62,8 @@ class FirebaseAdminService {
       }
     }
   }
+  
+  func fetchEventRegistrants(event: EventCreated, completionHandler: @escaping(Bool, String) -> Void) {
+    
+  }
 }

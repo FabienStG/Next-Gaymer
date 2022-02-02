@@ -20,14 +20,20 @@ struct EventViewCell: View {
         .frame(width: 110, height: 80)
         .scaledToFit()
         .cornerRadius(4)
+        .padding(.vertical, 4)
       VStack(alignment: .leading, spacing: 2) {
         Text(event.eventName)
           .fontWeight(.semibold)
           .lineLimit(1)
           .minimumScaleFactor(0.5)
-        Text(event.date.formatted())
+        HStack(spacing: 50) {
+        Text(event.dateString)
           .font(.subheadline)
           .foregroundColor(.secondary)
+          Text(event.town)
+            .font(.subheadline)
+            .foregroundColor(.secondary)
+        }
       }
     }
   }

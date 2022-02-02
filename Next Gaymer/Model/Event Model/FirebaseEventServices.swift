@@ -43,7 +43,7 @@ class FirebaseEventServices {
   
   func createEvent(with event: EventForm, imageUrl: String, completionHandler: @escaping(Bool, String?) -> Void) {
     
-    let eventCreated = EventCreated(id: event.id.uuidString, imageUrl: imageUrl, eventName: event.eventName, isOffline: event.isOffline, date: event.date, startHour: event.startHour, endHour: event.endHour, location: event.location, madeBy: event.madeBy, description: event.description, maximumPlaces: event.maximumPlaces, takenPlaces: 0, registrant: [String]())
+    let eventCreated = EventCreated(id: event.id.uuidString, imageUrl: imageUrl, eventName: event.eventName, isOffline: event.isOffline, date: event.date, startHour: event.startHour, endHour: event.endHour, location: event.location, town: event.town, madeBy: event.madeBy, description: event.description, maximumPlaces: event.maximumPlaces, takenPlaces: 0, registrant: [String]())
 
     try? db.collection(EventConstant.events).document(eventCreated.id).setData(from: eventCreated) { error in
       if let error = error {
@@ -70,6 +70,25 @@ class FirebaseEventServices {
         eventList.append(event)
       })
       return successHandler(eventList)
+    }
+  }
+  
+  func registrateUserForEvent(currentUser: UserRegistered, event: EventCreated, completionHandler: @escaping(Bool, String) ->Void) {
+    
+    let eventRef = db.collection(EventConstant.events).document(event.id)
+    
+    var newArray = event.registrant
+    newArray.append(currentUser.pseudo)
+    
+    if event.maximumPlaces != 0 || event.maximumPlaces <= newArray.count {
+      return completionHandler(false, NSLocalizedString("eventFull", comment: ""))
+    }
+    
+    eventRef.updateData(["registrant": newArray]) { error in
+      if let error = error {
+        return completionHandler(false, error.localizedDescription)
+      }
+      return completionHandler(true, NSLocalizedString("registrateComplete", comment: ""))
     }
   }
 }

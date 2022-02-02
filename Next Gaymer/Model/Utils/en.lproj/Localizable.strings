@@ -35,6 +35,9 @@
 "endHour" = "End hour :";
 "dateTime" = "Date and time";
 "createEvent" = "Create event";
+"registrateComplete" = "You are registered to this event.";
+"registrate" = "Registrate";
+"eventFull" = "This event is full.";
 
 "confirm" = "Confirm";
 "cancel" = "Cancel";
@@ -68,3 +71,5 @@
 
 "enterMail" = "Enter the associated mail";
 "sendMail" = "Send mail";
+"at" = "at";
+

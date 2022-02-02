@@ -120,6 +120,8 @@ class DataManager {
   }
   
   func createEvent(event: EventForm, image: UIImage, completionHandler: @escaping(Bool, String?) -> Void) {
+    
+  
     firebaseEventService.saveEventImage(image: image, eventId: event.id.uuidString) { response, url in
       if response {
         self.firebaseEventService.createEvent(with: event, imageUrl: url) { resonse, error in
@@ -198,6 +200,12 @@ class DataManager {
       return completionHandler(allEvent, nil)
     } errorHandler: { error in
       return completionHandler(nil, error)
+    }
+  }
+  
+  func registrateUserForEvent(currentUser: UserRegistered, event: EventCreated, completionHandler: @escaping(Bool, String) -> Void) {
+    firebaseEventService.registrateUserForEvent(currentUser: currentUser, event: event) { result, message in
+      return completionHandler(result, message)
     }
   }
   

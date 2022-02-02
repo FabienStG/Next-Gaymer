@@ -29,7 +29,7 @@ class FakePreviewData {
   
   static let fakeSelectedUser = UserDetails(id: "GbuydisSe5ZLo4W5gpodtwozZl62", pseudo: "Maryël", name: "Marie", surname: "Hel", email: "mariel@icloud.com", city: "Paris", profileImageUrl: FakePreviewData.image, isAdmin: false)
   
-  static let fakeOnlineEvent = EventCreated(id: "fakeID", imageUrl: FakePreviewData.eventImage, eventName: "Nom de l'évènement", isOffline: false, date: Date(), startHour: Date(), endHour: Date(), location: "", madeBy: "Damnes", description: "Description", maximumPlaces: 0, takenPlaces: 0, registrant: ["fakeID1", "FakeId2", "Fakeisd3"])
+  static let fakeOnlineEvent = EventCreated(id: "fakeID", imageUrl: FakePreviewData.eventImage, eventName: "Nom de l'évènement", isOffline: false, date: Date(), startHour: Date(), endHour: Date(), location: "14 rue mahcin", town: "Paris", madeBy: "Damnes", description: "Description", maximumPlaces: 0, takenPlaces: 0, registrant: ["fakeID1", "FakeId2", "Fakeisd3"])
   
   private static let fakeRegisteredAdmin = UserRegistered(id: "9Hkh3HUKCwh1o3gE1cLLJRmLQQf2", name: "Fabien", surname: "Saint Germain", pseudo: "Damnes", profileImageUrl: FakePreviewData.image, email: "fabien@icloud.com", phoneNumber: "0123456789", discordPseudo: "Damnes", street: "01 rue de la paix", zipCode: "75001", city: "Paris", isAdmin: true)
   

@@ -45,6 +45,8 @@ struct MessageView: View {
 
 struct MessageView_Previews: PreviewProvider {
     static var previews: some View {
-      MessageView(message: ChatMessage(id: "FakeId", senderUserId: "FakeId", recipientUserId: "FakeId", text: "Ceci est un test", timestamp: Date()), currentUserId: "Fake id")
+      MessageView(message: ChatMessage(id: "FakeId", senderUserId: "FakeId",
+                                       recipientUserId: "FakeId", text: "Ceci est un test",
+                                       timestamp: Date()), currentUserId: "Fake id")
     }
 }

@@ -13,6 +13,7 @@ class UserDetailsAdminViewModel: ObservableObject {
   @Published var confirmationMessage = ""
   @Published var presentConfirmation = false
   @Published var presentAlert = false
+  @Published var requestStatus: RequestStatus = .initial
   
   init(selectedUser: UserDetails) {
     self.selectedUser = selectedUser

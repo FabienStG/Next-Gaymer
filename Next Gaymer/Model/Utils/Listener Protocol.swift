@@ -6,7 +6,11 @@
 //
 
 import Foundation
+//
+// MARK: - Listener Protocol
+//
 
+/// Protocol for ViewModels to provide the live update of chatMessage
 protocol Listener {
   
   func haveChatMessage(_ message: ChatMessage)

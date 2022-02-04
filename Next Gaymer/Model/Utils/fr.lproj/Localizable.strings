@@ -34,18 +34,25 @@
 "startHour" = "Heure début :";
 "endHour" = "Heure de fin :";
 "dateTime" = "Jour et heure";
-"createEvent" = "Créer l'évènement";
+"createEvent" = "Créer un évènement";
 "registrateComplete" = "Vous êtes inscrit à l'évènement.";
 "registrate" = "S'inscrire";
-"eventFull" = "This event is full.";
+"eventFull" = "Cet évènement est complet.";
+"alreadyRegistrateEvent" = "Vous êtes déjà inscrit à cet évènement.";
+"noEvent" = "Cet évènement n'est plus disponible.";
+"noMoreEvent" = "Il n'y a actuellement aucun évènement.";
+"cancelRegistration" = "Votre inscription a été annulée.";
+"availablePlaces" = "Places disponibles:";
 
 "confirm" = "Confirmer";
 "cancel" = "Annuler";
 
 "sendMessage" = "Envoyer un message";
 "profile" = "Profil";
+"noMessageAdmin" = "Aucun message, vous pouvez en envoyer depuis le profil des utilisateurs.";
 "giveAdmin" = "Passer administrateur";
 "validateAdmin" = "Confirmer l'accès administrateur";
+"noUsers" = "La liste d'utilisateurs n'est pas disponible.";
 
 "users" = "Utilisateurs";
 
@@ -60,7 +67,7 @@
 "forgetPassword" = "Mot de passe oublié";
 "login" = "Se connecter";
 "noAccount" = "Pas de compte ?";
-"createAccout" = "Créer un compte";
+"createAccount" = "Créer un compte";
 "firstName" = "Prénom";
 "lastName" = "Nom";
 "phone" = "Téléphone";

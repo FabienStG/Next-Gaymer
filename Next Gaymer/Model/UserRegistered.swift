@@ -6,7 +6,11 @@
 //
 
 import Foundation
+//
+// MARK: - User Registered
+//
 
+/// The object used to save the user's data into Firebase
 struct UserRegistered: Codable {
   
   let id: String
@@ -21,5 +25,5 @@ struct UserRegistered: Codable {
   let zipCode: String
   let city: String
   let isAdmin: Bool
-    
+  let myEvent: [String]
 }

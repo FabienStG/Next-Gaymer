@@ -6,7 +6,15 @@
 //
 
 import Foundation
+//
+// MARK: - String constants
+//
 
+/// Several struct who contains reusable strings for api calls to prevent any mistake
+
+//
+// MARK: - User Constant
+//
 struct UserConstant {
   
   static let userId = "userId"
@@ -20,10 +28,12 @@ struct UserConstant {
   static let street = "street"
   static let zipCode = "zipCode"
   static let city = "city"
-  
   static let users = "users"
 }
 
+//
+// MARK: - Message Constant
+//
 struct MessageConstant {
   
   static let messages = "messages"
@@ -31,12 +41,18 @@ struct MessageConstant {
   static let recentMessages = "recentMessages"
 }
 
+//
+// MARK: - Event Constant
+//
 struct EventConstant {
   
   static let events = "events"
   
 }
 
+//
+// MARK: - Debug Constant
+//
 struct DebugConstant {
   
   static let emulator = """

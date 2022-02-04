@@ -49,27 +49,31 @@ class RegisterViewModel: ObservableObject {
   }
 
   func disableButton() -> Bool {
-    if name.isEmpty,
-       surname.isEmpty,
-       pseudo.isEmpty,
-       email.isEmpty,
-       phoneNumber.isEmpty,
-       discordPseudo.isEmpty,
-       street.isEmpty,
-       zipCode.isEmpty,
-       city.isEmpty,
-       password.isEmpty,
-       confirmPassword.isEmpty,
+    if name.isEmpty &&
+       surname.isEmpty &&
+       pseudo.isEmpty &&
+       email.isEmpty &&
+       phoneNumber.isEmpty &&
+       discordPseudo.isEmpty &&
+       street.isEmpty &&
+       zipCode.isEmpty &&
+       city.isEmpty &&
+       password.isEmpty &&
+       confirmPassword.isEmpty &&
        password != confirmPassword {
+      print("false")
       return false
     } else {
+      print("true")
       return true
     }
   }
 
 func packUserDetail() -> UserForm {
 
-  let user = UserForm(name: name, surname: surname, pseudo: pseudo, email: email, phoneNumber: phoneNumber, discordPseudo: discordPseudo, street: street, zipCode: zipCode, city: city)
+  let user = UserForm(name: name, surname: surname, pseudo: pseudo, email: email,
+                      phoneNumber: phoneNumber, discordPseudo: discordPseudo,
+                      street: street, zipCode: zipCode, city: city)
 
   return user
   }

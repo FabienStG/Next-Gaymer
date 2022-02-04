@@ -13,8 +13,6 @@ class EventRegisterAdminViewModel: ObservableObject {
   @Published var eventName = ""
   @Published var isOffline = true
   @Published var date = Date()
-  @Published var startHour = Date()
-  @Published var endHour = Date()
   @Published var location = ""
   @Published var town = ""
   @Published var madeBy = ""
@@ -31,8 +29,11 @@ class EventRegisterAdminViewModel: ObservableObject {
   @Published var requestStatus: RequestStatus = .initial
   
   func registrateEvent() {
+    self.requestStatus = .processing
     
-    let event = EventForm(eventName: eventName, isOffline: isOffline, date: date, startHour: startHour, endHour: endHour, location: location, town: town, madeBy: madeBy, description: description, maximumPlaces: Int(maximumPlaces))
+    let event = EventForm(eventName: eventName, isOffline: isOffline, date: date,
+                          location: location, town: town, madeBy: madeBy,
+                          description: description, maximumPlaces: Int(maximumPlaces))
     
     DataManager.shared.createEvent(event: event, image: image) { result, error in
       if !result {

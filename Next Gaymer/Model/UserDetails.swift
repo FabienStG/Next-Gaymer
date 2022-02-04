@@ -6,8 +6,12 @@
 //
 
 import Foundation
+//
+// MARK: - UserDetails
+//
 
-struct UserDetails: Codable, Identifiable {
+/// This struct, from UserRegistered, provide a limited acces to user's data for privacy
+struct UserDetails: Codable, Identifiable, Hashable {
   
   let id: String
   let pseudo: String
@@ -17,5 +21,4 @@ struct UserDetails: Codable, Identifiable {
   let city: String
   let profileImageUrl: String
   let isAdmin: Bool
-  
 }

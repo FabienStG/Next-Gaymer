@@ -6,7 +6,11 @@
 //
 
 import Foundation
+//
+// MARK: - User Form
+//
 
+/// This struc used to save the users text field from view and parse to save them into Firebase throught User Registered
 struct UserForm {
   
   let name: String

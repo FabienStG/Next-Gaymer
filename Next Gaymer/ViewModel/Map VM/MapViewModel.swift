@@ -6,16 +6,27 @@
 //
 
 import MapKit
+//
+// MARK: - Map VM
+//
 
+/// This class manage the location credential and show the locations
 class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
+  //
+  // MARK: - Variables and Published Properties
+  var locationManager: CLLocationManager?
   
   @Published var region = MKCoordinateRegion(center: MapDetails.defaultLocation, span: MapDetails.defaultSpin)
   @Published var locations = Locations.annotations
-    
   @Published var errorMessage = ""
   @Published var showAlert = false
 
-  var locationManager: CLLocationManager?
+  //
+  // MARK: - Internal Method
+  //
+  func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+    checkLocationAuthorization()
+  }
   
   func checkIfLocationServicesIsEnabled() {
     if CLLocationManager.locationServicesEnabled() {
@@ -28,11 +39,13 @@ class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
   }
   
- private func checkLocationAuthorization() {
-    guard let locationManager = locationManager else { return }
+  //
+  // MARK: - Private Method
+  //
+  private func checkLocationAuthorization() {
     
+    guard let locationManager = locationManager else { return }
     switch locationManager.authorizationStatus {
-      
     case .notDetermined:
       locationManager.requestWhenInUseAuthorization()
     case .restricted:
@@ -48,9 +61,5 @@ class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
       showAlert.toggle()
       break
     }
-  }
-  
-  func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-    checkLocationAuthorization()
   }
 }

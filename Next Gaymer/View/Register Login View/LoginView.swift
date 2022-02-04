@@ -31,7 +31,8 @@ struct LoginView: View {
         Button {
           loginModel.loginUser()
         } label: {
-          ButtonTextView(status: $loginModel.requestStatus, text: NSLocalizedString("login", comment: ""))
+          ButtonTextView(status: $loginModel.requestStatus,
+                         text: NSLocalizedString("login", comment: ""))
         }
         .disabled(loginModel.disableButton())
         HStack {

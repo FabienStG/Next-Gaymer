@@ -12,39 +12,49 @@ struct ChatLogAdminView: View {
   @StateObject var chatLogAdminModel = ChatLogAdminViewModel()
   @StateObject var selectedUser: SelectedUserViewModel
   @EnvironmentObject var currentUser: CurrentUserViewModel
-    
-    var body: some View {
-      NavigationView {
+  
+  var body: some View {
+    VStack {
+      ScrollView {
         VStack {
-          ScrollView {
-              VStack {
-                ForEach(chatLogAdminModel.chatMessages) { message in
-                  MessageView(message: message, currentUserId: currentUser.currentUser!.id)
-                }
-              }
-            }
+          ForEach(chatLogAdminModel.chatMessages) { message in
+            MessageView(message: message, currentUserId: currentUser.currentUser!.id)
           }
-          .safeAreaInset(edge: .bottom) {
-            TextField("Message", text: $chatLogAdminModel.chatText)
-            Button(NSLocalizedString("send", comment: "")) {
-              chatLogAdminModel.saveMessage(senderUser: currentUser.currentUser!, recipientUser: selectedUser.selectedUser)
-            }
-            .disabled(chatLogAdminModel.disableButton())
-          }
-      }
-      .onDisappear(perform: {
-        chatLogAdminModel.stopListening()
-      })
-      .onAppear {
-        print("Appear")
-        chatLogAdminModel.fetchMessages(senderUser: currentUser.currentUser!, recipientUser: selectedUser.selectedUser)
+        }
       }
     }
+    .safeAreaInset(edge: .bottom) {
+      HStack {
+        TextField("Message", text: $chatLogAdminModel.chatText)
+          .padding()
+        Spacer()
+        Button {
+          chatLogAdminModel.saveMessage(senderUser: currentUser.currentUser!,
+                                        recipientUser: selectedUser.selectedUser)
+        } label: {
+          Text(NSLocalizedString("send", comment: ""))
+            .foregroundColor(Color.blue)
+            .padding()
+        }
+        .disabled(chatLogAdminModel.disableButton())
+      }
+    }
+    .onDisappear(perform: {
+      chatLogAdminModel.stopListening()
+    })
+    .onAppear {
+      chatLogAdminModel.fetchMessages(senderUser: currentUser.currentUser!,
+                                      recipientUser: selectedUser.selectedUser)
+    }
+  }
 }
 
 struct ChatLogViewAdmin_Previews: PreviewProvider {
   
-    static var previews: some View {
-      ChatLogAdminView(selectedUser: FakePreviewData.selectedUser).environmentObject(FakePreviewData.currentAdminUser)
+  static var previews: some View {
+    NavigationView {
+      ChatLogAdminView(selectedUser: FakePreviewData.selectedUser)
+        .environmentObject(FakePreviewData.currentAdminUser)
     }
+  }
 }

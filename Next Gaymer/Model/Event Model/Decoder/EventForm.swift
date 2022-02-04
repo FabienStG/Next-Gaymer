@@ -6,19 +6,20 @@
 //
 
 import Foundation
+//
+// MARK: - Event Form
+//
 
+/// Struct used to pass the fields into an object convertible for Firebase
 struct EventForm {
   
   let id = UUID()
   let eventName: String
   let isOffline: Bool
   let date: Date
-  let startHour: Date
-  let endHour: Date
   let location: String
   let town: String
   let madeBy: String
   let description: String
   let maximumPlaces: Int
-  
 }

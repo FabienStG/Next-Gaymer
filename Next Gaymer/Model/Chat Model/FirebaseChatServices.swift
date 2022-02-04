@@ -9,72 +9,29 @@ import Foundation
 import Firebase
 import FirebaseFirestore
 import FirebaseFirestoreSwift
+//
+// MARK: - Firebase Chat Services
+//
 
+/// This class manage the calls related to the live chat function
 class FirebaseChatServices {
-  
+  //
+  // MARK: - Private Constant
+  //
   private let auth = Auth.auth()
   private let db = Firestore.firestore()
   private var firebaseChatListener: ListenerRegistration?
   private var firebaseRecentMessageListener: ListenerRegistration?
   
-  func saveMessage(textMessage: String, recipientUserId: String, completionHandler: @escaping(Bool, String?) -> Void) {
-    
-    guard let senderUserId = auth.currentUser?.uid else { return }
-    
-    let document = db.collection(MessageConstant.messages)
-      .document(senderUserId)
-      .collection(recipientUserId)
-      .document()
-    
-    let message = ChatMessage(id: nil, senderUserId: senderUserId, recipientUserId: recipientUserId, text: textMessage, timestamp: Date())
-    try? document.setData(from: message) { error in
-      if let error = error {
-        return completionHandler(false, error.localizedDescription)
-      }
-    }
-    
-    let recipientCopyMessage = db.collection(MessageConstant.messages)
-      .document(recipientUserId)
-      .collection(senderUserId)
-      .document()
-    
-    try? recipientCopyMessage.setData(from: message) { error in
-      return completionHandler(false, error?.localizedDescription)
-    }
-    
-    return completionHandler(true, nil)
-    
+  //
+  // MARK: - Internal Methods
+  //
+  func stopChatListening() {
+    firebaseChatListener?.remove()
   }
   
-  func saveRecentMessage(textMessage: String, senderUser: UserRegistered, recipientUser: UserDetails, completionHandler: @escaping(Bool, String?) -> Void) {
-    
-    guard let senderUserId = auth.currentUser?.uid else { return }
-    
-    let document = db.collection(MessageConstant.recentMessages)
-      .document(senderUserId)
-      .collection(MessageConstant.messages)
-      .document(recipientUser.id)
-    
-    let message = RecentMessage(id: nil, text: textMessage, senderUserId: senderUserId, recipientUserId: recipientUser.id, timestamp: Date(), profileImageUrl: recipientUser.profileImageUrl, pseudo: recipientUser.pseudo, isAdmin: recipientUser.isAdmin)
-    
-    try? document.setData(from: message) { error in
-      if let error = error {
-        return completionHandler(false, error.localizedDescription)
-      }
-    }
-    
-    let recipientCopyDocument = db.collection(MessageConstant.recentMessages)
-      .document(recipientUser.id)
-      .collection(MessageConstant.messages)
-      .document(senderUserId)
-    
-    let recipientCopyMessage = RecentMessage(id: nil, text: textMessage, senderUserId: senderUserId, recipientUserId: recipientUser.id, timestamp: Date(), profileImageUrl: senderUser.profileImageUrl, pseudo: senderUser.pseudo, isAdmin: senderUser.isAdmin)
-    
-    try? recipientCopyDocument.setData(from: recipientCopyMessage) { error in
-      return completionHandler(false, error?.localizedDescription)
-    }
-    
-    return completionHandler(true, nil)
+  func stopRecentMessageListening() {
+    firebaseRecentMessageListener?.remove()
   }
   
   func fetchSpecificUser(selectedUser: String, completionHandler: @escaping(UserRegistered?, String?) -> Void) {
@@ -119,14 +76,6 @@ class FirebaseChatServices {
       }
   }
   
-  func stopChatListening() {
-    firebaseChatListener?.remove()
-  }
-  
-  func stopRecentMessageListening() {
-    firebaseRecentMessageListener?.remove()
-  }
-  
   func fetchRecentMessages(currentUser: UserRegistered, listen: Listener) {
     
     firebaseRecentMessageListener = db
@@ -150,5 +99,59 @@ class FirebaseChatServices {
       })
   }
   
+  func saveMessage(textMessage: String, recipientUserId: String, completionHandler: @escaping(Bool, String?) -> Void) {
+    
+    guard let senderUserId = auth.currentUser?.uid else { return }
+    let document = db.collection(MessageConstant.messages)
+      .document(senderUserId)
+      .collection(recipientUserId)
+      .document()
+    
+    let message = ChatMessage(id: nil, senderUserId: senderUserId, recipientUserId: recipientUserId, text: textMessage, timestamp: Date())
+    try? document.setData(from: message) { error in
+      if let error = error {
+        return completionHandler(false, error.localizedDescription)
+      }
+    }
+    
+    let recipientCopyMessage = db.collection(MessageConstant.messages)
+      .document(recipientUserId)
+      .collection(senderUserId)
+      .document()
+    try? recipientCopyMessage.setData(from: message) { error in
+      return completionHandler(false, error?.localizedDescription)
+    }
+    return completionHandler(true, nil)
+    
+  }
+  func saveRecentMessage(textMessage: String, senderUser: UserRegistered, recipientUser: UserDetails, completionHandler: @escaping(Bool, String?) -> Void) {
+    
+    guard let senderUserId = auth.currentUser?.uid else { return }
+    let document = db.collection(MessageConstant.recentMessages)
+      .document(senderUserId)
+      .collection(MessageConstant.messages)
+      .document(recipientUser.id)
+    
+    let message = RecentMessage(id: nil, text: textMessage, senderUserId: senderUserId, recipientUserId:
+                                  recipientUser.id, timestamp: Date(), profileImageUrl: recipientUser.profileImageUrl,
+                                pseudo: recipientUser.pseudo, isAdmin: recipientUser.isAdmin)
+    try? document.setData(from: message) { error in
+      if let error = error {
+        return completionHandler(false, error.localizedDescription)
+      }
+    }
+    let recipientCopyDocument = db.collection(MessageConstant.recentMessages)
+      .document(recipientUser.id)
+      .collection(MessageConstant.messages)
+      .document(senderUserId)
+    
+    let recipientCopyMessage = RecentMessage(id: nil, text: textMessage, senderUserId: senderUserId,
+                                             recipientUserId: recipientUser.id, timestamp: Date(), profileImageUrl: senderUser.profileImageUrl,
+                                             pseudo: senderUser.pseudo, isAdmin: senderUser.isAdmin)
+    try? recipientCopyDocument.setData(from: recipientCopyMessage) { error in
+      return completionHandler(false, error?.localizedDescription)
+    }
+    return completionHandler(true, nil)
+  }
 }
 

@@ -7,7 +7,11 @@
 
 import Foundation
 import FirebaseFirestoreSwift
+//
+// MARK: - Chat Message
+//
 
+/// It's the object message saved in Firebase and used for the chat function
 struct ChatMessage: Codable, Identifiable {
   
   @DocumentID var id: String?

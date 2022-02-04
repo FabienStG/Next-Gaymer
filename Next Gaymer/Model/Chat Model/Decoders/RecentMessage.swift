@@ -7,7 +7,11 @@
 
 import Foundation
 import FirebaseFirestoreSwift
+//
+// MARK: - RecentMessage
+//
 
+/// It's the object who save the last chat message send for the Recent Message view, and save into Firebase
 struct RecentMessage: Codable, Identifiable {
   
   @DocumentID var id: String?

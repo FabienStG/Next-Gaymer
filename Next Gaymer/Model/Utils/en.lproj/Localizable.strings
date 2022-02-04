@@ -38,14 +38,21 @@
 "registrateComplete" = "You are registered to this event.";
 "registrate" = "Registrate";
 "eventFull" = "This event is full.";
+"alreadyRegistrateEvent" = "You are already registrate to this event.";
+"noEvent" = "This event is no longer available.";
+"noMoreEvent" = "There is no event available for the moment.";
+"cancelRegistration" = "You've cancel your registration.";
+"availablePlaces" = "Available places:";
 
 "confirm" = "Confirm";
 "cancel" = "Cancel";
 
 "sendMessage" = "Send message";
 "profile" = "Profile";
+"noMessageAdmin" = "Actually no messages. You can send throught User's profiles.";
 "giveAdmin" = "Give admin access";
 "validateAdmin" = "Admin access validation";
+"noUsers" = "No users list available for the moment.";
 
 "users" = "Users";
 

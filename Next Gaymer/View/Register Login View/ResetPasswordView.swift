@@ -10,7 +10,7 @@ import SwiftUI
 struct ResetPasswordView: View {
 
   @StateObject var resetPasswordModel = ResetPasswordViewModel()
-
+  
   var body: some View {
     VStack(spacing: 15) {
       LogoView(width: 150, height: 150)
@@ -22,12 +22,14 @@ struct ResetPasswordView: View {
       Button {
         resetPasswordModel.resetPassword()
       } label : {
-        ButtonTextView(status: $resetPasswordModel.requestStatus, text: NSLocalizedString("sendMail", comment: ""))
+        ButtonTextView(status: $resetPasswordModel.requestStatus,
+                       text: NSLocalizedString("sendMail", comment: ""))
       }
       Spacer()
     }
     .padding()
-    .alert(resetPasswordModel.errorMessage, isPresented: $resetPasswordModel.showAlert) {}
+    .alert(resetPasswordModel.errorMessage,
+           isPresented: $resetPasswordModel.showAlert) {}
   }
 }
 

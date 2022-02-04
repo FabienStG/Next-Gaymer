@@ -18,13 +18,17 @@ struct EventCreationAdminView: View {
       Form {
         HStack {
           Spacer()
-          BannerPickerView(changeProfileImage: $eventCreationModel.changeBannerImage, openCameraRool: $eventCreationModel.openCameraRoll, imageSelected: $eventCreationModel.image)
+          BannerPickerView(changeProfileImage: $eventCreationModel.changeBannerImage,
+                           openCameraRool: $eventCreationModel.openCameraRoll,
+                           imageSelected: $eventCreationModel.image)
           Spacer()
         }
         .listRowBackground(Color(UIColor.systemGroupedBackground))
         Section {
-          TextField(NSLocalizedString("eventName", comment: ""), text: $eventCreationModel.eventName)
-          TextField(NSLocalizedString("volunter", comment: ""), text: $eventCreationModel.madeBy)
+          TextField(NSLocalizedString("eventName", comment: ""),
+                    text: $eventCreationModel.eventName)
+          TextField(NSLocalizedString("volunter", comment: ""),
+                    text: $eventCreationModel.madeBy)
           Picker("isOnline", selection: $eventCreationModel.isOffline) {
             Text(NSLocalizedString("online", comment: "")).tag(false)
             Text(NSLocalizedString("offline", comment: "")).tag(true)
@@ -35,8 +39,10 @@ struct EventCreationAdminView: View {
         }
         if eventCreationModel.isOffline {
           Section {
-            TextField(NSLocalizedString("place", comment: ""), text: $eventCreationModel.location)
-            TextField(NSLocalizedString("town", comment: ""), text: $eventCreationModel.town)
+            TextField(NSLocalizedString("place", comment: ""),
+                      text: $eventCreationModel.location)
+            TextField(NSLocalizedString("town", comment: ""),
+                      text: $eventCreationModel.town)
             VStack {
               HStack {
                 Text("min: 10")
@@ -53,9 +59,7 @@ struct EventCreationAdminView: View {
           }
         }
         Section {
-          DatePicker("Date :", selection: $eventCreationModel.date, displayedComponents: [.date])
-          DatePicker(NSLocalizedString("startHour", comment: ""), selection: $eventCreationModel.startHour, displayedComponents: [.hourAndMinute])
-          DatePicker(NSLocalizedString("endHour", comment: ""), selection: $eventCreationModel.endHour, displayedComponents: [.hourAndMinute])
+          DatePicker("Date :", selection: $eventCreationModel.date)
         } header : {
           Text(NSLocalizedString("dateTime", comment: ""))
         }
@@ -67,21 +71,15 @@ struct EventCreationAdminView: View {
         Button {
           eventCreationModel.showConfirmation.toggle()
         } label: {
-          Text(NSLocalizedString("createEvent", comment: ""))
-            .font(.title3)
-            .foregroundColor(.white)
-            .multilineTextAlignment(.center)
-            .padding()
-            .frame(width: 200, height: 46)
-            .background(Color.blue)
-            .cornerRadius(15.0)
-          
+          ButtonTextView(status: $eventCreationModel.requestStatus,
+                         text: NSLocalizedString("createEvent", comment: ""))
         }
         .frame(maxWidth: .infinity, alignment: .center)
         .listRowBackground(Color(UIColor.systemGroupedBackground))
       }
       .alert(eventCreationModel.alertMessage, isPresented: $eventCreationModel.showAlert) {}
-      .confirmationDialog(NSLocalizedString("confirm", comment: "") + " ?", isPresented: $eventCreationModel.showConfirmation) {
+      .confirmationDialog(NSLocalizedString("confirm", comment: "") + " ?",
+                          isPresented: $eventCreationModel.showConfirmation) {
         Button(role: .cancel) {} label: {
           Text(NSLocalizedString("cancel", comment: ""))
         }
@@ -90,11 +88,6 @@ struct EventCreationAdminView: View {
         } label: {
           Text(NSLocalizedString("createEvent", comment: ""))
         }
-      }
-    }
-    .onReceive(eventCreationModel.$requestStatus) { newValue in
-      if eventCreationModel.requestStatus == .success {
-        self.presentationMode.wrappedValue.dismiss()
       }
     }
   }

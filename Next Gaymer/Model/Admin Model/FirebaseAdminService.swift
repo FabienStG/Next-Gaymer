@@ -8,16 +8,37 @@
 import Firebase
 import FirebaseFirestoreSwift
 import Foundation
+//
+// MARK: - Firebase Admin Services
+//
 
+/// This class provide all the calls used for the admin' only function
 class FirebaseAdminService {
-  
+  //
+  // MARK: - Private Constant
+  //
   private let auth = Auth.auth()
   private let db = Firestore.firestore()
+  
+  //
+  // MARK: - Internal Methods
+  //
+  func setUserAdminCredentials(userId: String, completionHandler: @escaping(String) -> Void) {
+    
+    let userRef = db.collection(UserConstant.users).document(userId)
+    userRef.updateData([
+      "isAdmin": true]) { error in
+        if let error = error {
+          return completionHandler(error.localizedDescription)
+        } else {
+          return completionHandler(NSLocalizedString("modificationComplete", comment: ""))
+        }
+      }
+  }
   
   func fetchAllUsers(successHandler: @escaping ([UserRegistered]) -> Void, errorHandler: @escaping(String) -> Void) {
     
     var usersResponse = [UserRegistered]()
-    
     db.collection(UserConstant.users).getDocuments { documentsSnapshot, error in
       if let error = error {
         return errorHandler(error.localizedDescription)
@@ -35,33 +56,12 @@ class FirebaseAdminService {
     }
   }
   
-  func setUserAdminCredentials(userId: String, completionHandler: @escaping(String) -> Void) {
-    
-    let userRef = db.collection(UserConstant.users).document(userId)
-    
-    userRef.updateData([
-      "isAdmin": true]) { error in
-        if let error = error {
-          return completionHandler(error.localizedDescription)
-        } else {
-          return completionHandler(NSLocalizedString("modificationComplete", comment: ""))
-        }
-      }
-  }
-  
-  func updateUserInfo(userInfo: [String: Any], completionHandler: @escaping(Bool, String) -> Void) {
-    
-    guard let userId = auth.currentUser?.uid else { return }
-    let userRef = db.collection(UserConstant.users).document(userId)
-    
-    userRef.updateData(userInfo) { error in
-      if let error = error {
-        return completionHandler(false, error.localizedDescription)
-      } else {
-        return completionHandler(true, NSLocalizedString("modificationComplete", comment: ""))
-      }
-    }
-  }
+
+  ///
+  ///
+  /// A COMPLETER FONCTIONS DE  RECUPERATION UTILISATEURS
+  ///
+
   
   func fetchEventRegistrants(event: EventCreated, completionHandler: @escaping(Bool, String) -> Void) {
     

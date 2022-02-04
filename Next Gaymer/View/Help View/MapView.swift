@@ -12,22 +12,23 @@ struct MapView: View {
   
   @StateObject var mapModel = MapViewModel()
   
-    var body: some View {
-      Map(coordinateRegion: $mapModel.region, showsUserLocation: true, annotationItems: mapModel.locations) { annotation in
-        MapAnnotation(coordinate: annotation.coordinate) {
-          PlaceAnnotationView(location: annotation)
-        }
+  var body: some View {
+    Map(coordinateRegion: $mapModel.region, showsUserLocation: true,
+        annotationItems: mapModel.locations) { annotation in
+      MapAnnotation(coordinate: annotation.coordinate) {
+        PlaceAnnotationView(location: annotation)
       }
-        .ignoresSafeArea()
-        .tint(Color("Purple"))
-        .onAppear {
-          mapModel.checkIfLocationServicesIsEnabled()
-        }
     }
+    .ignoresSafeArea()
+    .tint(Color("Purple"))
+    .onAppear {
+      mapModel.checkIfLocationServicesIsEnabled()
+    }
+  }
 }
 
 struct MapView_Previews: PreviewProvider {
-    static var previews: some View {
-        MapView()
-    }
+  static var previews: some View {
+    MapView()
+  }
 }

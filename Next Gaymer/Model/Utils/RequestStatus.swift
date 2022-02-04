@@ -6,7 +6,11 @@
 //
 
 import Foundation
+//
+// MARK: - Request Status
+//
 
+/// Enum used by the ViewModels to switch status dependly on the API callback
 enum RequestStatus {
 
   case initial

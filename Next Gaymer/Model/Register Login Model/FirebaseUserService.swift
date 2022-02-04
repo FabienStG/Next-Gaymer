@@ -9,31 +9,27 @@ import UIKit
 import Firebase
 import FirebaseFirestoreSwift
 import GoogleSignIn
-import simd
 
+//
+// MARK: - Firebase User Services
+//
+
+/// This class manage all the calls used for manage users, from account creation, login, update and delete account
 class FirebaseUserService {
-
+  //
+  // MARK: - Private Constants
+  //
   private let db = Firestore.firestore()
   private let auth = Auth.auth()
   private let storage = Storage.storage()
   
-  func fetchCurrentUser(successHandler: @escaping(UserRegistered) -> Void, errorHandler: @escaping(String) -> Void) {
-    guard let userId = auth.currentUser?.uid else { return }
-    let docRef = db.collection(UserConstant.users).document(userId)
-    
-    docRef.getDocument { document, error in
-      if let error = error {
-        return errorHandler(error.localizedDescription)
-      }
-      guard let document = document, document.exists else {
-        return errorHandler(NSLocalizedString("failFindUser", comment: ""))
-      }
-      if let user = try? document.data(as: UserRegistered.self) {
-        return successHandler(user)
-      }
-    }
-  }
-
+  //
+  // MARK: - Internal Methods
+  //
+  
+  ///
+  /// Account Creation
+  ///
   func createUser(userEmail: String, userPassword: String, completionHandler: @escaping(Bool, String?) -> Void) {
 
     auth.createUser(withEmail: userEmail, password: userPassword) { authResult, error in
@@ -76,26 +72,30 @@ class FirebaseUserService {
     }
   }
   
-  func loginUser(userEmail: String, userPassword: String, completionHandler: @escaping(Bool, String?) -> Void) {
+  func registrateUser(with user: UserForm, image: UIImage, completionHandler: @escaping(Bool, String?) -> Void) {
 
-    auth.signIn(withEmail: userEmail, password: userPassword) { authResult, error in
-      guard authResult != nil, error == nil else {
-        let errorMessage = error?.localizedDescription ?? NSLocalizedString("failLogUser", comment: "")
-        return completionHandler(false, errorMessage)
-      }
-
-      DispatchQueue.main.async {
-        switch authResult {
-        case .none:
-          let errorMessage = error?.localizedDescription ?? NSLocalizedString("failLogUser", comment: "")
-          return completionHandler(false, errorMessage)
-        case .some(_):
+    guard let userId = auth.currentUser?.uid else { return }
+    saveProfileImage(image: image) { result, url in
+      if result {
+  
+        let userRegistered = UserRegistered(id: userId, name: user.name, surname: user.surname,
+                                            pseudo: user.pseudo, profileImageUrl: url, email: user.email,
+                                            phoneNumber: user.phoneNumber, discordPseudo: user.discordPseudo,
+                                            street: user.street, zipCode: user.zipCode, city: user.city,
+                                            isAdmin: false, myEvent: [])
+        
+        try? self.db.collection(UserConstant.users).document(userId).setData(from: userRegistered) { error in
+          if let error = error {
+            return completionHandler(false, error.localizedDescription)
+          }
           return completionHandler(true, nil)
         }
+      } else {
+       return completionHandler(false, url)
       }
     }
   }
-
+  
   func googleLoginUser(completionHandler: @escaping(Bool, String) -> Void) {
 
     guard let clientID = FirebaseApp.app()?.options.clientID else { return }
@@ -129,6 +129,29 @@ class FirebaseUserService {
       }
     }
   }
+  
+  ///
+  /// Login and logout
+  ///
+  func loginUser(userEmail: String, userPassword: String, completionHandler: @escaping(Bool, String?) -> Void) {
+
+    auth.signIn(withEmail: userEmail, password: userPassword) { authResult, error in
+      guard authResult != nil, error == nil else {
+        let errorMessage = error?.localizedDescription ?? NSLocalizedString("failLogUser", comment: "")
+        return completionHandler(false, errorMessage)
+      }
+
+      DispatchQueue.main.async {
+        switch authResult {
+        case .none:
+          let errorMessage = error?.localizedDescription ?? NSLocalizedString("failLogUser", comment: "")
+          return completionHandler(false, errorMessage)
+        case .some(_):
+          return completionHandler(true, nil)
+        }
+      }
+    }
+  }
 
   func logoutUser(completionHandler: @escaping(Bool, String?) -> Void) {
 
@@ -152,22 +175,22 @@ class FirebaseUserService {
     }
   }
 
-  func registrateUser(with user: UserForm, image: UIImage, completionHandler: @escaping(Bool, String?) -> Void) {
-
+  ///
+  /// Account management
+  ///
+  func fetchCurrentUser(successHandler: @escaping(UserRegistered) -> Void, errorHandler: @escaping(String) -> Void) {
     guard let userId = auth.currentUser?.uid else { return }
-    saveProfileImage(image: image) { result, url in
-      if result {
-  
-        let userRegistered = UserRegistered(id: userId, name: user.name, surname: user.surname, pseudo: user.pseudo, profileImageUrl: url, email: user.email, phoneNumber: user.phoneNumber, discordPseudo: user.discordPseudo, street: user.street, zipCode: user.zipCode, city: user.city, isAdmin: false)
-        
-        try? self.db.collection(UserConstant.users).document(userId).setData(from: userRegistered) { error in
-          if let error = error {
-            return completionHandler(false, error.localizedDescription)
-          }
-          return completionHandler(true, nil)
-        }
-      } else {
-       return completionHandler(false, url)
+    let docRef = db.collection(UserConstant.users).document(userId)
+    
+    docRef.getDocument { document, error in
+      if let error = error {
+        return errorHandler(error.localizedDescription)
+      }
+      guard let document = document, document.exists else {
+        return errorHandler(NSLocalizedString("failFindUser", comment: ""))
+      }
+      if let user = try? document.data(as: UserRegistered.self) {
+        return successHandler(user)
       }
     }
   }
@@ -175,7 +198,6 @@ class FirebaseUserService {
   func deleteCurrentUser(completionHandler: @escaping(Bool, String?) -> Void) {
     
     guard let user = auth.currentUser else { return }
-    
     db.collection(UserConstant.users).document(user.uid).delete() { error in
       if let error = error {
         return completionHandler(false, error.localizedDescription)
@@ -193,4 +215,25 @@ class FirebaseUserService {
     }
     return completionHandler(true, nil)
   }
+  
+  func updateUserInfo(userInfo: [String: Any], completionHandler: @escaping(Bool, String) -> Void) {
+    
+    guard let userId = auth.currentUser?.uid else { return }
+    let userRef = db.collection(UserConstant.users).document(userId)
+    
+    userRef.updateData(userInfo) { error in
+      if let error = error {
+        return completionHandler(false, error.localizedDescription)
+      } else {
+        return completionHandler(true, NSLocalizedString("modificationComplete", comment: ""))
+      }
+    }
+  }
+  
+  func addEventToUSer(eventId: String) {
+    guard let userId = auth.currentUser?.uid else { return }
+    db.collection(UserConstant.users).document(userId).updateData([
+      "myEvent": FieldValue.arrayUnion([eventId])])
+  }
 }
+

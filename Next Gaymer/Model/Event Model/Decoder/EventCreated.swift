@@ -6,7 +6,11 @@
 //
 
 import Foundation
+//
+// MARK: - Event Created
+//
 
+/// Combine with the Event Form struct and other data, it's the final object stored in Firebase for Events
 struct EventCreated: Codable, Identifiable {
   
   let id: String
@@ -14,31 +18,17 @@ struct EventCreated: Codable, Identifiable {
   let eventName: String
   let isOffline: Bool
   let date: Date
-  let startHour: Date
-  let endHour: Date
   let location: String
   let town: String
   let madeBy: String
   let description: String
   let maximumPlaces: Int
-  let takenPlaces: Int
-  let registrant: [String]
+  var takenPlaces: Int
+  var registrant: [UserDetails]
   
   var dateString: String {
     let formatter = DateFormatter()
     formatter.dateStyle = .medium
     return formatter.string(from: date)
-  }
-  
-  var startHourString: String {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    return formatter.string(from: startHour)
-  }
-  
-  var endHourString: String {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    return formatter.string(from: endHour)
   }
 }

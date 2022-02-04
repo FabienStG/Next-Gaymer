@@ -10,38 +10,39 @@ import SDWebImageSwiftUI
 
 struct EventView: View {
   
-  @Binding var event: EventCreated
+  var event: EventCreated
   
     var body: some View {
-      ZStack {
+      VStack {
         WebImage(url: URL(string: event.imageUrl))
           .resizable()
-          .aspectRatio(contentMode: .fill)
-          .frame(maxWidth: .infinity, maxHeight: 100)
-          .clipped()
-        if !event.isOffline {
-          HStack {
-            Spacer()
-            VStack {
-              Spacer()
-            Image("Twitch logo")
-              .resizable()
-              .aspectRatio(contentMode: .fit)
-              .background(Color(.white))
-              .frame(width: 70, height: .infinity)
-              .cornerRadius(5)
-            }
+          .scaledToFill()
+          .frame(width: 250, height: 150)
+          .cornerRadius(12)
+        Text(event.eventName)
+          .font(.title2)
+          .fontWeight(.semibold)
+          .multilineTextAlignment(.center)
+          .padding(.horizontal)
+        VStack(spacing: 15) {
+          Text(event.date.formatted())
+          if event.isOffline {
+          Text(NSLocalizedString("availablePlaces", comment: "") +
+               " \(event.maximumPlaces - event.takenPlaces)" )
+              .font(.title3)
           }
-          .frame(height: 80)
         }
-        Text(event.date.formatted())
-          .foregroundColor(.white)
+        Spacer()
+        Text(event.description)
+          .font(.body)
+          .padding()
+        Spacer()
       }
     }
 }
 
 struct EventView_Previews: PreviewProvider {
     static var previews: some View {
-      EventView(event: .constant(FakePreviewData.fakeOnlineEvent))
+      EventView(event: FakePreviewData.fakeOnlineEvent)
     }
 }

@@ -11,47 +11,34 @@ import SDWebImageSwiftUI
 struct EventDetailView: View {
   
   @EnvironmentObject var currentUser: CurrentUserViewModel
-  @StateObject var eventDetailModel = EventDetailViewModel()
-  
-  var event: EventCreated
+  @StateObject var eventDetailModel: EventDetailViewModel
   
     var body: some View {
       VStack {
-        Spacer()
-        WebImage(url: URL(string: event.imageUrl))
-          .resizable()
-          .scaledToFill()
-          .frame(width: 250, height: 150)
-          .cornerRadius(12)
-        Text(event.eventName)
-          .font(.title2)
-          .fontWeight(.semibold)
-          .multilineTextAlignment(.center)
-          .padding(.horizontal)
-        HStack {
-          Text(event.dateString + " " + NSLocalizedString("at", comment:""))
-        }
-        Text(event.description)
-          .font(.body)
-          .padding()
-        Spacer()
+        EventView(event: eventDetailModel.event)
+     
         Button {
-          eventDetailModel.registrateUserToEvent(currentUser: currentUser.currentUser!, event: event)
+          eventDetailModel.registrateUserToEvent(currentUser: currentUser.currentUser!,
+                                                 event: eventDetailModel.event)
         } label: {
-          Text(NSLocalizedString("registrate", comment: ""))
-            .bold()
+          ButtonTextView(status: $eventDetailModel.requestStatus,
+                         text: NSLocalizedString("registrate", comment: ""))
         }
-        .frame(width: 150, height: 50)
-        .foregroundColor(.white)
-        .background(Color(.blue))
-        .cornerRadius(10)
+        .disabled(eventDetailModel.disableButton)
       }
       .alert(eventDetailModel.alertMessage, isPresented: $eventDetailModel.showAlert) {}
+      .onReceive(eventDetailModel.$requestStatus) { newValue in
+        if eventDetailModel.requestStatus == .success {
+          currentUser.fetchCurrentUser()
+        }
+      }
     }
 }
 
 struct EventDetailView_Previews: PreviewProvider {
     static var previews: some View {
-      EventDetailView(event: FakePreviewData.fakeOnlineEvent).environmentObject(FakePreviewData.currentUser)
+      EventDetailView(eventDetailModel:
+                        EventDetailViewModel(event: FakePreviewData.fakeOnlineEvent))
+        .environmentObject(FakePreviewData.currentUser)
     }
 }

@@ -13,40 +13,52 @@ struct EventListView: View {
   
   var body: some View {
     NavigationView {
-      VStack(alignment: .trailing) {
-        HStack() {
+      
+      List(eventListModel.eventList.sorted(by:
+                                            { $0.date.compare($1.date) == .orderedAscending }
+                                          ), id: \.id) { event in
+        NavigationLink {
+          EventDetailView(eventDetailModel: EventDetailViewModel(event: event))
+        } label: {
+          EventViewCell(event: event)
+        }
+      }
+      .refreshable {
+        eventListModel.fetchEventList()
+      }
+      .listStyle(.plain)
+      .modifier(EmptyDataModifier(
+        items: eventListModel.eventList,
+        placeholder: Text(NSLocalizedString("noMoreEvent", comment: ""))))
+      
+      .navigationTitle(NSLocalizedString("events", comment: ""))
+      .toolbar {
+        ToolbarItem(placement: .navigationBarTrailing) {
+          NavigationLink {
+            MyEventListView()
+          } label: {
+            Text(NSLocalizedString("myEvents", comment: ""))
+          }
+        }
+        ToolbarItem(placement: .navigationBarLeading) {
           if currentUser.currentUser?.isAdmin ?? false {
             NavigationLink {
               EventCreationAdminView()
             } label: {
-              Text(NSLocalizedString("createEvent", comment: ""))
-                .padding(.leading)
+              Image(systemName: "plus")
             }
-            Spacer()
-          }
-          NavigationLink {
-            //
-          } label: {
-            Text(NSLocalizedString("myEvents", comment: ""))
-          }
-          .padding(.trailing)
-        }
-        List(eventListModel.eventList, id: \.id) { event in
-          NavigationLink {
-            EventDetailView(event: event)
-          } label: {
-            EventViewCell(event: event)
           }
         }
-        .listStyle(.plain)
       }
-      .navigationTitle(NSLocalizedString("events", comment: ""))
     }
+    .navigationViewStyle(.stack)
+    .alert(eventListModel.errorMessage, isPresented: $eventListModel.showAlert) {}
     .onAppear {
       eventListModel.fetchEventList()
     }
   }
 }
+
 
 struct EventListView_Previews: PreviewProvider {
   static var previews: some View {

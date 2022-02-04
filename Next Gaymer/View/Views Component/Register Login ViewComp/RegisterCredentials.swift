@@ -35,6 +35,7 @@ struct RegisterCredentials: View {
 
 struct SignUpCredentials_Previews: PreviewProvider {
   static var previews: some View {
-    RegisterCredentials(email: .constant(""), password: .constant(""), passwordConfirmation: .constant(""))//.previewLayout(.sizeThatFits)
+    RegisterCredentials(email: .constant(""), password: .constant(""),
+                        passwordConfirmation: .constant(""))
   }
 }

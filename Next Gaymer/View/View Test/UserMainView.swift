@@ -1,5 +1,5 @@
 //
-//  UserView.swift
+//  UserLimitedView.swift
 //  Next Gaymer
 //
 //  Created by Fabien Saint Germain on 22/01/2022.

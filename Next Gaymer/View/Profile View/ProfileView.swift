@@ -16,21 +16,18 @@ struct ProfileView: View {
   let firebase = FirebaseUserService()
 
   var body: some View {
-
     VStack {
-      Text(currentUser.currentUser!.name)
+      UserView(currentUser: currentUser.currentUser!)
       Button {
-        //
-      } label: {
-        Text(NSLocalizedString("showProfile", comment: ""))
-      }
-      Button(NSLocalizedString("logout", comment: "")) {
         logoutModel.logoutUser()
         if logoutModel.requestStatus == .success {
           withAnimation {
             viewRouter.currentPage = .loggedOut
           }
         }
+      } label: {
+        ButtonTextView(status: $logoutModel.requestStatus,
+                       text: NSLocalizedString("logout", comment: ""))
       }
     }
     .alert(logoutModel.errorMessage, isPresented: $logoutModel.showAlert) {}

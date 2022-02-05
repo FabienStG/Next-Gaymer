@@ -21,7 +21,6 @@ struct CredentialSwitcherView: View {
         TabBarAdminView()
           .environmentObject(currentUserModel)
       case false:
-        LoginView()
         TabBarUserView()
           .environmentObject(currentUserModel)
       default:

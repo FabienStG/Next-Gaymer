@@ -43,6 +43,7 @@ class RegisterViewModel: ObservableObject {
         self.showAlert.toggle()
         self.requestStatus = .fail
       } else {
+        print("success")
         self.requestStatus = .success
       }
     }

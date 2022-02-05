@@ -23,8 +23,10 @@ struct RegisterView: View {
         Section {
           TextField(NSLocalizedString("firstName", comment: ""),
                     text: $registerModel.name)
+            .disableAutocorrection(true)
           TextField(NSLocalizedString("lastName", comment: ""),
                     text: $registerModel.surname)
+            .disableAutocorrection(true)
           TextField(NSLocalizedString("phone", comment: ""),
                     text: $registerModel.phoneNumber)
             .keyboardType(.phonePad)
@@ -38,8 +40,10 @@ struct RegisterView: View {
         Section {
           TextField("Pseudo",
                     text: $registerModel.pseudo)
-          TextField("#0000Discord",
+            .disableAutocorrection(true)
+          TextField("Discord#0000",
                     text: $registerModel.discordPseudo)
+            .disableAutocorrection(true)
         } header: {
           Text(NSLocalizedString("network", comment: ""))
         }
@@ -82,7 +86,7 @@ struct RegisterView: View {
         // .disabled(registerModel.disableButton())
       }
       .onReceive(registerModel.$requestStatus) { newValue in
-        if registerModel.requestStatus == .success {
+        if newValue == .success {
           viewRouter.currentPage = .loggedIn
         }
       }

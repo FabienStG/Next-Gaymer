@@ -29,6 +29,7 @@ struct UserConstant {
   static let zipCode = "zipCode"
   static let city = "city"
   static let users = "users"
+  static let myEvent = "myEvent"
 }
 
 //
@@ -47,6 +48,8 @@ struct MessageConstant {
 struct EventConstant {
   
   static let events = "events"
+  static let takenPlaces = "takenPlaces"
+  static let registrant = "registrant"
   
 }
 

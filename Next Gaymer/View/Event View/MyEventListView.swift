@@ -9,20 +9,29 @@ import SwiftUI
 
 struct MyEventListView: View {
   
-  @EnvironmentObject var currentuser: CurrentUserViewModel
-  @StateObject var myEventModel = MyEventViewModel()
+  @StateObject var myEventModel = MyEventListViewModel()
   
   var body: some View {
-    List(myEventModel.myEventList, id: \.id) { event in
-      EventViewCell(event: event)
-    }
-    .refreshable {
-      myEventModel.fetchMyEventList(currentUser: currentuser.currentUser!)
-    }
-    .modifier(EmptyDataModifier(items: myEventModel.myEventList, placeholder: Text("Vide")))
-    .onAppear {
-      myEventModel.fetchMyEventList(
-        currentUser: currentuser.currentUser!)
+    NavigationView {
+      List(myEventModel.myEventList, id: \.id) { event in
+        NavigationLink {
+          MyEventDetailView(
+            myEventDetailModel: MyEventDetailViewModel(
+              selectedEvent: event))
+        } label: {
+          EventViewCell(event: event)
+        }
+      }
+      .navigationTitle(NSLocalizedString("myEvent", comment: ""))
+      .navigationBarTitleDisplayMode(.inline)
+      .navigationViewStyle(.stack)
+      .refreshable {
+        myEventModel.updateEvent()
+      }
+      .modifier(EmptyDataModifier(items: myEventModel.myEventList, placeholder: Text("Vide")))
+      .onAppear {
+        myEventModel.updateEvent()
+      }
     }
   }
 }

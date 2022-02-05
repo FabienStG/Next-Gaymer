@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct ChatLogAdminView: View {
+struct ChatLogView: View {
   
-  @StateObject var chatLogAdminModel = ChatLogAdminViewModel()
+  @StateObject var chatLogModel = ChatLogViewModel()
   @StateObject var selectedUser: SelectedUserViewModel
   @EnvironmentObject var currentUser: CurrentUserViewModel
   
@@ -17,7 +17,7 @@ struct ChatLogAdminView: View {
     VStack {
       ScrollView {
         VStack {
-          ForEach(chatLogAdminModel.chatMessages) { message in
+          ForEach(chatLogModel.chatMessages) { message in
             MessageView(message: message, currentUserId: currentUser.currentUser!.id)
           }
         }
@@ -25,35 +25,35 @@ struct ChatLogAdminView: View {
     }
     .safeAreaInset(edge: .bottom) {
       HStack {
-        TextField("Message", text: $chatLogAdminModel.chatText)
+        TextField("Message", text: $chatLogModel.chatText)
           .padding()
         Spacer()
         Button {
-          chatLogAdminModel.saveMessage(senderUser: currentUser.currentUser!,
+          chatLogModel.saveMessage(senderUser: currentUser.currentUser!,
                                         recipientUser: selectedUser.selectedUser)
         } label: {
           Text(NSLocalizedString("send", comment: ""))
             .foregroundColor(Color.blue)
             .padding()
         }
-        .disabled(chatLogAdminModel.disableButton())
+        .disabled(chatLogModel.disableButton())
       }
     }
     .onDisappear(perform: {
-      chatLogAdminModel.stopListening()
+      chatLogModel.stopListening()
     })
     .onAppear {
-      chatLogAdminModel.fetchMessages(senderUser: currentUser.currentUser!,
+      chatLogModel.fetchMessages(senderUser: currentUser.currentUser!,
                                       recipientUser: selectedUser.selectedUser)
     }
   }
 }
 
-struct ChatLogViewAdmin_Previews: PreviewProvider {
+struct ChatLogView_Previews: PreviewProvider {
   
   static var previews: some View {
     NavigationView {
-      ChatLogAdminView(selectedUser: FakePreviewData.selectedUser)
+      ChatLogView(selectedUser: FakePreviewData.selectedUser)
         .environmentObject(FakePreviewData.currentAdminUser)
     }
   }

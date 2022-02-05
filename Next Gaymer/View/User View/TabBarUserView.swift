@@ -29,7 +29,7 @@ struct TabBarUserView: View {
               .frame(maxWidth: .infinity, maxHeight: .infinity)
               .background(Color.black.opacity(0.04).ignoresSafeArea())
               .tag(Tab.event)
-            Text("Messagerie")
+            MainMessageView()
               .frame(maxWidth: .infinity, maxHeight: .infinity)
               .background(Color.black.opacity(0.04).ignoresSafeArea())
               .tag(Tab.message)
@@ -37,18 +37,16 @@ struct TabBarUserView: View {
               .frame(maxWidth: .infinity, maxHeight: .infinity)
               .background(Color.black.opacity(0.04).ignoresSafeArea())
               .tag(Tab.help)
-            Text("Profil")
+            ProfileView()
               .frame(maxWidth: .infinity, maxHeight: .infinity)
               .background(Color.black.opacity(0.04).ignoresSafeArea())
               .tag(Tab.profile)
           }
         
-        
         CustomTabBar(animation: animation, size: size, bottomEdge: bottomEdge)
           .background(Color.white)
       }
     }
-    
     .ignoresSafeArea(.all, edges: .bottom)
   }
 }

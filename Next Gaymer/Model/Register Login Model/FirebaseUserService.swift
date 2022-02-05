@@ -82,7 +82,7 @@ class FirebaseUserService {
                                             pseudo: user.pseudo, profileImageUrl: url, email: user.email,
                                             phoneNumber: user.phoneNumber, discordPseudo: user.discordPseudo,
                                             street: user.street, zipCode: user.zipCode, city: user.city,
-                                            isAdmin: false, myEvent: [])
+                                            isAdmin: false, myEvent: [EventCreated]())
         
         try? self.db.collection(UserConstant.users).document(userId).setData(from: userRegistered) { error in
           if let error = error {
@@ -230,10 +230,39 @@ class FirebaseUserService {
     }
   }
   
-  func addEventToUSer(eventId: String) {
+  func addEventToUSer(event: EventCreated) {
+    
     guard let userId = auth.currentUser?.uid else { return }
     db.collection(UserConstant.users).document(userId).updateData([
-      "myEvent": FieldValue.arrayUnion([eventId])])
+      UserConstant.myEvent: FieldValue.arrayUnion(convertEventToData(event: event))])
+  }
+  
+  func removeEventToUser(event: EventCreated) {
+    
+    guard let userId = auth.currentUser?.uid else { return }
+    db.collection(UserConstant.users).document(userId).updateData([
+      UserConstant.myEvent: FieldValue.arrayRemove(self.convertEventToData(event: event))])
+  }
+  
+  private func convertEventToData(event: EventCreated) -> [Any] {
+    
+    var packedEvent = [Any]()
+    let jsonData = (try? JSONEncoder().encode(event))!
+    let jsonObject = (try? JSONSerialization.jsonObject(with: jsonData, options: []))!
+    packedEvent.append(jsonObject)
+    
+    return packedEvent
+  }
+  
+  func fetchMyEvent(completionHandler: @escaping([EventCreated], String?) -> Void) {
+    
+    guard let userId = auth.currentUser?.uid else { return }
+    db.collection(UserConstant.users).document(userId).getDocument { user, error in
+      let currentUser = try? user?.data(as: UserRegistered.self)
+      if let currentUser = currentUser {
+        return completionHandler(currentUser.myEvent, nil)
+      }
+      return completionHandler([], error?.localizedDescription)
+    }
   }
 }
-

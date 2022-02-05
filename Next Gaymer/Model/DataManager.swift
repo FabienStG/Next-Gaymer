@@ -233,18 +233,29 @@ class DataManager {
     firebaseEventService.checkIfEventAvailable(currentUser: currentUser, event: event) { checkResult, checkMessage in
       if checkResult {
         self.firebaseEventService.registrateUserForEvent(currentUser: currentUser, event: event) { result, message in
-          self.firebaseUserService.addEventToUSer(eventId: event.id)
+          self.firebaseUserService.addEventToUSer(event: event)
           return completionHandler(result, message)
         }
-      } else {
-        return completionHandler(checkResult, checkMessage ?? "problème")
+      } else if checkMessage != nil {
+        return completionHandler(checkResult, checkMessage!)
       }
     }
   }
   
-  func fetchMyEvent(currentUser: UserRegistered, completionHandler: @escaping([EventCreated], String?) -> Void) {
-    firebaseEventService.fetchMyEvent(currentUser: currentUser) { eventList, error in
-      return completionHandler(eventList, error)
+  func deleteUserFromEvent(currentUser: UserRegistered, event: EventCreated, completionHandler: @escaping(Bool, String) -> Void) {
+    
+    firebaseEventService.deleteUserFromEvent(currentUser: currentUser, event: event) { result, message in
+      if result {
+        self.firebaseUserService.removeEventToUser(event: event)
+        return completionHandler(result, message)
+      }
+      return completionHandler(result, message)
     }
   }
+  
+  func fetchMyEvents(completionHandler: @escaping([EventCreated], String?) -> Void) {
+    firebaseUserService.fetchMyEvent { myEvent, error in
+       return completionHandler(myEvent, error)
+      }
+    }
 }

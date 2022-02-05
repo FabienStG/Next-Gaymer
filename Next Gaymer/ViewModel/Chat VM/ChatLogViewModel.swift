@@ -6,9 +6,8 @@
 //
 
 import SwiftUI
-import Firebase
 
-class ChatLogAdminViewModel: ObservableObject {
+class ChatLogViewModel: ObservableObject {
   
   @Published var chatText = ""
   @Published var chatMessages = [ChatMessage]()
@@ -40,7 +39,7 @@ class ChatLogAdminViewModel: ObservableObject {
   }
 }
 
-extension ChatLogAdminViewModel: Listener {
+extension ChatLogViewModel: Listener {
   
   func haveChatMessage(_ message: ChatMessage) {
     chatMessages.append(message)

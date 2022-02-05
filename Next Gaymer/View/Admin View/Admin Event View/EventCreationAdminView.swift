@@ -90,6 +90,11 @@ struct EventCreationAdminView: View {
         }
       }
     }
+    .onReceive(eventCreationModel.$requestStatus) { newValue in
+      if newValue == .success {
+        presentationMode.wrappedValue.dismiss()
+      }
+    }
   }
 }
 

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class MainMessageAdminViewModel: ObservableObject {
+class MainMessageViewModel: ObservableObject {
   
   @Published var recentMessages = [RecentMessage]()
 
@@ -42,7 +42,7 @@ class MainMessageAdminViewModel: ObservableObject {
   }
 }
 
-extension MainMessageAdminViewModel: Listener {
+extension MainMessageViewModel: Listener {
   
   func haveChatMessage(_ message: ChatMessage) {}
   

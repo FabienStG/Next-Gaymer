@@ -41,8 +41,9 @@
 "alreadyRegistrateEvent" = "You are already registrate to this event.";
 "noEvent" = "This event is no longer available.";
 "noMoreEvent" = "There is no event available for the moment.";
-"cancelRegistration" = "You've cancel your registration.";
+"registrationCanceled" = "You've cancel your registration.";
 "availablePlaces" = "Available places:";
+"cancelRegistration" = "Cancel registration";
 
 "confirm" = "Confirm";
 "cancel" = "Cancel";

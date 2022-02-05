@@ -20,7 +20,7 @@ struct UserDetailsAdminView: View {
         .frame(maxWidth: .infinity, alignment: .leading)
       NavigationLink {
         withAnimation {
-          ChatLogAdminView(
+          ChatLogView(
             selectedUser: SelectedUserViewModel(
               selectedUser: userDetails.selectedUser))
         }

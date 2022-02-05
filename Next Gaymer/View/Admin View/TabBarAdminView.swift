@@ -29,7 +29,7 @@ struct TabBarAdminView: View {
               .frame(maxWidth: .infinity, maxHeight: .infinity)
               .background(Color.black.opacity(0.04).ignoresSafeArea())
               .tag(Tab.event)
-            MainMessageAdminView()
+            MainMessageView()
               .frame(maxWidth: .infinity, maxHeight: .infinity)
               .background(Color.black.opacity(0.04).ignoresSafeArea())
               .tag(Tab.message)

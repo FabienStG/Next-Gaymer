@@ -104,8 +104,8 @@ class FirebaseEventServices {
   func registrateUserForEvent(currentUser: UserRegistered, event: EventCreated, completionHandler: @escaping(Bool, String) -> Void) {
     
     db.collection(EventConstant.events).document(event.id).updateData([
-      "registrant": FieldValue.arrayUnion(self.convertUserToData(currentUser: currentUser)),
-      "takenPlaces": FieldValue.increment(Int64(1))
+      EventConstant.registrant: FieldValue.arrayUnion(self.convertUserToData(currentUser: currentUser)),
+      EventConstant.takenPlaces: FieldValue.increment(Int64(1))
     ]) { error in
       if let error = error {
         return completionHandler(false, error.localizedDescription)
@@ -115,34 +115,21 @@ class FirebaseEventServices {
   }
   
   func deleteUserFromEvent(currentUser: UserRegistered, event: EventCreated, completionHandler: @escaping(Bool, String) -> Void) {
+    
     db.collection(EventConstant.events).document(event.id).updateData([
-      "registrant": FieldValue.arrayRemove(self.convertUserToData(currentUser: currentUser)),
-      "takenPlace": FieldValue.increment(Int64(-1))
+      EventConstant.registrant: FieldValue.arrayRemove(self.convertUserToData(currentUser: currentUser)),
+      EventConstant.takenPlaces: FieldValue.increment(Int64(-1))
     ]) { error in
       if let error = error {
         return completionHandler(false, error.localizedDescription)
       }
-      return completionHandler(true, NSLocalizedString("cancelRegistration", comment: ""))
+      return completionHandler(true, NSLocalizedString("registrationCanceled", comment: ""))
     }
   }
-  
-  func fetchMyEvent(currentUser: UserRegistered, completionHandler: @escaping([EventCreated], String?) -> Void) {
-    
-    let myEventId = currentUser.myEvent
-    var returnedEventList = [EventCreated]()
-    myEventId.forEach { eventId in
-      
-      db.collection(EventConstant.events).document(eventId).getDocument { document, error in
-        let event = try? document?.data(as: EventCreated.self)
-        if let event = event {
-          returnedEventList.append(event)
-        }
-        return completionHandler(returnedEventList, error?.localizedDescription)
-      }
-    }
-    return completionHandler(returnedEventList, nil)
-}
-  
+
+  //
+  // MARK: - Private Method
+  //
   private func convertUserToData(currentUser: UserRegistered) -> [Any] {
 
     let packedUser = UserDetails(id: currentUser.id, pseudo: currentUser.pseudo, name: currentUser.name,

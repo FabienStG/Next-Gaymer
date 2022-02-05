@@ -41,8 +41,9 @@
 "alreadyRegistrateEvent" = "Vous êtes déjà inscrit à cet évènement.";
 "noEvent" = "Cet évènement n'est plus disponible.";
 "noMoreEvent" = "Il n'y a actuellement aucun évènement.";
-"cancelRegistration" = "Votre inscription a été annulée.";
+"registrationCanceled" = "Votre inscription a été annulée.";
 "availablePlaces" = "Places disponibles:";
+"cancelRegistration" = "Annuler mon inscription";
 
 "confirm" = "Confirmer";
 "cancel" = "Annuler";

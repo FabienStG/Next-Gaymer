@@ -25,5 +25,5 @@ struct UserRegistered: Codable {
   let zipCode: String
   let city: String
   let isAdmin: Bool
-  let myEvent: [String]
+  let myEvent: [EventCreated]
 }

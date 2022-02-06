@@ -12,7 +12,8 @@ struct MyEventDetailView: View {
   @StateObject var myEventDetailModel: MyEventDetailViewModel
   @EnvironmentObject var currentUser: CurrentUserViewModel
   
-    var body: some View {
+  var body: some View {
+    NavigationView {
       VStack {
         EventView(event: myEventDetailModel.selectedEvent)
         Button {
@@ -23,13 +24,26 @@ struct MyEventDetailView: View {
         }
       }
       .alert(myEventDetailModel.message, isPresented: $myEventDetailModel.showAlert) {}
+      .navigationTitle("Mon évènement")
+      .navigationBarTitleDisplayMode(.inline)
+      .toolbar {
+        ToolbarItem(placement: .navigationBarTrailing) {
+          Button {
+            myEventDetailModel.manageReminder()
+          } label: {
+            Image(systemName: myEventDetailModel.isReminderActive ? "bell.fill" : "bell.slash")
+          }
+        }
+      }
       .onReceive(myEventDetailModel.$requestStatus) { newValue in
         if myEventDetailModel.requestStatus == .success {
           currentUser.fetchCurrentUser()
         }
       }
     }
+  }
 }
+
 
 struct MyEventDetailView_Previews: PreviewProvider {
     static var previews: some View {

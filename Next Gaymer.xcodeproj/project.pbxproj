@@ -94,6 +94,9 @@
 		D1DA3904279EA01700A571E2 /* MainMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DA3903279EA01700A571E2 /* MainMessageView.swift */; };
 		D1DA87AC27A9648A006B0ED6 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DA87AB27A9648A006B0ED6 /* EventView.swift */; };
 		D1DA87AE27A969D6006B0ED6 /* EventViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DA87AD27A969D6006B0ED6 /* EventViewCell.swift */; };
+		D1DB73DE27AFD05400A80294 /* NotificationServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DB73DD27AFD05400A80294 /* NotificationServices.swift */; };
+		D1DB73E027AFDC4600A80294 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DB73DF27AFDC4600A80294 /* AppDelegate.swift */; };
+		D1DB73E227AFE08F00A80294 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DB73E127AFE08F00A80294 /* NotificationManager.swift */; };
 		D1EB16DA279DBF240043624F /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D1EB16D9279DBF240043624F /* FirebaseAuth */; };
 		D1EB16DC279DBF240043624F /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D1EB16DB279DBF240043624F /* FirebaseFirestore */; };
 		D1EB16DE279DBF240043624F /* FirebaseFirestoreSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = D1EB16DD279DBF240043624F /* FirebaseFirestoreSwift-Beta */; };
@@ -197,6 +200,9 @@
 		D1DA3903279EA01700A571E2 /* MainMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMessageView.swift; sourceTree = "<group>"; };
 		D1DA87AB27A9648A006B0ED6 /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
 		D1DA87AD27A969D6006B0ED6 /* EventViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewCell.swift; sourceTree = "<group>"; };
+		D1DB73DD27AFD05400A80294 /* NotificationServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationServices.swift; sourceTree = "<group>"; };
+		D1DB73DF27AFDC4600A80294 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D1DB73E127AFE08F00A80294 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		D1EB16E3279DF64C0043624F /* UsersListAdminView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListAdminView2.swift; sourceTree = "<group>"; };
 		D1EB16E7279E04480043624F /* UserDetailsAdminViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsAdminViewModel.swift; sourceTree = "<group>"; };
 		D1F555BC2791CA130005555A /* FirebaseUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUserService.swift; sourceTree = "<group>"; };
@@ -396,6 +402,7 @@
 				D17C1A442790C64B00EF0633 /* GoogleService-Info.plist */,
 				D14B897927902C76005FC4F0 /* Assets.xcassets */,
 				D14B897527902C75005FC4F0 /* Next_GaymerApp.swift */,
+				D1DB73DF27AFDC4600A80294 /* AppDelegate.swift */,
 				D1F555BB2791C9E00005555A /* Model */,
 				D1BF607B2790BE5200F22AAF /* ViewModel */,
 				D14B898A2790306C005FC4F0 /* View */,
@@ -653,6 +660,14 @@
 			path = "Chat Model";
 			sourceTree = "<group>";
 		};
+		D1DB73DC27AFD03400A80294 /* Notification Model */ = {
+			isa = PBXGroup;
+			children = (
+				D1DB73DD27AFD05400A80294 /* NotificationServices.swift */,
+			);
+			path = "Notification Model";
+			sourceTree = "<group>";
+		};
 		D1EB16E5279DFBD30043624F /* User Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -678,9 +693,11 @@
 				D1D66C71279C6CA500EEC95E /* Chat Model */,
 				D1EB16E5279DFBD30043624F /* User Model */,
 				D116C3D5279B5F37001CC51E /* Admin Model */,
+				D1DB73DC27AFD03400A80294 /* Notification Model */,
 				D116C3D4279B5EF6001CC51E /* Register Login Model */,
 				D1C46FD4279B1EC100833440 /* UserRegistered.swift */,
 				D1D66C6B279C1CF700EEC95E /* UserDetails.swift */,
+				D1DB73E127AFE08F00A80294 /* NotificationManager.swift */,
 				D1F555C02791CE9E0005555A /* DataManager.swift */,
 			);
 			path = Model;
@@ -787,6 +804,7 @@
 				D1F555C52791DECE0005555A /* RegisterViewModel.swift in Sources */,
 				D1BFA19C279EFD1B00FF0B47 /* MapView.swift in Sources */,
 				D1BF606D2790786B00F22AAF /* LoginCredentials.swift in Sources */,
+				D1DB73E227AFE08F00A80294 /* NotificationManager.swift in Sources */,
 				D1DA3902279E9BB600A571E2 /* MainMessagesViewModel.swift in Sources */,
 				D14D4DD227AD1FC900D8EB02 /* MyEventListViewModel.swift in Sources */,
 				D13820F727A7148E000BD371 /* EventRegisterAdminViewModel.swift in Sources */,
@@ -805,6 +823,7 @@
 				D1622F0C279617C700F6B461 /* ProfileView.swift in Sources */,
 				D1F555C32791DAEC0005555A /* MotherView.swift in Sources */,
 				D1F555C72791EF7E0005555A /* View Extension.swift in Sources */,
+				D1DB73E027AFDC4600A80294 /* AppDelegate.swift in Sources */,
 				D1D66C64279C123E00EEC95E /* UserMainView.swift in Sources */,
 				D1BFA1A2279EFF0500FF0B47 /* MainAdminView.swift in Sources */,
 				D15DC11627AC7C15001DCF1C /* RecentMessageAdminViewCell.swift in Sources */,
@@ -845,6 +864,7 @@
 				D1BFA196279EF90200FF0B47 /* EventCreationAdminView.swift in Sources */,
 				D1DA87AE27A969D6006B0ED6 /* EventViewCell.swift in Sources */,
 				D14B898E2790308A005FC4F0 /* LoginView.swift in Sources */,
+				D1DB73DE27AFD05400A80294 /* NotificationServices.swift in Sources */,
 				D14B897627902C75005FC4F0 /* Next_GaymerApp.swift in Sources */,
 				D11765AC27A9C71A0020131D /* Listener Protocol.swift in Sources */,
 				D1633E9F27AEBE7000B80FD7 /* RegistrantListAdminViewModel.swift in Sources */,

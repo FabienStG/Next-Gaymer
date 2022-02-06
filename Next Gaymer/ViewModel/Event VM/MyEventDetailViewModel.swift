@@ -13,6 +13,7 @@ class MyEventDetailViewModel: ObservableObject {
   @Published var message = ""
   @Published var showAlert = false
   @Published var requestStatus: RequestStatus = .initial
+  @Published var isReminderActive = false
   
   init(selectedEvent: EventCreated) {
     self.selectedEvent = selectedEvent
@@ -28,6 +29,16 @@ class MyEventDetailViewModel: ObservableObject {
       }
       self.message = message
       self.showAlert.toggle()
+    }
+  }
+  
+  func manageReminder() {
+    if !isReminderActive {
+      NotificationManager.shared.addNotification(event: selectedEvent)
+      self.isReminderActive.toggle()
+    } else if isReminderActive {
+      NotificationManager.shared.removeNotification(event: selectedEvent)
+      self.isReminderActive.toggle()
     }
   }
 }

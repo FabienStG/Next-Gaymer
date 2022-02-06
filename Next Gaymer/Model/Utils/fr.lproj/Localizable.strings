@@ -82,3 +82,5 @@
 "enterMail" = "Entrez le mail associé au compte";
 "sendMail" = "Envoyer le mail";
 "at" = "a";
+
+"notificationBody" = "Vous êtes inscrit à un évènement aujourd'hui. Ouvrez l'app Next Gaymer pour plus d'informations.";

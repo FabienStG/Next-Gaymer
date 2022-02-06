@@ -9,7 +9,6 @@ import SwiftUI
 import Firebase
 import FirebaseAuth
 import FirebaseStorage
-import GoogleSignIn
 
 @main
 struct Next_GaymerApp: App {
@@ -39,12 +38,5 @@ struct Next_GaymerApp: App {
     WindowGroup {
       MotherView().environmentObject(viewRouter).environmentObject(tabBarRouter)
     }
-  }
-}
-
-class AppDelegate: NSObject, UIApplicationDelegate {
-
-  func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any]) -> Bool {
-    return GIDSignIn.sharedInstance.handle(url)
   }
 }

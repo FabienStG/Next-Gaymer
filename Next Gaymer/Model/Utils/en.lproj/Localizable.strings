@@ -44,6 +44,7 @@
 "registrationCanceled" = "You've cancel your registration.";
 "availablePlaces" = "Available places:";
 "cancelRegistration" = "Cancel registration";
+"emptyEvent" = "You have no event registered.";
 
 "confirm" = "Confirm";
 "cancel" = "Cancel";
@@ -54,6 +55,7 @@
 "giveAdmin" = "Give admin access";
 "validateAdmin" = "Admin access validation";
 "noUsers" = "No users list available for the moment.";
+"noMessage" = "You can have any help from admin's team. Feel free to send message.";
 
 "users" = "Users";
 

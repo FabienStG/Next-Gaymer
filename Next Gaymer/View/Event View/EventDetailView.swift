@@ -25,7 +25,18 @@ struct EventDetailView: View {
                          text: NSLocalizedString("registrate", comment: ""))
         }
         .disabled(eventDetailModel.disableButton)
+        if currentUser.currentUser?.isAdmin ?? true {
+          
+          Button {
+            eventDetailModel.showRegistrants.toggle()
+          } label: {
+            Text("Liste des inscrits")
+          }
+        }
       }
+      .sheet(isPresented: $eventDetailModel.showRegistrants, content: {
+        RegistrantListAdminView(event: eventDetailModel.event)
+      })
       .alert(eventDetailModel.alertMessage, isPresented: $eventDetailModel.showAlert) {}
       .onReceive(eventDetailModel.$requestStatus) { newValue in
         if eventDetailModel.requestStatus == .success {

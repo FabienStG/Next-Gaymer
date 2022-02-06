@@ -26,7 +26,8 @@ struct MainMessageView: View {
       }
       .modifier(EmptyDataModifier(
         items: mainMessageModel.recentMessages,
-        placeholder: Text(NSLocalizedString("noMessageAdmin", comment: ""))
+        placeholder:
+            Text(NSLocalizedString("noMessage", comment: ""))
           .multilineTextAlignment(.center)))
       .background(
         NavigationLink(isActive: $mainMessageModel.isShowingLogchat) {

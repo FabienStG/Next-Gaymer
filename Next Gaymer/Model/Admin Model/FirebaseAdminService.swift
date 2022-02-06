@@ -55,15 +55,22 @@ class FirebaseAdminService {
       return successHandler(usersResponse)
     }
   }
-  
 
-  ///
-  ///
-  /// A COMPLETER FONCTIONS DE  RECUPERATION UTILISATEURS
-  ///
-
-  
-  func fetchEventRegistrants(event: EventCreated, completionHandler: @escaping(Bool, String) -> Void) {
+  func fetchEventRegistrants(event: EventCreated, successHandler: @escaping([UserDetails]) -> Void, errorHandler: @escaping(String) -> Void) {
     
+    db.collection(EventConstant.events).document(event.id).getDocument { document, error in
+      if let error = error {
+        return errorHandler(error.localizedDescription)
+      }
+      
+      guard let document = document else {
+        return errorHandler(error?.localizedDescription ?? "")
+      }
+      
+      let response = try? document.data(as: EventCreated.self)
+      if let response = response {
+        return successHandler(response.registrant)
+      }
+    }
   }
 }

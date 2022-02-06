@@ -126,6 +126,43 @@ class FirebaseEventServices {
       return completionHandler(true, NSLocalizedString("registrationCanceled", comment: ""))
     }
   }
+  
+  func fetchMyEvent(completionHandler: @escaping([EventCreated], String?) -> Void) {
+    let myGroup = DispatchGroup()
+    var eventResult = [EventCreated]()
+    guard let userId = auth.currentUser?.uid else { return }
+    
+    db.collection(UserConstant.users).document(userId).getDocument { user, error in
+      let currentUser = try? user?.data(as: UserRegistered.self)
+      if let currentUser = currentUser {
+        currentUser.myEvent.forEach { eventId in
+          myGroup.enter()
+          self.fetchEvent(eventId: eventId) { eventFetched in
+            eventResult.append(eventFetched)
+            myGroup.leave()
+          }
+        }
+        myGroup.notify(queue: .main) {
+          return completionHandler(eventResult, nil)
+        }
+      }
+      return completionHandler([], error?.localizedDescription)
+    }
+  }
+  
+  func addEventToUSer(event: EventCreated) {
+    
+    guard let userId = auth.currentUser?.uid else { return }
+    db.collection(UserConstant.users).document(userId).updateData([
+      UserConstant.myEvent: FieldValue.arrayUnion([event.id])])
+  }
+   
+  func removeEventToUser(event: EventCreated) {
+    
+    guard let userId = auth.currentUser?.uid else { return }
+    db.collection(UserConstant.users).document(userId).updateData([
+      UserConstant.myEvent: FieldValue.arrayRemove([event.id])])
+  }
 
   //
   // MARK: - Private Method
@@ -142,6 +179,18 @@ class FirebaseEventServices {
     user.append(jsonObject)
     
     return user
+  }
+  
+  private func fetchEvent(eventId: String, completionHandler: @escaping(EventCreated) -> Void) {
+    
+    db.collection(EventConstant.events).document(eventId).getDocument { document, error in
+      if let document = document {
+        guard let event = try? document.data(as: EventCreated.self) else { return }
+        //self.myGroup.leave()
+        return completionHandler(event)
+        
+      }
+    }
   }
 }
 

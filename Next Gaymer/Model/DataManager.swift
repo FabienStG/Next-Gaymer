@@ -162,6 +162,16 @@ class DataManager {
       return completionHandler(message)
     }
   }
+    
+    func fetchUserRegisterToEvent(event: EventCreated, successHandler: @escaping([UserDetails]) -> Void, errorHandler: @escaping(String) -> Void) {
+      firebaseAdminService.fetchEventRegistrants(event: event) { users in
+        return successHandler(users)
+      } errorHandler: { error in
+        return errorHandler(error)
+      }
+
+    }
+  
   
   //
   // MARK: - Internal Methods - Chat Services
@@ -233,7 +243,7 @@ class DataManager {
     firebaseEventService.checkIfEventAvailable(currentUser: currentUser, event: event) { checkResult, checkMessage in
       if checkResult {
         self.firebaseEventService.registrateUserForEvent(currentUser: currentUser, event: event) { result, message in
-          self.firebaseUserService.addEventToUSer(event: event)
+          self.firebaseEventService.addEventToUSer(event: event)
           return completionHandler(result, message)
         }
       } else if checkMessage != nil {
@@ -246,7 +256,7 @@ class DataManager {
     
     firebaseEventService.deleteUserFromEvent(currentUser: currentUser, event: event) { result, message in
       if result {
-        self.firebaseUserService.removeEventToUser(event: event)
+        self.firebaseEventService.removeEventToUser(event: event)
         return completionHandler(result, message)
       }
       return completionHandler(result, message)
@@ -254,7 +264,7 @@ class DataManager {
   }
   
   func fetchMyEvents(completionHandler: @escaping([EventCreated], String?) -> Void) {
-    firebaseUserService.fetchMyEvent { myEvent, error in
+    firebaseEventService.fetchMyEvent { myEvent, error in
        return completionHandler(myEvent, error)
       }
     }

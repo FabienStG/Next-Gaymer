@@ -28,10 +28,7 @@ struct MyEventListView: View {
       .refreshable {
         myEventModel.updateEvent()
       }
-      .modifier(EmptyDataModifier(items: myEventModel.myEventList, placeholder: Text("Vide")))
-      .onAppear {
-        myEventModel.updateEvent()
-      }
+      .modifier(EmptyDataModifier(items: myEventModel.myEventList, placeholder: Text(NSLocalizedString("emptyEvent", comment: ""))))
     }
   }
 }

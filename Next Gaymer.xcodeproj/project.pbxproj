@@ -43,6 +43,8 @@
 		D15DC11627AC7C15001DCF1C /* RecentMessageAdminViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15DC11527AC7C14001DCF1C /* RecentMessageAdminViewCell.swift */; };
 		D1622F0A2796058E00F6B461 /* CircleBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1622F092796058E00F6B461 /* CircleBackgroundView.swift */; };
 		D1622F0C279617C700F6B461 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1622F0B279617C500F6B461 /* ProfileView.swift */; };
+		D1633E9B27AEBD6400B80FD7 /* RegistrantListAdminView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1633E9A27AEBD6300B80FD7 /* RegistrantListAdminView.swift */; };
+		D1633E9F27AEBE7000B80FD7 /* RegistrantListAdminViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1633E9E27AEBE7000B80FD7 /* RegistrantListAdminViewModel.swift */; };
 		D17A9F8627AE7E6C00AA0B08 /* UserAdminListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17A9F8527AE7E6C00AA0B08 /* UserAdminListView.swift */; };
 		D17A9F8827AE7F8B00AA0B08 /* UserAdminListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17A9F8727AE7F8B00AA0B08 /* UserAdminListViewModel.swift */; };
 		D17C1A452790C64C00EF0633 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D17C1A442790C64B00EF0633 /* GoogleService-Info.plist */; };
@@ -146,6 +148,8 @@
 		D15DC11527AC7C14001DCF1C /* RecentMessageAdminViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentMessageAdminViewCell.swift; sourceTree = "<group>"; };
 		D1622F092796058E00F6B461 /* CircleBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleBackgroundView.swift; sourceTree = "<group>"; };
 		D1622F0B279617C500F6B461 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		D1633E9A27AEBD6300B80FD7 /* RegistrantListAdminView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrantListAdminView.swift; sourceTree = "<group>"; };
+		D1633E9E27AEBE7000B80FD7 /* RegistrantListAdminViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrantListAdminViewModel.swift; sourceTree = "<group>"; };
 		D17A9F8527AE7E6C00AA0B08 /* UserAdminListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAdminListView.swift; sourceTree = "<group>"; };
 		D17A9F8727AE7F8B00AA0B08 /* UserAdminListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAdminListViewModel.swift; sourceTree = "<group>"; };
 		D17C1A442790C64B00EF0633 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -279,6 +283,7 @@
 			isa = PBXGroup;
 			children = (
 				D13820F627A7148E000BD371 /* EventRegisterAdminViewModel.swift */,
+				D1633E9E27AEBE7000B80FD7 /* RegistrantListAdminViewModel.swift */,
 			);
 			path = "Admin Event VM";
 			sourceTree = "<group>";
@@ -438,6 +443,7 @@
 		D17A9F8227AE767700AA0B08 /* Chat VM */ = {
 			isa = PBXGroup;
 			children = (
+				D17A9F8727AE7F8B00AA0B08 /* UserAdminListViewModel.swift */,
 				D1D66C72279C6E8800EEC95E /* ChatLogViewModel.swift */,
 				D109327327A03FC100B4818F /* SelectedUserViewModel.swift */,
 				D1DA3901279E9BB600A571E2 /* MainMessagesViewModel.swift */,
@@ -551,6 +557,7 @@
 			isa = PBXGroup;
 			children = (
 				D1BFA195279EF90200FF0B47 /* EventCreationAdminView.swift */,
+				D1633E9A27AEBD6300B80FD7 /* RegistrantListAdminView.swift */,
 			);
 			path = "Admin Event View";
 			sourceTree = "<group>";
@@ -649,7 +656,6 @@
 		D1EB16E5279DFBD30043624F /* User Model */ = {
 			isa = PBXGroup;
 			children = (
-				D17A9F8727AE7F8B00AA0B08 /* UserAdminListViewModel.swift */,
 			);
 			path = "User Model";
 			sourceTree = "<group>";
@@ -808,6 +814,7 @@
 				D14D4DD027AD1A3400D8EB02 /* MyEventListView.swift in Sources */,
 				D10BF78D279D55050038EA72 /* MessageView.swift in Sources */,
 				D1D6678E27A2A09000B1E720 /* RequestStatus.swift in Sources */,
+				D1633E9B27AEBD6400B80FD7 /* RegistrantListAdminView.swift in Sources */,
 				D1BFA1A4279F029100FF0B47 /* TabBarUserView.swift in Sources */,
 				D1D66C6C279C1CF700EEC95E /* UserDetails.swift in Sources */,
 				D13A887D27A1439B00F606C3 /* MapViewModel.swift in Sources */,
@@ -840,6 +847,7 @@
 				D14B898E2790308A005FC4F0 /* LoginView.swift in Sources */,
 				D14B897627902C75005FC4F0 /* Next_GaymerApp.swift in Sources */,
 				D11765AC27A9C71A0020131D /* Listener Protocol.swift in Sources */,
+				D1633E9F27AEBE7000B80FD7 /* RegistrantListAdminViewModel.swift in Sources */,
 				D14D4DD527AD32E500D8EB02 /* UserLimitedView.swift in Sources */,
 				D11765AA27A99A230020131D /* UserAdminViewCell.swift in Sources */,
 				D1BFA19F279EFDC200FF0B47 /* HelpPageView.swift in Sources */,

@@ -21,6 +21,7 @@ class EventDetailViewModel: ObservableObject {
   @Published var event: EventCreated
   @Published var disableButton = false
   @Published var requestStatus: RequestStatus = .initial
+  @Published var showRegistrants = false
   
   //
   // MARK: - Initialization

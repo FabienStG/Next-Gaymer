@@ -44,6 +44,7 @@
 "registrationCanceled" = "Votre inscription a été annulée.";
 "availablePlaces" = "Places disponibles:";
 "cancelRegistration" = "Annuler mon inscription";
+"emptyEvent" = "Vous n'êtes inscrit à aucun évènement.";
 
 "confirm" = "Confirmer";
 "cancel" = "Annuler";
@@ -54,6 +55,7 @@
 "giveAdmin" = "Passer administrateur";
 "validateAdmin" = "Confirmer l'accès administrateur";
 "noUsers" = "La liste d'utilisateurs n'est pas disponible.";
+"noMessage" = "Vous pouvez obtenir de l'aide des équipes admin en envoyant un message.";
 
 "users" = "Utilisateurs";
 

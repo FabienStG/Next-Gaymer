@@ -25,6 +25,7 @@ class MyEventDetailViewModel: ObservableObject {
       if !result {
         self.requestStatus = .fail
       } else {
+        NotificationManager.shared.removeNotification(event: self.selectedEvent)
         self.requestStatus = .success
       }
       self.message = message

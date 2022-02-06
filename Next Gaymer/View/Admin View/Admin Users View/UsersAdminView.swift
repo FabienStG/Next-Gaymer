@@ -5,7 +5,6 @@
 //  Created by Fabien Saint Germain on 22/01/2022.
 //
 import SwiftUI
-import SDWebImageSwiftUI
 
 struct UsersAdminView: View {
   

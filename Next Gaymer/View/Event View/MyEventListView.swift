@@ -23,7 +23,7 @@ struct MyEventListView: View {
         }
       }
       .navigationTitle(NSLocalizedString("myEvent", comment: ""))
-      .navigationBarTitleDisplayMode(.inline)
+      //.navigationBarTitleDisplayMode(.inline)
       .navigationViewStyle(.stack)
       .refreshable {
         myEventModel.updateEvent()

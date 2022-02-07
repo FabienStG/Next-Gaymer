@@ -8,20 +8,22 @@ import SwiftUI
 
 struct UsersAdminView: View {
   
-  @StateObject var usersAdminModel = UsersAdminViewModel()
+  @StateObject var userListAdminModel = UserListAdminViewModel()
   
   var body: some View {
     NavigationView {
-      List(usersAdminModel.usersLimitedDetailsList
+      List(userListAdminModel.userList
             .sorted(by: { $0.pseudo < $1.pseudo })) { user in
         NavigationLink {
-          UserDetailsAdminView(userDetails: UserDetailsAdminViewModel(selectedUser: user))
+          UserDetailsAdminView(
+            userDetails: UserDetailsAdminViewModel(
+              selectedUser: user))
         } label: {
           UserAdminViewCell(user: user)
         }
       }
       .modifier(EmptyDataModifier(
-        items: usersAdminModel.usersLimitedDetailsList,
+        items: userListAdminModel.userList,
         placeholder: Text(NSLocalizedString("noUsers", comment: ""))))
       .navigationTitle(NSLocalizedString("users", comment: ""))
       .toolbar {
@@ -37,7 +39,8 @@ struct UsersAdminView: View {
       }
     }
     .navigationViewStyle(.stack)
-    .alert(usersAdminModel.errorMessage, isPresented: $usersAdminModel.showAlert) {}
+    .alert(userListAdminModel.errorMessage,
+           isPresented: $userListAdminModel.showAlert) {}
   }
 }
 

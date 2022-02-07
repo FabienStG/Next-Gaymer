@@ -13,7 +13,6 @@ struct EventListView: View {
   
   var body: some View {
     NavigationView {
-      
       List(eventListModel.eventList.sorted(by:
                                             { $0.date.compare($1.date) == .orderedAscending }
                                           ), id: \.id) { event in

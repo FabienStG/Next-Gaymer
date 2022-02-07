@@ -10,6 +10,7 @@
 "failFindUser" = "Impossible de trouver l'utilisateur.";
 "failFetchMessage" = "Impossible de récupérer les messages.";
 "failFetchUserList" = "Impossible de récupérer la liste des utilisateurs.";
+"failFetchAdminList" = "Impossible de récupérer la liste des modérateurs.";
 "modificationComplete" = "Modifications enregistrées.";
 "failCreateUser" = "Impossible de créer un compte.";
 "failLogUser" = "Impossible de se connecter.";
@@ -46,6 +47,7 @@
 "availablePlaces" = "Places disponibles:";
 "cancelRegistration" = "Annuler mon inscription";
 "emptyEvent" = "Vous n'êtes inscrit à aucun évènement.";
+"noRegistrant" = "Personne n'est inscrit pour le moment.";
 
 "confirm" = "Confirmer";
 "cancel" = "Annuler";
@@ -59,6 +61,7 @@
 "noMessage" = "Vous pouvez obtenir de l'aide des équipes admin en envoyant un message.";
 
 "users" = "Utilisateurs";
+"admins" = "Modérateurs";
 
 "chat" = "Messagerie";
 "send" = "Envoyer";

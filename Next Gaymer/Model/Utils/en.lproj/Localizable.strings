@@ -10,6 +10,7 @@
 "failFindUser" = "Failed to find the selected user.";
 "failFetchMessage" = "Failed to fetch new messages.";
 "failFetchUserList" = "Failed to fetch the users list.";
+"failFetchAdminList" = "Failed to fetch the admin list.";
 "modificationComplete" = "Modification completed.";
 "failCreateUser" = "Failed to create the user account.";
 "failLogUser" = "Failed to login.";
@@ -46,6 +47,7 @@
 "availablePlaces" = "Available places:";
 "cancelRegistration" = "Cancel registration";
 "emptyEvent" = "You have no event registered.";
+"noRegistrant" = "There is nobody registrate to this event yet.";
 
 "confirm" = "Confirm";
 "cancel" = "Cancel";
@@ -59,6 +61,7 @@
 "noMessage" = "You can have any help from admin's team. Feel free to send message.";
 
 "users" = "Users";
+"admins" = "Admins";
 
 "chat" = "Chat";
 "send" = "Send";

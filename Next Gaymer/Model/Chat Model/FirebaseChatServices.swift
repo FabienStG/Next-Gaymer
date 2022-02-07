@@ -162,4 +162,3 @@ class FirebaseChatServices {
     return completionHandler(true, nil)
   }
 }
-

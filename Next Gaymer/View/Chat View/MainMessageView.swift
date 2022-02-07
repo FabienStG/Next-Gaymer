@@ -23,11 +23,6 @@ struct MainMessageView: View {
           RecentMessageAdminViewCell(recentMessage: recentMessage)
         }
       }
-      .modifier(EmptyDataModifier(
-        items: mainMessageModel.recentMessages,
-        placeholder:
-            Text(NSLocalizedString("noMessage", comment: ""))
-          .multilineTextAlignment(.center)))
       .background(
         NavigationLink(isActive: $mainMessageModel.isShowingLogchat) {
           ChatLogView(selectedUser:
@@ -35,29 +30,38 @@ struct MainMessageView: View {
                           selectedUser: mainMessageModel.selectedUser!))
         } label: { EmptyView() }
       )
-    }
-    .navigationTitle(NSLocalizedString("chat", comment: ""))
-    .toolbar {
-      ToolbarItem(placement: .navigationBarTrailing) {
-        if !(currentUser.currentUser?.isAdmin ?? false) {
-          NavigationLink {
-            UserAdminListView()
-          } label: {
-            Image(systemName: "plus")
+      .modifier(EmptyDataModifier(
+        items: mainMessageModel.recentMessages,
+        placeholder:
+          Text(NSLocalizedString("noMessage", comment: ""))
+          .multilineTextAlignment(.center)))
+      
+      .navigationTitle(NSLocalizedString("chat", comment: ""))
+      .navigationBarTitleDisplayMode(.large)
+      .toolbar {
+        ToolbarItem(placement: .navigationBarTrailing) {
+          //if !(currentUser.currentUser?.isAdmin ?? false {
+            NavigationLink {
+              AdminListUserView()
+            } label: {
+              Image(systemName: "plus")
+            }
           }
-        }
+        //}
       }
     }
-    .onAppear {
-      mainMessageModel.fetchRecentMessages(currentUser: currentUser.currentUser!)
-    }
+    .navigationViewStyle(.stack)
+    .alert(mainMessageModel.errorMessage,
+           isPresented: $mainMessageModel.showAlert) {}
+           .onAppear {
+             mainMessageModel.fetchRecentMessages(
+              currentUser: currentUser.currentUser!)
+           }
   }
 }
 
 struct MainMessageView_Previews: PreviewProvider {
     static var previews: some View {
-      NavigationView {
         MainMessageView().environmentObject(FakePreviewData.currentAdminUser)
-      }
     }
 }

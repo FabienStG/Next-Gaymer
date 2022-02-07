@@ -11,11 +11,11 @@ import SwiftUI
 //
 
 /// This class used by the admin users to fetch the user's list
-class UsersAdminViewModel: ObservableObject {
+class UserListAdminViewModel: ObservableObject {
   //
   // MARK: - Published Properties
   //
-  @Published var usersLimitedDetailsList = [UserDetails]()
+  @Published var userList = [UserDetails]()
   @Published var errorMessage = ""
   @Published var showAlert = false
   
@@ -23,17 +23,17 @@ class UsersAdminViewModel: ObservableObject {
   // MARK: - Initialization
   //
   init() {
-    fetchUserDetailsAdminList()
+    fetchUserList()
   }
   
   //
   // MARK: - Private Method
   //
   /// This function fetch the users list
-  private func fetchUserDetailsAdminList() {
+  private func fetchUserList() {
     DataManager.shared.fetchlimitUsersDetailsAdmin { usersList, error in
       if let usersList = usersList {
-        self.usersLimitedDetailsList = usersList
+        self.userList = usersList
       } else {
         self.errorMessage = error ?? NSLocalizedString("failFetchUserList", comment: "")
       }

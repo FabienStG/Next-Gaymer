@@ -25,7 +25,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
   /// This manage the notifications options when the app launch
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
     registerForNotification()
-    //configureUserNotification()
     return true
   }
 }
@@ -52,36 +51,4 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
       .requestAuthorization(options: [.alert, .sound, .badge]) { granted, _ in
       }
   }
-  
-  /*private func configureUserNotification() {
-    UNUserNotificationCenter.current().delegate = self
-    
-    let dissmissAction = UNNotificationAction(
-      identifier: "dissmiss",
-      title: "Dismiss",
-      options: [])
-
-    let category = UNNotificationCategory(
-      identifier: "NextGaymerCategory",
-      actions: [dissmissAction],
-      intentIdentifiers: [], options: [])
-    
-    UNUserNotificationCenter.current()
-      .setNotificationCategories([category])
-  }
-  
-  /*func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-   
-   if response.actionIdentifier == "remove" {
-   let userInfo = response.notification.request.content.userInfo
-   if let reminderData = userInfo["Reminder"] as? Data {
-   if let reminder = try? JSONDecoder.decode(Reminder.self,
-   from: reminderData) {
-   ReminderManager.shared.remove(reminder: reminder
-   }
-   }
-   }
-   completionHandler()
-   }*/*/
-  
 }

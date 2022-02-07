@@ -1,5 +1,5 @@
 //
-//  RegisterService.swift
+//  FirebaseRegistrationServices.swift
 //  Next Gaymer
 //
 //  Created by Fabien Saint Germain on 14/01/2022.
@@ -14,7 +14,7 @@ import GoogleSignIn
 //
 
 /// This class manage all the calls used for manage users, from account creation, login, update and delete account
-class FirebaseUserService {
+class FirebaseRegistrationServices {
   //
   // MARK: - Private Constants
   //
@@ -176,66 +176,6 @@ class FirebaseUserService {
         return completionHandler(false, error.localizedDescription)
       }
       return completionHandler(true, nil)
-    }
-  }
-
-  ///
-  /// Account management
-  ///
-  ///This is one of the most important and used function, who return the current user profile use by the app
-  func fetchCurrentUser(successHandler: @escaping(UserRegistered) -> Void, errorHandler: @escaping(String) -> Void) {
-    guard let userId = auth.currentUser?.uid else { return }
-    let docRef = db.collection(UserConstant.users).document(userId)
-    
-    docRef.getDocument { document, error in
-      if let error = error {
-        return errorHandler(error.localizedDescription)
-      }
-      guard let document = document, document.exists else {
-        return errorHandler(NSLocalizedString("failFindUser", comment: ""))
-      }
-      if let user = try? document.data(as: UserRegistered.self) {
-        return successHandler(user)
-      }
-    }
-  }
-  
-  /// TO IMPLEMENT
-  /// This function delete all the current user info stored in the firestore and the storage.
-  func deleteCurrentUser(completionHandler: @escaping(Bool, String?) -> Void) {
-    
-    guard let user = auth.currentUser else { return }
-    db.collection(UserConstant.users).document(user.uid).delete() { error in
-      if let error = error {
-        return completionHandler(false, error.localizedDescription)
-      }
-    }
-    storage.reference(withPath: user.uid).delete { error in
-      if let error = error {
-        return completionHandler(false, error.localizedDescription)
-      }
-    }
-    user.delete { error in
-      if let error = error {
-        return completionHandler(false, error.localizedDescription)
-      }
-    }
-    return completionHandler(true, nil)
-  }
-  
-  /// TO IMPLEMENT
-  /// This function update the user info stored in firebase with the user modifications
-  func updateUserInfo(userInfo: [String: Any], completionHandler: @escaping(Bool, String) -> Void) {
-    
-    guard let userId = auth.currentUser?.uid else { return }
-    let userRef = db.collection(UserConstant.users).document(userId)
-    
-    userRef.updateData(userInfo) { error in
-      if let error = error {
-        return completionHandler(false, error.localizedDescription)
-      } else {
-        return completionHandler(true, NSLocalizedString("modificationComplete", comment: ""))
-      }
     }
   }
 }

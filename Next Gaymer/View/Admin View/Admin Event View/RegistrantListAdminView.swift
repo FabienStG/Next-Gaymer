@@ -13,27 +13,33 @@ struct RegistrantListAdminView: View {
   
   @StateObject var registrantListAdminModel = RegistrantListAdminViewModel()
   
-    var body: some View {
-      List(registrantListAdminModel.registrantList, id: \.id) { user in
-        Button {
-          registrantListAdminModel.confirmed.toggle()
-        } label: {
+  var body: some View {
+    List(registrantListAdminModel.registrantList, id: \.id) { user in
+      Button {
+        registrantListAdminModel.confirmed.toggle()
+      } label: {
         HStack {
           VStack {
             Text(user.pseudo)
             HStack {
-            Text(user.name)
-            Text(user.surname)
+              Text(user.name)
+              Text(user.surname)
             }
           }
           Image(systemName: registrantListAdminModel.confirmed ? "checkmark.circle.fill" : "xmark.circle.fill")
         }
       }
-      }
-      .onAppear {
-        registrantListAdminModel.fetchRegistrantList(event: event)
-      }
     }
+    .modifier(EmptyDataModifier(
+      items: registrantListAdminModel.registrantList,
+      placeholder:
+        Text(NSLocalizedString("noRegistrant", comment: ""))
+        .multilineTextAlignment(.center)))
+    
+    .onAppear {
+      registrantListAdminModel.fetchRegistrantList(event: event)
+    }
+  }
 }
 
 struct RegistrantListAdminView_Previews: PreviewProvider {

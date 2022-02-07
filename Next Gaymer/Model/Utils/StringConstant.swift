@@ -50,6 +50,8 @@ struct EventConstant {
   static let events = "events"
   static let takenPlaces = "takenPlaces"
   static let registrant = "registrant"
+  static let eventReminder = "eventReminder"
+  static let reminderIsActive = "reminderIsActive"
 }
 
 //

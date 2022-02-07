@@ -18,6 +18,7 @@ class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
   
   @Published var region = MKCoordinateRegion(center: MapDetails.defaultLocation, span: MapDetails.defaultSpin)
   @Published var locations = Locations.annotations
+  
   @Published var errorMessage = ""
   @Published var showAlert = false
 

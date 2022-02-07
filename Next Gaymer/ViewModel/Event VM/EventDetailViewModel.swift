@@ -11,17 +11,20 @@ import SwiftUI
 // MARK: - Event Detail VM
 //
 
-/// This class is used to registrate the selected event and registrate the user
+/// This class is used to registrate the selected event and registrate the user. It manage also the sheet view
 class EventDetailViewModel: ObservableObject {
   //
   // MARK: - Published Properties
   //
+  @Published var event: EventCreated
+  @Published var showRegistrants = false
+  
   @Published var alertMessage = ""
   @Published var showAlert = false
-  @Published var event: EventCreated
+
   @Published var disableButton = false
   @Published var requestStatus: RequestStatus = .initial
-  @Published var showRegistrants = false
+
   
   //
   // MARK: - Initialization
@@ -33,6 +36,7 @@ class EventDetailViewModel: ObservableObject {
   //
   // MARK: - Internal Method
   //
+  /// This registrate the user in the selected event and show an alert depending of the manager response
   func registrateUserToEvent(currentUser: UserRegistered, event: EventCreated) {
     self.requestStatus = .processing
     DataManager.shared.registrateUserForEvent(currentUser: currentUser, event: event) { result, message in

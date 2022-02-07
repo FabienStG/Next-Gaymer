@@ -32,6 +32,7 @@ struct EventListView: View {
         placeholder: Text(NSLocalizedString("noMoreEvent", comment: ""))))
       
       .navigationTitle(NSLocalizedString("events", comment: ""))
+      .navigationBarTitleDisplayMode(.large)
       .toolbar {
         ToolbarItem(placement: .navigationBarTrailing) {
           NavigationLink {

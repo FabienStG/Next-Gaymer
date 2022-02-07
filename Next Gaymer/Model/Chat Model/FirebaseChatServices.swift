@@ -26,14 +26,17 @@ class FirebaseChatServices {
   //
   // MARK: - Internal Methods
   //
+  /// Remove the firebase listener to stop the automatic query from the live chat page
   func stopChatListening() {
     firebaseChatListener?.remove()
   }
   
+  /// Remove the firebase listener to stop the automatic query from the recent message page
   func stopRecentMessageListening() {
     firebaseRecentMessageListener?.remove()
   }
   
+  /// Fetch a user with his Id and return the document as an object
   func fetchSpecificUser(selectedUser: String, completionHandler: @escaping(UserRegistered?, String?) -> Void) {
     
     db.collection(UserConstant.users).document(selectedUser).getDocument { document, error in
@@ -51,6 +54,7 @@ class FirebaseChatServices {
     }
   }
   
+  /// Fetch the messages registered in firestore and put a firestore listener to update automaticly when any message is send, throught the protocol
   func fetchMessages(senderUser: UserRegistered, recipientUser: UserDetails, listen: Listener) {
     
     firebaseChatListener = db
@@ -76,6 +80,7 @@ class FirebaseChatServices {
       }
   }
   
+  /// Fetch all the recents messages sent for the main message page, and put a firestore listener to update automaticly when any message is send, throught the protocol
   func fetchRecentMessages(currentUser: UserRegistered, listen: Listener) {
     
     firebaseRecentMessageListener = db
@@ -99,6 +104,7 @@ class FirebaseChatServices {
       })
   }
   
+  /// Save a message as a chat message in firestore in two versions, one for the sender, one for the recipient
   func saveMessage(textMessage: String, recipientUserId: String, completionHandler: @escaping(Bool, String?) -> Void) {
     
     guard let senderUserId = auth.currentUser?.uid else { return }
@@ -124,6 +130,8 @@ class FirebaseChatServices {
     return completionHandler(true, nil)
     
   }
+  
+  /// Save a message as a recent message object in firestore in two versions, one for the sender and one for the recipient
   func saveRecentMessage(textMessage: String, senderUser: UserRegistered, recipientUser: UserDetails, completionHandler: @escaping(Bool, String?) -> Void) {
     
     guard let senderUserId = auth.currentUser?.uid else { return }

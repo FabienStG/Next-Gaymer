@@ -12,7 +12,7 @@ struct MyEventListView: View {
   @StateObject var myEventModel = MyEventListViewModel()
   
   var body: some View {
-    NavigationView {
+ 
       List(myEventModel.myEventList, id: \.id) { event in
         NavigationLink {
           MyEventDetailView(
@@ -22,14 +22,13 @@ struct MyEventListView: View {
           EventViewCell(event: event)
         }
       }
-      .navigationTitle(NSLocalizedString("myEvent", comment: ""))
-      //.navigationBarTitleDisplayMode(.inline)
-      .navigationViewStyle(.stack)
+      .navigationTitle(NSLocalizedString("myEvents", comment: ""))
+
       .refreshable {
         myEventModel.updateEvent()
       }
       .modifier(EmptyDataModifier(items: myEventModel.myEventList, placeholder: Text(NSLocalizedString("emptyEvent", comment: ""))))
-    }
+    
   }
 }
 

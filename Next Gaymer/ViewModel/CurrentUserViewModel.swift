@@ -29,6 +29,7 @@ class CurrentUserViewModel: ObservableObject {
   //
   // MARK: - Private Method
   //
+  /// Fetch the current user profile
   func fetchCurrentUser() {
     DataManager.shared.fetchCurrentUser { user, error in
       if let user = user {

@@ -24,6 +24,7 @@
 "events" = "Events";
 "event" = "Event";
 "myEvents" = "My events";
+"myEvent" = "My Event";
 "newEvent" = "Create new event";
 "eventName" = "Event name";
 "volunter" = "Volunter(s)";
@@ -84,3 +85,4 @@
 "at" = "at";
 
 "notificationBody" = "You have an event today. Open NextGaymer App for further informations";
+

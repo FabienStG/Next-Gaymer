@@ -23,6 +23,7 @@ class FirebaseAdminService {
   //
   // MARK: - Internal Methods
   //
+  /// Update the user info saved into firestore to change a parameter and turn into true, giving him the app admin credentials
   func setUserAdminCredentials(userId: String, completionHandler: @escaping(String) -> Void) {
     
     let userRef = db.collection(UserConstant.users).document(userId)
@@ -36,6 +37,7 @@ class FirebaseAdminService {
       }
   }
   
+  /// Fetch all the users registered in the firestore and return as an array
   func fetchAllUsers(successHandler: @escaping ([UserRegistered]) -> Void, errorHandler: @escaping(String) -> Void) {
     
     var usersResponse = [UserRegistered]()
@@ -56,6 +58,7 @@ class FirebaseAdminService {
     }
   }
 
+  /// Check the registrants array in the event object saved in firestore and return it
   func fetchEventRegistrants(event: EventCreated, successHandler: @escaping([UserDetails]) -> Void, errorHandler: @escaping(String) -> Void) {
     
     db.collection(EventConstant.events).document(event.id).getDocument { document, error in

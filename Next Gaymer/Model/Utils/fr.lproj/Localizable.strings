@@ -24,6 +24,7 @@
 "events" = "Évènements";
 "event" = "Évènement";
 "myEvents" = "Mes évènements";
+"myEvent" = "Mon évènement";
 "newEvent" = "Créer un nouvel évènement";
 "eventName" = "Nom de l'évènement";
 "volunter" = "Bénévole(s)";

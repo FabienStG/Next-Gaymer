@@ -13,7 +13,7 @@ struct MyEventDetailView: View {
   @EnvironmentObject var currentUser: CurrentUserViewModel
   
   var body: some View {
-    NavigationView {
+ 
       VStack {
         EventView(event: myEventDetailModel.selectedEvent)
         Button {
@@ -24,10 +24,8 @@ struct MyEventDetailView: View {
         }
       }
       .alert(myEventDetailModel.message, isPresented: $myEventDetailModel.showAlert) {}
-      .navigationTitle("Mon évènement")
-      .navigationBarTitleDisplayMode(.inline)
       .toolbar {
-        ToolbarItem(placement: .navigationBarTrailing) {
+        ToolbarItem(placement: .primaryAction) {
           Button {
             myEventDetailModel.manageReminder()
           } label: {
@@ -41,7 +39,6 @@ struct MyEventDetailView: View {
         }
       }
     }
-  }
 }
 
 

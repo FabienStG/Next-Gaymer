@@ -32,11 +32,73 @@ class DataManager {
   //
   // MARK: - App Storage Log Status
   //
+  /// Save the log status in the app to avoid a relog when the user leave
   @AppStorage("log_status") var logStatus = false
   
   //
   // MARK: - Internal Methods - User Services
   //
+  /// Log the user into the app and update the logstatus
+  func loginUser(email: String, password: String, completionHandler: @escaping(Bool, String?) -> Void) {
+    
+    firebaseUserService.loginUser(userEmail: email, userPassword: password) { response, message in
+      if response {
+        self.logStatus = true
+        return completionHandler(response, nil)
+      } else {
+        return completionHandler(response, message)
+      }
+    }
+  }
+
+  /// Log the user into the app thanks to the google login API
+  func googleLoginUser(completionHandler: @escaping(Bool, String?) -> Void) {
+    
+    firebaseUserService.googleLoginUser { response, message in
+      if response {
+        self.logStatus = true
+        return completionHandler(response, nil)
+      } else {
+  return completionHandler(response, message)
+      }
+    }
+  }
+
+  /// Log out the user from the app and update the log status
+  func logoutUser(completionHandler: @escaping(Bool, String?) -> Void) {
+    
+    firebaseUserService.logoutUser { response, message in
+      if response {
+        self.logStatus = false
+        return completionHandler(response, nil)
+      } else {
+        return completionHandler(response, message)
+      }
+    }
+  }
+
+  /// User the firebase service to send and email and reset the pasword
+  func resetPassword(email: String, completionHandler: @escaping(Bool, String?) -> Void) {
+    
+    firebaseUserService.resetPassword(emailUser: email) { response, message in
+      if !response {
+        return completionHandler(response, message)
+      }
+      return completionHandler(response, nil)
+    }
+  }
+  
+  /// It the manager side of the main function who return the current user profile
+  func fetchCurrentUser(completionHandler: @escaping(UserRegistered?, String?) -> Void) {
+    
+    firebaseUserService.fetchCurrentUser { user in
+      return completionHandler(user, nil)
+    } errorHandler: { error in
+      return completionHandler(nil, error)
+    }
+  }
+  
+  /// This function manage all the needs when a user is created. It create it in the authentification base and create his complete profile in firestore
   func registerUser(with user: UserForm, password: String, image: UIImage, completionHandler: @escaping(Bool, String?) -> Void) {
 
     firebaseUserService.createUser(userEmail: user.email, userPassword: password) { response, authMessage in
@@ -54,74 +116,11 @@ class DataManager {
       }
     }
   }
-
-  func loginUser(email: String, password: String, completionHandler: @escaping(Bool, String?) -> Void) {
-    
-    firebaseUserService.loginUser(userEmail: email, userPassword: password) { response, message in
-      if response {
-        self.logStatus = true
-        return completionHandler(response, nil)
-      } else {
-        return completionHandler(response, message)
-      }
-    }
-  }
-
-  func googleLoginUser(completionHandler: @escaping(Bool, String?) -> Void) {
-    
-    firebaseUserService.googleLoginUser { response, message in
-      if response {
-        self.logStatus = true
-        return completionHandler(response, nil)
-      } else {
-  return completionHandler(response, message)
-      }
-    }
-  }
-
-  func logoutUser(completionHandler: @escaping(Bool, String?) -> Void) {
-    
-    firebaseUserService.logoutUser { response, message in
-      if response {
-        self.logStatus = false
-        return completionHandler(response, nil)
-      } else {
-        return completionHandler(response, message)
-      }
-    }
-  }
-
-  func resetPassword(email: String, completionHandler: @escaping(Bool, String?) -> Void) {
-    
-    firebaseUserService.resetPassword(emailUser: email) { response, message in
-      if !response {
-        return completionHandler(response, message)
-      }
-      return completionHandler(response, nil)
-    }
-  }
-  
-  func fetchCurrentUser(completionHandler: @escaping(UserRegistered?, String?) -> Void) {
-    
-    firebaseUserService.fetchCurrentUser { user in
-      return completionHandler(user, nil)
-    } errorHandler: { error in
-      return completionHandler(nil, error)
-    }
-  }
   
   //
   // MARK: - Internal Methods - Admin Services
   //
-  private func fetchAllUsers(completionHandler: @escaping([UserRegistered]?, String?) -> Void) {
-    
-    firebaseAdminService.fetchAllUsers { allUsers in
-      return completionHandler(allUsers, nil)
-    } errorHandler: { error in
-      return completionHandler(nil, error)
-    }
-  }
-    
+  /// This function, for admin user only, fetch all the users and return a array of limited informations for privecy purposes
   func fetchlimitUsersDetailsAdmin(completionHandler: @escaping([UserDetails]?, String?) -> Void) {
     
     var usersLimitedDetailsList = [UserDetails]()
@@ -140,6 +139,7 @@ class DataManager {
     }
   }
   
+  /// This function create an event. First save the image in the storage and provide the url to the final object who'll be saved in firestore
   func createEvent(event: EventForm, image: UIImage, completionHandler: @escaping(Bool, String?) -> Void) {
     
     firebaseEventService.saveEventImage(image: image, eventId: event.id.uuidString) { response, url in
@@ -157,41 +157,46 @@ class DataManager {
     }
   }
   
+  /// This function give to the selected user the admin credentials by updating his profile
   func setUserAdminCredentials(userId: String, completionHandler: @escaping(String) -> Void) {
     firebaseAdminService.setUserAdminCredentials(userId: userId) { message in
       return completionHandler(message)
     }
   }
-    
-    func fetchUserRegisterToEvent(event: EventCreated, successHandler: @escaping([UserDetails]) -> Void, errorHandler: @escaping(String) -> Void) {
-      firebaseAdminService.fetchEventRegistrants(event: event) { users in
-        return successHandler(users)
-      } errorHandler: { error in
-        return errorHandler(error)
-      }
-
-    }
   
+  /// Take the event registered id, and fetch all the registered users from his array to return it
+  func fetchUserRegisterToEvent(event: EventCreated, successHandler: @escaping([UserDetails]) -> Void, errorHandler: @escaping(String) -> Void) {
+    firebaseAdminService.fetchEventRegistrants(event: event) { users in
+      return successHandler(users)
+    } errorHandler: { error in
+      return errorHandler(error)
+    }
+  }
   
   //
   // MARK: - Internal Methods - Chat Services
   //
+  /// Add the firebase listener for the chat log page and provide the protocol who'll recieve the updates
   func chatMessageListener(senderUser: UserRegistered, recipientUser: UserDetails, listen: Listener) {
     firebaseChatService.fetchMessages(senderUser: senderUser, recipientUser: recipientUser, listen: listen)
   }
   
+  /// Ad the firebase listener for the main message page and provide the protocol who'll recieve the updates
   func recentMessageListener(currentUser: UserRegistered, listen: Listener) {
     firebaseChatService.fetchRecentMessages(currentUser: currentUser, listen: listen)
   }
   
+  /// Use the firebase service to remove the chat listener
   func stopChatListening() {
     firebaseChatService.stopChatListening()
   }
   
+  /// User the firebase service to remove the recent message listener
   func stopRecentMessageListening() {
     firebaseChatService.stopRecentMessageListening()
   }
   
+  /// When a message is sent in the chat log, it saved it in the firestore to be read by the recipient, and save a copy as a recent message for the main message use
   func saveMessage(textMessage: String, senderUser: UserRegistered, recipientUser: UserDetails, completionHandler: @escaping(Bool, String?) -> Void) {
     
     firebaseChatService.saveMessage(textMessage: textMessage, recipientUserId: recipientUser.id) { saveResponse, saveError in
@@ -209,6 +214,7 @@ class DataManager {
     }
   }
   
+  /// With the selected user provided, return it with a limited number of informations as a User Detail object
   func fetchSpecificUser(selectedUser: String, completionHandler: @escaping(UserDetails?, String?) -> Void) {
     
     firebaseChatService.fetchSpecificUser(selectedUser: selectedUser) { userRegistered, error in
@@ -229,6 +235,14 @@ class DataManager {
   //
   // MARK: - Internal Methods - Event Services
   //
+  /// Use the firebase services to return an array of the event who the user is registrate
+  func fetchMyEvents(completionHandler: @escaping([EventCreated], String?) -> Void) {
+    firebaseEventService.fetchMyEvent { myEvent, error in
+       return completionHandler(myEvent, error)
+      }
+    }
+  
+  /// Fetch all the registered events and return them as an array
   func fetchAllEvents(completionHandler: @escaping([EventCreated]?, String?) -> Void) {
     
     firebaseEventService.fetchAllEvents { allEvent in
@@ -238,6 +252,7 @@ class DataManager {
     }
   }
   
+  /// When a user whant to registrate into an event, this function check first if the event is available, and saved into the registrent array of the event one
   func registrateUserForEvent(currentUser: UserRegistered, event: EventCreated, completionHandler: @escaping(Bool, String) -> Void) {
     
     firebaseEventService.checkIfEventAvailable(currentUser: currentUser, event: event) { checkResult, checkMessage in
@@ -252,6 +267,7 @@ class DataManager {
     }
   }
   
+  /// Remove the user from the registrant array of the selected event
   func deleteUserFromEvent(currentUser: UserRegistered, event: EventCreated, completionHandler: @escaping(Bool, String) -> Void) {
     
     firebaseEventService.deleteUserFromEvent(currentUser: currentUser, event: event) { result, message in
@@ -262,10 +278,17 @@ class DataManager {
       return completionHandler(result, message)
     }
   }
-  
-  func fetchMyEvents(completionHandler: @escaping([EventCreated], String?) -> Void) {
-    firebaseEventService.fetchMyEvent { myEvent, error in
-       return completionHandler(myEvent, error)
-      }
+
+  //
+  // MARK: - Private Method
+  //
+  /// This function for admin only use return informations of all the registered users
+  private func fetchAllUsers(completionHandler: @escaping([UserRegistered]?, String?) -> Void) {
+    
+    firebaseAdminService.fetchAllUsers { allUsers in
+      return completionHandler(allUsers, nil)
+    } errorHandler: { error in
+      return completionHandler(nil, error)
     }
+  }
 }

@@ -6,9 +6,15 @@
 //
 
 import SwiftUI
+//
+// MARK: - Register VM
+//
 
+/// This class manage the user entry when the profile is created
 class RegisterViewModel: ObservableObject {
-  
+  //
+  // MARK: - Published Properties
+  //
   @Published var profilImage = UIImage()
   @Published var name = ""
   @Published var surname = ""
@@ -31,12 +37,16 @@ class RegisterViewModel: ObservableObject {
   @Published var changeProfileImage = false
   @Published var openCameraRool = false
 
+  //
+  // MARK: - Internal Method
+  //
+  /// This function create the user, with the firestore profile and the authentifcation account
   func registerUser() {
 
-    let user = packUserDetail()
-
     requestStatus = .processing
-    DataManager.shared.registerUser(with: user, password: password, image: profilImage) { success, message in
+    DataManager.shared.registerUser(
+      with: packUserDetail(), password: password,
+      image: profilImage) { success, message in
 
       if !success {
         self.errorMessage = message ?? NSLocalizedString("unknownError", comment: "")
@@ -49,6 +59,7 @@ class RegisterViewModel: ObservableObject {
     }
   }
 
+  /// This disable the button when all the informations are not provided
   func disableButton() -> Bool {
     if name.isEmpty &&
        surname.isEmpty &&
@@ -70,12 +81,16 @@ class RegisterViewModel: ObservableObject {
     }
   }
 
-func packUserDetail() -> UserForm {
-
-  let user = UserForm(name: name, surname: surname, pseudo: pseudo, email: email,
-                      phoneNumber: phoneNumber, discordPseudo: discordPseudo,
-                      street: street, zipCode: zipCode, city: city)
-
-  return user
+  //
+  // MARK: - Private Method
+  //
+  /// Turn the published var into an object use for the function
+  private func packUserDetail() -> UserForm {
+    
+    let user = UserForm(name: name, surname: surname, pseudo: pseudo, email: email,
+                        phoneNumber: phoneNumber, discordPseudo: discordPseudo,
+                        street: street, zipCode: zipCode, city: city)
+    
+    return user
   }
 }

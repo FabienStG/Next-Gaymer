@@ -9,7 +9,6 @@ import UIKit
 import Firebase
 import FirebaseFirestoreSwift
 import GoogleSignIn
-
 //
 // MARK: - Firebase User Services
 //
@@ -26,10 +25,10 @@ class FirebaseUserService {
   //
   // MARK: - Internal Methods
   //
-  
   ///
   /// Account Creation
   ///
+  ///This function create the user in the authentification app of firestore, with the email and the password provided
   func createUser(userEmail: String, userPassword: String, completionHandler: @escaping(Bool, String?) -> Void) {
 
     auth.createUser(withEmail: userEmail, password: userPassword) { authResult, error in
@@ -50,6 +49,7 @@ class FirebaseUserService {
     }
   }
   
+  /// With the choosen UIimage for the user profile, it saved it in the storage and return the url
   func saveProfileImage(image: UIImage, completionHandler: @escaping(Bool, String) -> Void) {
     guard let userId = auth.currentUser?.uid else { return }
     let ref = storage.reference(withPath: userId)
@@ -72,6 +72,7 @@ class FirebaseUserService {
     }
   }
   
+  /// With the form provide by the user and the image, this function create the final userRegistered object saved into firestore
   func registrateUser(with user: UserForm, image: UIImage, completionHandler: @escaping(Bool, String?) -> Void) {
 
     guard let userId = auth.currentUser?.uid else { return }
@@ -96,6 +97,7 @@ class FirebaseUserService {
     }
   }
   
+  /// This function provide by the Google documentation manage the account with his own credentials
   func googleLoginUser(completionHandler: @escaping(Bool, String) -> Void) {
 
     guard let clientID = FirebaseApp.app()?.options.clientID else { return }
@@ -133,6 +135,7 @@ class FirebaseUserService {
   ///
   /// Login and logout
   ///
+  ///This function log in the user
   func loginUser(userEmail: String, userPassword: String, completionHandler: @escaping(Bool, String?) -> Void) {
 
     auth.signIn(withEmail: userEmail, password: userPassword) { authResult, error in
@@ -153,6 +156,7 @@ class FirebaseUserService {
     }
   }
 
+  /// It log out the user and signOut for Google if he use it
   func logoutUser(completionHandler: @escaping(Bool, String?) -> Void) {
 
     GIDSignIn.sharedInstance.signOut()
@@ -178,6 +182,7 @@ class FirebaseUserService {
   ///
   /// Account management
   ///
+  ///This is one of the most important and used function, who return the current user profile use by the app
   func fetchCurrentUser(successHandler: @escaping(UserRegistered) -> Void, errorHandler: @escaping(String) -> Void) {
     guard let userId = auth.currentUser?.uid else { return }
     let docRef = db.collection(UserConstant.users).document(userId)
@@ -195,6 +200,8 @@ class FirebaseUserService {
     }
   }
   
+  /// TO IMPLEMENT
+  /// This function delete all the current user info stored in the firestore and the storage.
   func deleteCurrentUser(completionHandler: @escaping(Bool, String?) -> Void) {
     
     guard let user = auth.currentUser else { return }
@@ -216,6 +223,8 @@ class FirebaseUserService {
     return completionHandler(true, nil)
   }
   
+  /// TO IMPLEMENT
+  /// This function update the user info stored in firebase with the user modifications
   func updateUserInfo(userInfo: [String: Any], completionHandler: @escaping(Bool, String) -> Void) {
     
     guard let userId = auth.currentUser?.uid else { return }

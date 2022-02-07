@@ -7,19 +7,30 @@
 
 import SwiftUI
 import Firebase
-import FirebaseAuth
-import FirebaseStorage
-
+//
+// MARK: - Next Gaymer APP
+//
 @main
 struct Next_GaymerApp: App {
-
+  //
+  // MARK: - App Delegate Adaptator
+  //
+  /// As swiftUI have not app delegate anymore, this help to provide one
   @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
 
+  //
+  // MARK: - State Object
+  //
+  /// This is the initialization of the view routers
   @StateObject var viewRouter = ViewRouter()
   @StateObject var tabBarRouter = TabBarRouter()
   
+  //
+  // MARK: - Initialization
+  //
   init() {
     FirebaseApp.configure()
+    /// If the selected schema is Emulator, then all the firebase function will be stored local thanks to an emulator
   #if EMULATOR
     print(DebugConstant.emulator)
     Auth.auth().useEmulator(withHost: "localhost", port: 9099)

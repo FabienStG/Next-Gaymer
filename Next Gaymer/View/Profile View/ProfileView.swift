@@ -13,8 +13,6 @@ struct ProfileView: View {
   @EnvironmentObject var viewRouter: ViewRouter
   @EnvironmentObject var currentUser: CurrentUserViewModel
 
-  let firebase = FirebaseUserService()
-
   var body: some View {
     VStack {
       UserView(currentUser: currentUser.currentUser!)

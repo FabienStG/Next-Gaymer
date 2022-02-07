@@ -26,6 +26,7 @@ class FirebaseEventServices {
   //
   // MARK: - Internal Methods
   //
+  /// Save the selected UIImage by the user, save it into Storage and return the URL
   func saveEventImage(image: UIImage, eventId: String, completionHandler: @escaping(Bool, String) -> Void) {
     
     guard auth.currentUser?.uid != nil else { return }
@@ -49,6 +50,7 @@ class FirebaseEventServices {
     }
   }
   
+  /// Take all the informations from the event form registered by the user and the url from saved image, and save it in Firestore as new object
   func createEvent(with event: EventForm, imageUrl: String, completionHandler: @escaping(Bool, String?) -> Void) {
     
     let eventCreated = EventCreated(id: event.id.uuidString, imageUrl: imageUrl, eventName: event.eventName,
@@ -65,6 +67,7 @@ class FirebaseEventServices {
     }
   }
   
+  /// Fetch all the created events from Firebase and return them into an array
   func fetchAllEvents(successHandler: @escaping([EventCreated]) -> Void, errorHandler: @escaping(String) -> Void) {
     
     var eventList = [EventCreated]()
@@ -82,6 +85,7 @@ class FirebaseEventServices {
     }
   }
   
+  /// When a user whant to register to an event, it check if is not already registered, and if the event have still place
   func checkIfEventAvailable(currentUser: UserRegistered, event: EventCreated, completionHandler: @escaping(Bool, String?) ->Void) {
 
     db.collection(EventConstant.events).document(event.id).getDocument { documentSnapshot, error in
@@ -101,6 +105,7 @@ class FirebaseEventServices {
     }
   }
   
+  /// Add the user info as UserDetails in the event array, and increment the taken places by 1
   func registrateUserForEvent(currentUser: UserRegistered, event: EventCreated, completionHandler: @escaping(Bool, String) -> Void) {
     
     db.collection(EventConstant.events).document(event.id).updateData([
@@ -114,6 +119,7 @@ class FirebaseEventServices {
     }
   }
   
+  /// With the .arrayRemove, Firebase can check if the user entry is on is registrant array, and remove it.
   func deleteUserFromEvent(currentUser: UserRegistered, event: EventCreated, completionHandler: @escaping(Bool, String) -> Void) {
     
     db.collection(EventConstant.events).document(event.id).updateData([
@@ -127,6 +133,7 @@ class FirebaseEventServices {
     }
   }
   
+  /// Take the registered events array from the user profile, and loop every Id to return an array of events
   func fetchMyEvent(completionHandler: @escaping([EventCreated], String?) -> Void) {
     let myGroup = DispatchGroup()
     var eventResult = [EventCreated]()
@@ -150,16 +157,20 @@ class FirebaseEventServices {
     }
   }
   
+  /// Add the event Id to the event array, and create a document in seperate collection to save the reminder status
   func addEventToUSer(event: EventCreated) {
     
     guard let userId = auth.currentUser?.uid else { return }
+    db.collection(EventConstant.eventReminder).document(userId).collection(userId).document(event.id).setData([EventConstant.reminderIsActive: false])
     db.collection(UserConstant.users).document(userId).updateData([
       UserConstant.myEvent: FieldValue.arrayUnion([event.id])])
   }
    
+  /// Remove the event id from the user event array and delete the seperate collection who saved the reminder status
   func removeEventToUser(event: EventCreated) {
     
     guard let userId = auth.currentUser?.uid else { return }
+    db.collection(EventConstant.eventReminder).document(userId).collection(userId).document(event.id).delete()
     db.collection(UserConstant.users).document(userId).updateData([
       UserConstant.myEvent: FieldValue.arrayRemove([event.id])])
   }
@@ -167,6 +178,7 @@ class FirebaseEventServices {
   //
   // MARK: - Private Method
   //
+  /// Private method used to convert a user registered into a user details and save it as data for nested object firebase purposes
   private func convertUserToData(currentUser: UserRegistered) -> [Any] {
 
     let packedUser = UserDetails(id: currentUser.id, pseudo: currentUser.pseudo, name: currentUser.name,
@@ -181,12 +193,12 @@ class FirebaseEventServices {
     return user
   }
   
+  /// Private method used by the loop to fetch every event with is specitif Id
   private func fetchEvent(eventId: String, completionHandler: @escaping(EventCreated) -> Void) {
     
     db.collection(EventConstant.events).document(eventId).getDocument { document, error in
       if let document = document {
         guard let event = try? document.data(as: EventCreated.self) else { return }
-        //self.myGroup.leave()
         return completionHandler(event)
         
       }

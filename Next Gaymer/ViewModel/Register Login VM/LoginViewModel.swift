@@ -6,9 +6,16 @@
 //
 
 import SwiftUI
+//
+// MARK: - Login VM
+//
 
+/// The login VM class take the credentials of the user and check with
+/// the DataManager. It also manage the reset password view.
 class LoginViewModel: ObservableObject  {
-
+  //
+  // MARK: - Published Properties
+  //
   @Published var email = ""
   @Published var password = ""
 
@@ -18,6 +25,15 @@ class LoginViewModel: ObservableObject  {
 
   @Published var requestStatus: RequestStatus = .initial
 
+  //
+  // MARK: - Internal Methods
+  //
+  /// Disable the login button
+  func disableButton() -> Bool {
+    return requestStatus != .processing && !email.isEmpty && !password.isEmpty ? false : true
+  }
+  
+  /// This function log the user
   func loginUser() {
 
     requestStatus = .processing
@@ -32,11 +48,8 @@ class LoginViewModel: ObservableObject  {
       }
     }
   }
-
-  func disableButton() -> Bool {
-    return requestStatus != .processing && !email.isEmpty && !password.isEmpty ? false : true
-  }
-
+  
+  /// This function is called when the Google SignIn button is use
   func googleLoginUser() {
 
     requestStatus = .processing

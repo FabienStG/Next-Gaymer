@@ -19,6 +19,15 @@
 		D1222FCF27B578420068AD85 /* GoogleRegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1222FCE27B578420068AD85 /* GoogleRegisterView.swift */; };
 		D12576CD27971A7600DC6BA3 /* PhotoPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12576CC27971A7600DC6BA3 /* PhotoPickerView.swift */; };
 		D12576CF2797215500DC6BA3 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12576CE2797215500DC6BA3 /* ImagePicker.swift */; };
+		D136115627BA535D000F94A3 /* FakeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D136115527BA535D000F94A3 /* FakeData.swift */; };
+		D136115927BA575D000F94A3 /* MockedUserServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D136115827BA575D000F94A3 /* MockedUserServices.swift */; };
+		D136115B27BA5769000F94A3 /* MockedAdminServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D136115A27BA5769000F94A3 /* MockedAdminServices.swift */; };
+		D136115D27BA577F000F94A3 /* MockedEventServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D136115C27BA577F000F94A3 /* MockedEventServices.swift */; };
+		D136115F27BA57BE000F94A3 /* MockedRegistrationServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D136115E27BA57BE000F94A3 /* MockedRegistrationServices.swift */; };
+		D136116127BA57D7000F94A3 /* MockedChatServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D136116027BA57D7000F94A3 /* MockedChatServices.swift */; };
+		D136116427BA5986000F94A3 /* DataManagerEventTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D136116327BA5986000F94A3 /* DataManagerEventTests.swift */; };
+		D136116627BAC2B6000F94A3 /* DataManagerAdminTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D136116527BAC2B6000F94A3 /* DataManagerAdminTests.swift */; };
+		D136116A27BAEEC5000F94A3 /* DataManagerChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D136116927BAEEC5000F94A3 /* DataManagerChatTests.swift */; };
 		D13820F427A713D9000BD371 /* EventListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13820F327A713D9000BD371 /* EventListViewModel.swift */; };
 		D13820F727A7148E000BD371 /* EventRegisterAdminViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13820F627A7148E000BD371 /* EventRegisterAdminViewModel.swift */; };
 		D13820FA27A72255000BD371 /* BannerPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13820F927A72255000BD371 /* BannerPickerView.swift */; };
@@ -47,6 +56,8 @@
 		D1622F0C279617C700F6B461 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1622F0B279617C500F6B461 /* ProfileView.swift */; };
 		D1633E9B27AEBD6400B80FD7 /* RegistrantListAdminView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1633E9A27AEBD6300B80FD7 /* RegistrantListAdminView.swift */; };
 		D1633E9F27AEBE7000B80FD7 /* RegistrantListAdminViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1633E9E27AEBE7000B80FD7 /* RegistrantListAdminViewModel.swift */; };
+		D16DEC8D27BAF88C000BAFF0 /* DataManagerUserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16DEC8C27BAF88C000BAFF0 /* DataManagerUserTests.swift */; };
+		D16DEC8F27BAFA66000BAFF0 /* DataManagerRegisterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16DEC8E27BAFA66000BAFF0 /* DataManagerRegisterTests.swift */; };
 		D179478727BA47FE004116BE /* EventServicesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D179478627BA47FE004116BE /* EventServicesProtocol.swift */; };
 		D179478927BA4813004116BE /* ChatServicesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D179478827BA4813004116BE /* ChatServicesProtocol.swift */; };
 		D179478B27BA4823004116BE /* AdminServicesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D179478A27BA4823004116BE /* AdminServicesProtocol.swift */; };
@@ -116,6 +127,16 @@
 		D1F555C92791F4460005555A /* LogoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F555C82791F4450005555A /* LogoutViewModel.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		D136114E27BA5162000F94A3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D14B896A27902C75005FC4F0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D14B897127902C75005FC4F0;
+			remoteInfo = "Next Gaymer";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		D109327327A03FC100B4818F /* SelectedUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedUserViewModel.swift; sourceTree = "<group>"; };
 		D10ABA2427B11D0D009EDD36 /* MapServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapServices.swift; sourceTree = "<group>"; };
@@ -129,6 +150,16 @@
 		D1222FCE27B578420068AD85 /* GoogleRegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleRegisterView.swift; sourceTree = "<group>"; };
 		D12576CC27971A7600DC6BA3 /* PhotoPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerView.swift; sourceTree = "<group>"; };
 		D12576CE2797215500DC6BA3 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		D136114A27BA5162000F94A3 /* Next GaymerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Next GaymerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D136115527BA535D000F94A3 /* FakeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeData.swift; sourceTree = "<group>"; };
+		D136115827BA575D000F94A3 /* MockedUserServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedUserServices.swift; sourceTree = "<group>"; };
+		D136115A27BA5769000F94A3 /* MockedAdminServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedAdminServices.swift; sourceTree = "<group>"; };
+		D136115C27BA577F000F94A3 /* MockedEventServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedEventServices.swift; sourceTree = "<group>"; };
+		D136115E27BA57BE000F94A3 /* MockedRegistrationServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedRegistrationServices.swift; sourceTree = "<group>"; };
+		D136116027BA57D7000F94A3 /* MockedChatServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedChatServices.swift; sourceTree = "<group>"; };
+		D136116327BA5986000F94A3 /* DataManagerEventTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerEventTests.swift; sourceTree = "<group>"; };
+		D136116527BAC2B6000F94A3 /* DataManagerAdminTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerAdminTests.swift; sourceTree = "<group>"; };
+		D136116927BAEEC5000F94A3 /* DataManagerChatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerChatTests.swift; sourceTree = "<group>"; };
 		D13820F327A713D9000BD371 /* EventListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewModel.swift; sourceTree = "<group>"; };
 		D13820F627A7148E000BD371 /* EventRegisterAdminViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRegisterAdminViewModel.swift; sourceTree = "<group>"; };
 		D13820F927A72255000BD371 /* BannerPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerPickerView.swift; sourceTree = "<group>"; };
@@ -159,6 +190,8 @@
 		D1622F0B279617C500F6B461 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		D1633E9A27AEBD6300B80FD7 /* RegistrantListAdminView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrantListAdminView.swift; sourceTree = "<group>"; };
 		D1633E9E27AEBE7000B80FD7 /* RegistrantListAdminViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrantListAdminViewModel.swift; sourceTree = "<group>"; };
+		D16DEC8C27BAF88C000BAFF0 /* DataManagerUserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerUserTests.swift; sourceTree = "<group>"; };
+		D16DEC8E27BAFA66000BAFF0 /* DataManagerRegisterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerRegisterTests.swift; sourceTree = "<group>"; };
 		D179478627BA47FE004116BE /* EventServicesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventServicesProtocol.swift; sourceTree = "<group>"; };
 		D179478827BA4813004116BE /* ChatServicesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatServicesProtocol.swift; sourceTree = "<group>"; };
 		D179478A27BA4823004116BE /* AdminServicesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminServicesProtocol.swift; sourceTree = "<group>"; };
@@ -222,6 +255,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		D136114727BA5162000F94A3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D14B896F27902C75005FC4F0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -290,6 +330,45 @@
 				D14B898F279032AF005FC4F0 /* ViewRouter.swift */,
 			);
 			path = "View Router";
+			sourceTree = "<group>";
+		};
+		D136114B27BA5162000F94A3 /* Next GaymerTests */ = {
+			isa = PBXGroup;
+			children = (
+				D136116227BA595E000F94A3 /* Mock Utils */,
+				D16DEC8B27BAF856000BAFF0 /* ViewModel Tests */,
+				D16DEC8A27BAF84D000BAFF0 /* DataManager Tests */,
+			);
+			path = "Next GaymerTests";
+			sourceTree = "<group>";
+		};
+		D136115427BA534D000F94A3 /* Fake Data */ = {
+			isa = PBXGroup;
+			children = (
+				D136115527BA535D000F94A3 /* FakeData.swift */,
+			);
+			path = "Fake Data";
+			sourceTree = "<group>";
+		};
+		D136115727BA5742000F94A3 /* Fake Services */ = {
+			isa = PBXGroup;
+			children = (
+				D136115827BA575D000F94A3 /* MockedUserServices.swift */,
+				D136115E27BA57BE000F94A3 /* MockedRegistrationServices.swift */,
+				D136116027BA57D7000F94A3 /* MockedChatServices.swift */,
+				D136115A27BA5769000F94A3 /* MockedAdminServices.swift */,
+				D136115C27BA577F000F94A3 /* MockedEventServices.swift */,
+			);
+			path = "Fake Services";
+			sourceTree = "<group>";
+		};
+		D136116227BA595E000F94A3 /* Mock Utils */ = {
+			isa = PBXGroup;
+			children = (
+				D136115727BA5742000F94A3 /* Fake Services */,
+				D136115427BA534D000F94A3 /* Fake Data */,
+			);
+			path = "Mock Utils";
 			sourceTree = "<group>";
 		};
 		D13820F127A71262000BD371 /* Event VM */ = {
@@ -401,6 +480,7 @@
 			isa = PBXGroup;
 			children = (
 				D14B897427902C75005FC4F0 /* Next Gaymer */,
+				D136114B27BA5162000F94A3 /* Next GaymerTests */,
 				D14B897327902C75005FC4F0 /* Products */,
 				D1BF60772790A1CC00F22AAF /* Frameworks */,
 			);
@@ -410,6 +490,7 @@
 			isa = PBXGroup;
 			children = (
 				D14B897227902C75005FC4F0 /* Next Gaymer.app */,
+				D136114A27BA5162000F94A3 /* Next GaymerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -463,6 +544,25 @@
 				D14D4DD627AD34BD00D8EB02 /* UserView.swift */,
 			);
 			path = "User ViewComp";
+			sourceTree = "<group>";
+		};
+		D16DEC8A27BAF84D000BAFF0 /* DataManager Tests */ = {
+			isa = PBXGroup;
+			children = (
+				D136116327BA5986000F94A3 /* DataManagerEventTests.swift */,
+				D136116527BAC2B6000F94A3 /* DataManagerAdminTests.swift */,
+				D136116927BAEEC5000F94A3 /* DataManagerChatTests.swift */,
+				D16DEC8C27BAF88C000BAFF0 /* DataManagerUserTests.swift */,
+				D16DEC8E27BAFA66000BAFF0 /* DataManagerRegisterTests.swift */,
+			);
+			path = "DataManager Tests";
+			sourceTree = "<group>";
+		};
+		D16DEC8B27BAF856000BAFF0 /* ViewModel Tests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "ViewModel Tests";
 			sourceTree = "<group>";
 		};
 		D179478427BA47DA004116BE /* Protocols */ = {
@@ -726,6 +826,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		D136114927BA5162000F94A3 /* Next GaymerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D136115327BA5162000F94A3 /* Build configuration list for PBXNativeTarget "Next GaymerTests" */;
+			buildPhases = (
+				D136114627BA5162000F94A3 /* Sources */,
+				D136114727BA5162000F94A3 /* Frameworks */,
+				D136114827BA5162000F94A3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D136114F27BA5162000F94A3 /* PBXTargetDependency */,
+			);
+			name = "Next GaymerTests";
+			productName = "Next GaymerTests";
+			productReference = D136114A27BA5162000F94A3 /* Next GaymerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		D14B897127902C75005FC4F0 /* Next Gaymer */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D14B898027902C76005FC4F0 /* Build configuration list for PBXNativeTarget "Next Gaymer" */;
@@ -763,6 +881,10 @@
 				LastSwiftUpdateCheck = 1320;
 				LastUpgradeCheck = 1320;
 				TargetAttributes = {
+					D136114927BA5162000F94A3 = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = D14B897127902C75005FC4F0;
+					};
 					D14B897127902C75005FC4F0 = {
 						CreatedOnToolsVersion = 13.2.1;
 					};
@@ -788,11 +910,19 @@
 			projectRoot = "";
 			targets = (
 				D14B897127902C75005FC4F0 /* Next Gaymer */,
+				D136114927BA5162000F94A3 /* Next GaymerTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		D136114827BA5162000F94A3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D14B897027902C75005FC4F0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -808,6 +938,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		D136114627BA5162000F94A3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D136116427BA5986000F94A3 /* DataManagerEventTests.swift in Sources */,
+				D136115F27BA57BE000F94A3 /* MockedRegistrationServices.swift in Sources */,
+				D16DEC8D27BAF88C000BAFF0 /* DataManagerUserTests.swift in Sources */,
+				D136115927BA575D000F94A3 /* MockedUserServices.swift in Sources */,
+				D136116127BA57D7000F94A3 /* MockedChatServices.swift in Sources */,
+				D16DEC8F27BAFA66000BAFF0 /* DataManagerRegisterTests.swift in Sources */,
+				D136115627BA535D000F94A3 /* FakeData.swift in Sources */,
+				D136115D27BA577F000F94A3 /* MockedEventServices.swift in Sources */,
+				D136115B27BA5769000F94A3 /* MockedAdminServices.swift in Sources */,
+				D136116A27BAEEC5000F94A3 /* DataManagerChatTests.swift in Sources */,
+				D136116627BAC2B6000F94A3 /* DataManagerAdminTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D14B896E27902C75005FC4F0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -911,6 +1059,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		D136114F27BA5162000F94A3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D14B897127902C75005FC4F0 /* Next Gaymer */;
+			targetProxy = D136114E27BA5162000F94A3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		D1492F1727AA76C2004A28B1 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
@@ -924,6 +1080,60 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		D136115027BA5162000F94A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4M5FSWV6LJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.fabienstg.Next-GaymerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Next Gaymer.app/Next Gaymer";
+			};
+			name = Debug;
+		};
+		D136115127BA5162000F94A3 /* Emulator */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4M5FSWV6LJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.fabienstg.Next-GaymerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Next Gaymer.app/Next Gaymer";
+			};
+			name = Emulator;
+		};
+		D136115227BA5162000F94A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4M5FSWV6LJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.fabienstg.Next-GaymerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Next Gaymer.app/Next Gaymer";
+			};
+			name = Release;
+		};
 		D14B897E27902C76005FC4F0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1210,6 +1420,16 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		D136115327BA5162000F94A3 /* Build configuration list for PBXNativeTarget "Next GaymerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D136115027BA5162000F94A3 /* Debug */,
+				D136115127BA5162000F94A3 /* Emulator */,
+				D136115227BA5162000F94A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D14B896D27902C75005FC4F0 /* Build configuration list for PBXProject "Next Gaymer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

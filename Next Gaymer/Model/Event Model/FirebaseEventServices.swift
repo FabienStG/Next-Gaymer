@@ -93,7 +93,7 @@ class FirebaseEventServices: EventServices {
         return completionHandler(false, NSLocalizedString("alreadyRegistrateEvent", comment: ""))
       }
       
-      if actualEvent.maximumPlaces != 0 && actualEvent.maximumPlaces <= (actualEvent.registrant.count - 1) {
+      if actualEvent.maximumPlaces != 0 && actualEvent.maximumPlaces <= (actualEvent.registrant.count + 1) {
         return completionHandler(false, NSLocalizedString("eventFull", comment: ""))
       }
       return completionHandler(true, nil)

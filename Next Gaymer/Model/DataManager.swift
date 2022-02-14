@@ -264,8 +264,6 @@ class DataManager {
       } else if let userRegistered = userRegistered {
         let user = self.packUserDetail(userRegistered)
         return completionHandler(user, nil)
-      } else {
-        return completionHandler(nil, NSLocalizedString("failFindUser", comment: ""))
       }
     }
   }

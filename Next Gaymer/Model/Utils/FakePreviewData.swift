@@ -62,11 +62,4 @@ class FakePreviewData {
     fakeUser.currentUser = FakePreviewData.fakeRegisteredUser
     return fakeUser
   }
-  
- 
-  
-
-  
-
-  
 }

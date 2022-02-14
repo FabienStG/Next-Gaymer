@@ -15,7 +15,7 @@ import SwiftUI
 //
 
 /// This class manage all the calls used for the events fonction
-class FirebaseEventServices {
+class FirebaseEventServices: EventServices {
   //
   // MARK: - Private Constant
   //
@@ -51,14 +51,9 @@ class FirebaseEventServices {
   }
   
   /// Take all the informations from the event form registered by the user and the url from saved image, and save it in Firestore as new object
-  func createEvent(with event: EventForm, imageUrl: String, completionHandler: @escaping(Bool, String?) -> Void) {
+  func createEvent(with event: EventCreated, completionHandler: @escaping(Bool, String?) -> Void) {
     
-    let eventCreated = EventCreated(id: event.id.uuidString, imageUrl: imageUrl, eventName: event.eventName,
-                                    isOffline: event.isOffline, date: event.date, location: event.location,
-                                    town: event.town, madeBy: event.madeBy, description: event.description,
-                                    maximumPlaces: event.maximumPlaces, takenPlaces: 0, registrant: [UserDetails]())
-
-    try? db.collection(EventConstant.events).document(eventCreated.id).setData(from: eventCreated) { error in
+    try? db.collection(EventConstant.events).document(event.id).setData(from: event) { error in
       if let error = error {
         return completionHandler(false, error.localizedDescription)
       } else {

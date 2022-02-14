@@ -31,7 +31,7 @@ class UserListAdminViewModel: ObservableObject {
   //
   /// This function fetch the users list
   private func fetchUserList() {
-    DataManager.shared.fetchlimitUsersDetailsAdmin { usersList, error in
+    DataManager.shared().fetchlimitUsersDetailsAdmin { usersList, error in
       if let usersList = usersList {
         self.userList = usersList
       } else {

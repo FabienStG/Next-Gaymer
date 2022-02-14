@@ -27,7 +27,7 @@ class RegistrantListAdminViewModel: ObservableObject {
   /// This function fetch the list of user registered on the event and return for the view
   func fetchRegistrantList(event: EventCreated) {
     
-    DataManager.shared.fetchUserRegisterToEvent(event: event) { userList in
+    DataManager.shared().fetchUserRegisterToEvent(event: event) { userList in
       self.registrantList = userList
     } errorHandler: { error in
       self.errorMessage = error

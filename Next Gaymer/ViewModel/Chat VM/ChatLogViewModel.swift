@@ -34,13 +34,13 @@ class ChatLogViewModel: ObservableObject {
   /// This function call the DataManager to fetch all the messages and add the listener to be aware of all updates
   func fetchMessages(senderUser: UserRegistered, recipientUser: UserDetails) {
     chatMessages.removeAll()
-    DataManager.shared.chatMessageListener(senderUser: senderUser, recipientUser: recipientUser, listen: self)
+    DataManager.shared().chatMessageListener(senderUser: senderUser, recipientUser: recipientUser, listen: self)
   }
   
   /// Save the sended message and show if is any error
   func saveMessage(senderUser: UserRegistered, recipientUser: UserDetails) {
         
-    DataManager.shared.saveMessage(textMessage: chatText, senderUser: senderUser, recipientUser: recipientUser) { response, error in
+    DataManager.shared().saveMessage(textMessage: chatText, senderUser: senderUser, recipientUser: recipientUser) { response, error in
       if !response {
         self.errorMessage = error ?? ""
         self.showAlert.toggle()
@@ -73,7 +73,7 @@ extension ChatLogViewModel: Listener {
   
   /// Function who ask to stop listening the update when the view close
   func stopListening() {
-    DataManager.shared.stopChatListening()
+    DataManager.shared().stopChatListening()
   }
   
   /// Function from the protocol but not used by this VM

@@ -23,6 +23,7 @@ class LoginViewModel: ObservableObject  {
   @Published var showAlert = false
   @Published var showReset = false
 
+  @Published var showGoogleForm = false
   @Published var requestStatus: RequestStatus = .initial
 
   //
@@ -37,7 +38,7 @@ class LoginViewModel: ObservableObject  {
   func loginUser() {
 
     requestStatus = .processing
-    DataManager.shared.loginUser(email: self.email, password: self.password) { success, message in
+    DataManager.shared().loginUser(email: self.email, password: self.password) { success, message in
       if !success {
         self.errorMessage = message ?? NSLocalizedString("unknownError", comment: "")
         self.showReset = true
@@ -53,13 +54,13 @@ class LoginViewModel: ObservableObject  {
   func googleLoginUser() {
 
     requestStatus = .processing
-    DataManager.shared.googleLoginUser { success, message in
+    DataManager.shared().googleLoginUser { success, message in
       if !success {
         self.errorMessage = message ?? NSLocalizedString("unknownError", comment: "")
         self.showAlert.toggle()
         self.requestStatus = .fail
       } else {
-        self.requestStatus = .success
+        self.showGoogleForm = true
       }
     }
   }

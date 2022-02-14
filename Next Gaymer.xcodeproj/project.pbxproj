@@ -14,7 +14,9 @@
 		D10BF78D279D55050038EA72 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10BF78C279D55050038EA72 /* MessageView.swift */; };
 		D116C3D7279B5FA6001CC51E /* FirebaseAdminService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D116C3D6279B5FA6001CC51E /* FirebaseAdminService.swift */; };
 		D11765AA27A99A230020131D /* UserAdminViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11765A927A99A230020131D /* UserAdminViewCell.swift */; };
-		D11765AC27A9C71A0020131D /* Listener Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11765AB27A9C71A0020131D /* Listener Protocol.swift */; };
+		D11765AC27A9C71A0020131D /* ListenerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11765AB27A9C71A0020131D /* ListenerProtocol.swift */; };
+		D1222FCB27B56D7F0068AD85 /* GoogleRegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1222FCA27B56D7F0068AD85 /* GoogleRegisterViewModel.swift */; };
+		D1222FCF27B578420068AD85 /* GoogleRegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1222FCE27B578420068AD85 /* GoogleRegisterView.swift */; };
 		D12576CD27971A7600DC6BA3 /* PhotoPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12576CC27971A7600DC6BA3 /* PhotoPickerView.swift */; };
 		D12576CF2797215500DC6BA3 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12576CE2797215500DC6BA3 /* ImagePicker.swift */; };
 		D13820F427A713D9000BD371 /* EventListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13820F327A713D9000BD371 /* EventListViewModel.swift */; };
@@ -45,6 +47,12 @@
 		D1622F0C279617C700F6B461 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1622F0B279617C500F6B461 /* ProfileView.swift */; };
 		D1633E9B27AEBD6400B80FD7 /* RegistrantListAdminView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1633E9A27AEBD6300B80FD7 /* RegistrantListAdminView.swift */; };
 		D1633E9F27AEBE7000B80FD7 /* RegistrantListAdminViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1633E9E27AEBE7000B80FD7 /* RegistrantListAdminViewModel.swift */; };
+		D179478727BA47FE004116BE /* EventServicesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D179478627BA47FE004116BE /* EventServicesProtocol.swift */; };
+		D179478927BA4813004116BE /* ChatServicesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D179478827BA4813004116BE /* ChatServicesProtocol.swift */; };
+		D179478B27BA4823004116BE /* AdminServicesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D179478A27BA4823004116BE /* AdminServicesProtocol.swift */; };
+		D179478D27BA482D004116BE /* RegistrationServicesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D179478C27BA482D004116BE /* RegistrationServicesProtocol.swift */; };
+		D179478F27BA483C004116BE /* UserServicesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D179478E27BA483C004116BE /* UserServicesProtocol.swift */; };
+		D179479127BA4E03004116BE /* UserLogStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = D179479027BA4E03004116BE /* UserLogStatus.swift */; };
 		D17A9F8627AE7E6C00AA0B08 /* AdminListUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17A9F8527AE7E6C00AA0B08 /* AdminListUserView.swift */; };
 		D17A9F8827AE7F8B00AA0B08 /* AdminListUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17A9F8727AE7F8B00AA0B08 /* AdminListUserViewModel.swift */; };
 		D17C1A452790C64C00EF0633 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D17C1A442790C64B00EF0633 /* GoogleService-Info.plist */; };
@@ -116,7 +124,9 @@
 		D10BF78C279D55050038EA72 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		D116C3D6279B5FA6001CC51E /* FirebaseAdminService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAdminService.swift; sourceTree = "<group>"; };
 		D11765A927A99A230020131D /* UserAdminViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAdminViewCell.swift; sourceTree = "<group>"; };
-		D11765AB27A9C71A0020131D /* Listener Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Listener Protocol.swift"; sourceTree = "<group>"; };
+		D11765AB27A9C71A0020131D /* ListenerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenerProtocol.swift; sourceTree = "<group>"; };
+		D1222FCA27B56D7F0068AD85 /* GoogleRegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleRegisterViewModel.swift; sourceTree = "<group>"; };
+		D1222FCE27B578420068AD85 /* GoogleRegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleRegisterView.swift; sourceTree = "<group>"; };
 		D12576CC27971A7600DC6BA3 /* PhotoPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerView.swift; sourceTree = "<group>"; };
 		D12576CE2797215500DC6BA3 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		D13820F327A713D9000BD371 /* EventListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewModel.swift; sourceTree = "<group>"; };
@@ -149,6 +159,12 @@
 		D1622F0B279617C500F6B461 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		D1633E9A27AEBD6300B80FD7 /* RegistrantListAdminView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrantListAdminView.swift; sourceTree = "<group>"; };
 		D1633E9E27AEBE7000B80FD7 /* RegistrantListAdminViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrantListAdminViewModel.swift; sourceTree = "<group>"; };
+		D179478627BA47FE004116BE /* EventServicesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventServicesProtocol.swift; sourceTree = "<group>"; };
+		D179478827BA4813004116BE /* ChatServicesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatServicesProtocol.swift; sourceTree = "<group>"; };
+		D179478A27BA4823004116BE /* AdminServicesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminServicesProtocol.swift; sourceTree = "<group>"; };
+		D179478C27BA482D004116BE /* RegistrationServicesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationServicesProtocol.swift; sourceTree = "<group>"; };
+		D179478E27BA483C004116BE /* UserServicesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserServicesProtocol.swift; sourceTree = "<group>"; };
+		D179479027BA4E03004116BE /* UserLogStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLogStatus.swift; sourceTree = "<group>"; };
 		D17A9F8527AE7E6C00AA0B08 /* AdminListUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminListUserView.swift; sourceTree = "<group>"; };
 		D17A9F8727AE7F8B00AA0B08 /* AdminListUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminListUserViewModel.swift; sourceTree = "<group>"; };
 		D17C1A442790C64B00EF0633 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -245,6 +261,7 @@
 			children = (
 				D1D6678A27A2930900B1E720 /* Decoder */,
 				D1F555BC2791CA130005555A /* FirebaseRegistrationServices.swift */,
+				D179479027BA4E03004116BE /* UserLogStatus.swift */,
 			);
 			path = "Register Login Model";
 			sourceTree = "<group>";
@@ -353,10 +370,10 @@
 		D13A888627A1A94900F606C3 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				D179478427BA47DA004116BE /* Protocols */,
 				D1C46FCD279B084400833440 /* StringConstant.swift */,
 				D13A888127A192A000F606C3 /* FakePreviewData.swift */,
 				D1D6678D27A2A09000B1E720 /* RequestStatus.swift */,
-				D11765AB27A9C71A0020131D /* Listener Protocol.swift */,
 				D1492F1727AA76C2004A28B1 /* Localizable.strings */,
 			);
 			path = Utils;
@@ -448,6 +465,27 @@
 			path = "User ViewComp";
 			sourceTree = "<group>";
 		};
+		D179478427BA47DA004116BE /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				D11765AB27A9C71A0020131D /* ListenerProtocol.swift */,
+				D179478527BA47E0004116BE /* Services Protocols */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		D179478527BA47E0004116BE /* Services Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				D179478627BA47FE004116BE /* EventServicesProtocol.swift */,
+				D179478827BA4813004116BE /* ChatServicesProtocol.swift */,
+				D179478A27BA4823004116BE /* AdminServicesProtocol.swift */,
+				D179478C27BA482D004116BE /* RegistrationServicesProtocol.swift */,
+				D179478E27BA483C004116BE /* UserServicesProtocol.swift */,
+			);
+			path = "Services Protocols";
+			sourceTree = "<group>";
+		};
 		D17A9F8227AE767700AA0B08 /* Chat VM */ = {
 			isa = PBXGroup;
 			children = (
@@ -492,6 +530,7 @@
 			children = (
 				D14B898D2790308A005FC4F0 /* LoginView.swift */,
 				D1428DEF2792E38A00269B0C /* RegisterView.swift */,
+				D1222FCE27B578420068AD85 /* GoogleRegisterView.swift */,
 				D1B3DB30279216F20075A0F7 /* ResetPasswordView.swift */,
 			);
 			path = "Register Login View";
@@ -597,6 +636,7 @@
 				D1BF607C2790BE8D00F22AAF /* LoginViewModel.swift */,
 				D1B3DB2E279214780075A0F7 /* ResetPasswordViewModel.swift */,
 				D1F555C42791DECE0005555A /* RegisterViewModel.swift */,
+				D1222FCA27B56D7F0068AD85 /* GoogleRegisterViewModel.swift */,
 				D1F555C82791F4450005555A /* LogoutViewModel.swift */,
 			);
 			path = "Register Login VM";
@@ -788,13 +828,16 @@
 				D1DB73E227AFE08F00A80294 /* NotificationManager.swift in Sources */,
 				D1DA3902279E9BB600A571E2 /* MainMessagesViewModel.swift in Sources */,
 				D14D4DD227AD1FC900D8EB02 /* MyEventListViewModel.swift in Sources */,
+				D179478927BA4813004116BE /* ChatServicesProtocol.swift in Sources */,
 				D13820F727A7148E000BD371 /* EventRegisterAdminViewModel.swift in Sources */,
 				D1D6678927A2925200B1E720 /* FirebaseEventServices.swift in Sources */,
 				D1D66C7A279C866900EEC95E /* RecentMessage.swift in Sources */,
+				D179478F27BA483C004116BE /* UserServicesProtocol.swift in Sources */,
 				D19B0BED2795C4D8000C059C /* CustomTabBar.swift in Sources */,
 				D116C3D7279B5FA6001CC51E /* FirebaseAdminService.swift in Sources */,
 				D10BF78B279D54070038EA72 /* ChatLogView.swift in Sources */,
 				D13A887A27A13CD800F606C3 /* Location.swift in Sources */,
+				D1222FCB27B56D7F0068AD85 /* GoogleRegisterViewModel.swift in Sources */,
 				D1F555C12791CE9E0005555A /* DataManager.swift in Sources */,
 				D1D66C68279C159600EEC95E /* UserListAdminView.swift in Sources */,
 				D14D4DD927AD377D00D8EB02 /* MyEventDetailView.swift in Sources */,
@@ -804,6 +847,7 @@
 				D1F555C72791EF7E0005555A /* View Extension.swift in Sources */,
 				D1DB73E027AFDC4600A80294 /* AppDelegate.swift in Sources */,
 				D15DC11627AC7C15001DCF1C /* RecentMessageAdminViewCell.swift in Sources */,
+				D179479127BA4E03004116BE /* UserLogStatus.swift in Sources */,
 				D1DA87AC27A9648A006B0ED6 /* EventView.swift in Sources */,
 				D1F555C92791F4460005555A /* LogoutViewModel.swift in Sources */,
 				D1EB16E8279E04480043624F /* UserDetailsAdminViewModel.swift in Sources */,
@@ -816,6 +860,7 @@
 				D13A887D27A1439B00F606C3 /* MapViewModel.swift in Sources */,
 				D109327427A03FC100B4818F /* SelectedUserViewModel.swift in Sources */,
 				D10ABA2527B11D0D009EDD36 /* MapServices.swift in Sources */,
+				D1222FCF27B578420068AD85 /* GoogleRegisterView.swift in Sources */,
 				D1492F1A27AACB88004A28B1 /* EventDetailView.swift in Sources */,
 				D1B3DB3327921DFF0075A0F7 /* EmailView.swift in Sources */,
 				D1BFA198279EFA9000FF0B47 /* EventListView.swift in Sources */,
@@ -823,6 +868,7 @@
 				D1AE62302796C0A300FDFAAC /* TabBarRouter.swift in Sources */,
 				D1492F1C27AAE0E4004A28B1 /* EventDetailViewModel.swift in Sources */,
 				D1D66C76279C6EDE00EEC95E /* ChatMessage.swift in Sources */,
+				D179478D27BA482D004116BE /* RegistrationServicesProtocol.swift in Sources */,
 				D1BF606927906DA300F22AAF /* RegisterCredentials.swift in Sources */,
 				D12576CF2797215500DC6BA3 /* ImagePicker.swift in Sources */,
 				D14D4DD727AD34BD00D8EB02 /* UserView.swift in Sources */,
@@ -830,6 +876,7 @@
 				D1428DF02792E38A00269B0C /* RegisterView.swift in Sources */,
 				D1F555BD2791CA130005555A /* FirebaseRegistrationServices.swift in Sources */,
 				D13820FA27A72255000BD371 /* BannerPickerView.swift in Sources */,
+				D179478B27BA4823004116BE /* AdminServicesProtocol.swift in Sources */,
 				D1BF607D2790BE8E00F22AAF /* LoginViewModel.swift in Sources */,
 				D1B3DB31279216F20075A0F7 /* ResetPasswordView.swift in Sources */,
 				D1BF606B279071AA00F22AAF /* LogoView.swift in Sources */,
@@ -842,7 +889,7 @@
 				D14B898E2790308A005FC4F0 /* LoginView.swift in Sources */,
 				D1DB73DE27AFD05400A80294 /* NotificationServices.swift in Sources */,
 				D14B897627902C75005FC4F0 /* Next_GaymerApp.swift in Sources */,
-				D11765AC27A9C71A0020131D /* Listener Protocol.swift in Sources */,
+				D11765AC27A9C71A0020131D /* ListenerProtocol.swift in Sources */,
 				D1633E9F27AEBE7000B80FD7 /* RegistrantListAdminViewModel.swift in Sources */,
 				D14D4DD527AD32E500D8EB02 /* UserLimitedView.swift in Sources */,
 				D11765AA27A99A230020131D /* UserAdminViewCell.swift in Sources */,
@@ -853,6 +900,7 @@
 				D1C46FD5279B1EC100833440 /* UserRegistered.swift in Sources */,
 				D19B0BF62795DFCB000C059C /* TapButtonView.swift in Sources */,
 				D1622F0A2796058E00F6B461 /* CircleBackgroundView.swift in Sources */,
+				D179478727BA47FE004116BE /* EventServicesProtocol.swift in Sources */,
 				D1D66C6A279C1B7E00EEC95E /* UserListAdminViewModel.swift in Sources */,
 				D1C46FD3279B1EB200833440 /* UserForm.swift in Sources */,
 				D14D4DDD27AD6A2900D8EB02 /* MyEventDetailViewModel.swift in Sources */,

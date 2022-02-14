@@ -29,12 +29,12 @@ class MainMessageViewModel: ObservableObject {
   //
   /// This function fetch the recent messages with the data manager and add the listener to be notified by any update
   func fetchRecentMessages(currentUser: UserRegistered) {
-    DataManager.shared.recentMessageListener(currentUser: currentUser, listen: self)
+    DataManager.shared().recentMessageListener(currentUser: currentUser, listen: self)
   }
   
   /// This function take the id saved in the RecentMessage object, and return the selected user used by the chatlog view
   func fetchSelectedUser(currentUser: UserRegistered, messageSelected: RecentMessage) {
-    DataManager.shared.fetchSpecificUser(selectedUser: selectUserId(currentUser: currentUser, messageSelected: messageSelected)) { user, error in
+    DataManager.shared().fetchSpecificUser(selectedUser: selectUserId(currentUser: currentUser, messageSelected: messageSelected)) { user, error in
       if let user = user {
         self.selectedUser = user
         self.isShowingLogchat = true
@@ -89,6 +89,6 @@ extension MainMessageViewModel: Listener {
   
   /// This function remove the listener
   func stopListening() {
-    DataManager.shared.stopRecentMessageListening()
+    DataManager.shared().stopRecentMessageListening()
   }
 }

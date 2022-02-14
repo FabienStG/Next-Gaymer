@@ -13,7 +13,7 @@ import Foundation
 //
 
 /// This class provide all the calls used for the admin' only function
-class FirebaseAdminService {
+class FirebaseAdminService: AdminServices {
   //
   // MARK: - Private Constant
   //

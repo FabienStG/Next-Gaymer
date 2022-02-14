@@ -27,7 +27,7 @@ class ResetPasswordViewModel: ObservableObject{
   /// Reset the user password by sending a mail
   func resetPassword() {
     requestStatus = .processing
-    DataManager.shared.resetPassword(email: self.email) { success, message in
+    DataManager.shared().resetPassword(email: self.email) { success, message in
       if !success {
         self.errorMessage = message ?? NSLocalizedString("unkownError", comment: "")
         self.showAlert.toggle()

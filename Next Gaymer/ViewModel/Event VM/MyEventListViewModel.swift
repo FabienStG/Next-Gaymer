@@ -31,7 +31,7 @@ class MyEventListViewModel: ObservableObject {
   //
   /// This function update the event list by fetching the last version on the document in firestore 
   func updateEvent() {
-    DataManager.shared.fetchMyEvents { myEventList, error in
+    DataManager.shared().fetchMyEvents { myEventList, error in
       self.myEventList = myEventList
       if let error = error {
         self.errorMessage = error

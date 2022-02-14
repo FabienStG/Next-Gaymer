@@ -21,7 +21,7 @@ class ViewRouter: ObservableObject {
   // MARK: - Initialization
   //
   init() {
-    if DataManager.shared.logStatus {
+    if UserLogStatus.shared.logStatus {
       currentPage = .loggedIn
     } else {
       currentPage = .loggedOut

@@ -17,7 +17,7 @@ class LogoutViewModel: ObservableObject {
   func logoutUser() {
 
     requestStatus = .processing
-    DataManager.shared.logoutUser { success, message in
+    DataManager.shared().logoutUser { success, message in
       if !success {
         self.requestStatus = .fail
         self.errorMessage = message ?? NSLocalizedString("unkownError", comment: "")

@@ -44,7 +44,7 @@ class RegisterViewModel: ObservableObject {
   func registerUser() {
 
     requestStatus = .processing
-    DataManager.shared.registerUser(
+    DataManager.shared().registerUser(
       with: packUserDetail(), password: password,
       image: profilImage) { success, message in
 
@@ -53,7 +53,6 @@ class RegisterViewModel: ObservableObject {
         self.showAlert.toggle()
         self.requestStatus = .fail
       } else {
-        print("success")
         self.requestStatus = .success
       }
     }

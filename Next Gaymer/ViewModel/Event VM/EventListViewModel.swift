@@ -32,7 +32,7 @@ class EventListViewModel: ObservableObject {
   //
   /// Fetch all the events to show them in the view
   func fetchEventList() {
-    DataManager.shared.fetchAllEvents { allEvent, error in
+    DataManager.shared().fetchAllEvents { allEvent, error in
       if let allEvent = allEvent {
         self.eventList = allEvent
       } else {

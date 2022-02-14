@@ -14,7 +14,7 @@ import FirebaseFirestoreSwift
 //
 
 /// This class manage the calls related to the live chat function
-class FirebaseChatServices {
+class FirebaseChatServices: ChatServices {
   //
   // MARK: - Private Constant
   //

@@ -12,7 +12,7 @@ import Firebase
 //
 
 /// This struct manage the user account once is created
-class FirebaseUserServices {
+class FirebaseUserServices: UserServices {
   //
   // MARK: - Private Properties
   //

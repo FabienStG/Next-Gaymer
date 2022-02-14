@@ -30,7 +30,7 @@ class AdminListUserViewModel: ObservableObject {
   // MARK: - Private Method
   //
   private func fetchAdminList() {
-    DataManager.shared.fetchLimitedDetailAdminList { list, error in
+    DataManager.shared().fetchLimitedDetailAdminList { list, error in
       if let list = list {
         self.adminList = list
       } else {

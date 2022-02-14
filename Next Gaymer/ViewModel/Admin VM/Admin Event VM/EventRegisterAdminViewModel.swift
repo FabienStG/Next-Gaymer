@@ -41,7 +41,7 @@ class EventRegisterAdminViewModel: ObservableObject {
   func registrateEvent() {
     self.requestStatus = .processing
     
-    DataManager.shared.createEvent(
+    DataManager.shared().createEvent(
       event: packEventForm(),
       image: image) { result, error in
       if !result {

@@ -35,7 +35,7 @@ class UserDetailsAdminViewModel: ObservableObject {
   /// This function change the user profile admin to true, and by this, give him the admin access to the app
   func setUserAdminCrentials() {
     
-    DataManager.shared.setUserAdminCredentials(userId: selectedUser.id) { message in
+    DataManager.shared().setUserAdminCredentials(userId: selectedUser.id) { message in
       self.confirmationMessage = message
       self.presentAlert.toggle()
     }

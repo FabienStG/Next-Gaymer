@@ -47,7 +47,7 @@ class MyEventDetailViewModel: ObservableObject {
   /// This function remove the user from the registrate event list
   func removeUserFromEvent(currentUser: UserRegistered) {
     requestStatus = .processing
-    DataManager.shared.deleteUserFromEvent(currentUser: currentUser, event: selectedEvent) { result, message in
+    DataManager.shared().deleteUserFromEvent(currentUser: currentUser, event: selectedEvent) { result, message in
       if !result {
         self.requestStatus = .fail
       } else {

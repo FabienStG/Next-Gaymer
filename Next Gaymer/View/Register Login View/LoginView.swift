@@ -58,6 +58,9 @@ struct LoginView: View {
       .padding()
       .alert(loginModel.errorMessage, isPresented: $loginModel.showAlert) {}
       .navigationBarHidden(true)
+      .fullScreenCover(isPresented: $loginModel.showGoogleForm) {
+        GoogleRegisterView()
+      }
     }
     .onReceive(loginModel.$requestStatus) { newValue in
       if newValue == .success {

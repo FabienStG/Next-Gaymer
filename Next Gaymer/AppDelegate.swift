@@ -24,6 +24,9 @@ class AppDelegate: NSObject, UIApplicationDelegate {
   
   /// This manage the notifications options when the app launch
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+    DataManager.initialized(registrationServices: FirebaseRegistrationServices(), chatServices: FirebaseChatServices(),
+                            eventServices: FirebaseEventServices(), adminServices: FirebaseAdminService(),
+                            userServices: FirebaseUserServices())
     registerForNotification()
     return true
   }

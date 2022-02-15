@@ -60,7 +60,12 @@ class LoginViewModel: ObservableObject  {
         self.showAlert.toggle()
         self.requestStatus = .fail
       } else {
-        self.showGoogleForm = true
+        DataManager.shared().checkGoogleUserAppAccount { response in
+          if response {
+            self.requestStatus = .success
+          }
+          self.showGoogleForm = true
+        }
       }
     }
   }

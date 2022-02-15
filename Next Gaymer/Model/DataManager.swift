@@ -42,10 +42,8 @@ class DataManager {
     self.userServices = userServices
   }
 
-
-  
   //
-  // MARK: - Internal Methods - User Services
+  // MARK: - Class Methods
   //
   /// Function who initialize the manage with the provide services
   static func initialized(registrationServices: RegistrationServices, chatServices: ChatServices,
@@ -53,12 +51,15 @@ class DataManager {
     _shared = DataManager(regitrationServices: registrationServices, chatServices: chatServices,
                           eventServices: eventServices, adminServices: adminServices, userServices: userServices)
   }
-  
+
   /// Function to use the force unwrapp the _shared instance initialized in the app
   static func shared() -> DataManager {
     return _shared!
   }
   
+  //
+  // MARK: - Internal Methods
+  //
   /// Log the user into the app and update the logstatus
   func loginUser(email: String, password: String, completionHandler: @escaping(Bool, String?) -> Void) {
     
@@ -92,6 +93,13 @@ class DataManager {
       if let info = info {
         return completionHandler(info)
       }
+    }
+  }
+  
+  func checkGoogleUserAppAccount(completionHandler: @escaping(Bool) -> Void) {
+    
+    registrationServices.checkGoogleUserAppAccount { result in
+      return completionHandler(result)
     }
   }
 

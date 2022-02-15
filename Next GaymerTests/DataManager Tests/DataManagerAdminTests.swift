@@ -18,6 +18,7 @@ class DataManagerAdminTests: XCTestCase {
                                       eventServices: MockedEventServicesFailed(), adminServices: MockedAdminServicesFailed(),
                                       userServices: MockedUserServicesFailed())
 
+  
   func testCreateEventThenReturnSuccessBool() {
     
     dataManager.createEvent(event: FakeData.eventForm, image: FakeData.uiImage!) { response, error in

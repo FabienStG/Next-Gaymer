@@ -18,6 +18,7 @@ class DataManagerChatTests: XCTestCase {
                                       eventServices: MockedEventServicesFailed(), adminServices: MockedAdminServicesFailed(),
                                       userServices: MockedUserServicesFailed())
 
+  
   func testFetchSpecificUserThenReturnIt() {
     
     dataManager.fetchSpecificUser(selectedUser: FakeData.registeredUser.id) { user, error in

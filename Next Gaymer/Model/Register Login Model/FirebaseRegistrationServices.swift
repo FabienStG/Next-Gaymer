@@ -73,6 +73,19 @@ class FirebaseRegistrationServices: RegistrationServices {
     }
   }
   
+  /// Check is the Google User have already an App Account
+  func checkGoogleUserAppAccount(completionHandler: @escaping(Bool) -> Void) {
+    
+    guard let userId = auth.currentUser?.uid else { return }
+    let userRef = db.collection(UserConstant.users).document(userId)
+    userRef.getDocument { document, error in
+      if let document = document, document.exists {
+        return completionHandler(true)
+      }
+      return completionHandler(false)
+    }
+  }
+  
   /// With the form provide by the user and the image, this function create the final userRegistered object saved into firestore
   func registrateUser(with user: UserForm, image: UIImage, completionHandler: @escaping(Bool, String?) -> Void) {
 

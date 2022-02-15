@@ -9,9 +9,7 @@ import SwiftUI
 @testable import Next_Gaymer
 
 class FakeData {
-  //
-  // MARK: - Private constant
-  //
+
   static let image = "imageURL"
   
   static let registeredAdmin = UserRegistered(id: "9Hkh3HUKCwh1o3gE1cLLJRmLQQf2", name: "Fabien", surname: "Saint Germain",
@@ -29,16 +27,10 @@ class FakeData {
   static let chatMessage = ChatMessage(id: "id", senderUserId: "9Hkh3HUKCwh1o3gE1cLLJRmLQQf2",
                                        recipientUserId: "LEoXQsTtXcNdaiHoUlcmX6I0PsO2", text: "Test Message",
                                        timestamp: Date())
-  
-  //
-  // MARK: - Usable static constant
-  //
 
-
-  
   static let userDetails = UserDetails(id: "GbuydisSe5ZLo4W5gpodtwozZl62", pseudo: "Maryël", name: "Marie",
-                                            surname: "Hel", email: "mariel@icloud.com", city: "Paris",
-                                            profileImageUrl: image, isAdmin: false)
+                                       surname: "Hel", email: "mariel@icloud.com", city: "Paris",
+                                       profileImageUrl: image, isAdmin: false)
   
   static let adminDetails = UserDetails(id: "9Hkh3HUKCwh1o3gE1cLLJRmLQQf2", pseudo: "Damnes", name: "Name",
                                         surname: "Surname", email: "email", city: "city",
@@ -49,24 +41,26 @@ class FakeData {
   
   
   static let eventWithRegisters = EventCreated(id: "fakeID", imageUrl: image, eventName: "Nom de l'évènement",
-                                            isOffline: false, date: Date(), location: "14 rue mahcin",
-                                            town: "Paris", madeBy: "Damnes", description: "Description", maximumPlaces: 4, takenPlaces: 0,
-                                            registrant: [userDetails, adminDetails])
+                                               isOffline: false, date: Date(), location: "14 rue mahcin",
+                                               town: "Paris", madeBy: "Damnes", description: "Description", maximumPlaces: 4, takenPlaces: 0,
+                                               registrant: [userDetails, adminDetails])
   
   static let eventWithNoRegisters = EventCreated(id: "fakeID", imageUrl: image, eventName: "Nom de l'évènement",
-                                            isOffline: false, date: Date(), location: "14 rue mahcin",
-                                            town: "Paris", madeBy: "Damnes", description: "Description", maximumPlaces: 0, takenPlaces: 0,
-                                            registrant: [])
+                                                 isOffline: false, date: Date(), location: "14 rue mahcin",
+                                                 town: "Paris", madeBy: "Damnes", description: "Description", maximumPlaces: 0, takenPlaces: 0,
+                                                 registrant: [])
   
   static let eventWithFullRegisters = EventCreated(id: "fakeID", imageUrl: image, eventName: "Nom de l'évènement",
-                                            isOffline: false, date: Date(), location: "14 rue mahcin",
-                                            town: "Paris", madeBy: "Damnes", description: "Description", maximumPlaces: 2, takenPlaces: 2,
-                                            registrant: [userDetails, adminDetails])
+                                                   isOffline: false, date: Date(), location: "14 rue mahcin",
+                                                   town: "Paris", madeBy: "Damnes", description: "Description", maximumPlaces: 2, takenPlaces: 2,
+                                                   registrant: [userDetails, adminDetails])
   
   static let recentMessage = RecentMessage(id: "fakeId", text: "Hey salut !", senderUserId: "Fakeid", recipientUserId: "otherFake",
-                                               timestamp: Date(), profileImageUrl: image, pseudo: "Damnes", isAdmin: false)
+                                           timestamp: Date(), profileImageUrl: image, pseudo: "Damnes", isAdmin: false)
   
-  static let eventForm = EventForm(eventName: "Event", isOffline: false, date: Date(), location: "Location", town: "Town", madeBy: "MadeBy", description: "Description", maximumPlaces: 1)
+  static let eventForm = EventForm(eventName: "Event", isOffline: false, date: Date(),
+                                   location: "Location", town: "Town", madeBy: "MadeBy",
+                                   description: "Description", maximumPlaces: 1)
   
   static let uiImage = UIImage(systemName: "plus")
   

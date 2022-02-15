@@ -14,6 +14,9 @@ protocol RegistrationServices {
   /// With the choosen UIimage for the user profile, it saved it in the storage and return the url
   func saveProfileImage(image: UIImage, completionHandler: @escaping(Bool, String) -> Void)
   
+  /// Check is the Google User have already an App Account
+  func checkGoogleUserAppAccount(completionHandler: @escaping(Bool) -> Void)
+  
   /// With the form provide by the user and the image, this function create the final userRegistered object saved into firestore
   func registrateUser(with user: UserForm, image: UIImage, completionHandler: @escaping(Bool, String?) -> Void)
   

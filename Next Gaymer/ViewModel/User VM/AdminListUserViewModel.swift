@@ -35,6 +35,7 @@ class AdminListUserViewModel: ObservableObject {
         self.adminList = list
       } else {
         self.errorMessage = error ?? NSLocalizedString("failFetchAdminList", comment: "")
+        self.showAlert.toggle()
       }
     }
   }

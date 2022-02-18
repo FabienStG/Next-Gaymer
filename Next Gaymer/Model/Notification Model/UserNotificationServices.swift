@@ -13,7 +13,7 @@ import UserNotifications
 //
 
 /// This class manage the local notifications and the saved preferences of it in firestore
-class NotificationServices {
+class UserNotificationServices: NotificationsServices {
   //
   // MARK: - Private Constants
   private let db = Firestore.firestore()

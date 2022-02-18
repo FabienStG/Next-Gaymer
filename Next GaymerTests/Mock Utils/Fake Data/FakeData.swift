@@ -5,7 +5,7 @@
 //  Created by Fabien Saint Germain on 14/02/2022.
 //
 
-import SwiftUI
+import MapKit
 @testable import Next_Gaymer
 
 class FakeData {
@@ -82,4 +82,10 @@ class FakeData {
     fakeUser.currentUser = FakeData.registeredUser
     return fakeUser
   }
+  
+  static let defaultLocation = CLLocationCoordinate2D(latitude: 30.227638, longitude: 15.213749)
+  static let defaultSpin = MKCoordinateSpan(latitudeDelta: 5, longitudeDelta: 5)
+  
+  static let userLocation = CLLocationCoordinate2D(latitude: 46.227638, longitude: 2.213749)
+  static let userSpin = MKCoordinateSpan(latitudeDelta: 11, longitudeDelta: 11)
 }

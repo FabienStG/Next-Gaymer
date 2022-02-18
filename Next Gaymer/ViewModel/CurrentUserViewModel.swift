@@ -35,6 +35,7 @@ class CurrentUserViewModel: ObservableObject {
       if let user = user {
         self.currentUser = user
       } else {
+        self.showAlert = true
         self.errorMessage = error ?? NSLocalizedString("failFindUser", comment: "")
       }
     }

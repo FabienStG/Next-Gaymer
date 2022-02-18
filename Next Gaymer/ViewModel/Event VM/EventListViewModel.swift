@@ -36,7 +36,7 @@ class EventListViewModel: ObservableObject {
       if let allEvent = allEvent {
         self.eventList = allEvent
       } else {
-        self.errorMessage = error!
+        self.errorMessage = error ?? NSLocalizedString("unknownError", comment: "")
         self.showAlert.toggle()
       }
     }

@@ -10,11 +10,11 @@ import XCTest
 
 class DataManagerUserTests: XCTestCase {
   
-  let dataManager = DataManager(regitrationServices: MockedRegistrationServices(), chatServices: MockedChatServices(),
+  let dataManager = DataManager(registrationServices: MockedRegistrationServices(), chatServices: MockedChatServices(),
                                 eventServices: MockedEventServices(), adminServices: MockedAdminServices(),
                                 userServices: MockedUserServices())
   
-  let dataManagerFailed = DataManager(regitrationServices: MockedRegistrationServicesFailed(), chatServices: MockedChatServicesFailed(),
+  let dataManagerFailed = DataManager(registrationServices: MockedRegistrationServicesFailed(), chatServices: MockedChatServicesFailed(),
                                       eventServices: MockedEventServicesFailed(), adminServices: MockedAdminServicesFailed(),
                                       userServices: MockedUserServicesFailed())
 

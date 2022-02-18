@@ -54,7 +54,6 @@ class ChatLogViewModel: ObservableObject {
 //
 // MARK: - Extension Chat Log VM - Listener Protocol
 //
-
 /// This extension give the Listener protocol the the view model, this protocol is used to be notified by any message update
 extension ChatLogViewModel: Listener {
   //

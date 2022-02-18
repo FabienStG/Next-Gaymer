@@ -10,11 +10,11 @@ import XCTest
 
 class DataManagerRegisterTests: XCTestCase {
   
-  let dataManager = DataManager(regitrationServices: MockedRegistrationServices(), chatServices: MockedChatServices(),
+  let dataManager = DataManager(registrationServices: MockedRegistrationServices(), chatServices: MockedChatServices(),
                                 eventServices: MockedEventServices(), adminServices: MockedAdminServices(),
                                 userServices: MockedUserServices())
   
-  let dataManagerFailed = DataManager(regitrationServices: MockedRegistrationServicesFailed(), chatServices: MockedChatServicesFailed(),
+  let dataManagerFailed = DataManager(registrationServices: MockedRegistrationServicesFailed(), chatServices: MockedChatServicesFailed(),
                                       eventServices: MockedEventServicesFailed(), adminServices: MockedAdminServicesFailed(),
                                       userServices: MockedUserServicesFailed())
   
@@ -93,10 +93,10 @@ class DataManagerRegisterTests: XCTestCase {
     }
   }
   
-  func testFetchGoogleUserInfoThenReturnNil() {
+  func testFetchGoogleUserInfoThenReturnEmpty() {
     
     dataManagerFailed.fetchGoogleUserInfo { info in
-      XCTAssertNil(info)
+      XCTAssertNotNil(info)
     }
   }
 
@@ -137,6 +137,20 @@ class DataManagerRegisterTests: XCTestCase {
       XCTAssertFalse(response)
       XCTAssertNotNil(error)
       XCTAssertEqual(error, "error")
+    }
+  }
+  
+  func testCheckIfGoogleHaveAlreadyAccountThenReturnTrue() {
+    
+    dataManager.checkGoogleUserAppAccount { result in
+      XCTAssertTrue(result)
+    }
+  }
+  
+  func testCheckIfGoogleHaveAlreadyAccountThenReturnFalse() {
+    
+    dataManagerFailed.checkGoogleUserAppAccount { result in
+      XCTAssertFalse(result)
     }
   }
  }

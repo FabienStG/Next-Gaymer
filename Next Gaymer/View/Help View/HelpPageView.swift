@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HelpPageView: View {
+  
   var body: some View {
     NavigationView {
       Text("Liste des contacts d'associations d'aide")

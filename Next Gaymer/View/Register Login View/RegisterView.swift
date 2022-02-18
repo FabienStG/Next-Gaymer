@@ -69,7 +69,7 @@ struct RegisterView: View {
           Text(NSLocalizedString("password", comment: ""))
         }
         Button {
-          registerModel.registerUser()
+          registerModel.registerUserButton()
         } label: {
           Text(NSLocalizedString("createAccount", comment: ""))
             .font(.title3)
@@ -81,9 +81,9 @@ struct RegisterView: View {
             .cornerRadius(15.0)
           
         }
+        .disabled(!registerModel.disableButton())
         .frame(maxWidth: .infinity, alignment: .center)
         .listRowBackground(Color(UIColor.systemGroupedBackground))
-        // .disabled(registerModel.disableButton())
       }
       .onReceive(registerModel.$requestStatus) { newValue in
         if newValue == .success {

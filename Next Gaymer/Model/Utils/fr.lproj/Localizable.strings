@@ -82,6 +82,7 @@
 "adress" = "Adresse";
 "zipCode" = "Code postal";
 "town" = "Ville";
+"emptyForm" = "Vous devez terminer de remplir le profil";
 
 "enterMail" = "Entrez le mail associé au compte";
 "sendMail" = "Envoyer le mail";

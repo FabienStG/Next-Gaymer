@@ -15,13 +15,27 @@ class NotificationManager {
   //
   // MARK: - Singleton
   //
-  static let shared = NotificationManager()
-  
-  private init() {}
+  static var _shared: NotificationManager?
+
   //
   // MARK: - Private Constant
   //
-  private let notificationSercices = NotificationServices()
+  private let notificationServices: NotificationsServices
+  
+  init(notificationsServices: NotificationsServices) {
+    
+    self.notificationServices = notificationsServices
+  }
+  
+  static func initialized(notificationsServices: NotificationsServices) {
+    
+    _shared = NotificationManager(notificationsServices: notificationsServices)
+  }
+  
+  static func shared() -> NotificationManager {
+    
+    return _shared!
+  }
   
   //
   // MARK: - Internal Methods
@@ -29,20 +43,20 @@ class NotificationManager {
   /// Call the notifications services to schedule a notification and add the choice into firestore
   func addNotification(event: EventCreated) {
     
-    notificationSercices.scheduleNotification(event: event)
-    notificationSercices.setNotificationPreference(event: event, preference: true)
+    notificationServices.scheduleNotification(event: event)
+    notificationServices.setNotificationPreference(event: event, preference: true)
   }
   
   /// Remove the notification and update the user preference in firestore
   func removeNotification(event: EventCreated) {
     
-    notificationSercices.removeScheduleNotification(event: event)
-    notificationSercices.setNotificationPreference(event: event, preference: false)
+    notificationServices.removeScheduleNotification(event: event)
+    notificationServices.setNotificationPreference(event: event, preference: false)
   }
   
   /// Fetch the document saved into firestore to know the preview user preference about the event reminder's status
   func fetchNotificationStatus(event: EventCreated, completionHandler: @escaping(Bool) -> Void) {
-    notificationSercices.fetchReminderPreference(event: event) { result in
+    notificationServices.fetchReminderPreference(event: event) { result in
       return completionHandler(result)
     }
   }

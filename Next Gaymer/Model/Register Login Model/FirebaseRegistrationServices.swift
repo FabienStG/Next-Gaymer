@@ -153,14 +153,14 @@ class FirebaseRegistrationServices: RegistrationServices {
   }
   
   /// This function fetch the info saved into the currentUser in Auth
-  func getGoogleUserInfo(completionHandler: @escaping([String: String]?) -> Void) {
+  func getGoogleUserInfo(completionHandler: @escaping([String: String]) -> Void) {
     guard let user = auth.currentUser else { return }
     guard let userEmail = user.email else { return }
     guard let userId = auth.currentUser?.uid else { return }
     let returnInfo = [
       UserConstant.email: userEmail,
       UserConstant.phoneNumber: user.phoneNumber ?? "",
-      UserConstant.profileImageUrl: user.photoURL!.absoluteString,
+      UserConstant.profileImageUrl: user.photoURL?.absoluteString ?? "",
       UserConstant.userId: userId,
       UserConstant.name: user.displayName ?? ""
     ]

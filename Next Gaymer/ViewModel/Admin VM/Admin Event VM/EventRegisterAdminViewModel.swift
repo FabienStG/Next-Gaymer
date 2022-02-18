@@ -59,10 +59,19 @@ class EventRegisterAdminViewModel: ObservableObject {
   //
   /// Turn all the published properties provide by the user and create the object
   private func packEventForm() -> EventForm {
+    
+    checkImage()
+    
     let event = EventForm(eventName: eventName, isOffline: isOffline, date: date,
                           location: location, town: town, madeBy: madeBy,
                           description: description, maximumPlaces: Int(maximumPlaces))
     
     return event
+  }
+  
+  private func checkImage() {
+    if image.size.width == 0 {
+      image = UIImage(named: "BanniereNG")!
+    }
   }
 }

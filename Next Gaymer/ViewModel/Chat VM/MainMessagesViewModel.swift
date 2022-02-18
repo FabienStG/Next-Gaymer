@@ -40,6 +40,7 @@ class MainMessageViewModel: ObservableObject {
         self.isShowingLogchat = true
       } else {
         self.errorMessage = error ?? NSLocalizedString("failFindUser", comment: "")
+        self.showAlert.toggle()
       }
     }
   }

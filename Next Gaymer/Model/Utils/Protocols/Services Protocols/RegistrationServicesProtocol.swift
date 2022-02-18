@@ -27,7 +27,7 @@ protocol RegistrationServices {
   func googleLoginUser(completionHandler: @escaping(Bool, String?) -> Void)
   
   /// This function fetch the info saved into the currentUser in Auth
-  func getGoogleUserInfo(completionHandler: @escaping([String: String]?) -> Void)
+  func getGoogleUserInfo(completionHandler: @escaping([String: String]) -> Void)
   
   ///This function log in the user
   func loginUser(userEmail: String, userPassword: String, completionHandler: @escaping(Bool, String?) -> Void)

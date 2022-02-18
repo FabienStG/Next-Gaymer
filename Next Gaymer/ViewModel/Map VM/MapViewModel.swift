@@ -11,10 +11,18 @@ import MapKit
 //
 
 /// This class manage the location credential and show the locations
-class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
+class MapViewModel: ObservableObject, MapListener {
+  func haveError(message: String) {
+    self.errorMessage = message
+  }
+  
+  func haveRegion(coordinate: MKCoordinateRegion) {
+    self.region = coordinate
+  }
+  
   //
   // MARK: - Variables and Published Properties
-  var locationManager: CLLocationManager?
+
   
   @Published var region = MKCoordinateRegion(center: MapDetails.defaultLocation, span: MapDetails.defaultSpin)
   @Published var locations = Locations.annotations
@@ -24,43 +32,7 @@ class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
 
   //
   // MARK: - Internal Method
-  //
-  func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-    checkLocationAuthorization()
-  }
-  
-  func checkIfLocationServicesIsEnabled() {
-    if CLLocationManager.locationServicesEnabled() {
-      locationManager = CLLocationManager()
-      locationManager?.desiredAccuracy = kCLLocationAccuracyBest
-      locationManager!.delegate = self
-    } else {
-      errorMessage = NSLocalizedString("localizeNotAllowed", comment: "")
-      showAlert.toggle()
-    }
-  }
-  
-  //
-  // MARK: - Private Method
-  //
-  private func checkLocationAuthorization() {
-    
-    guard let locationManager = locationManager else { return }
-    switch locationManager.authorizationStatus {
-    case .notDetermined:
-      locationManager.requestWhenInUseAuthorization()
-    case .restricted:
-      errorMessage = NSLocalizedString("localizeLimited", comment: "")
-      showAlert.toggle()
-    case .denied:
-      errorMessage = NSLocalizedString("localizeNotAllowed", comment: "")
-      showAlert.toggle()
-    case .authorizedAlways, .authorizedWhenInUse:
-      region = MKCoordinateRegion(center: locationManager.location!.coordinate, span: MapDetails.zoomedSpin)
-    @unknown default:
-      errorMessage = NSLocalizedString("unknownError", comment: "")
-      showAlert.toggle()
-      break
-    }
+  func checkIfLocationIsEnabled() {
+    MapManager.shared().checkIfLocationIsEnabled(listener: self)
   }
 }

@@ -7,14 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D100350E27BC317D00463EAC /* NotificationSercicesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D100350D27BC317D00463EAC /* NotificationSercicesProtocol.swift */; };
+		D100351027BC318E00463EAC /* MapServicesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D100350F27BC318E00463EAC /* MapServicesProtocol.swift */; };
+		D100351227BC31A300463EAC /* MapManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D100351127BC31A300463EAC /* MapManager.swift */; };
+		D100351427BC32AB00463EAC /* MapListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = D100351327BC32AB00463EAC /* MapListener.swift */; };
 		D109327427A03FC100B4818F /* SelectedUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D109327327A03FC100B4818F /* SelectedUserViewModel.swift */; };
-		D10ABA2527B11D0D009EDD36 /* MapServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10ABA2427B11D0D009EDD36 /* MapServices.swift */; };
+		D10ABA2527B11D0D009EDD36 /* MapKitServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10ABA2427B11D0D009EDD36 /* MapKitServices.swift */; };
 		D10ABA2927B16DA7009EDD36 /* FirebaseUserServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10ABA2827B16DA7009EDD36 /* FirebaseUserServices.swift */; };
 		D10BF78B279D54070038EA72 /* ChatLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10BF78A279D54070038EA72 /* ChatLogView.swift */; };
 		D10BF78D279D55050038EA72 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10BF78C279D55050038EA72 /* MessageView.swift */; };
 		D116C3D7279B5FA6001CC51E /* FirebaseAdminService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D116C3D6279B5FA6001CC51E /* FirebaseAdminService.swift */; };
 		D11765AA27A99A230020131D /* UserAdminViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11765A927A99A230020131D /* UserAdminViewCell.swift */; };
-		D11765AC27A9C71A0020131D /* ListenerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11765AB27A9C71A0020131D /* ListenerProtocol.swift */; };
+		D11765AC27A9C71A0020131D /* Listener.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11765AB27A9C71A0020131D /* Listener.swift */; };
 		D1222FCB27B56D7F0068AD85 /* GoogleRegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1222FCA27B56D7F0068AD85 /* GoogleRegisterViewModel.swift */; };
 		D1222FCF27B578420068AD85 /* GoogleRegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1222FCE27B578420068AD85 /* GoogleRegisterView.swift */; };
 		D12576CD27971A7600DC6BA3 /* PhotoPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12576CC27971A7600DC6BA3 /* PhotoPickerView.swift */; };
@@ -37,6 +41,26 @@
 		D13A888227A192A000F606C3 /* FakePreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13A888127A192A000F606C3 /* FakePreviewData.swift */; };
 		D13A888527A1933500F606C3 /* EventForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13A888427A1933500F606C3 /* EventForm.swift */; };
 		D1428DF02792E38A00269B0C /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1428DEF2792E38A00269B0C /* RegisterView.swift */; };
+		D145364827BCFC680063FE7C /* MockedMapServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D145364727BCFC680063FE7C /* MockedMapServices.swift */; };
+		D145364A27BCFD1D0063FE7C /* MockedNotificationsServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D145364927BCFD1D0063FE7C /* MockedNotificationsServices.swift */; };
+		D145365727BD01240063FE7C /* CurrentUserVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D145365627BD01240063FE7C /* CurrentUserVMTests.swift */; };
+		D145365927BD01620063FE7C /* AdminListUserVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D145365827BD01620063FE7C /* AdminListUserVMTests.swift */; };
+		D145365B27BD018C0063FE7C /* ChatLogVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D145365A27BD018C0063FE7C /* ChatLogVMTests.swift */; };
+		D145365D27BD01B10063FE7C /* MainMessageVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D145365C27BD01B00063FE7C /* MainMessageVMTests.swift */; };
+		D145365F27BD01DD0063FE7C /* EventListVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D145365E27BD01DD0063FE7C /* EventListVMTests.swift */; };
+		D145366127BD025C0063FE7C /* EventDetailVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D145366027BD025C0063FE7C /* EventDetailVMTests.swift */; };
+		D145366327BD02960063FE7C /* MyEventListVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D145366227BD02960063FE7C /* MyEventListVMTests.swift */; };
+		D145366527BD02BE0063FE7C /* MyEventDetailVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D145366427BD02BE0063FE7C /* MyEventDetailVMTests.swift */; };
+		D145366927BD031B0063FE7C /* MapVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D145366827BD031B0063FE7C /* MapVMTests.swift */; };
+		D145366B27BD03400063FE7C /* EventRegistrationVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D145366A27BD03400063FE7C /* EventRegistrationVMTests.swift */; };
+		D145366D27BD03670063FE7C /* RegistrantListVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D145366C27BD03670063FE7C /* RegistrantListVMTests.swift */; };
+		D145366F27BD03860063FE7C /* UserListAdminVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D145366E27BD03860063FE7C /* UserListAdminVMTests.swift */; };
+		D145367127BD03A80063FE7C /* UserDetailAdminVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D145367027BD03A80063FE7C /* UserDetailAdminVMTests.swift */; };
+		D145367327BD475D0063FE7C /* LoginVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D145367227BD475D0063FE7C /* LoginVMTests.swift */; };
+		D145367527BD47800063FE7C /* ResetPasswordVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D145367427BD47800063FE7C /* ResetPasswordVMTests.swift */; };
+		D145367727BD47AF0063FE7C /* RegisterVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D145367627BD47AF0063FE7C /* RegisterVMTests.swift */; };
+		D145367927BD49AD0063FE7C /* GoogleRegisterVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D145367827BD49AD0063FE7C /* GoogleRegisterVMTests.swift */; };
+		D145367B27BD49CC0063FE7C /* LogoutVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D145367A27BD49CC0063FE7C /* LogoutVMTests.swift */; };
 		D1492F1527AA76C2004A28B1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D1492F1727AA76C2004A28B1 /* Localizable.strings */; };
 		D1492F1A27AACB88004A28B1 /* EventDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1492F1927AACB88004A28B1 /* EventDetailView.swift */; };
 		D1492F1C27AAE0E4004A28B1 /* EventDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1492F1B27AAE0E3004A28B1 /* EventDetailViewModel.swift */; };
@@ -67,6 +91,7 @@
 		D17A9F8627AE7E6C00AA0B08 /* AdminListUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17A9F8527AE7E6C00AA0B08 /* AdminListUserView.swift */; };
 		D17A9F8827AE7F8B00AA0B08 /* AdminListUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17A9F8727AE7F8B00AA0B08 /* AdminListUserViewModel.swift */; };
 		D17C1A452790C64C00EF0633 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D17C1A442790C64B00EF0633 /* GoogleService-Info.plist */; };
+		D17D00B827BD5BC000B996E9 /* Initializations.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17D00B727BD5BC000B996E9 /* Initializations.swift */; };
 		D18BD6B9279DB4840059561B /* Launchscreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D18BD6B8279DB4830059561B /* Launchscreen.storyboard */; };
 		D19B0BED2795C4D8000C059C /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19B0BEC2795C4D8000C059C /* CustomTabBar.swift */; };
 		D19B0BF62795DFCB000C059C /* TapButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19B0BF52795DFCB000C059C /* TapButtonView.swift */; };
@@ -110,7 +135,7 @@
 		D1DA3904279EA01700A571E2 /* MainMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DA3903279EA01700A571E2 /* MainMessageView.swift */; };
 		D1DA87AC27A9648A006B0ED6 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DA87AB27A9648A006B0ED6 /* EventView.swift */; };
 		D1DA87AE27A969D6006B0ED6 /* EventViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DA87AD27A969D6006B0ED6 /* EventViewCell.swift */; };
-		D1DB73DE27AFD05400A80294 /* NotificationServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DB73DD27AFD05400A80294 /* NotificationServices.swift */; };
+		D1DB73DE27AFD05400A80294 /* UserNotificationServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DB73DD27AFD05400A80294 /* UserNotificationServices.swift */; };
 		D1DB73E027AFDC4600A80294 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DB73DF27AFDC4600A80294 /* AppDelegate.swift */; };
 		D1DB73E227AFE08F00A80294 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DB73E127AFE08F00A80294 /* NotificationManager.swift */; };
 		D1EB16DA279DBF240043624F /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D1EB16D9279DBF240043624F /* FirebaseAuth */; };
@@ -138,14 +163,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D100350D27BC317D00463EAC /* NotificationSercicesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSercicesProtocol.swift; sourceTree = "<group>"; };
+		D100350F27BC318E00463EAC /* MapServicesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapServicesProtocol.swift; sourceTree = "<group>"; };
+		D100351127BC31A300463EAC /* MapManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapManager.swift; sourceTree = "<group>"; };
+		D100351327BC32AB00463EAC /* MapListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapListener.swift; sourceTree = "<group>"; };
 		D109327327A03FC100B4818F /* SelectedUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedUserViewModel.swift; sourceTree = "<group>"; };
-		D10ABA2427B11D0D009EDD36 /* MapServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapServices.swift; sourceTree = "<group>"; };
+		D10ABA2427B11D0D009EDD36 /* MapKitServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitServices.swift; sourceTree = "<group>"; };
 		D10ABA2827B16DA7009EDD36 /* FirebaseUserServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUserServices.swift; sourceTree = "<group>"; };
 		D10BF78A279D54070038EA72 /* ChatLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogView.swift; sourceTree = "<group>"; };
 		D10BF78C279D55050038EA72 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		D116C3D6279B5FA6001CC51E /* FirebaseAdminService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAdminService.swift; sourceTree = "<group>"; };
 		D11765A927A99A230020131D /* UserAdminViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAdminViewCell.swift; sourceTree = "<group>"; };
-		D11765AB27A9C71A0020131D /* ListenerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenerProtocol.swift; sourceTree = "<group>"; };
+		D11765AB27A9C71A0020131D /* Listener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listener.swift; sourceTree = "<group>"; };
 		D1222FCA27B56D7F0068AD85 /* GoogleRegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleRegisterViewModel.swift; sourceTree = "<group>"; };
 		D1222FCE27B578420068AD85 /* GoogleRegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleRegisterView.swift; sourceTree = "<group>"; };
 		D12576CC27971A7600DC6BA3 /* PhotoPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerView.swift; sourceTree = "<group>"; };
@@ -169,6 +198,26 @@
 		D13A888127A192A000F606C3 /* FakePreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakePreviewData.swift; sourceTree = "<group>"; };
 		D13A888427A1933500F606C3 /* EventForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventForm.swift; sourceTree = "<group>"; };
 		D1428DEF2792E38A00269B0C /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		D145364727BCFC680063FE7C /* MockedMapServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedMapServices.swift; sourceTree = "<group>"; };
+		D145364927BCFD1D0063FE7C /* MockedNotificationsServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedNotificationsServices.swift; sourceTree = "<group>"; };
+		D145365627BD01240063FE7C /* CurrentUserVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserVMTests.swift; sourceTree = "<group>"; };
+		D145365827BD01620063FE7C /* AdminListUserVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminListUserVMTests.swift; sourceTree = "<group>"; };
+		D145365A27BD018C0063FE7C /* ChatLogVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogVMTests.swift; sourceTree = "<group>"; };
+		D145365C27BD01B00063FE7C /* MainMessageVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMessageVMTests.swift; sourceTree = "<group>"; };
+		D145365E27BD01DD0063FE7C /* EventListVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListVMTests.swift; sourceTree = "<group>"; };
+		D145366027BD025C0063FE7C /* EventDetailVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailVMTests.swift; sourceTree = "<group>"; };
+		D145366227BD02960063FE7C /* MyEventListVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEventListVMTests.swift; sourceTree = "<group>"; };
+		D145366427BD02BE0063FE7C /* MyEventDetailVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEventDetailVMTests.swift; sourceTree = "<group>"; };
+		D145366827BD031B0063FE7C /* MapVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVMTests.swift; sourceTree = "<group>"; };
+		D145366A27BD03400063FE7C /* EventRegistrationVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRegistrationVMTests.swift; sourceTree = "<group>"; };
+		D145366C27BD03670063FE7C /* RegistrantListVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrantListVMTests.swift; sourceTree = "<group>"; };
+		D145366E27BD03860063FE7C /* UserListAdminVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListAdminVMTests.swift; sourceTree = "<group>"; };
+		D145367027BD03A80063FE7C /* UserDetailAdminVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserDetailAdminVMTests.swift; path = "Next GaymerTests/ViewModel Tests/Admin VM/UserDetailAdminVMTests.swift"; sourceTree = SOURCE_ROOT; };
+		D145367227BD475D0063FE7C /* LoginVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVMTests.swift; sourceTree = "<group>"; };
+		D145367427BD47800063FE7C /* ResetPasswordVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVMTests.swift; sourceTree = "<group>"; };
+		D145367627BD47AF0063FE7C /* RegisterVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVMTests.swift; sourceTree = "<group>"; };
+		D145367827BD49AD0063FE7C /* GoogleRegisterVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleRegisterVMTests.swift; sourceTree = "<group>"; };
+		D145367A27BD49CC0063FE7C /* LogoutVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutVMTests.swift; sourceTree = "<group>"; };
 		D1492F1627AA76C2004A28B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D1492F1827AA76D5004A28B1 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D1492F1927AACB88004A28B1 /* EventDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailView.swift; sourceTree = "<group>"; };
@@ -201,6 +250,7 @@
 		D17A9F8527AE7E6C00AA0B08 /* AdminListUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminListUserView.swift; sourceTree = "<group>"; };
 		D17A9F8727AE7F8B00AA0B08 /* AdminListUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminListUserViewModel.swift; sourceTree = "<group>"; };
 		D17C1A442790C64B00EF0633 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		D17D00B727BD5BC000B996E9 /* Initializations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Initializations.swift; sourceTree = "<group>"; };
 		D18BD6B8279DB4830059561B /* Launchscreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launchscreen.storyboard; sourceTree = "<group>"; };
 		D19B0BEC2795C4D8000C059C /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		D19B0BF52795DFCB000C059C /* TapButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapButtonView.swift; sourceTree = "<group>"; };
@@ -242,7 +292,7 @@
 		D1DA3903279EA01700A571E2 /* MainMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMessageView.swift; sourceTree = "<group>"; };
 		D1DA87AB27A9648A006B0ED6 /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
 		D1DA87AD27A969D6006B0ED6 /* EventViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewCell.swift; sourceTree = "<group>"; };
-		D1DB73DD27AFD05400A80294 /* NotificationServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationServices.swift; sourceTree = "<group>"; };
+		D1DB73DD27AFD05400A80294 /* UserNotificationServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationServices.swift; sourceTree = "<group>"; };
 		D1DB73DF27AFDC4600A80294 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1DB73E127AFE08F00A80294 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		D1EB16E7279E04480043624F /* UserDetailsAdminViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsAdminViewModel.swift; sourceTree = "<group>"; };
@@ -336,7 +386,8 @@
 			isa = PBXGroup;
 			children = (
 				D136116227BA595E000F94A3 /* Mock Utils */,
-				D16DEC8A27BAF84D000BAFF0 /* DataManager Tests */,
+				D145364527BCFC230063FE7C /* ViewModel Tests */,
+				D145364627BCFC400063FE7C /* Manager Tests */,
 			);
 			path = "Next GaymerTests";
 			sourceTree = "<group>";
@@ -357,6 +408,8 @@
 				D136116027BA57D7000F94A3 /* MockedChatServices.swift */,
 				D136115A27BA5769000F94A3 /* MockedAdminServices.swift */,
 				D136115C27BA577F000F94A3 /* MockedEventServices.swift */,
+				D145364727BCFC680063FE7C /* MockedMapServices.swift */,
+				D145364927BCFD1D0063FE7C /* MockedNotificationsServices.swift */,
 			);
 			path = "Fake Services";
 			sourceTree = "<group>";
@@ -364,6 +417,7 @@
 		D136116227BA595E000F94A3 /* Mock Utils */ = {
 			isa = PBXGroup;
 			children = (
+				D17D00B727BD5BC000B996E9 /* Initializations.swift */,
 				D136115727BA5742000F94A3 /* Fake Services */,
 				D136115427BA534D000F94A3 /* Fake Data */,
 			);
@@ -415,7 +469,7 @@
 			isa = PBXGroup;
 			children = (
 				D13A887927A13CD800F606C3 /* Location.swift */,
-				D10ABA2427B11D0D009EDD36 /* MapServices.swift */,
+				D10ABA2427B11D0D009EDD36 /* MapKitServices.swift */,
 			);
 			path = "Map Model";
 			sourceTree = "<group>";
@@ -473,6 +527,95 @@
 				D1D6678B27A29D6200B1E720 /* EventCreated.swift */,
 			);
 			path = Decoder;
+			sourceTree = "<group>";
+		};
+		D145364527BCFC230063FE7C /* ViewModel Tests */ = {
+			isa = PBXGroup;
+			children = (
+				D145365627BD01240063FE7C /* CurrentUserVMTests.swift */,
+				D145365527BD00CF0063FE7C /* Register VM */,
+				D145365327BD00AC0063FE7C /* Admin VM */,
+				D145365227BD009B0063FE7C /* Map VM */,
+				D145365127BD00910063FE7C /* Event VM */,
+				D145365027BD00830063FE7C /* ChatVM */,
+				D145364F27BD00770063FE7C /* User VM */,
+			);
+			path = "ViewModel Tests";
+			sourceTree = "<group>";
+		};
+		D145364627BCFC400063FE7C /* Manager Tests */ = {
+			isa = PBXGroup;
+			children = (
+				D16DEC8A27BAF84D000BAFF0 /* DataManager Tests */,
+			);
+			path = "Manager Tests";
+			sourceTree = "<group>";
+		};
+		D145364F27BD00770063FE7C /* User VM */ = {
+			isa = PBXGroup;
+			children = (
+				D145365827BD01620063FE7C /* AdminListUserVMTests.swift */,
+			);
+			path = "User VM";
+			sourceTree = "<group>";
+		};
+		D145365027BD00830063FE7C /* ChatVM */ = {
+			isa = PBXGroup;
+			children = (
+				D145365A27BD018C0063FE7C /* ChatLogVMTests.swift */,
+				D145365C27BD01B00063FE7C /* MainMessageVMTests.swift */,
+			);
+			path = ChatVM;
+			sourceTree = "<group>";
+		};
+		D145365127BD00910063FE7C /* Event VM */ = {
+			isa = PBXGroup;
+			children = (
+				D145365E27BD01DD0063FE7C /* EventListVMTests.swift */,
+				D145366027BD025C0063FE7C /* EventDetailVMTests.swift */,
+				D145366227BD02960063FE7C /* MyEventListVMTests.swift */,
+				D145366427BD02BE0063FE7C /* MyEventDetailVMTests.swift */,
+			);
+			path = "Event VM";
+			sourceTree = "<group>";
+		};
+		D145365227BD009B0063FE7C /* Map VM */ = {
+			isa = PBXGroup;
+			children = (
+				D145366827BD031B0063FE7C /* MapVMTests.swift */,
+			);
+			path = "Map VM";
+			sourceTree = "<group>";
+		};
+		D145365327BD00AC0063FE7C /* Admin VM */ = {
+			isa = PBXGroup;
+			children = (
+				D145365427BD00BC0063FE7C /* Admin Event VM */,
+				D145366E27BD03860063FE7C /* UserListAdminVMTests.swift */,
+				D145367027BD03A80063FE7C /* UserDetailAdminVMTests.swift */,
+			);
+			path = "Admin VM";
+			sourceTree = "<group>";
+		};
+		D145365427BD00BC0063FE7C /* Admin Event VM */ = {
+			isa = PBXGroup;
+			children = (
+				D145366A27BD03400063FE7C /* EventRegistrationVMTests.swift */,
+				D145366C27BD03670063FE7C /* RegistrantListVMTests.swift */,
+			);
+			path = "Admin Event VM";
+			sourceTree = "<group>";
+		};
+		D145365527BD00CF0063FE7C /* Register VM */ = {
+			isa = PBXGroup;
+			children = (
+				D145367227BD475D0063FE7C /* LoginVMTests.swift */,
+				D145367427BD47800063FE7C /* ResetPasswordVMTests.swift */,
+				D145367627BD47AF0063FE7C /* RegisterVMTests.swift */,
+				D145367827BD49AD0063FE7C /* GoogleRegisterVMTests.swift */,
+				D145367A27BD49CC0063FE7C /* LogoutVMTests.swift */,
+			);
+			path = "Register VM";
 			sourceTree = "<group>";
 		};
 		D14B896927902C75005FC4F0 = {
@@ -560,7 +703,8 @@
 		D179478427BA47DA004116BE /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				D11765AB27A9C71A0020131D /* ListenerProtocol.swift */,
+				D11765AB27A9C71A0020131D /* Listener.swift */,
+				D100351327BC32AB00463EAC /* MapListener.swift */,
 				D179478527BA47E0004116BE /* Services Protocols */,
 			);
 			path = Protocols;
@@ -574,6 +718,8 @@
 				D179478A27BA4823004116BE /* AdminServicesProtocol.swift */,
 				D179478C27BA482D004116BE /* RegistrationServicesProtocol.swift */,
 				D179478E27BA483C004116BE /* UserServicesProtocol.swift */,
+				D100350D27BC317D00463EAC /* NotificationSercicesProtocol.swift */,
+				D100350F27BC318E00463EAC /* MapServicesProtocol.swift */,
 			);
 			path = "Services Protocols";
 			sourceTree = "<group>";
@@ -782,7 +928,7 @@
 		D1DB73DC27AFD03400A80294 /* Notification Model */ = {
 			isa = PBXGroup;
 			children = (
-				D1DB73DD27AFD05400A80294 /* NotificationServices.swift */,
+				D1DB73DD27AFD05400A80294 /* UserNotificationServices.swift */,
 			);
 			path = "Notification Model";
 			sourceTree = "<group>";
@@ -811,6 +957,7 @@
 				D1D66C6B279C1CF700EEC95E /* UserDetails.swift */,
 				D1DB73E127AFE08F00A80294 /* NotificationManager.swift */,
 				D1F555C02791CE9E0005555A /* DataManager.swift */,
+				D100351127BC31A300463EAC /* MapManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -936,15 +1083,36 @@
 			files = (
 				D136116427BA5986000F94A3 /* DataManagerEventTests.swift in Sources */,
 				D136115F27BA57BE000F94A3 /* MockedRegistrationServices.swift in Sources */,
+				D145365D27BD01B10063FE7C /* MainMessageVMTests.swift in Sources */,
+				D145366327BD02960063FE7C /* MyEventListVMTests.swift in Sources */,
+				D145367127BD03A80063FE7C /* UserDetailAdminVMTests.swift in Sources */,
 				D16DEC8D27BAF88C000BAFF0 /* DataManagerUserTests.swift in Sources */,
+				D145367727BD47AF0063FE7C /* RegisterVMTests.swift in Sources */,
+				D145364827BCFC680063FE7C /* MockedMapServices.swift in Sources */,
+				D145365927BD01620063FE7C /* AdminListUserVMTests.swift in Sources */,
+				D145367B27BD49CC0063FE7C /* LogoutVMTests.swift in Sources */,
 				D136115927BA575D000F94A3 /* MockedUserServices.swift in Sources */,
 				D136116127BA57D7000F94A3 /* MockedChatServices.swift in Sources */,
 				D16DEC8F27BAFA66000BAFF0 /* DataManagerRegisterTests.swift in Sources */,
+				D145367927BD49AD0063FE7C /* GoogleRegisterVMTests.swift in Sources */,
 				D136115627BA535D000F94A3 /* FakeData.swift in Sources */,
+				D145365B27BD018C0063FE7C /* ChatLogVMTests.swift in Sources */,
+				D145365F27BD01DD0063FE7C /* EventListVMTests.swift in Sources */,
+				D145366927BD031B0063FE7C /* MapVMTests.swift in Sources */,
 				D136115D27BA577F000F94A3 /* MockedEventServices.swift in Sources */,
+				D145365727BD01240063FE7C /* CurrentUserVMTests.swift in Sources */,
+				D145364A27BCFD1D0063FE7C /* MockedNotificationsServices.swift in Sources */,
+				D145367327BD475D0063FE7C /* LoginVMTests.swift in Sources */,
+				D145366527BD02BE0063FE7C /* MyEventDetailVMTests.swift in Sources */,
+				D145366F27BD03860063FE7C /* UserListAdminVMTests.swift in Sources */,
+				D145366B27BD03400063FE7C /* EventRegistrationVMTests.swift in Sources */,
 				D136115B27BA5769000F94A3 /* MockedAdminServices.swift in Sources */,
+				D145367527BD47800063FE7C /* ResetPasswordVMTests.swift in Sources */,
+				D17D00B827BD5BC000B996E9 /* Initializations.swift in Sources */,
+				D145366127BD025C0063FE7C /* EventDetailVMTests.swift in Sources */,
 				D136116A27BAEEC5000F94A3 /* DataManagerChatTests.swift in Sources */,
 				D136116627BAC2B6000F94A3 /* DataManagerAdminTests.swift in Sources */,
+				D145366D27BD03670063FE7C /* RegistrantListVMTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -952,6 +1120,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D100351427BC32AB00463EAC /* MapListener.swift in Sources */,
 				D17A9F8827AE7F8B00AA0B08 /* AdminListUserViewModel.swift in Sources */,
 				D1D66C6E279C5E3000EEC95E /* UserDetailsAdminView.swift in Sources */,
 				D14B8990279032AF005FC4F0 /* ViewRouter.swift in Sources */,
@@ -975,6 +1144,7 @@
 				D179478F27BA483C004116BE /* UserServicesProtocol.swift in Sources */,
 				D19B0BED2795C4D8000C059C /* CustomTabBar.swift in Sources */,
 				D116C3D7279B5FA6001CC51E /* FirebaseAdminService.swift in Sources */,
+				D100351227BC31A300463EAC /* MapManager.swift in Sources */,
 				D10BF78B279D54070038EA72 /* ChatLogView.swift in Sources */,
 				D13A887A27A13CD800F606C3 /* Location.swift in Sources */,
 				D1222FCB27B56D7F0068AD85 /* GoogleRegisterViewModel.swift in Sources */,
@@ -992,6 +1162,7 @@
 				D1F555C92791F4460005555A /* LogoutViewModel.swift in Sources */,
 				D1EB16E8279E04480043624F /* UserDetailsAdminViewModel.swift in Sources */,
 				D14D4DD027AD1A3400D8EB02 /* MyEventListView.swift in Sources */,
+				D100351027BC318E00463EAC /* MapServicesProtocol.swift in Sources */,
 				D10BF78D279D55050038EA72 /* MessageView.swift in Sources */,
 				D1D6678E27A2A09000B1E720 /* RequestStatus.swift in Sources */,
 				D1633E9B27AEBD6400B80FD7 /* RegistrantListAdminView.swift in Sources */,
@@ -999,7 +1170,7 @@
 				D1D66C6C279C1CF700EEC95E /* UserDetails.swift in Sources */,
 				D13A887D27A1439B00F606C3 /* MapViewModel.swift in Sources */,
 				D109327427A03FC100B4818F /* SelectedUserViewModel.swift in Sources */,
-				D10ABA2527B11D0D009EDD36 /* MapServices.swift in Sources */,
+				D10ABA2527B11D0D009EDD36 /* MapKitServices.swift in Sources */,
 				D1222FCF27B578420068AD85 /* GoogleRegisterView.swift in Sources */,
 				D1492F1A27AACB88004A28B1 /* EventDetailView.swift in Sources */,
 				D1B3DB3327921DFF0075A0F7 /* EmailView.swift in Sources */,
@@ -1027,9 +1198,9 @@
 				D1BFA196279EF90200FF0B47 /* EventCreationAdminView.swift in Sources */,
 				D1DA87AE27A969D6006B0ED6 /* EventViewCell.swift in Sources */,
 				D14B898E2790308A005FC4F0 /* LoginView.swift in Sources */,
-				D1DB73DE27AFD05400A80294 /* NotificationServices.swift in Sources */,
+				D1DB73DE27AFD05400A80294 /* UserNotificationServices.swift in Sources */,
 				D14B897627902C75005FC4F0 /* Next_GaymerApp.swift in Sources */,
-				D11765AC27A9C71A0020131D /* ListenerProtocol.swift in Sources */,
+				D11765AC27A9C71A0020131D /* Listener.swift in Sources */,
 				D1633E9F27AEBE7000B80FD7 /* RegistrantListAdminViewModel.swift in Sources */,
 				D14D4DD527AD32E500D8EB02 /* UserLimitedView.swift in Sources */,
 				D11765AA27A99A230020131D /* UserAdminViewCell.swift in Sources */,
@@ -1038,6 +1209,7 @@
 				D1D66C66279C124900EEC95E /* TabBarAdminView.swift in Sources */,
 				D1BF606F27908A7100F22AAF /* ButtonTextView.swift in Sources */,
 				D1C46FD5279B1EC100833440 /* UserRegistered.swift in Sources */,
+				D100350E27BC317D00463EAC /* NotificationSercicesProtocol.swift in Sources */,
 				D19B0BF62795DFCB000C059C /* TapButtonView.swift in Sources */,
 				D1622F0A2796058E00F6B461 /* CircleBackgroundView.swift in Sources */,
 				D179478727BA47FE004116BE /* EventServicesProtocol.swift in Sources */,

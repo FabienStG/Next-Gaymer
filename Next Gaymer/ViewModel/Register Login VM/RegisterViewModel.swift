@@ -40,8 +40,60 @@ class RegisterViewModel: ObservableObject {
   //
   // MARK: - Internal Method
   //
+  /// This function check if the form is complete and register the user
+  func registerUserButton() {
+
+    if checkProfile() {
+      registrateUser()
+    }
+  }
+
+  /// This disable the button when the minimum informations are not provided
+  func disableButton() -> Bool {
+    return !email.isEmpty && !password.isEmpty && password == confirmPassword
+  }
+  //
+  // MARK: - Private Method
+  //
+  /// Turn the published var into an object use for the function
+  private func packUserDetail() -> UserForm {
+    
+    checkImage()
+    
+    let user = UserForm(name: name, surname: surname, pseudo: pseudo, email: email,
+                        phoneNumber: phoneNumber, discordPseudo: discordPseudo,
+                        street: street, zipCode: zipCode, city: city)
+    
+    return user
+  }
+  
+  /// Check if the image is usable then use a specific one
+  private func checkImage() {
+    if profilImage.size.width == 0 {
+      profilImage = UIImage(systemName: "person.circle.fill")!
+    }
+  }
+  
+  /// Check is the form is empty
+  private func checkProfile() -> Bool {
+    if name.isEmpty ||
+        surname.isEmpty ||
+        pseudo.isEmpty ||
+        phoneNumber.isEmpty ||
+        discordPseudo.isEmpty ||
+        street.isEmpty ||
+        zipCode.isEmpty ||
+        city.isEmpty
+    {
+      errorMessage = NSLocalizedString("emptyForm", comment: "")
+      showAlert.toggle()
+      return false
+    }
+    return true
+  }
+  
   /// This function create the user, with the firestore profile and the authentifcation account
-  func registerUser() {
+  private func registrateUser() {
 
     requestStatus = .processing
     DataManager.shared().registerUser(
@@ -56,40 +108,5 @@ class RegisterViewModel: ObservableObject {
         self.requestStatus = .success
       }
     }
-  }
-
-  /// This disable the button when all the informations are not provided
-  func disableButton() -> Bool {
-    if name.isEmpty &&
-       surname.isEmpty &&
-       pseudo.isEmpty &&
-       email.isEmpty &&
-       phoneNumber.isEmpty &&
-       discordPseudo.isEmpty &&
-       street.isEmpty &&
-       zipCode.isEmpty &&
-       city.isEmpty &&
-       password.isEmpty &&
-       confirmPassword.isEmpty &&
-       password != confirmPassword {
-      print("false")
-      return false
-    } else {
-      print("true")
-      return true
-    }
-  }
-
-  //
-  // MARK: - Private Method
-  //
-  /// Turn the published var into an object use for the function
-  private func packUserDetail() -> UserForm {
-    
-    let user = UserForm(name: name, surname: surname, pseudo: pseudo, email: email,
-                        phoneNumber: phoneNumber, discordPseudo: discordPseudo,
-                        street: street, zipCode: zipCode, city: city)
-    
-    return user
   }
 }

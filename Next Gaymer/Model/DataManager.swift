@@ -18,8 +18,6 @@ class DataManager {
   // MARK: - Propertie
   //
   static var _shared: DataManager?
- 
-  //private init() {}
 
   //
   // MARK: - Private Constants
@@ -33,9 +31,9 @@ class DataManager {
   //
   // MARK: - Initilizalisation
   //
-  init(regitrationServices: RegistrationServices, chatServices: ChatServices,
+  init(registrationServices: RegistrationServices, chatServices: ChatServices,
        eventServices: EventServices, adminServices: AdminServices, userServices: UserServices) {
-    self.registrationServices = regitrationServices
+    self.registrationServices = registrationServices
     self.chatServices = chatServices
     self.eventServices = eventServices
     self.adminServices = adminServices
@@ -48,7 +46,7 @@ class DataManager {
   /// Function who initialize the manage with the provide services
   static func initialized(registrationServices: RegistrationServices, chatServices: ChatServices,
                           eventServices: EventServices, adminServices: AdminServices, userServices: UserServices) {
-    _shared = DataManager(regitrationServices: registrationServices, chatServices: chatServices,
+    _shared = DataManager(registrationServices: registrationServices, chatServices: chatServices,
                           eventServices: eventServices, adminServices: adminServices, userServices: userServices)
   }
 
@@ -90,9 +88,7 @@ class DataManager {
   func fetchGoogleUserInfo(completionHandler: @escaping([String: String]) -> Void) {
     
     registrationServices.getGoogleUserInfo { info in
-      if let info = info {
         return completionHandler(info)
-      }
     }
   }
   
@@ -163,6 +159,7 @@ class DataManager {
       if !response {
         return completionHandler(false, error)
       }
+      UserLogStatus.shared.logStatus = true
       return completionHandler(true, nil)
     }
   }

@@ -10,12 +10,14 @@ import Foundation
 
 class MockedChatServices: ChatServices {
 
+  var didFunctionCalled = false
+  
   func stopChatListening() {
-    return
+    didFunctionCalled = true
   }
   
   func stopRecentMessageListening() {
-    return
+    didFunctionCalled = true
   }
   
   func fetchSpecificUser(selectedUser: String, completionHandler: @escaping (UserRegistered?, String?) -> Void) {
@@ -41,13 +43,9 @@ class MockedChatServices: ChatServices {
 }
 
 class MockedChatServicesFailed: ChatServices {
-  func stopChatListening() {
-    return
-  }
+  func stopChatListening() {}
   
-  func stopRecentMessageListening() {
-    return
-  }
+  func stopRecentMessageListening() {}
   
   func fetchSpecificUser(selectedUser: String, completionHandler: @escaping (UserRegistered?, String?) -> Void) {
     return completionHandler(nil, NSLocalizedString("failFindUser", comment: ""))

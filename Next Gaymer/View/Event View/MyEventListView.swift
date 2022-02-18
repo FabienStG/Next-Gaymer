@@ -13,7 +13,7 @@ struct MyEventListView: View {
   
   var body: some View {
  
-      List(myEventModel.myEventList, id: \.id) { event in
+      List(myEventModel.eventList, id: \.id) { event in
         NavigationLink {
           MyEventDetailView(
             myEventDetailModel: MyEventDetailViewModel(
@@ -25,9 +25,9 @@ struct MyEventListView: View {
       .navigationTitle(NSLocalizedString("myEvents", comment: ""))
 
       .refreshable {
-        myEventModel.updateEvent()
+        myEventModel.fetchEventList()
       }
-      .modifier(EmptyDataModifier(items: myEventModel.myEventList, placeholder: Text(NSLocalizedString("emptyEvent", comment: ""))))
+      .modifier(EmptyDataModifier(items: myEventModel.eventList, placeholder: Text(NSLocalizedString("emptyEvent", comment: ""))))
     
   }
 }

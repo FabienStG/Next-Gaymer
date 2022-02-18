@@ -6,8 +6,6 @@
 //
 
 import SwiftUI
-import Firebase
-import GoogleSignIn
 
 class GoogleRegisterViewModel: RegisterViewModel {
   
@@ -31,19 +29,9 @@ class GoogleRegisterViewModel: RegisterViewModel {
     }
   }
   
- override func registerUser() {
-    
-    requestStatus = .processing
-   DataManager.shared().registerGoogleUser(
-      with: packUserDetail()) { success, message in
-
-      if !success {
-        self.errorMessage = message ?? NSLocalizedString("unknownError", comment: "")
-        self.showAlert.toggle()
-        self.requestStatus = .fail
-      } else {
-        self.requestStatus = .success
-      }
+  override func registerUserButton() {
+    if checkProfile() {
+      registrateUser()
     }
   }
   
@@ -56,6 +44,40 @@ class GoogleRegisterViewModel: RegisterViewModel {
     let user = UserRegistered(id: userId, name: name, surname: surname, pseudo: pseudo, profileImageUrl: imageUrl, email: email, phoneNumber: phoneNumber, discordPseudo: discordPseudo, street: street, zipCode: zipCode, city: city, isAdmin: false, myEvent: [])
     
     return user
+  }
+  
+  /// Check is the form is empty
+  private func checkProfile() -> Bool {
+    if name.isEmpty ||
+        surname.isEmpty ||
+        pseudo.isEmpty ||
+        phoneNumber.isEmpty ||
+        discordPseudo.isEmpty ||
+        street.isEmpty ||
+        zipCode.isEmpty ||
+        city.isEmpty
+    {
+      errorMessage = NSLocalizedString("emptyForm", comment: "")
+      showAlert.toggle()
+      return false
+    }
+    return true
+  }
+  
+  private func registrateUser() {
+    
+    requestStatus = .processing
+    DataManager.shared().registerGoogleUser(
+      with: packUserDetail()) { success, message in
+        
+        if !success {
+          self.errorMessage = message ?? NSLocalizedString("unknownError", comment: "")
+          self.showAlert.toggle()
+          self.requestStatus = .fail
+        } else {
+          self.requestStatus = .success
+        }
+      }
   }
 }
 

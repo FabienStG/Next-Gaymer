@@ -22,7 +22,7 @@ struct MapView: View {
     .ignoresSafeArea()
     .tint(Color("Purple"))
     .onAppear {
-      mapModel.checkIfLocationServicesIsEnabled()
+      mapModel.checkIfLocationIsEnabled()
     }
   }
 }

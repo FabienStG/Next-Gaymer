@@ -10,6 +10,8 @@ import SwiftUI
 
 class MockedEventServices: EventServices {
   
+  var didFunctionCalled = false
+  
   func saveEventImage(image: UIImage, eventId: String, completionHandler: @escaping (Bool, String) -> Void) {
     let imageURL = FakeData.image
     return completionHandler(true, imageURL)
@@ -51,11 +53,11 @@ class MockedEventServices: EventServices {
   }
   
   func addEventToUSer(event: EventCreated) {
-    return
+    didFunctionCalled = true
   }
   
   func removeEventToUser(event: EventCreated) {
-    return
+    didFunctionCalled = true
   }
 }
 
@@ -88,11 +90,7 @@ class MockedEventServicesFailed: EventServices {
     return completionHandler([], "error")
   }
   
-  func addEventToUSer(event: EventCreated) {
-    return
-  }
+  func addEventToUSer(event: EventCreated) {}
   
-  func removeEventToUser(event: EventCreated) {
-    return
-  }
+  func removeEventToUser(event: EventCreated) {}
 }

@@ -37,10 +37,10 @@ class MyEventDetailViewModel: ObservableObject {
   func manageReminder() {
     if !isReminderActive {
       isReminderActive.toggle()
-      NotificationManager.shared.addNotification(event: selectedEvent)
+      NotificationManager.shared().addNotification(event: selectedEvent)
     } else if isReminderActive {
       isReminderActive.toggle()
-      NotificationManager.shared.removeNotification(event: selectedEvent)
+      NotificationManager.shared().removeNotification(event: selectedEvent)
     }
   }
   
@@ -51,7 +51,7 @@ class MyEventDetailViewModel: ObservableObject {
       if !result {
         self.requestStatus = .fail
       } else {
-        NotificationManager.shared.removeNotification(event: self.selectedEvent)
+        NotificationManager.shared().removeNotification(event: self.selectedEvent)
         self.requestStatus = .success
       }
       self.message = message
@@ -64,7 +64,7 @@ class MyEventDetailViewModel: ObservableObject {
   //
   /// This function check the reminder status register from firebase
   private func fetchReminderStatus() {
-    NotificationManager.shared.fetchNotificationStatus(event: selectedEvent) { result in
+    NotificationManager.shared().fetchNotificationStatus(event: selectedEvent) { result in
       self.isReminderActive = result
     }
   }

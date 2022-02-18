@@ -17,8 +17,7 @@ struct EventDetailView: View {
         EventView(event: eventDetailModel.event)
      
         Button {
-          eventDetailModel.registrateUserToEvent(currentUser: currentUser.currentUser!,
-                                                 event: eventDetailModel.event)
+          eventDetailModel.registrateUserToEvent(currentUser: currentUser.currentUser!)
         } label: {
           ButtonTextView(status: $eventDetailModel.requestStatus,
                          text: NSLocalizedString("registrate", comment: ""))

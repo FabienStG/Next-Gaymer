@@ -37,16 +37,17 @@ class EventDetailViewModel: ObservableObject {
   // MARK: - Internal Method
   //
   /// This registrate the user in the selected event and show an alert depending of the manager response
-  func registrateUserToEvent(currentUser: UserRegistered, event: EventCreated) {
+  func registrateUserToEvent(currentUser: UserRegistered) {
     self.requestStatus = .processing
     DataManager.shared().registrateUserForEvent(currentUser: currentUser, event: event) { result, message in
       if result {
         self.disableButton = true
         self.requestStatus = .success
+      } else if !result {
+        self.requestStatus = .fail
       }
       self.alertMessage = message
       self.showAlert.toggle()
-      self.requestStatus = .fail
     }
   }
 }

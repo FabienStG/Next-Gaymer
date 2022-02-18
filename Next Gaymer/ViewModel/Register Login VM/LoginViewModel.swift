@@ -52,7 +52,7 @@ class LoginViewModel: ObservableObject  {
   
   /// This function is called when the Google SignIn button is use
   func googleLoginUser() {
-
+    
     requestStatus = .processing
     DataManager.shared().googleLoginUser { success, message in
       if !success {
@@ -63,8 +63,9 @@ class LoginViewModel: ObservableObject  {
         DataManager.shared().checkGoogleUserAppAccount { response in
           if response {
             self.requestStatus = .success
+          } else {
+            self.showGoogleForm = true
           }
-          self.showGoogleForm = true
         }
       }
     }

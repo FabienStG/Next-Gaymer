@@ -10,20 +10,20 @@ import XCTest
 
 class DataManagerEventTests: XCTestCase {
   
-  let dataManager = DataManager(regitrationServices: MockedRegistrationServices(), chatServices: MockedChatServices(),
+  let dataManager = DataManager(registrationServices: MockedRegistrationServices(), chatServices: MockedChatServices(),
                                 eventServices: MockedEventServices(), adminServices: MockedAdminServices(),
                                 userServices: MockedUserServices())
   
-  let dataManaderFailed = DataManager(regitrationServices: MockedRegistrationServicesFailed(), chatServices: MockedChatServicesFailed(),
+  let dataManaderFailed = DataManager(registrationServices: MockedRegistrationServicesFailed(), chatServices: MockedChatServicesFailed(),
                                       eventServices: MockedEventServicesFailed(), adminServices: MockedAdminServicesFailed(),
                                       userServices: MockedUserServicesFailed())
 
-  
+
   func testFetchAllEventsThenReturnEventArray() {
     
     dataManager.fetchAllEvents { events, error in
       XCTAssertNotNil(events)
-      XCTAssertEqual(events![0].eventName, FakeData.eventWithRegisters.eventName)
+      XCTAssertEqual(events![0].id, FakeData.eventWithRegisters.id)
       XCTAssertNil(error)
     }
   }

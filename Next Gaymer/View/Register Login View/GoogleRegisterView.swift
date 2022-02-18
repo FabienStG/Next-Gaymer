@@ -52,7 +52,7 @@ struct GoogleRegisterView: View {
             Text(NSLocalizedString("adress", comment: ""))
           }
           Button {
-            googleRegisterModel.registerUser()
+            googleRegisterModel.registerUserButton()
           } label: {
             Text(NSLocalizedString("createAccount", comment: ""))
               .font(.title3)
@@ -64,9 +64,9 @@ struct GoogleRegisterView: View {
               .cornerRadius(15.0)
             
           }
+          .disabled(googleRegisterModel.disableButton())
           .frame(maxWidth: .infinity, alignment: .center)
           .listRowBackground(Color(UIColor.systemGroupedBackground))
-          // .disabled(registerModel.disableButton())
         }
         .onReceive(googleRegisterModel.$requestStatus) { newValue in
           if newValue == .success {

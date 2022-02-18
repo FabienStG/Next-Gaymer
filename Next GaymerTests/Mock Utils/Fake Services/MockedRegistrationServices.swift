@@ -19,6 +19,10 @@ class MockedRegistrationServices: RegistrationServices {
     return completionHandler(true, imageUrl)
   }
   
+  func checkGoogleUserAppAccount(completionHandler: @escaping (Bool) -> Void) {
+    return completionHandler(true)
+  }
+  
   func registrateUser(with user: UserForm, image: UIImage, completionHandler: @escaping (Bool, String?) -> Void) {
     return completionHandler(true, nil)
   }
@@ -31,7 +35,7 @@ class MockedRegistrationServices: RegistrationServices {
     return completionHandler(true, nil)
   }
   
-  func getGoogleUserInfo(completionHandler: @escaping ([String : String]?) -> Void) {
+  func getGoogleUserInfo(completionHandler: @escaping ([String : String]) -> Void) {
     let returnInfo = [
       UserConstant.email: "userEmail",
       UserConstant.phoneNumber: "user.phoneNumber",
@@ -56,13 +60,17 @@ class MockedRegistrationServices: RegistrationServices {
 }
 
 class MockedRegistrationServicesFailed: RegistrationServices {
-  
+
   func createUser(userEmail: String, userPassword: String, completionHandler: @escaping (Bool, String?) -> Void) {
     return completionHandler(false, NSLocalizedString("failCreateUser", comment: ""))
   }
   
   func saveProfileImage(image: UIImage, completionHandler: @escaping (Bool, String) -> Void) {
     return completionHandler(false, NSLocalizedString("failImageCompression", comment: ""))
+  }
+  
+  func checkGoogleUserAppAccount(completionHandler: @escaping (Bool) -> Void) {
+    return completionHandler(false)
   }
   
   func registrateUser(with user: UserForm, image: UIImage, completionHandler: @escaping (Bool, String?) -> Void) {
@@ -77,8 +85,15 @@ class MockedRegistrationServicesFailed: RegistrationServices {
     return completionHandler(false, NSLocalizedString("failLogUser", comment: ""))
   }
   
-  func getGoogleUserInfo(completionHandler: @escaping ([String : String]?) -> Void) {
-    return completionHandler(nil)
+  func getGoogleUserInfo(completionHandler: @escaping ([String : String]) -> Void) {
+    let returnInfo = [
+      UserConstant.email: "userEmail",
+      UserConstant.phoneNumber: "phone",
+      UserConstant.profileImageUrl: "profile",
+      UserConstant.userId: "user",
+      UserConstant.name: "name"
+    ]
+    return completionHandler(returnInfo)
   }
   
   func loginUser(userEmail: String, userPassword: String, completionHandler: @escaping (Bool, String?) -> Void) {

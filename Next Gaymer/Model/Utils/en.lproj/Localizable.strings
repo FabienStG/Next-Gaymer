@@ -82,6 +82,7 @@
 "adress" = "Adress";
 "zipCode" = "Zip code";
 "town" = "Town";
+"emptyForm" = "Please provide all informations first";
 
 "enterMail" = "Enter the associated mail";
 "sendMail" = "Send mail";

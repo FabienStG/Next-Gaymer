@@ -8,8 +8,11 @@
 import SwiftUI
 
 class UserLogStatus {
-  
+  //
+  // MARK: - Singleton
+  //
   static let shared = UserLogStatus()
+  
   private init () {}
   
   //

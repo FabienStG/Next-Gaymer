@@ -66,7 +66,7 @@ class MainMessageViewModel: ObservableObject {
 /// This extension give to the view model the listener protocol
 extension MainMessageViewModel: Listener {
   //
-  // MARK: - Internal Methods
+  // MARK: - Protocol Methods
   //
   /// This fonction is from the protocol and not used by this view model
   func haveChatMessage(_ message: ChatMessage) {}

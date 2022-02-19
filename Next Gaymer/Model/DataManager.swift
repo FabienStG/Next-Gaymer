@@ -15,7 +15,7 @@ import SwiftUI
 /// It manage all the Services class
 class DataManager {
   //
-  // MARK: - Propertie
+  // MARK: - Singleton
   //
   static var _shared: DataManager?
 

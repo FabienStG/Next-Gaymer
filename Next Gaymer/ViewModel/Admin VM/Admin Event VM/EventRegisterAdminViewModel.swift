@@ -69,6 +69,7 @@ class EventRegisterAdminViewModel: ObservableObject {
     return event
   }
   
+  /// Check if the image is usable and provide a default one instead
   private func checkImage() {
     if image.size.width == 0 {
       image = UIImage(named: "BanniereNG")!

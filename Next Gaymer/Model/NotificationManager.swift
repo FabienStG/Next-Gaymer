@@ -22,11 +22,17 @@ class NotificationManager {
   //
   private let notificationServices: NotificationsServices
   
+  //
+  // MARK: - Initalization
+  //
   init(notificationsServices: NotificationsServices) {
     
     self.notificationServices = notificationsServices
   }
   
+  //
+  // MARK: - Class Methods
+  //
   static func initialized(notificationsServices: NotificationsServices) {
     
     _shared = NotificationManager(notificationsServices: notificationsServices)

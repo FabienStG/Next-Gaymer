@@ -57,7 +57,7 @@ class ChatLogViewModel: ObservableObject {
 /// This extension give the Listener protocol the the view model, this protocol is used to be notified by any message update
 extension ChatLogViewModel: Listener {
   //
-  // MARK: - Internal Methods
+  // MARK: - Protocol Methods
   //
   ///Protocol function who add the update message in the array showed in the view
   func haveChatMessage(_ message: ChatMessage) {

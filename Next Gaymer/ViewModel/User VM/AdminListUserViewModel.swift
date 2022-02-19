@@ -29,6 +29,7 @@ class AdminListUserViewModel: ObservableObject {
   //
   // MARK: - Private Method
   //
+  /// Fetch the admin list with restricted details for the chat uses
   private func fetchAdminList() {
     DataManager.shared().fetchLimitedDetailAdminList { list, error in
       if let list = list {

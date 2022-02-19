@@ -6,18 +6,18 @@
 //
 
 import Foundation
+//
+// MARK: - Notification Services Protocol
+//
 
+/// This protocol help for the firebase and local notifications mocking tests
 protocol NotificationsServices {
-  
-  /// This remove the scheduled notification
+
   func removeScheduleNotification(event: EventCreated)
   
-  /// This fetch the selected event from current user, and return the reminder preference
   func fetchReminderPreference(event: EventCreated, completionHandler: @escaping(Bool) -> Void)
   
-  /// Update the notification preference saved in firestore
   func setNotificationPreference(event: EventCreated, preference: Bool)
 
-  /// This function take the event's date, and make a notification with it
   func scheduleNotification(event: EventCreated)
 }

@@ -6,12 +6,21 @@
 //
 
 import SwiftUI
+//
+// MARK: - GoogleRegister View Model
+//
 
+/// This class is inherited from RegisterModel, with the specific information from the google signin function
 class GoogleRegisterViewModel: RegisterViewModel {
-  
+  //
+  // MARK: - Private Properties
+  //
   private var userId = ""
   private var imageUrl = ""
   
+  //
+  // MARK: - Override Initialization
+  //
   override init() {
     super.init()
     setGoogleFormInfo { userInfo in
@@ -23,12 +32,10 @@ class GoogleRegisterViewModel: RegisterViewModel {
     }
   }
   
-  func setGoogleFormInfo(completionHandler: @escaping([String: String]) -> Void) {
-    DataManager.shared().fetchGoogleUserInfo { userInfo in
-      return completionHandler(userInfo)
-    }
-  }
-  
+  //
+  // MARK: - Override Method
+  //
+  /// Override the mother class register button with is own function
   override func registerUserButton() {
     if checkProfile() {
       registrateUser()
@@ -38,10 +45,20 @@ class GoogleRegisterViewModel: RegisterViewModel {
   //
   // MARK: - Private Method
   //
+  /// Check the google info and provide the form with it
+  private func setGoogleFormInfo(completionHandler: @escaping([String: String]) -> Void) {
+    DataManager.shared().fetchGoogleUserInfo { userInfo in
+      return completionHandler(userInfo)
+    }
+  }
+  
   /// Turn the published var into an object use for the function
   private func packUserDetail() -> UserRegistered {
     
-    let user = UserRegistered(id: userId, name: name, surname: surname, pseudo: pseudo, profileImageUrl: imageUrl, email: email, phoneNumber: phoneNumber, discordPseudo: discordPseudo, street: street, zipCode: zipCode, city: city, isAdmin: false, myEvent: [])
+    let user = UserRegistered(id: userId, name: name, surname: surname, pseudo: pseudo,
+                              profileImageUrl: imageUrl, email: email, phoneNumber: phoneNumber,
+                              discordPseudo: discordPseudo, street: street, zipCode: zipCode,
+                              city: city, isAdmin: false, myEvent: [])
     
     return user
   }
@@ -64,6 +81,7 @@ class GoogleRegisterViewModel: RegisterViewModel {
     return true
   }
   
+  /// Try to register the google user as an app one
   private func registrateUser() {
     
     requestStatus = .processing

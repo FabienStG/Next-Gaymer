@@ -6,7 +6,11 @@
 //
 
 import MapKit
+//
+// MARK: - Map Listener Protocol
+//
 
+/// This protocol listen any change in localization authorization and advise the viewModel
 protocol MapListener {
   
   func haveError(message: String)

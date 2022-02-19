@@ -12,14 +12,21 @@ import MapKit
 
 /// This class manage the MapKit services and authorisations
 class MapKitServices: NSObject, CLLocationManagerDelegate, MapServices {
-
-  lazy var locationManager = CLLocationManager()
+  //
+  // MARK: - Variables and Properties
+  //
   var listener: MapListener?
-  
+  lazy var locationManager = CLLocationManager()
+
+  //
+  // MARK: - Internal Methods
+  //
+  /// This is the Location manager delegate function
   func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
     checkLocationAuthorization()
   }
   
+  /// This function check if the user enable the localization service
   func checkIfLocationServicesIsEnabled(listener: MapListener) {
     self.listener = listener
     if CLLocationManager.locationServicesEnabled() {
@@ -33,6 +40,7 @@ class MapKitServices: NSObject, CLLocationManagerDelegate, MapServices {
   //
   // MARK: - Private Method
   //
+  /// This return the message dependly of the authorization status
   private func checkLocationAuthorization() {
 
     switch locationManager.authorizationStatus {

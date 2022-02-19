@@ -6,7 +6,11 @@
 //
 
 import Foundation
+//
+// MARK: - Map Services Protocol
+//
 
+/// This protocol help for the MapKit mocking tests
 protocol MapServices {
   
   func checkIfLocationServicesIsEnabled(listener: MapListener)

@@ -6,14 +6,24 @@
 //
 
 import SwiftUI
+//
+// MARK: - Logout ViewModel
+//
 
+/// This class call the manager to log out the user
 class LogoutViewModel: ObservableObject {
-
+  //
+  // MARK: - Published Properties
+  //
   @Published var errorMessage = ""
   @Published var showAlert = false
 
   @Published var requestStatus: RequestStatus = .initial
 
+  //
+  // MARK: - Internal Method
+  //
+  /// Logout the user
   func logoutUser() {
 
     requestStatus = .processing

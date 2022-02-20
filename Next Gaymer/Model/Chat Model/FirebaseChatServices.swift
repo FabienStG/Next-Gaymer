@@ -81,11 +81,13 @@ class FirebaseChatServices: ChatServices {
   }
   
   /// Fetch all the recents messages sent for the main message page, and put a firestore listener to update automaticly when any message is send, throught the protocol
-  func fetchRecentMessages(currentUser: UserRegistered, listen: Listener) {
+  func fetchRecentMessages(listen: Listener) {
+    
+    guard let currentUserId = auth.currentUser?.uid else { return }
     
     firebaseRecentMessageListener = db
       .collection(MessageConstant.recentMessages)
-      .document(currentUser.id)
+      .document(currentUserId)
       .collection(MessageConstant.messages)
       .order(by: MessageConstant.timestamp)
       .addSnapshotListener({ querySnapshot, error in
@@ -160,5 +162,14 @@ class FirebaseChatServices: ChatServices {
       return completionHandler(false, error?.localizedDescription)
     }
     return completionHandler(true, nil)
+  }
+  
+  /// Delete the recent message
+  func deleteRecentMessage(message: RecentMessage) {
+    
+    guard let userId = auth.currentUser?.uid else { return }
+    let document = db.collection(MessageConstant.recentMessages).document(userId).collection(MessageConstant.messages).document(message.id!)
+    
+    document.delete() 
   }
 }

@@ -83,6 +83,12 @@
 "zipCode" = "Zip code";
 "town" = "Town";
 "emptyForm" = "Please provide all informations first";
+"mailAndPassword" = "Mail and passord";
+"deleteAccount" = "Delete Account";
+"changeProfile" = "Change profile info";
+"settings" = "Settings";
+"confirmDelete" = "Confirm profile delete";
+"warningDelete" = "Warning, this action is irreversible !";
 
 "enterMail" = "Enter the associated mail";
 "sendMail" = "Send mail";

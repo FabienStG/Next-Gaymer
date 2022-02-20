@@ -1,40 +1,43 @@
 //
-//  LogoutVMTests.swift
+//  ConfirmationDeleteVMTests.swift
 //  Next GaymerTests
 //
-//  Created by Fabien Saint Germain on 16/02/2022.
+//  Created by Fabien Saint Germain on 20/02/2022.
 //
 
 import XCTest
 @testable import Next_Gaymer
 
-class LogoutVMTests: XCTestCase {
-
-  var vm = LogoutViewModel()
+class ConfirmationDeleteVMTests: XCTestCase {
+  
+  var vm = ConfirmationDeleteViewModel()
   
   override func setUp() {
-    vm = LogoutViewModel()
+    vm = ConfirmationDeleteViewModel()
     UserLogStatus.shared.logStatus = false
   }
-    
-  func testWhenLogoutThenReturnSuccesAndLogout() {
+  
+  func testDeleteUserThenReturnSuccessAndLogout() {
     
     DataManager._shared = DataManagerInit.success
     UserLogStatus.shared.logStatus = true
-    vm.logoutUser()
+    
+    vm.reauthenticateUser()
     XCTAssertTrue(vm.requestStatus == .success)
     XCTAssertFalse(UserLogStatus.shared.logStatus)
+    XCTAssertFalse(vm.showAlert)
+    XCTAssertTrue(vm.errorMessage.isEmpty)
   }
   
-  func testWhenLogoutThenReturnErrorAndShowAlert() {
+  func testDeleteUserThenReturnFail() {
     
     DataManager._shared = DataManagerInit.failed
     UserLogStatus.shared.logStatus = true
-    vm.logoutUser()
-    XCTAssertTrue(vm.requestStatus == .fail)
+    
+    vm.reauthenticateUser()
     XCTAssertTrue(UserLogStatus.shared.logStatus)
+    XCTAssertTrue(vm.requestStatus == .fail)
     XCTAssertTrue(vm.showAlert)
     XCTAssertFalse(vm.errorMessage.isEmpty)
   }
-  
 }

@@ -22,7 +22,7 @@ class MainMessageVMTests: XCTestCase {
     DataManager._shared = DataManagerInit.success
     XCTAssertTrue(vm.recentMessages.isEmpty)
     
-    vm.fetchRecentMessages(currentUser: FakeData.registeredAdmin)
+    vm.fetchRecentMessages()
     XCTAssertFalse(vm.recentMessages.isEmpty)
     XCTAssertFalse(vm.showAlert)
     XCTAssertTrue(vm.errorMessage.isEmpty)
@@ -35,7 +35,7 @@ class MainMessageVMTests: XCTestCase {
     vm.recentMessages.append(FakeData.recentMessage)
     XCTAssertTrue(vm.recentMessages.count == 1)
     
-    vm.fetchRecentMessages(currentUser: FakeData.registeredAdmin)
+    vm.fetchRecentMessages()
     XCTAssertFalse(vm.recentMessages.isEmpty)
     XCTAssertTrue(vm.recentMessages.count == 1)
     XCTAssertFalse(vm.showAlert)
@@ -47,7 +47,7 @@ class MainMessageVMTests: XCTestCase {
     DataManager._shared = DataManagerInit.failed
     XCTAssertTrue(vm.recentMessages.isEmpty)
     
-    vm.fetchRecentMessages(currentUser: FakeData.registeredAdmin)
+    vm.fetchRecentMessages()
     XCTAssertTrue(vm.recentMessages.isEmpty)
     XCTAssertTrue(vm.showAlert)
     XCTAssertFalse(vm.errorMessage.isEmpty)
@@ -83,6 +83,17 @@ class MainMessageVMTests: XCTestCase {
     XCTAssertFalse(DataManagerInit.mockedChat.didFunctionCalled)
     
     vm.stopListening()
+    XCTAssertTrue(DataManagerInit.mockedChat.didFunctionCalled)
+  }
+  
+  func testDeleteMessageThenFuncIsCalled() {
+    
+    DataManager._shared = DataManagerInit.success
+    XCTAssertFalse(DataManagerInit.mockedChat.didFunctionCalled)
+    vm.fetchRecentMessages()
+    DataManagerInit.mockedChat.didFunctionCalled = false
+    
+    vm.deleteRecentMessage(with: IndexSet(integer: 0))
     XCTAssertTrue(DataManagerInit.mockedChat.didFunctionCalled)
   }
 }

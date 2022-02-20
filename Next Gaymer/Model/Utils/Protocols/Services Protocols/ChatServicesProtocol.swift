@@ -21,9 +21,11 @@ protocol ChatServices {
   
   func fetchMessages(senderUser: UserRegistered, recipientUser: UserDetails, listen: Listener)
   
-  func fetchRecentMessages(currentUser: UserRegistered, listen: Listener)
+  func fetchRecentMessages(listen: Listener)
   
   func saveMessage(textMessage: String, recipientUserId: String, completionHandler: @escaping(Bool, String?) -> Void)
   
   func saveRecentMessage(textMessage: String, senderUser: UserRegistered, recipientUser: UserDetails, completionHandler: @escaping(Bool, String?) -> Void)
+  
+  func deleteRecentMessage(message: RecentMessage)
 }

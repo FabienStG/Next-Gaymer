@@ -56,7 +56,7 @@ class DataManager {
   }
   
   //
-  // MARK: - Internal Methods
+  // MARK: - Internal Methods - Registration Services
   //
   /// Log the user into the app and update the logstatus
   func loginUser(email: String, password: String, completionHandler: @escaping(Bool, String?) -> Void) {
@@ -92,44 +92,11 @@ class DataManager {
     }
   }
   
+  /// Check if the user have already an app account and sign in
   func checkGoogleUserAppAccount(completionHandler: @escaping(Bool) -> Void) {
     
     registrationServices.checkGoogleUserAppAccount { result in
       return completionHandler(result)
-    }
-  }
-
-  /// Log out the user from the app and update the log status
-  func logoutUser(completionHandler: @escaping(Bool, String?) -> Void) {
-    
-    registrationServices.logoutUser { response, message in
-      if response {
-        UserLogStatus.shared.logStatus = false
-        return completionHandler(response, nil)
-      } else {
-        return completionHandler(response, message)
-      }
-    }
-  }
-
-  /// User the firebase service to send and email and reset the pasword
-  func resetPassword(email: String, completionHandler: @escaping(Bool, String?) -> Void) {
-    
-    registrationServices.resetPassword(emailUser: email) { response, message in
-      if !response {
-        return completionHandler(response, message)
-      }
-      return completionHandler(response, nil)
-    }
-  }
-  
-  /// It the manager side of the main function who return the current user profile
-  func fetchCurrentUser(completionHandler: @escaping(UserRegistered?, String?) -> Void) {
-    
-    userServices.fetchCurrentUser { user in
-      return completionHandler(user, nil)
-    } errorHandler: { error in
-      return completionHandler(nil, error)
     }
   }
   
@@ -228,8 +195,8 @@ class DataManager {
   }
   
   /// Ad the firebase listener for the main message page and provide the protocol who'll recieve the updates
-  func recentMessageListener(currentUser: UserRegistered, listen: Listener) {
-    chatServices.fetchRecentMessages(currentUser: currentUser, listen: listen)
+  func recentMessageListener(listen: Listener) {
+    chatServices.fetchRecentMessages(listen: listen)
   }
   
   /// Use the firebase service to remove the chat listener
@@ -290,6 +257,12 @@ class DataManager {
     }
   }
   
+  /// Delete the Reecent message sotck in the user collection
+  func deleteRecentMessage(message: RecentMessage) {
+    
+    chatServices.deleteRecentMessage(message: message)
+  }
+  
   //
   // MARK: - Internal Methods - Event Services
   //
@@ -336,6 +309,73 @@ class DataManager {
       return completionHandler(result, message)
     }
   }
+  
+  //
+  // MARK: - Profile Management Services
+  //
+  /// Log out the user from the app and update the log status
+  func logoutUser(completionHandler: @escaping(Bool, String?) -> Void) {
+    
+    registrationServices.logoutUser { response, message in
+      if response {
+        UserLogStatus.shared.logStatus = false
+        return completionHandler(response, nil)
+      } else {
+        return completionHandler(response, message)
+      }
+    }
+  }
+
+  /// User the firebase service to send and email and reset the pasword
+  func resetPassword(email: String, completionHandler: @escaping(Bool, String?) -> Void) {
+    
+    registrationServices.resetPassword(emailUser: email) { response, message in
+      if !response {
+        return completionHandler(response, message)
+      }
+      return completionHandler(response, nil)
+    }
+  }
+  
+  /// It the manager side of the main function who return the current user profile
+  func fetchCurrentUser(completionHandler: @escaping(UserRegistered?, String?) -> Void) {
+    
+    userServices.fetchCurrentUser { user in
+      return completionHandler(user, nil)
+    } errorHandler: { error in
+      return completionHandler(nil, error)
+    }
+  }
+  
+  /// Reauthenticate the user
+  func reauthenticateUser(email: String, password: String, completionHandler: @escaping(Bool, String?) -> Void) {
+    
+    userServices.reauthenticateUser(email: email, password: password) { response, error in
+      if !response {
+        return completionHandler(false, error)
+      }
+      return completionHandler(true, nil)
+    }
+  }
+  
+  /// Delete the user from firebase auth and firestore app account
+  func deleteUser(completionHandler: @escaping(Bool, String?) -> Void) {
+    
+    userServices.deleteCurrentUser { response, error in
+      if response {
+        UserLogStatus.shared.logStatus = false
+      }
+      return completionHandler(response, error)
+    }
+  }
+  
+  /// Update the current user info with new data
+  func updateUserInfo(userInfo: [String: Any], completionHandler: @escaping(Bool, String?) -> Void) {
+    
+    userServices.updateUserInfo(userInfo: userInfo) { response, error in
+      return completionHandler(response, error)
+    }
+  }
 
   //
   // MARK: - Private Method
@@ -371,7 +411,9 @@ class DataManager {
     return eventCreated
   }
   
+  /// This function take the user and turn into a restricted informations user
   private func packUserDetail(_ user: UserRegistered) -> UserDetails {
+    
     let userDetails = UserDetails(id: user.id, pseudo: user.pseudo, name: user.name,
                            surname: user.surname, email: user.email, city: user.city,
                            profileImageUrl: user.profileImageUrl, isAdmin: user.isAdmin)

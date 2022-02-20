@@ -28,7 +28,7 @@ class MockedChatServices: ChatServices {
     listen.haveChatMessage(FakeData.chatMessage)
   }
   
-  func fetchRecentMessages(currentUser: UserRegistered, listen: Listener) {
+  func fetchRecentMessages(listen: Listener) {
     listen.haveRecentMessage(FakeData.recentMessage)
   }
   
@@ -40,6 +40,9 @@ class MockedChatServices: ChatServices {
     return completionHandler(true, nil)
   }
   
+  func deleteRecentMessage(message: RecentMessage) {
+    didFunctionCalled = true
+  }  
 }
 
 class MockedChatServicesFailed: ChatServices {
@@ -55,7 +58,7 @@ class MockedChatServicesFailed: ChatServices {
     listen.haveError(NSLocalizedString("failFetchMessage", comment: ""))
   }
   
-  func fetchRecentMessages(currentUser: UserRegistered, listen: Listener) {
+  func fetchRecentMessages(listen: Listener) {
     listen.haveError(NSLocalizedString("failFetchMessage", comment: ""))
   }
   
@@ -67,5 +70,6 @@ class MockedChatServicesFailed: ChatServices {
     return completionHandler(false, "error")
   }
   
+  func deleteRecentMessage(message: RecentMessage) {}
 }
 

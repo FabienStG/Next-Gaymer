@@ -22,8 +22,11 @@ struct UserView: View {
           .cornerRadius(75)
           .overlay(RoundedRectangle(cornerRadius: 75)
                     .stroke(Color("Purple"), lineWidth: 4))
+          .padding()
+
         Text(currentUser.pseudo)
           .padding()
+        Spacer()
         VStack(alignment: .leading) {
           Text(currentUser.name)
             .padding()
@@ -34,6 +37,7 @@ struct UserView: View {
           Text(currentUser.city)
             .padding()
         }
+        Spacer()
       }
     }
 }

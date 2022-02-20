@@ -20,4 +20,6 @@ protocol UserServices {
   func deleteCurrentUser(completionHandler: @escaping(Bool, String?) -> Void)
   
   func updateUserInfo(userInfo: [String: Any], completionHandler: @escaping(Bool, String) -> Void)
+  
+  func reauthenticateUser(email: String, password: String, completionHandler: @escaping(Bool, String?) -> Void)
 }

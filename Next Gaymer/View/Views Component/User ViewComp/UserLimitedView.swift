@@ -34,6 +34,7 @@ struct UserLimitedView: View {
           .padding()
         Text(userDetails.city)
           .padding()
+        Spacer()
       }
     }
   }

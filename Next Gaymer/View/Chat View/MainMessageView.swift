@@ -15,14 +15,17 @@ struct MainMessageView: View {
   
   var body: some View {
     NavigationView {
-      List(mainMessageModel.recentMessages) { recentMessage in
-        Button {
-          mainMessageModel.fetchSelectedUser(currentUser: currentUser.currentUser!,
-                                             messageSelected: recentMessage)
-        } label: {
-          RecentMessageAdminViewCell(recentMessage: recentMessage)
+      List {
+        ForEach(mainMessageModel.recentMessages, id: \.id!) { recentMessage in
+          Button {
+            mainMessageModel.fetchSelectedUser(currentUser: currentUser.currentUser!,
+                                               messageSelected: recentMessage)
+          } label: {
+            RecentMessageAdminViewCell(recentMessage: recentMessage)
+          }
         }
-      }
+        .onDelete(perform: mainMessageModel.deleteRecentMessage)
+     }
       .background(
         NavigationLink(isActive: $mainMessageModel.isShowingLogchat) {
           ChatLogView(selectedUser:
@@ -40,23 +43,20 @@ struct MainMessageView: View {
       .navigationBarTitleDisplayMode(.large)
       .toolbar {
         ToolbarItem(placement: .navigationBarTrailing) {
-          //if !(currentUser.currentUser?.isAdmin ?? false {
-            NavigationLink {
-              AdminListUserView()
-            } label: {
-              Image(systemName: "plus")
-            }
+          NavigationLink {
+            AdminListUserView()
+          } label: {
+            Image(systemName: "plus")
           }
-        //}
+        }
       }
     }
     .navigationViewStyle(.stack)
     .alert(mainMessageModel.errorMessage,
            isPresented: $mainMessageModel.showAlert) {}
-           .onAppear {
-             mainMessageModel.fetchRecentMessages(
-              currentUser: currentUser.currentUser!)
-           }
+     .onAppear {
+       mainMessageModel.fetchRecentMessages()
+     }
   }
 }
 

@@ -23,6 +23,7 @@
 		D1222FCF27B578420068AD85 /* GoogleRegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1222FCE27B578420068AD85 /* GoogleRegisterView.swift */; };
 		D12576CD27971A7600DC6BA3 /* PhotoPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12576CC27971A7600DC6BA3 /* PhotoPickerView.swift */; };
 		D12576CF2797215500DC6BA3 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12576CE2797215500DC6BA3 /* ImagePicker.swift */; };
+		D12F130E27C2510300139272 /* ConfirmationDeleteVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12F130D27C2510300139272 /* ConfirmationDeleteVMTests.swift */; };
 		D136115627BA535D000F94A3 /* FakeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D136115527BA535D000F94A3 /* FakeData.swift */; };
 		D136115927BA575D000F94A3 /* MockedUserServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D136115827BA575D000F94A3 /* MockedUserServices.swift */; };
 		D136115B27BA5769000F94A3 /* MockedAdminServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D136115A27BA5769000F94A3 /* MockedAdminServices.swift */; };
@@ -60,7 +61,7 @@
 		D145367527BD47800063FE7C /* ResetPasswordVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D145367427BD47800063FE7C /* ResetPasswordVMTests.swift */; };
 		D145367727BD47AF0063FE7C /* RegisterVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D145367627BD47AF0063FE7C /* RegisterVMTests.swift */; };
 		D145367927BD49AD0063FE7C /* GoogleRegisterVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D145367827BD49AD0063FE7C /* GoogleRegisterVMTests.swift */; };
-		D145367B27BD49CC0063FE7C /* LogoutVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D145367A27BD49CC0063FE7C /* LogoutVMTests.swift */; };
+		D145367B27BD49CC0063FE7C /* ProfileVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D145367A27BD49CC0063FE7C /* ProfileVMTests.swift */; };
 		D1492F1527AA76C2004A28B1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D1492F1727AA76C2004A28B1 /* Localizable.strings */; };
 		D1492F1A27AACB88004A28B1 /* EventDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1492F1927AACB88004A28B1 /* EventDetailView.swift */; };
 		D1492F1C27AAE0E4004A28B1 /* EventDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1492F1B27AAE0E3004A28B1 /* EventDetailViewModel.swift */; };
@@ -138,6 +139,10 @@
 		D1DB73DE27AFD05400A80294 /* UserNotificationServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DB73DD27AFD05400A80294 /* UserNotificationServices.swift */; };
 		D1DB73E027AFDC4600A80294 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DB73DF27AFDC4600A80294 /* AppDelegate.swift */; };
 		D1DB73E227AFE08F00A80294 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DB73E127AFE08F00A80294 /* NotificationManager.swift */; };
+		D1E78B1227C0E614002B51D0 /* ConfirmationDeleteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E78B1127C0E614002B51D0 /* ConfirmationDeleteViewModel.swift */; };
+		D1E78B1527C0E76F002B51D0 /* ConfirmationDeleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E78B1427C0E76F002B51D0 /* ConfirmationDeleteView.swift */; };
+		D1E78B1727C161A2002B51D0 /* ProfilePictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E78B1627C161A2002B51D0 /* ProfilePictureView.swift */; };
+		D1E78B1927C1632C002B51D0 /* ChangeMailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E78B1827C1632C002B51D0 /* ChangeMailView.swift */; };
 		D1EB16DA279DBF240043624F /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D1EB16D9279DBF240043624F /* FirebaseAuth */; };
 		D1EB16DC279DBF240043624F /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D1EB16DB279DBF240043624F /* FirebaseFirestore */; };
 		D1EB16DE279DBF240043624F /* FirebaseFirestoreSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = D1EB16DD279DBF240043624F /* FirebaseFirestoreSwift-Beta */; };
@@ -149,7 +154,7 @@
 		D1F555C32791DAEC0005555A /* MotherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F555C22791DAEB0005555A /* MotherView.swift */; };
 		D1F555C52791DECE0005555A /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F555C42791DECE0005555A /* RegisterViewModel.swift */; };
 		D1F555C72791EF7E0005555A /* View Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F555C62791EF7D0005555A /* View Extension.swift */; };
-		D1F555C92791F4460005555A /* LogoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F555C82791F4450005555A /* LogoutViewModel.swift */; };
+		D1F555C92791F4460005555A /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F555C82791F4450005555A /* ProfileViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -179,6 +184,7 @@
 		D1222FCE27B578420068AD85 /* GoogleRegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleRegisterView.swift; sourceTree = "<group>"; };
 		D12576CC27971A7600DC6BA3 /* PhotoPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerView.swift; sourceTree = "<group>"; };
 		D12576CE2797215500DC6BA3 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		D12F130D27C2510300139272 /* ConfirmationDeleteVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationDeleteVMTests.swift; sourceTree = "<group>"; };
 		D136114A27BA5162000F94A3 /* Next GaymerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Next GaymerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D136115527BA535D000F94A3 /* FakeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeData.swift; sourceTree = "<group>"; };
 		D136115827BA575D000F94A3 /* MockedUserServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedUserServices.swift; sourceTree = "<group>"; };
@@ -217,7 +223,7 @@
 		D145367427BD47800063FE7C /* ResetPasswordVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVMTests.swift; sourceTree = "<group>"; };
 		D145367627BD47AF0063FE7C /* RegisterVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVMTests.swift; sourceTree = "<group>"; };
 		D145367827BD49AD0063FE7C /* GoogleRegisterVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleRegisterVMTests.swift; sourceTree = "<group>"; };
-		D145367A27BD49CC0063FE7C /* LogoutVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutVMTests.swift; sourceTree = "<group>"; };
+		D145367A27BD49CC0063FE7C /* ProfileVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVMTests.swift; sourceTree = "<group>"; };
 		D1492F1627AA76C2004A28B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D1492F1827AA76D5004A28B1 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D1492F1927AACB88004A28B1 /* EventDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailView.swift; sourceTree = "<group>"; };
@@ -295,13 +301,17 @@
 		D1DB73DD27AFD05400A80294 /* UserNotificationServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationServices.swift; sourceTree = "<group>"; };
 		D1DB73DF27AFDC4600A80294 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1DB73E127AFE08F00A80294 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		D1E78B1127C0E614002B51D0 /* ConfirmationDeleteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationDeleteViewModel.swift; sourceTree = "<group>"; };
+		D1E78B1427C0E76F002B51D0 /* ConfirmationDeleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationDeleteView.swift; sourceTree = "<group>"; };
+		D1E78B1627C161A2002B51D0 /* ProfilePictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePictureView.swift; sourceTree = "<group>"; };
+		D1E78B1827C1632C002B51D0 /* ChangeMailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeMailView.swift; sourceTree = "<group>"; };
 		D1EB16E7279E04480043624F /* UserDetailsAdminViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsAdminViewModel.swift; sourceTree = "<group>"; };
 		D1F555BC2791CA130005555A /* FirebaseRegistrationServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseRegistrationServices.swift; sourceTree = "<group>"; };
 		D1F555C02791CE9E0005555A /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		D1F555C22791DAEB0005555A /* MotherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotherView.swift; sourceTree = "<group>"; };
 		D1F555C42791DECE0005555A /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		D1F555C62791EF7D0005555A /* View Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View Extension.swift"; sourceTree = "<group>"; };
-		D1F555C82791F4450005555A /* LogoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutViewModel.swift; sourceTree = "<group>"; };
+		D1F555C82791F4450005555A /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -333,7 +343,8 @@
 		D10ABA2627B169F9009EDD36 /* User VM */ = {
 			isa = PBXGroup;
 			children = (
-				D17A9F8727AE7F8B00AA0B08 /* AdminListUserViewModel.swift */,
+				D1E78B1027C0E5D4002B51D0 /* Chat VM */,
+				D1E78B0F27C0E5C0002B51D0 /* Profile Management VM */,
 			);
 			path = "User VM";
 			sourceTree = "<group>";
@@ -351,7 +362,6 @@
 			children = (
 				D1D6678A27A2930900B1E720 /* Decoder */,
 				D1F555BC2791CA130005555A /* FirebaseRegistrationServices.swift */,
-				D179479027BA4E03004116BE /* UserLogStatus.swift */,
 			);
 			path = "Register Login Model";
 			sourceTree = "<group>";
@@ -554,7 +564,9 @@
 		D145364F27BD00770063FE7C /* User VM */ = {
 			isa = PBXGroup;
 			children = (
+				D145367A27BD49CC0063FE7C /* ProfileVMTests.swift */,
 				D145365827BD01620063FE7C /* AdminListUserVMTests.swift */,
+				D12F130D27C2510300139272 /* ConfirmationDeleteVMTests.swift */,
 			);
 			path = "User VM";
 			sourceTree = "<group>";
@@ -613,7 +625,6 @@
 				D145367427BD47800063FE7C /* ResetPasswordVMTests.swift */,
 				D145367627BD47AF0063FE7C /* RegisterVMTests.swift */,
 				D145367827BD49AD0063FE7C /* GoogleRegisterVMTests.swift */,
-				D145367A27BD49CC0063FE7C /* LogoutVMTests.swift */,
 			);
 			path = "Register VM";
 			sourceTree = "<group>";
@@ -671,7 +682,6 @@
 				D17A9F8327AE772D00AA0B08 /* Chat View */,
 				D1EB16E6279E02800043624F /* User View */,
 				D1D66C62279C115A00EEC95E /* Admin View */,
-				D1BFA1A0279EFDEC00FF0B47 /* Profile View */,
 				D1BFA19D279EFD8D00FF0B47 /* Help View */,
 				D19B0BF22795DEFD000C059C /* Register Login View */,
 				D18BD6B8279DB4830059561B /* Launchscreen.storyboard */,
@@ -684,6 +694,7 @@
 			children = (
 				D14D4DD427AD32E500D8EB02 /* UserLimitedView.swift */,
 				D14D4DD627AD34BD00D8EB02 /* UserView.swift */,
+				D1E78B1627C161A2002B51D0 /* ProfilePictureView.swift */,
 			);
 			path = "User ViewComp";
 			sourceTree = "<group>";
@@ -856,6 +867,8 @@
 			isa = PBXGroup;
 			children = (
 				D1622F0B279617C500F6B461 /* ProfileView.swift */,
+				D1E78B1827C1632C002B51D0 /* ChangeMailView.swift */,
+				D1E78B1427C0E76F002B51D0 /* ConfirmationDeleteView.swift */,
 			);
 			path = "Profile View";
 			sourceTree = "<group>";
@@ -875,7 +888,6 @@
 				D1B3DB2E279214780075A0F7 /* ResetPasswordViewModel.swift */,
 				D1F555C42791DECE0005555A /* RegisterViewModel.swift */,
 				D1222FCA27B56D7F0068AD85 /* GoogleRegisterViewModel.swift */,
-				D1F555C82791F4450005555A /* LogoutViewModel.swift */,
 			);
 			path = "Register Login VM";
 			sourceTree = "<group>";
@@ -933,11 +945,29 @@
 			path = "Notification Model";
 			sourceTree = "<group>";
 		};
+		D1E78B0F27C0E5C0002B51D0 /* Profile Management VM */ = {
+			isa = PBXGroup;
+			children = (
+				D1F555C82791F4450005555A /* ProfileViewModel.swift */,
+				D1E78B1127C0E614002B51D0 /* ConfirmationDeleteViewModel.swift */,
+			);
+			path = "Profile Management VM";
+			sourceTree = "<group>";
+		};
+		D1E78B1027C0E5D4002B51D0 /* Chat VM */ = {
+			isa = PBXGroup;
+			children = (
+				D17A9F8727AE7F8B00AA0B08 /* AdminListUserViewModel.swift */,
+			);
+			path = "Chat VM";
+			sourceTree = "<group>";
+		};
 		D1EB16E6279E02800043624F /* User View */ = {
 			isa = PBXGroup;
 			children = (
-				D1BFA1A3279F029100FF0B47 /* TabBarUserView.swift */,
 				D17A9F8427AE7E4E00AA0B08 /* User Chat View */,
+				D1BFA1A0279EFDEC00FF0B47 /* Profile View */,
+				D1BFA1A3279F029100FF0B47 /* TabBarUserView.swift */,
 			);
 			path = "User View";
 			sourceTree = "<group>";
@@ -954,6 +984,7 @@
 				D1DB73DC27AFD03400A80294 /* Notification Model */,
 				D116C3D4279B5EF6001CC51E /* Register Login Model */,
 				D1C46FD4279B1EC100833440 /* UserRegistered.swift */,
+				D179479027BA4E03004116BE /* UserLogStatus.swift */,
 				D1D66C6B279C1CF700EEC95E /* UserDetails.swift */,
 				D1DB73E127AFE08F00A80294 /* NotificationManager.swift */,
 				D1F555C02791CE9E0005555A /* DataManager.swift */,
@@ -1087,10 +1118,11 @@
 				D145366327BD02960063FE7C /* MyEventListVMTests.swift in Sources */,
 				D145367127BD03A80063FE7C /* UserDetailAdminVMTests.swift in Sources */,
 				D16DEC8D27BAF88C000BAFF0 /* DataManagerUserTests.swift in Sources */,
+				D12F130E27C2510300139272 /* ConfirmationDeleteVMTests.swift in Sources */,
 				D145367727BD47AF0063FE7C /* RegisterVMTests.swift in Sources */,
 				D145364827BCFC680063FE7C /* MockedMapServices.swift in Sources */,
 				D145365927BD01620063FE7C /* AdminListUserVMTests.swift in Sources */,
-				D145367B27BD49CC0063FE7C /* LogoutVMTests.swift in Sources */,
+				D145367B27BD49CC0063FE7C /* ProfileVMTests.swift in Sources */,
 				D136115927BA575D000F94A3 /* MockedUserServices.swift in Sources */,
 				D136116127BA57D7000F94A3 /* MockedChatServices.swift in Sources */,
 				D16DEC8F27BAFA66000BAFF0 /* DataManagerRegisterTests.swift in Sources */,
@@ -1147,6 +1179,7 @@
 				D100351227BC31A300463EAC /* MapManager.swift in Sources */,
 				D10BF78B279D54070038EA72 /* ChatLogView.swift in Sources */,
 				D13A887A27A13CD800F606C3 /* Location.swift in Sources */,
+				D1E78B1927C1632C002B51D0 /* ChangeMailView.swift in Sources */,
 				D1222FCB27B56D7F0068AD85 /* GoogleRegisterViewModel.swift in Sources */,
 				D1F555C12791CE9E0005555A /* DataManager.swift in Sources */,
 				D1D66C68279C159600EEC95E /* UserListAdminView.swift in Sources */,
@@ -1159,7 +1192,7 @@
 				D15DC11627AC7C15001DCF1C /* RecentMessageAdminViewCell.swift in Sources */,
 				D179479127BA4E03004116BE /* UserLogStatus.swift in Sources */,
 				D1DA87AC27A9648A006B0ED6 /* EventView.swift in Sources */,
-				D1F555C92791F4460005555A /* LogoutViewModel.swift in Sources */,
+				D1F555C92791F4460005555A /* ProfileViewModel.swift in Sources */,
 				D1EB16E8279E04480043624F /* UserDetailsAdminViewModel.swift in Sources */,
 				D14D4DD027AD1A3400D8EB02 /* MyEventListView.swift in Sources */,
 				D100351027BC318E00463EAC /* MapServicesProtocol.swift in Sources */,
@@ -1177,6 +1210,7 @@
 				D1BFA198279EFA9000FF0B47 /* EventListView.swift in Sources */,
 				D13820F427A713D9000BD371 /* EventListViewModel.swift in Sources */,
 				D1AE62302796C0A300FDFAAC /* TabBarRouter.swift in Sources */,
+				D1E78B1227C0E614002B51D0 /* ConfirmationDeleteViewModel.swift in Sources */,
 				D1492F1C27AAE0E4004A28B1 /* EventDetailViewModel.swift in Sources */,
 				D1D66C76279C6EDE00EEC95E /* ChatMessage.swift in Sources */,
 				D179478D27BA482D004116BE /* RegistrationServicesProtocol.swift in Sources */,
@@ -1184,8 +1218,10 @@
 				D12576CF2797215500DC6BA3 /* ImagePicker.swift in Sources */,
 				D14D4DD727AD34BD00D8EB02 /* UserView.swift in Sources */,
 				D1B3DB2F279214790075A0F7 /* ResetPasswordViewModel.swift in Sources */,
+				D1E78B1727C161A2002B51D0 /* ProfilePictureView.swift in Sources */,
 				D1428DF02792E38A00269B0C /* RegisterView.swift in Sources */,
 				D1F555BD2791CA130005555A /* FirebaseRegistrationServices.swift in Sources */,
+				D1E78B1527C0E76F002B51D0 /* ConfirmationDeleteView.swift in Sources */,
 				D13820FA27A72255000BD371 /* BannerPickerView.swift in Sources */,
 				D179478B27BA4823004116BE /* AdminServicesProtocol.swift in Sources */,
 				D1BF607D2790BE8E00F22AAF /* LoginViewModel.swift in Sources */,

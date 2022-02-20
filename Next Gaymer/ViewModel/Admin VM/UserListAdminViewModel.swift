@@ -27,10 +27,10 @@ class UserListAdminViewModel: ObservableObject {
   }
   
   //
-  // MARK: - Private Method
+  // MARK: - Internal Method
   //
   /// This function fetch the users list
-  private func fetchUserList() {
+  func fetchUserList() {
     DataManager.shared().fetchlimitUsersDetailsAdmin { usersList, error in
       if let usersList = usersList {
         self.userList = usersList

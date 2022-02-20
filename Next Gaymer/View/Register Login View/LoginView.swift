@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct LoginView: View {
-
+  
   @EnvironmentObject var viewRouter: ViewRouter
   @StateObject var loginModel = LoginViewModel()
-    
+  
   var body: some View {
     NavigationView {
       VStack(spacing: 15) {
@@ -58,13 +58,19 @@ struct LoginView: View {
       .padding()
       .alert(loginModel.errorMessage, isPresented: $loginModel.showAlert) {}
       .navigationBarHidden(true)
-      .fullScreenCover(isPresented: $loginModel.showGoogleForm) {
+      .fullScreenCover(isPresented: $loginModel.showGoogleForm, onDismiss: {
+        withAnimation {
+          viewRouter.currentPage = .loggedIn
+        }
+      }) {
         GoogleRegisterView()
       }
     }
     .onReceive(loginModel.$requestStatus) { newValue in
       if newValue == .success {
+        withAnimation {
           viewRouter.currentPage = .loggedIn
+        }
       }
     }
   }

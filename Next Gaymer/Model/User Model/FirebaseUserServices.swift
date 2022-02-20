@@ -12,7 +12,7 @@ import Firebase
 //
 
 /// This struct manage the user account once is created
-class FirebaseUserServices: UserServices {
+class FirebaseUserServices: UserServices {  
   //
   // MARK: - Private Properties
   //
@@ -62,22 +62,16 @@ class FirebaseUserServices: UserServices {
     }
   }
   
-  /// TO IMPLEMENT
   /// This function delete all the current user info stored in the firestore and the storage.
   func deleteCurrentUser(completionHandler: @escaping(Bool, String?) -> Void) {
     
     guard let user = auth.currentUser else { return }
-    db.collection(UserConstant.users).document(user.uid).delete() { error in
-      if let error = error {
-        return completionHandler(false, error.localizedDescription)
-      }
-    }
-    storage.reference(withPath: user.uid).delete { error in
-      if let error = error {
-        return completionHandler(false, error.localizedDescription)
-      }
-    }
-    user.delete { error in
+    
+    db.collection(UserConstant.users).document(user.uid).delete()
+    db.collection(EventConstant.eventReminder).document(user.uid).delete()
+    storage.reference(withPath: user.uid).delete()
+    
+    user.delete() { error in
       if let error = error {
         return completionHandler(false, error.localizedDescription)
       }
@@ -85,19 +79,31 @@ class FirebaseUserServices: UserServices {
     return completionHandler(true, nil)
   }
   
-  /// TO IMPLEMENT
   /// This function update the user info stored in firebase with the user modifications
   func updateUserInfo(userInfo: [String: Any], completionHandler: @escaping(Bool, String) -> Void) {
     
     guard let userId = auth.currentUser?.uid else { return }
     let userRef = db.collection(UserConstant.users).document(userId)
-    
     userRef.updateData(userInfo) { error in
       if let error = error {
         return completionHandler(false, error.localizedDescription)
       } else {
         return completionHandler(true, NSLocalizedString("modificationComplete", comment: ""))
       }
+    }
+  }
+  
+  /// This function reauthenticate the user for specific action like update password or delete profile
+  func reauthenticateUser(email: String, password: String, completionHandler: @escaping(Bool, String?) -> Void) {
+    
+    let user = auth.currentUser
+    let credential = EmailAuthProvider.credential(withEmail: email, password: password)
+    
+    user?.reauthenticate(with: credential) { result, error in
+      if let error = error {
+        return completionHandler(false, error.localizedDescription)
+      }
+      return completionHandler(true, nil)
     }
   }
 }

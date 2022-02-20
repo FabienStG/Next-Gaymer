@@ -22,6 +22,9 @@ struct UsersAdminView: View {
           UserAdminViewCell(user: user)
         }
       }
+      .refreshable {
+        userListAdminModel.fetchUserList()
+      }
       .modifier(EmptyDataModifier(
         items: userListAdminModel.userList,
         placeholder: Text(NSLocalizedString("noUsers", comment: ""))))

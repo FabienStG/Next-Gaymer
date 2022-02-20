@@ -14,9 +14,6 @@ struct UserDetailsAdminView: View {
   var body: some View {
     VStack {
       UserLimitedView(userDetails: userDetails.selectedUser)
-      Spacer()
-        .padding()
-        .frame(maxWidth: .infinity, alignment: .leading)
       NavigationLink {
         withAnimation {
           ChatLogView(

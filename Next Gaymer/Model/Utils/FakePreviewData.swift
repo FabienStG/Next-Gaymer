@@ -43,7 +43,12 @@ class FakePreviewData {
   
   static let fakeOnlineEvent = EventCreated(id: "fakeID", imageUrl: eventImage, eventName: "Nom de l'évènement",
                                             isOffline: false, date: Date(), location: "14 rue mahcin",
-                                            town: "Paris", madeBy: "Damnes", description: "Description", maximumPlaces: 0, takenPlaces: 0,
+                                            town: "", madeBy: "Damnes", description: "Description", maximumPlaces: 0, takenPlaces: 0,
+                                            registrant: [fakeSelectedUser])
+  
+  static let fakeOfflineEvent = EventCreated(id: "fakeID", imageUrl: eventImage, eventName: "Nom de l'évènement",
+                                            isOffline: true, date: Date(), location: "14 rue mahcin",
+                                            town: "Paris", madeBy: "Damnes", description: "Description", maximumPlaces: 50, takenPlaces: 20,
                                             registrant: [fakeSelectedUser])
   
   static let fakeRecentMessage = RecentMessage(id: "fakeId", text: "Hey salut !", senderUserId: "Fakeid", recipientUserId: "otherFake",

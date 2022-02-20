@@ -25,7 +25,7 @@ class GoogleRegisterViewModel: RegisterViewModel {
     super.init()
     setGoogleFormInfo { userInfo in
       self.name = userInfo[UserConstant.name]!
-      self.userId = userInfo[UserConstant.name]!
+      self.userId = userInfo[UserConstant.userId]!
       self.phoneNumber = userInfo[UserConstant.phoneNumber]!
       self.email = userInfo[UserConstant.email]!
       self.imageUrl = userInfo[UserConstant.profileImageUrl]!

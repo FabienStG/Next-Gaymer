@@ -12,7 +12,8 @@ struct GoogleRegisterView: View {
   
   @StateObject var googleRegisterModel = GoogleRegisterViewModel()
   @EnvironmentObject var viewRouter: ViewRouter
-  @Environment(\.presentationMode) var presentationmode
+  
+  @Environment(\.presentationMode) var presentationMode
   
     var body: some View {
       VStack {
@@ -62,7 +63,6 @@ struct GoogleRegisterView: View {
               .frame(width: 200, height: 46)
               .background(Color.blue)
               .cornerRadius(15.0)
-            
           }
           .disabled(googleRegisterModel.disableButton())
           .frame(maxWidth: .infinity, alignment: .center)
@@ -70,8 +70,7 @@ struct GoogleRegisterView: View {
         }
         .onReceive(googleRegisterModel.$requestStatus) { newValue in
           if newValue == .success {
-            viewRouter.currentPage = .loggedIn
-            presentationmode.wrappedValue.dismiss()
+            presentationMode.wrappedValue.dismiss()
           }
         }
         .alert(googleRegisterModel.errorMessage, isPresented: $googleRegisterModel.showAlert) {}

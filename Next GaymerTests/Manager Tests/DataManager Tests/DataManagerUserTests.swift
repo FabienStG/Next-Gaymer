@@ -55,4 +55,52 @@ class DataManagerUserTests: XCTestCase {
       XCTAssertEqual(error, "error")
     }
   }
+  
+  func testReauthenticateUserThenReturnTrue() {
+    
+    dataManager.reauthenticateUser(email: "test", password: "test") { response, error in
+      XCTAssertNil(error)
+      XCTAssertTrue(response)
+    }
+  }
+  
+  func testReauthenticateUserThenReturnFalseAndError() {
+    
+    dataManagerFailed.reauthenticateUser(email: "test", password: "test") { response, error in
+      XCTAssertFalse(response)
+      XCTAssertNotNil(error)
+    }
+  }
+  
+  func testDeleteUserThenReturnTrue() {
+    
+    dataManager.deleteUser { response, error in
+      XCTAssertTrue(response)
+      XCTAssertNil(error)
+    }
+  }
+  
+  func testDeleteUserThenReturnFalseAndError() {
+    
+    dataManagerFailed.deleteUser { response, error in
+      XCTAssertFalse(response)
+      XCTAssertNotNil(error)
+    }
+  }
+  
+  func testUpdateUserInfoThenReturnTrueAndConfirmAlert() {
+    
+    dataManager.updateUserInfo(userInfo: [:]) { response, error in
+      XCTAssertTrue(response)
+      XCTAssertEqual(error, NSLocalizedString("modificationComplete", comment: ""))
+    }
+  }
+  
+  func testUpdateUserInfoThenReturnFalseAndError() {
+    
+    dataManagerFailed.updateUserInfo(userInfo: [:]) { response, error in
+      XCTAssertFalse(response)
+      XCTAssertNotNil(error)
+    }
+  }
 }

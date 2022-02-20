@@ -30,9 +30,16 @@ struct EventViewCell: View {
         Text(event.dateString)
           .font(.subheadline)
           .foregroundColor(.secondary)
-          Text(event.town)
-            .font(.subheadline)
-            .foregroundColor(.secondary)
+          if event.town.isEmpty {
+            Image("Twitch logo")
+              .resizable()
+              .frame(width: 35, height: 35)
+              .scaledToFill()
+          } else {
+            Text(event.town)
+              .font(.subheadline)
+              .foregroundColor(.secondary)
+          }
         }
       }
     }

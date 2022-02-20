@@ -28,8 +28,8 @@ class MainMessageViewModel: ObservableObject {
   // MARK: - Internal Methods
   //
   /// This function fetch the recent messages with the data manager and add the listener to be notified by any update
-  func fetchRecentMessages(currentUser: UserRegistered) {
-    DataManager.shared().recentMessageListener(currentUser: currentUser, listen: self)
+  func fetchRecentMessages() {
+    DataManager.shared().recentMessageListener(listen: self)
   }
   
   /// This function take the id saved in the RecentMessage object, and return the selected user used by the chatlog view
@@ -43,6 +43,18 @@ class MainMessageViewModel: ObservableObject {
         self.showAlert.toggle()
       }
     }
+  }
+  
+  /// This function delete the Recentmessage from the array and in firebase
+  func deleteRecentMessage(with indexSet: IndexSet) {
+    
+  stopListening()
+    indexSet.forEach {
+      let recentMessage = recentMessages[$0]
+      DataManager.shared().deleteRecentMessage(message: recentMessage)
+      recentMessages.remove(at: $0)
+    }
+    fetchRecentMessages()
   }
   
   //

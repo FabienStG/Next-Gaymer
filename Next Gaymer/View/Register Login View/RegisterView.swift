@@ -71,14 +71,7 @@ struct RegisterView: View {
         Button {
           registerModel.registerUserButton()
         } label: {
-          Text(NSLocalizedString("createAccount", comment: ""))
-            .font(.title3)
-            .foregroundColor(.white)
-            .multilineTextAlignment(.center)
-            .padding()
-            .frame(width: 200, height: 46)
-            .background(Color.blue)
-            .cornerRadius(15.0)
+          ButtonTextView(status: $registerModel.requestStatus, text: NSLocalizedString("createAccount", comment: ""))
           
         }
         .disabled(!registerModel.disableButton())
@@ -87,7 +80,9 @@ struct RegisterView: View {
       }
       .onReceive(registerModel.$requestStatus) { newValue in
         if newValue == .success {
-          viewRouter.currentPage = .loggedIn
+          withAnimation {
+            viewRouter.currentPage = .loggedIn
+          }
         }
       }
       .alert(registerModel.errorMessage, isPresented: $registerModel.showAlert) {}

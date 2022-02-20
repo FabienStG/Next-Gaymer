@@ -54,6 +54,8 @@ class FakePreviewData {
   static let fakeRecentMessage = RecentMessage(id: "fakeId", text: "Hey salut !", senderUserId: "Fakeid", recipientUserId: "otherFake",
                                                timestamp: Date(), profileImageUrl: image, pseudo: "Damnes", isAdmin: false)
   
+  static let helpCenter = HelpCenter(id: UUID(), name: "SOShomophobie", phoneNumber: "0148064241", phoneNumberURL: URL(string: "tel://0148064241")!, url: URL(string: "https://www.sos-homophobie.org")!, description: NSLocalizedString("sosHomophobieDescription", comment: ""))
+  
   static var currentAdminUser: CurrentUserViewModel {
     
     let fakeUser = CurrentUserViewModel()

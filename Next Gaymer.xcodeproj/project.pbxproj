@@ -24,6 +24,9 @@
 		D12576CD27971A7600DC6BA3 /* PhotoPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12576CC27971A7600DC6BA3 /* PhotoPickerView.swift */; };
 		D12576CF2797215500DC6BA3 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12576CE2797215500DC6BA3 /* ImagePicker.swift */; };
 		D12F130E27C2510300139272 /* ConfirmationDeleteVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12F130D27C2510300139272 /* ConfirmationDeleteVMTests.swift */; };
+		D12F131127C2868500139272 /* HelpPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12F131027C2868500139272 /* HelpPageViewModel.swift */; };
+		D12F131427C289C200139272 /* HelpCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12F131327C289C200139272 /* HelpCenter.swift */; };
+		D12F131727C28AEA00139272 /* HelpCenterViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12F131627C28AEA00139272 /* HelpCenterViewCell.swift */; };
 		D136115627BA535D000F94A3 /* FakeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D136115527BA535D000F94A3 /* FakeData.swift */; };
 		D136115927BA575D000F94A3 /* MockedUserServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D136115827BA575D000F94A3 /* MockedUserServices.swift */; };
 		D136115B27BA5769000F94A3 /* MockedAdminServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D136115A27BA5769000F94A3 /* MockedAdminServices.swift */; };
@@ -185,6 +188,9 @@
 		D12576CC27971A7600DC6BA3 /* PhotoPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerView.swift; sourceTree = "<group>"; };
 		D12576CE2797215500DC6BA3 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		D12F130D27C2510300139272 /* ConfirmationDeleteVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationDeleteVMTests.swift; sourceTree = "<group>"; };
+		D12F131027C2868500139272 /* HelpPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPageViewModel.swift; sourceTree = "<group>"; };
+		D12F131327C289C200139272 /* HelpCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCenter.swift; sourceTree = "<group>"; };
+		D12F131627C28AEA00139272 /* HelpCenterViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCenterViewCell.swift; sourceTree = "<group>"; };
 		D136114A27BA5162000F94A3 /* Next GaymerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Next GaymerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D136115527BA535D000F94A3 /* FakeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeData.swift; sourceTree = "<group>"; };
 		D136115827BA575D000F94A3 /* MockedUserServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedUserServices.swift; sourceTree = "<group>"; };
@@ -390,6 +396,33 @@
 				D14B898F279032AF005FC4F0 /* ViewRouter.swift */,
 			);
 			path = "View Router";
+			sourceTree = "<group>";
+		};
+		D12F130F27C2866000139272 /* Help Page VM */ = {
+			isa = PBXGroup;
+			children = (
+				D12F131027C2868500139272 /* HelpPageViewModel.swift */,
+				D13A887B27A1438700F606C3 /* Map VM */,
+			);
+			path = "Help Page VM";
+			sourceTree = "<group>";
+		};
+		D12F131227C2899F00139272 /* Help Page Model */ = {
+			isa = PBXGroup;
+			children = (
+				D12F131327C289C200139272 /* HelpCenter.swift */,
+				D13A887827A13CBE00F606C3 /* Map Model */,
+			);
+			path = "Help Page Model";
+			sourceTree = "<group>";
+		};
+		D12F131527C28ACB00139272 /* HelpPage ViewComp */ = {
+			isa = PBXGroup;
+			children = (
+				D12F131627C28AEA00139272 /* HelpCenterViewCell.swift */,
+				D13A887E27A1551F00F606C3 /* Map ViewComp */,
+			);
+			path = "HelpPage ViewComp";
 			sourceTree = "<group>";
 		};
 		D136114B27BA5162000F94A3 /* Next GaymerTests */ = {
@@ -803,9 +836,9 @@
 				D1BF606E27908A7100F22AAF /* ButtonTextView.swift */,
 				D1CDF3C327AC2DB700D410F4 /* EmptyDataModifier.swift */,
 				D14D4DD327AD32C200D8EB02 /* User ViewComp */,
+				D12F131527C28ACB00139272 /* HelpPage ViewComp */,
 				D11765A827A99A060020131D /* Admin ViewComp */,
 				D13820F827A721D2000BD371 /* Event ViewComp */,
-				D13A887E27A1551F00F606C3 /* Map ViewComp */,
 				D1D66C61279C114F00EEC95E /* Chat ViewComp */,
 				D19B0BF32795DF6C000C059C /* TabBar ViewComp */,
 				D19B0BF12795DEA9000C059C /* Register Login ViewComp */,
@@ -825,9 +858,9 @@
 			children = (
 				D1D66C5F279C05EB00EEC95E /* CurrentUserViewModel.swift */,
 				D10ABA2627B169F9009EDD36 /* User VM */,
+				D12F130F27C2866000139272 /* Help Page VM */,
 				D17A9F8227AE767700AA0B08 /* Chat VM */,
 				D13820F127A71262000BD371 /* Event VM */,
-				D13A887B27A1438700F606C3 /* Map VM */,
 				D1D66C5C279C04E200EEC95E /* Admin VM */,
 				D1D66C5B279C04D700EEC95E /* Tab Bar VM */,
 				D1D66C5A279C04BE00EEC95E /* Register Login VM */,
@@ -978,7 +1011,7 @@
 				D13A888627A1A94900F606C3 /* Utils */,
 				D10ABA2727B16D33009EDD36 /* User Model */,
 				D13A888327A1931E00F606C3 /* Event Model */,
-				D13A887827A13CBE00F606C3 /* Map Model */,
+				D12F131227C2899F00139272 /* Help Page Model */,
 				D1D66C71279C6CA500EEC95E /* Chat Model */,
 				D116C3D5279B5F37001CC51E /* Admin Model */,
 				D1DB73DC27AFD03400A80294 /* Notification Model */,
@@ -1180,6 +1213,7 @@
 				D10BF78B279D54070038EA72 /* ChatLogView.swift in Sources */,
 				D13A887A27A13CD800F606C3 /* Location.swift in Sources */,
 				D1E78B1927C1632C002B51D0 /* ChangeMailView.swift in Sources */,
+				D12F131127C2868500139272 /* HelpPageViewModel.swift in Sources */,
 				D1222FCB27B56D7F0068AD85 /* GoogleRegisterViewModel.swift in Sources */,
 				D1F555C12791CE9E0005555A /* DataManager.swift in Sources */,
 				D1D66C68279C159600EEC95E /* UserListAdminView.swift in Sources */,
@@ -1238,12 +1272,14 @@
 				D14B897627902C75005FC4F0 /* Next_GaymerApp.swift in Sources */,
 				D11765AC27A9C71A0020131D /* Listener.swift in Sources */,
 				D1633E9F27AEBE7000B80FD7 /* RegistrantListAdminViewModel.swift in Sources */,
+				D12F131727C28AEA00139272 /* HelpCenterViewCell.swift in Sources */,
 				D14D4DD527AD32E500D8EB02 /* UserLimitedView.swift in Sources */,
 				D11765AA27A99A230020131D /* UserAdminViewCell.swift in Sources */,
 				D1BFA19F279EFDC200FF0B47 /* HelpPageView.swift in Sources */,
 				D1D6678C27A29D6300B1E720 /* EventCreated.swift in Sources */,
 				D1D66C66279C124900EEC95E /* TabBarAdminView.swift in Sources */,
 				D1BF606F27908A7100F22AAF /* ButtonTextView.swift in Sources */,
+				D12F131427C289C200139272 /* HelpCenter.swift in Sources */,
 				D1C46FD5279B1EC100833440 /* UserRegistered.swift in Sources */,
 				D100350E27BC317D00463EAC /* NotificationSercicesProtocol.swift in Sources */,
 				D19B0BF62795DFCB000C059C /* TapButtonView.swift in Sources */,

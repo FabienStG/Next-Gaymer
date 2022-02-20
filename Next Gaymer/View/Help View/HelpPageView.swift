@@ -9,19 +9,24 @@ import SwiftUI
 
 struct HelpPageView: View {
   
+  @StateObject var helpPageModel = HelpPageViewModel()
+  
   var body: some View {
     NavigationView {
-      Text("Liste des contacts d'associations d'aide")
-        .navigationTitle(NSLocalizedString("helpCenters", comment: ""))
-        .toolbar {
-          ToolbarItem(placement: .navigationBarTrailing) {
-            NavigationLink {
-              MapView()
-            } label: {
-              Image(systemName: "map.circle.fill")
-            }
+      List(helpPageModel.helpCenters) { helpCenter in
+        HelpCenterViewCell(helpCenter: helpCenter)
+          .padding(.bottom)
+      }
+      .navigationTitle(NSLocalizedString("helpCenters", comment: ""))
+      .toolbar {
+        ToolbarItem(placement: .navigationBarTrailing) {
+          NavigationLink {
+            MapView()
+          } label: {
+            Image(systemName: "map.circle.fill")
           }
         }
+      }
     }
     .navigationViewStyle(.stack)
   }

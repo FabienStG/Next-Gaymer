@@ -26,6 +26,7 @@ struct RegistrantListAdminView: View {
               Text(user.surname)
             }
           }
+          Spacer()
           Image(systemName: registrantListAdminModel.confirmed ? "checkmark.circle.fill" : "xmark.circle.fill")
         }
       }
@@ -44,6 +45,6 @@ struct RegistrantListAdminView: View {
 
 struct RegistrantListAdminView_Previews: PreviewProvider {
     static var previews: some View {
-      RegistrantListAdminView(event: FakePreviewData.fakeOnlineEvent)
+      RegistrantListAdminView(event: FakePreviewData.fakeOfflineEvent)
     }
 }

@@ -29,7 +29,6 @@ struct EventListView: View {
       .modifier(EmptyDataModifier(
         items: eventListModel.eventList,
         placeholder: Text(NSLocalizedString("noMoreEvent", comment: ""))))
-      
       .navigationTitle(NSLocalizedString("events", comment: ""))
       .navigationBarTitleDisplayMode(.large)
       .toolbar {

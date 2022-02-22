@@ -12,42 +12,40 @@ struct EventDetailView: View {
   @EnvironmentObject var currentUser: CurrentUserViewModel
   @StateObject var eventDetailModel: EventDetailViewModel
   
-    var body: some View {
-      VStack {
-        EventView(event: eventDetailModel.event)
-     
-        Button {
-          eventDetailModel.registrateUserToEvent(currentUser: currentUser.currentUser!)
-        } label: {
-          ButtonTextView(status: $eventDetailModel.requestStatus,
-                         text: NSLocalizedString("registrate", comment: ""))
-        }
-        .disabled(eventDetailModel.disableButton)
-        if currentUser.currentUser?.isAdmin ?? true {
-          
-          Button {
-            eventDetailModel.showRegistrants.toggle()
-          } label: {
-            Text("Liste des inscrits")
-          }
-        }
+  var body: some View {
+    VStack {
+      EventView(event: eventDetailModel.event)
+      Button {
+        eventDetailModel.registrateUserToEvent(currentUser: currentUser.currentUser!)
+      } label: {
+        ButtonTextView(status: $eventDetailModel.requestStatus,
+                       text: NSLocalizedString("registrate", comment: ""))
       }
-      .sheet(isPresented: $eventDetailModel.showRegistrants, content: {
-        RegistrantListAdminView(event: eventDetailModel.event)
-      })
-      .alert(eventDetailModel.alertMessage, isPresented: $eventDetailModel.showAlert) {}
-      .onReceive(eventDetailModel.$requestStatus) { newValue in
-        if eventDetailModel.requestStatus == .success {
-          currentUser.fetchCurrentUser()
+      .disabled(eventDetailModel.disableButton)
+      if currentUser.currentUser?.isAdmin ?? false {
+        Button {
+          eventDetailModel.showRegistrants.toggle()
+        } label: {
+          Text("Liste des inscrits")
         }
       }
     }
+    .sheet(isPresented: $eventDetailModel.showRegistrants, content: {
+      RegistrantListAdminView(event: eventDetailModel.event)
+    })
+    .alert(eventDetailModel.alertMessage, isPresented: $eventDetailModel.showAlert) {}
+    .onReceive(eventDetailModel.$requestStatus) { newValue in
+      if eventDetailModel.requestStatus == .success {
+        currentUser.fetchCurrentUser()
+      }
+    }
+  }
 }
 
 struct EventDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-      EventDetailView(eventDetailModel:
-                        EventDetailViewModel(event: FakePreviewData.fakeOnlineEvent))
-        .environmentObject(FakePreviewData.currentUser)
-    }
+  static var previews: some View {
+    EventDetailView(eventDetailModel:
+                      EventDetailViewModel(event: FakePreviewData.fakeOnlineEvent))
+      .environmentObject(FakePreviewData.currentUser)
+  }
 }

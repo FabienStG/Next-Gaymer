@@ -13,9 +13,17 @@ struct HelpPageView: View {
   
   var body: some View {
     NavigationView {
-      List(helpPageModel.helpCenters) { helpCenter in
-        HelpCenterViewCell(helpCenter: helpCenter)
-          .padding(.bottom)
+      ZStack {
+        Color(UIColor.systemGroupedBackground).edgesIgnoringSafeArea([.all])
+        ScrollView {
+          ForEach(helpPageModel.helpCenters, id:\.id) { helpCenter in
+            HelpCenterViewCell(helpCenter: helpCenter)
+              .padding()
+              .frame(width: 370 ,height: 350)
+              .background(Color.white)
+              .cornerRadius(20)
+          }
+        }
       }
       .navigationTitle(NSLocalizedString("helpCenters", comment: ""))
       .toolbar {
@@ -27,6 +35,7 @@ struct HelpPageView: View {
           }
         }
       }
+      
     }
     .navigationViewStyle(.stack)
   }

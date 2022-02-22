@@ -7,8 +7,6 @@
 
 import Foundation
 import Firebase
-import FirebaseFirestore
-import FirebaseFirestoreSwift
 //
 // MARK: - Firebase Chat Services
 //

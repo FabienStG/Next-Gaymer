@@ -64,7 +64,7 @@ class FakeData {
   
   static let uiImage = UIImage(systemName: "plus")
   
-  
+  static let centerArray = [CenterRegistered(name: "SOShomophobie", phoneNumber: "0148064241", phoneNumberURL: URL(string: "tel://0148064241")!, url: URL(string: "https://www.sos-homophobie.org")!, en: "sosHomophobieDescription", fr: "sosHomophobieFr")]
   
   
   static let selectedUser = SelectedUserViewModel(selectedUser: FakePreviewData.fakeSelectedUser)

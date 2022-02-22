@@ -55,6 +55,14 @@ struct EventConstant {
 }
 
 //
+// MARK: - Center Constant
+//
+struct CenterConstant {
+  
+  static let helpCenter = "helpCenters"
+}
+
+//
 // MARK: - Debug Constant
 //
 struct DebugConstant {

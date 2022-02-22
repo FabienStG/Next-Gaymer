@@ -27,17 +27,19 @@ class DataManager {
   private let eventServices: EventServices
   private let adminServices: AdminServices
   private let userServices: UserServices
+  private let centerServices: CenterServices
   
   //
   // MARK: - Initilizalisation
   //
   init(registrationServices: RegistrationServices, chatServices: ChatServices,
-       eventServices: EventServices, adminServices: AdminServices, userServices: UserServices) {
+       eventServices: EventServices, adminServices: AdminServices, userServices: UserServices, centerServices: CenterServices) {
     self.registrationServices = registrationServices
     self.chatServices = chatServices
     self.eventServices = eventServices
     self.adminServices = adminServices
     self.userServices = userServices
+    self.centerServices = centerServices
   }
 
   //
@@ -45,9 +47,9 @@ class DataManager {
   //
   /// Function who initialize the manage with the provide services
   static func initialized(registrationServices: RegistrationServices, chatServices: ChatServices,
-                          eventServices: EventServices, adminServices: AdminServices, userServices: UserServices) {
+                          eventServices: EventServices, adminServices: AdminServices, userServices: UserServices, centerServices: CenterServices) {
     _shared = DataManager(registrationServices: registrationServices, chatServices: chatServices,
-                          eventServices: eventServices, adminServices: adminServices, userServices: userServices)
+                          eventServices: eventServices, adminServices: adminServices, userServices: userServices, centerServices: centerServices)
   }
 
   /// Function to use the force unwrapp the _shared instance initialized in the app
@@ -311,7 +313,7 @@ class DataManager {
   }
   
   //
-  // MARK: - Profile Management Services
+  // MARK: - Internal Methods - Profile Management Services
   //
   /// Log out the user from the app and update the log status
   func logoutUser(completionHandler: @escaping(Bool, String?) -> Void) {
@@ -376,9 +378,25 @@ class DataManager {
       return completionHandler(response, error)
     }
   }
+  
+  //
+  // MARK: - Internal Method - Help Centers Services
+  //
+  /// This function fetch the centers list
+  func fetchCenterList(completionHandler: @escaping([HelpCenter]) -> Void) {
+    
+    var centersArray: [HelpCenter] = []
+    
+    centerServices.fetchCenterList { centerList in
+      centerList.forEach { center in
+        centersArray.append(self.packCenter(center))
+      }
+      return completionHandler(centersArray)
+    }
+  }
 
   //
-  // MARK: - Private Method
+  // MARK: - Private Methods
   //
   /// This function for admin only use return informations of all the registered users
   private func fetchAllUsers(completionHandler: @escaping([UserRegistered]?, String?) -> Void) {
@@ -419,5 +437,21 @@ class DataManager {
                            profileImageUrl: user.profileImageUrl, isAdmin: user.isAdmin)
     
     return userDetails
+  }
+  
+  /// This function check the device langage and return the object
+  func packCenter(_ center: CenterRegistered) -> HelpCenter  {
+    
+    var helpCenter = HelpCenter(id: center.id!, name: center.name, phoneNumber: center.phoneNumber,
+                                phoneNumberURL: URL(string: "tel://" + center.phoneNumber)!,
+                                url: URL(string: center.url)!, description: "")
+    
+    let local = Locale.preferredLanguages[0]
+    if local.hasPrefix("fr") {
+      helpCenter.description = center.fr
+    } else {
+      helpCenter.description = center.en
+    }
+    return helpCenter
   }
 }

@@ -32,7 +32,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
   private func managerInitialization() {
     DataManager.initialized(registrationServices: FirebaseRegistrationServices(), chatServices: FirebaseChatServices(),
                             eventServices: FirebaseEventServices(), adminServices: FirebaseAdminService(),
-                            userServices: FirebaseUserServices())
+                            userServices: FirebaseUserServices(), centerServices: FirebaseCenterServices())
     
     NotificationManager.initialized(notificationsServices: UserNotificationServices())
     

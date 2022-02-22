@@ -12,11 +12,11 @@ class DataManagerEventTests: XCTestCase {
   
   let dataManager = DataManager(registrationServices: MockedRegistrationServices(), chatServices: MockedChatServices(),
                                 eventServices: MockedEventServices(), adminServices: MockedAdminServices(),
-                                userServices: MockedUserServices())
+                                userServices: MockedUserServices(), centerServices: MockedCenterServices())
   
   let dataManaderFailed = DataManager(registrationServices: MockedRegistrationServicesFailed(), chatServices: MockedChatServicesFailed(),
                                       eventServices: MockedEventServicesFailed(), adminServices: MockedAdminServicesFailed(),
-                                      userServices: MockedUserServicesFailed())
+                                      userServices: MockedUserServicesFailed(), centerServices: MockedCenterServicesFailed())
 
 
   func testFetchAllEventsThenReturnEventArray() {

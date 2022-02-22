@@ -25,7 +25,7 @@
 		D12576CF2797215500DC6BA3 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12576CE2797215500DC6BA3 /* ImagePicker.swift */; };
 		D12F130E27C2510300139272 /* ConfirmationDeleteVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12F130D27C2510300139272 /* ConfirmationDeleteVMTests.swift */; };
 		D12F131127C2868500139272 /* HelpPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12F131027C2868500139272 /* HelpPageViewModel.swift */; };
-		D12F131427C289C200139272 /* HelpCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12F131327C289C200139272 /* HelpCenter.swift */; };
+		D12F131427C289C200139272 /* CenterRegistered.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12F131327C289C200139272 /* CenterRegistered.swift */; };
 		D12F131727C28AEA00139272 /* HelpCenterViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12F131627C28AEA00139272 /* HelpCenterViewCell.swift */; };
 		D136115627BA535D000F94A3 /* FakeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D136115527BA535D000F94A3 /* FakeData.swift */; };
 		D136115927BA575D000F94A3 /* MockedUserServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D136115827BA575D000F94A3 /* MockedUserServices.swift */; };
@@ -100,6 +100,10 @@
 		D19B0BED2795C4D8000C059C /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19B0BEC2795C4D8000C059C /* CustomTabBar.swift */; };
 		D19B0BF62795DFCB000C059C /* TapButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19B0BF52795DFCB000C059C /* TapButtonView.swift */; };
 		D19B0BF92795E16C000C059C /* CustomTabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19B0BF82795E16C000C059C /* CustomTabBarViewModel.swift */; };
+		D1A6FB8427C4E5570013F9C2 /* FirebaseCenterServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A6FB8327C4E5570013F9C2 /* FirebaseCenterServices.swift */; };
+		D1A6FB8627C4EA570013F9C2 /* CenterServicesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A6FB8527C4EA570013F9C2 /* CenterServicesProtocol.swift */; };
+		D1A6FB8827C4EC2A0013F9C2 /* MockedCenterServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A6FB8727C4EC2A0013F9C2 /* MockedCenterServices.swift */; };
+		D1A6FB8A27C52F8C0013F9C2 /* HelpCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A6FB8927C52F8C0013F9C2 /* HelpCenter.swift */; };
 		D1AE62302796C0A300FDFAAC /* TabBarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AE622F2796C0A300FDFAAC /* TabBarRouter.swift */; };
 		D1B3DB2F279214790075A0F7 /* ResetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B3DB2E279214780075A0F7 /* ResetPasswordViewModel.swift */; };
 		D1B3DB31279216F20075A0F7 /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B3DB30279216F20075A0F7 /* ResetPasswordView.swift */; };
@@ -189,7 +193,7 @@
 		D12576CE2797215500DC6BA3 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		D12F130D27C2510300139272 /* ConfirmationDeleteVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationDeleteVMTests.swift; sourceTree = "<group>"; };
 		D12F131027C2868500139272 /* HelpPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPageViewModel.swift; sourceTree = "<group>"; };
-		D12F131327C289C200139272 /* HelpCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCenter.swift; sourceTree = "<group>"; };
+		D12F131327C289C200139272 /* CenterRegistered.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterRegistered.swift; sourceTree = "<group>"; };
 		D12F131627C28AEA00139272 /* HelpCenterViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCenterViewCell.swift; sourceTree = "<group>"; };
 		D136114A27BA5162000F94A3 /* Next GaymerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Next GaymerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D136115527BA535D000F94A3 /* FakeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeData.swift; sourceTree = "<group>"; };
@@ -267,6 +271,10 @@
 		D19B0BEC2795C4D8000C059C /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		D19B0BF52795DFCB000C059C /* TapButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapButtonView.swift; sourceTree = "<group>"; };
 		D19B0BF82795E16C000C059C /* CustomTabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarViewModel.swift; sourceTree = "<group>"; };
+		D1A6FB8327C4E5570013F9C2 /* FirebaseCenterServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseCenterServices.swift; sourceTree = "<group>"; };
+		D1A6FB8527C4EA570013F9C2 /* CenterServicesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterServicesProtocol.swift; sourceTree = "<group>"; };
+		D1A6FB8727C4EC2A0013F9C2 /* MockedCenterServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedCenterServices.swift; sourceTree = "<group>"; };
+		D1A6FB8927C52F8C0013F9C2 /* HelpCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCenter.swift; sourceTree = "<group>"; };
 		D1AE622F2796C0A300FDFAAC /* TabBarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarRouter.swift; sourceTree = "<group>"; };
 		D1B3DB2E279214780075A0F7 /* ResetPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewModel.swift; sourceTree = "<group>"; };
 		D1B3DB30279216F20075A0F7 /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
@@ -410,8 +418,9 @@
 		D12F131227C2899F00139272 /* Help Page Model */ = {
 			isa = PBXGroup;
 			children = (
-				D12F131327C289C200139272 /* HelpCenter.swift */,
 				D13A887827A13CBE00F606C3 /* Map Model */,
+				D1A6FB8227C4E4BC0013F9C2 /* Decoder */,
+				D1A6FB8327C4E5570013F9C2 /* FirebaseCenterServices.swift */,
 			);
 			path = "Help Page Model";
 			sourceTree = "<group>";
@@ -453,6 +462,7 @@
 				D136115C27BA577F000F94A3 /* MockedEventServices.swift */,
 				D145364727BCFC680063FE7C /* MockedMapServices.swift */,
 				D145364927BCFD1D0063FE7C /* MockedNotificationsServices.swift */,
+				D1A6FB8727C4EC2A0013F9C2 /* MockedCenterServices.swift */,
 			);
 			path = "Fake Services";
 			sourceTree = "<group>";
@@ -764,6 +774,7 @@
 				D179478E27BA483C004116BE /* UserServicesProtocol.swift */,
 				D100350D27BC317D00463EAC /* NotificationSercicesProtocol.swift */,
 				D100350F27BC318E00463EAC /* MapServicesProtocol.swift */,
+				D1A6FB8527C4EA570013F9C2 /* CenterServicesProtocol.swift */,
 			);
 			path = "Services Protocols";
 			sourceTree = "<group>";
@@ -825,6 +836,15 @@
 				D1622F092796058E00F6B461 /* CircleBackgroundView.swift */,
 			);
 			path = "TabBar ViewComp";
+			sourceTree = "<group>";
+		};
+		D1A6FB8227C4E4BC0013F9C2 /* Decoder */ = {
+			isa = PBXGroup;
+			children = (
+				D12F131327C289C200139272 /* CenterRegistered.swift */,
+				D1A6FB8927C52F8C0013F9C2 /* HelpCenter.swift */,
+			);
+			path = Decoder;
 			sourceTree = "<group>";
 		};
 		D1BF606727906D7200F22AAF /* Views Component */ = {
@@ -1174,6 +1194,7 @@
 				D136115B27BA5769000F94A3 /* MockedAdminServices.swift in Sources */,
 				D145367527BD47800063FE7C /* ResetPasswordVMTests.swift in Sources */,
 				D17D00B827BD5BC000B996E9 /* Initializations.swift in Sources */,
+				D1A6FB8827C4EC2A0013F9C2 /* MockedCenterServices.swift in Sources */,
 				D145366127BD025C0063FE7C /* EventDetailVMTests.swift in Sources */,
 				D136116A27BAEEC5000F94A3 /* DataManagerChatTests.swift in Sources */,
 				D136116627BAC2B6000F94A3 /* DataManagerAdminTests.swift in Sources */,
@@ -1220,6 +1241,7 @@
 				D14D4DD927AD377D00D8EB02 /* MyEventDetailView.swift in Sources */,
 				D12576CD27971A7600DC6BA3 /* PhotoPickerView.swift in Sources */,
 				D1622F0C279617C700F6B461 /* ProfileView.swift in Sources */,
+				D1A6FB8427C4E5570013F9C2 /* FirebaseCenterServices.swift in Sources */,
 				D1F555C32791DAEC0005555A /* MotherView.swift in Sources */,
 				D1F555C72791EF7E0005555A /* View Extension.swift in Sources */,
 				D1DB73E027AFDC4600A80294 /* AppDelegate.swift in Sources */,
@@ -1277,13 +1299,15 @@
 				D11765AA27A99A230020131D /* UserAdminViewCell.swift in Sources */,
 				D1BFA19F279EFDC200FF0B47 /* HelpPageView.swift in Sources */,
 				D1D6678C27A29D6300B1E720 /* EventCreated.swift in Sources */,
+				D1A6FB8627C4EA570013F9C2 /* CenterServicesProtocol.swift in Sources */,
 				D1D66C66279C124900EEC95E /* TabBarAdminView.swift in Sources */,
 				D1BF606F27908A7100F22AAF /* ButtonTextView.swift in Sources */,
-				D12F131427C289C200139272 /* HelpCenter.swift in Sources */,
+				D12F131427C289C200139272 /* CenterRegistered.swift in Sources */,
 				D1C46FD5279B1EC100833440 /* UserRegistered.swift in Sources */,
 				D100350E27BC317D00463EAC /* NotificationSercicesProtocol.swift in Sources */,
 				D19B0BF62795DFCB000C059C /* TapButtonView.swift in Sources */,
 				D1622F0A2796058E00F6B461 /* CircleBackgroundView.swift in Sources */,
+				D1A6FB8A27C52F8C0013F9C2 /* HelpCenter.swift in Sources */,
 				D179478727BA47FE004116BE /* EventServicesProtocol.swift in Sources */,
 				D1D66C6A279C1B7E00EEC95E /* UserListAdminViewModel.swift in Sources */,
 				D1C46FD3279B1EB200833440 /* UserForm.swift in Sources */,

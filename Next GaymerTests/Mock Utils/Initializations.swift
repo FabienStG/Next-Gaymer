@@ -12,11 +12,11 @@ struct DataManagerInit {
   
   static let success = DataManager(registrationServices: MockedRegistrationServices(), chatServices: mockedChat,
                                    eventServices: MockedEventServices(), adminServices: MockedAdminServices(),
-                                   userServices: MockedUserServices())
+                                   userServices: MockedUserServices(), centerServices: MockedCenterServices())
   
   static let failed = DataManager(registrationServices: MockedRegistrationServicesFailed(), chatServices: MockedChatServicesFailed(),
                                    eventServices: MockedEventServicesFailed(), adminServices: MockedAdminServicesFailed(),
-                                  userServices: MockedUserServicesFailed())
+                                  userServices: MockedUserServicesFailed(), centerServices: MockedCenterServicesFailed())
   
   static let mockedChat = MockedChatServices()
 }

@@ -15,5 +15,23 @@ class HelpPageViewModel: ObservableObject {
   //
   // MARK: - Published propertie
   //
-  @Published var helpCenters = HelpCenters().centersList
+  @Published var helpCenters: [HelpCenter] = []
+  
+  //
+  // MARK: - Initialization
+  //
+  init() {
+    fethCenterList()
+  }
+  
+  //
+  // MARK: - Private Method
+  //
+  /// This function fetch the center list from firebase
+  private func fethCenterList() {
+    
+    DataManager.shared().fetchCenterList { centerList in
+      self.helpCenters = centerList
+    }
+  }
 }

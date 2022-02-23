@@ -64,16 +64,7 @@ struct ProfileView: View {
           Text(NSLocalizedString("adress", comment: ""))
             .disabled(profileModel.disableModification)
         }
-        if profileModel.disableModification {
-          Button {
-            profileModel.showConfirmation.toggle()
-          } label: {
-            ButtonTextView(status: $profileModel.requestStatus,
-                           text: NSLocalizedString("settings", comment: ""))
-          }
-          .frame(maxWidth: .infinity, alignment: .center)
-          .listRowBackground(Color(UIColor.systemGroupedBackground))
-        } else {
+        if !profileModel.disableModification {
           Button {
             profileModel.validateModifications()
             
@@ -85,12 +76,20 @@ struct ProfileView: View {
           .listRowBackground(Color(UIColor.systemGroupedBackground))
         }
       }
+      .toolbar {
+        ToolbarItem(placement: .primaryAction) {
+          Button {
+            profileModel.showConfirmation.toggle()
+          } label: {
+            Image(systemName: "gearshape.fill")
+          }
+        }
+      }
       .alert(profileModel.errorMessage, isPresented: $profileModel.showAlert) {}
       .sheet(isPresented: $profileModel.showReauthentification) {
         ConfirmationDeleteView()
       }
       .confirmationDialog("Options", isPresented: $profileModel.showConfirmation) {
-        Button(role: .cancel) {} label: { Text(NSLocalizedString("cancel", comment: ""))}
         Button {
           profileModel.logoutUser()
         } label: {
@@ -101,11 +100,6 @@ struct ProfileView: View {
         } label: {
           Text(NSLocalizedString("changeProfile", comment: ""))
         }
-       /* Button {
-          //
-        } label: {
-          Text(NSLocalizedString("mailAndPassword", comment: ""))
-        }*/
         Button(role: .destructive) {
           profileModel.showReauthentification.toggle()
         } label: {

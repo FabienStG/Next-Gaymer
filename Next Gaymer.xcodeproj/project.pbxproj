@@ -104,6 +104,7 @@
 		D1A6FB8627C4EA570013F9C2 /* CenterServicesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A6FB8527C4EA570013F9C2 /* CenterServicesProtocol.swift */; };
 		D1A6FB8827C4EC2A0013F9C2 /* MockedCenterServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A6FB8727C4EC2A0013F9C2 /* MockedCenterServices.swift */; };
 		D1A6FB8A27C52F8C0013F9C2 /* HelpCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A6FB8927C52F8C0013F9C2 /* HelpCenter.swift */; };
+		D1A6FB8D27C548F00013F9C2 /* HelpPageVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A6FB8C27C548F00013F9C2 /* HelpPageVMTests.swift */; };
 		D1AE62302796C0A300FDFAAC /* TabBarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AE622F2796C0A300FDFAAC /* TabBarRouter.swift */; };
 		D1B3DB2F279214790075A0F7 /* ResetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B3DB2E279214780075A0F7 /* ResetPasswordViewModel.swift */; };
 		D1B3DB31279216F20075A0F7 /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B3DB30279216F20075A0F7 /* ResetPasswordView.swift */; };
@@ -275,6 +276,7 @@
 		D1A6FB8527C4EA570013F9C2 /* CenterServicesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterServicesProtocol.swift; sourceTree = "<group>"; };
 		D1A6FB8727C4EC2A0013F9C2 /* MockedCenterServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedCenterServices.swift; sourceTree = "<group>"; };
 		D1A6FB8927C52F8C0013F9C2 /* HelpCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCenter.swift; sourceTree = "<group>"; };
+		D1A6FB8C27C548F00013F9C2 /* HelpPageVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPageVMTests.swift; sourceTree = "<group>"; };
 		D1AE622F2796C0A300FDFAAC /* TabBarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarRouter.swift; sourceTree = "<group>"; };
 		D1B3DB2E279214780075A0F7 /* ResetPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewModel.swift; sourceTree = "<group>"; };
 		D1B3DB30279216F20075A0F7 /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
@@ -588,7 +590,7 @@
 				D145365627BD01240063FE7C /* CurrentUserVMTests.swift */,
 				D145365527BD00CF0063FE7C /* Register VM */,
 				D145365327BD00AC0063FE7C /* Admin VM */,
-				D145365227BD009B0063FE7C /* Map VM */,
+				D1A6FB8B27C548C70013F9C2 /* Help Center VM */,
 				D145365127BD00910063FE7C /* Event VM */,
 				D145365027BD00830063FE7C /* ChatVM */,
 				D145364F27BD00770063FE7C /* User VM */,
@@ -845,6 +847,15 @@
 				D1A6FB8927C52F8C0013F9C2 /* HelpCenter.swift */,
 			);
 			path = Decoder;
+			sourceTree = "<group>";
+		};
+		D1A6FB8B27C548C70013F9C2 /* Help Center VM */ = {
+			isa = PBXGroup;
+			children = (
+				D1A6FB8C27C548F00013F9C2 /* HelpPageVMTests.swift */,
+				D145365227BD009B0063FE7C /* Map VM */,
+			);
+			path = "Help Center VM";
 			sourceTree = "<group>";
 		};
 		D1BF606727906D7200F22AAF /* Views Component */ = {
@@ -1199,6 +1210,7 @@
 				D136116A27BAEEC5000F94A3 /* DataManagerChatTests.swift in Sources */,
 				D136116627BAC2B6000F94A3 /* DataManagerAdminTests.swift in Sources */,
 				D145366D27BD03670063FE7C /* RegistrantListVMTests.swift in Sources */,
+				D1A6FB8D27C548F00013F9C2 /* HelpPageVMTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

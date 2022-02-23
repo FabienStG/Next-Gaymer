@@ -29,12 +29,13 @@ class FirebaseCenterServices: CenterServices {
       
       guard let snapshot = snapshot else { return }
       for document in snapshot.documents {
+        
         let center = try? document.data(as: CenterRegistered.self)
         if let center = center {
           returnArray.append(center)
         }
-        return completionHandler(returnArray)
       }
+      return completionHandler(returnArray)
     }
   }
 }

@@ -6,7 +6,11 @@
 //
 
 import Foundation
+//
+// MARK: - Help Center
+//
 
+/// This struc is made from CenterRegistered and use for display
 struct HelpCenter: Identifiable {
   
   let id: String

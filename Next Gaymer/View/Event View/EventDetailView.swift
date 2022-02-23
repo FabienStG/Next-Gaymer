@@ -22,16 +22,27 @@ struct EventDetailView: View {
                        text: NSLocalizedString("registrate", comment: ""))
       }
       .disabled(eventDetailModel.disableButton)
-      if currentUser.currentUser?.isAdmin ?? false {
-        Button {
-          eventDetailModel.showRegistrants.toggle()
-        } label: {
-          Text("Liste des inscrits")
+    }
+    .toolbar {
+      ToolbarItem(placement: .primaryAction) {
+        if currentUser.currentUser?.isAdmin ?? true {
+          Button {
+            eventDetailModel.showOptions.toggle()
+          } label: {
+            Image(systemName: "ellipsis.circle.fill")
+          }
         }
       }
     }
     .sheet(isPresented: $eventDetailModel.showRegistrants, content: {
       RegistrantListAdminView(event: eventDetailModel.event)
+    })
+    .confirmationDialog("cofirmation", isPresented: $eventDetailModel.showOptions, actions: {
+      Button {
+        eventDetailModel.showRegistrants.toggle()
+      } label: {
+        Text(NSLocalizedString("showRegistrantList", comment: ""))
+      }
     })
     .alert(eventDetailModel.alertMessage, isPresented: $eventDetailModel.showAlert) {}
     .onReceive(eventDetailModel.$requestStatus) { newValue in
@@ -46,6 +57,6 @@ struct EventDetailView_Previews: PreviewProvider {
   static var previews: some View {
     EventDetailView(eventDetailModel:
                       EventDetailViewModel(event: FakePreviewData.fakeOnlineEvent))
-      .environmentObject(FakePreviewData.currentUser)
+      .environmentObject(FakePreviewData.currentAdminUser)
   }
 }

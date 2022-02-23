@@ -18,6 +18,7 @@ class EventDetailViewModel: ObservableObject {
   //
   @Published var event: EventCreated
   @Published var showRegistrants = false
+  @Published var showOptions = false
   
   @Published var alertMessage = ""
   @Published var showAlert = false

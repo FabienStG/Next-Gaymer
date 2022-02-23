@@ -48,6 +48,7 @@
 "cancelRegistration" = "Annuler mon inscription";
 "emptyEvent" = "Vous n'êtes inscrit à aucun évènement.";
 "noRegistrant" = "Personne n'est inscrit pour le moment.";
+"showRegistrantList" = "Liste des inscrits";
 
 "confirm" = "Confirmer";
 "cancel" = "Annuler";
@@ -96,10 +97,4 @@
 
 "notificationBody" = "Vous êtes inscrit à un évènement aujourd'hui. Ouvrez l'app Next Gaymer pour plus d'informations.";
 
-"sosHomophobieDescription" = "SOS homophobie est une association féministe de lutte contre la lesbophobie, la gayphobie, la biphobie, la transphobie et l’intersexophobie, elle s’est développée autour de trois valeurs : bienveillance, inclusion, indépendance et trois missions : soutenir, prévenir, militer.";
-
-"ravadDescription" = "Le Réseau d’Assistance aux Victimes d’agression et de Discrimination (RAVAD) est une association qui assiste les victimes d’agressions et de discriminations, en particulier pour les agressions en raison de l’orientation sexuelle et de l’identité de genre.";
-
-"leRefugeDescription" = "Reconnue d’Utilité Publique, la Fondation Le Refuge a pour objet de prévenir l’isolement et le suicide des jeunes LGBT+, de 14 à 25 ans, victimes d’homophobie ou de transphobie et en situation de rupture familiale.";
-
-"preventionSuicideDescription" = "Le 3114, c’est aussi le numéro national de prévention du suicide. Des professionnels vous répondent 24h/24 et 7j/7.";
+"emptyCenterList" = "Une erreur est survenue, veuillez réessayer plus tard.";

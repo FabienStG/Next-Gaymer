@@ -440,7 +440,7 @@ class DataManager {
   }
   
   /// This function check the device langage and return the object
-  func packCenter(_ center: CenterRegistered) -> HelpCenter  {
+  private func packCenter(_ center: CenterRegistered) -> HelpCenter  {
     
     var helpCenter = HelpCenter(id: center.id!, name: center.name, phoneNumber: center.phoneNumber,
                                 phoneNumberURL: URL(string: "tel://" + center.phoneNumber)!,

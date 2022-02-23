@@ -48,6 +48,7 @@
 "cancelRegistration" = "Cancel registration";
 "emptyEvent" = "You have no event registered.";
 "noRegistrant" = "There is nobody registrate to this event yet.";
+"showRegistrantList" = "Registrants list";
 
 "confirm" = "Confirm";
 "cancel" = "Cancel";
@@ -96,12 +97,4 @@
 
 "notificationBody" = "You have an event today. Open NextGaymer App for further informations";
 
-"sosHomophobieDescription" = "SOS Homophobie is a feminist association fighting against lesbophobia, gayphobia, biphobia, transphobia and intersexophobia, it has developed around three values: benevolence, inclusion, independence and three missions: support, prevent, militate.";
-
-"ravadDescription" = "The Assistance Network for Victims of Aggression and Discrimination (RAVAD) is an association that assists victims of aggression and discrimination, in particular for attacks on the grounds of sexual orientation and gender identity.";
-
-"leRefugeDescription" = "Recognized as a Public Utility, the Le Refuge Foundation aims to prevent the isolation and suicide of young LGBT+ people, aged 14 to 25, victims of homophobia or transphobia and in a situation of family breakdown.";
-
-"preventionSuicideDescription" = "3114 is also the national suicide prevention number. Professionals answer you 24 hours a day, 7 days a week..";
-
-
+"emptyCenterList" = "Failed to feth the center list, please try later.";

@@ -26,30 +26,36 @@ struct UserDetailsAdminView: View {
       }
       .navigationTitle(NSLocalizedString("profile", comment: ""))
       .navigationBarTitleDisplayMode(.inline)
-      if !userDetails.selectedUser.isAdmin {
-        Divider()
-        Button {
-          userDetails.presentConfirmation.toggle()
-        } label: {
-          Text(NSLocalizedString("giveAdmin", comment: ""))
-            .foregroundColor(.red)
+      .toolbar {
+        ToolbarItem(placement: .navigationBarTrailing) {
+          if !userDetails.selectedUser.isAdmin {
+            Button {
+              userDetails.presentOption.toggle()
+            } label: {
+              Image(systemName: "ellipsis.circle.fill")
+            }
+          }
         }
-        .padding()
       }
     }
     .alert(userDetails.confirmationMessage,
            isPresented: $userDetails.presentAlert) {}
-    .confirmationDialog(NSLocalizedString("confirm", comment: "") + " ?",
-                        isPresented: $userDetails.presentConfirmation) {
-      Button(role: .cancel) {} label: {
-        Text(NSLocalizedString("cancel", comment: ""))
-      }
-      Button(role: .destructive) {
-        userDetails.setUserAdminCrentials()
-      } label: {
-        Text(NSLocalizedString("validateAdmin", comment: ""))
-      }
-    }
+     .confirmationDialog("confirmation",
+                         isPresented: $userDetails.presentConfirmation) {
+       Button(role: .destructive) {
+         userDetails.setUserAdminCrentials()
+       } label: {
+         Text(NSLocalizedString("validateAdmin", comment: ""))
+       }
+     }
+   .confirmationDialog("options", isPresented: $userDetails.presentOption) {
+     Button {
+       userDetails.presentConfirmation.toggle()
+     } label : {
+       Text(NSLocalizedString("giveAdmin", comment: ""))
+         .foregroundColor(.red)
+     }
+   }
   }
 }
 

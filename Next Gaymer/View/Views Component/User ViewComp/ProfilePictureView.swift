@@ -6,26 +6,29 @@
 //
 
 import SwiftUI
-import SDWebImageSwiftUI
 
 struct ProfilePictureView: View {
-
+  
   var url: String
   
-    var body: some View {
-      WebImage(url: URL(string: url) )
+  var body: some View {
+    AsyncImage(url: URL(string: url)) { image in
+      image
         .resizable()
         .scaledToFill()
-        .frame(width:150, height: 150)
-        .clipped()
-        .cornerRadius(75)
-        .overlay(RoundedRectangle(cornerRadius: 75)
-                  .stroke(Color("Purple"), lineWidth: 4))
+    } placeholder: {
+      ProgressView()
     }
+    .frame(width:150, height: 150)
+    .clipped()
+    .cornerRadius(75)
+    .overlay(RoundedRectangle(cornerRadius: 75)
+              .stroke(Color("Purple"), lineWidth: 4))
+  }
 }
 
 struct ProfilePictureView_Previews: PreviewProvider {
-    static var previews: some View {
-      ProfilePictureView(url: FakePreviewData.fakeSelectedUser.profileImageUrl)
-    }
+  static var previews: some View {
+    ProfilePictureView(url: FakePreviewData.fakeSelectedUser.profileImageUrl)
+  }
 }

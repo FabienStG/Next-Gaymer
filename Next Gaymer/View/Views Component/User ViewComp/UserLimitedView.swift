@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import SDWebImageSwiftUI
 
 struct UserLimitedView: View {
   
@@ -14,9 +13,13 @@ struct UserLimitedView: View {
   
   var body: some View {
     VStack {
-      WebImage(url: URL(string: userDetails.profileImageUrl) )
+      AsyncImage(url: URL(string: userDetails.profileImageUrl)) { image in
+        image
         .resizable()
         .scaledToFill()
+      } placeholder: {
+        ProgressView()
+      }
         .frame(width:150, height: 150)
         .clipped()
         .cornerRadius(75)

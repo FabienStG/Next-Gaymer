@@ -15,8 +15,7 @@ struct ProfileView: View {
   @EnvironmentObject var currentUser: CurrentUserViewModel
   
   var body: some View {
-    VStack {
-      Form {
+      List {
         ProfilePictureView(url: currentUser.currentUser!.profileImageUrl)
           .padding()
           .frame(maxWidth: .infinity, alignment: .center)
@@ -67,22 +66,21 @@ struct ProfileView: View {
         if !profileModel.disableModification {
           Button {
             profileModel.validateModifications()
-            
           } label: {
             ButtonTextView(status: $profileModel.requestStatus,
                            text: NSLocalizedString("confirm", comment: ""))
           }
           .frame(maxWidth: .infinity, alignment: .center)
           .listRowBackground(Color(UIColor.systemGroupedBackground))
-        }
-      }
-      .toolbar {
-        ToolbarItem(placement: .primaryAction) {
-          Button {
-            profileModel.showConfirmation.toggle()
-          } label: {
-            Image(systemName: "gearshape.fill")
-          }
+        }else {
+            Button {
+              profileModel.showConfirmation.toggle()
+            } label: {
+              ButtonTextView(status: $profileModel.requestStatus,
+                             text: NSLocalizedString("modify", comment: ""))
+            }
+            .frame(maxWidth: .infinity, alignment: .center)
+            .listRowBackground(Color(UIColor.systemGroupedBackground))
         }
       }
       .alert(profileModel.errorMessage, isPresented: $profileModel.showAlert) {}
@@ -105,7 +103,6 @@ struct ProfileView: View {
         } label: {
           Text(NSLocalizedString("deleteAccount", comment: ""))
         }
-      }
     }
     .onReceive(profileModel.$requestStatus) { newValue in
       if newValue == .success {

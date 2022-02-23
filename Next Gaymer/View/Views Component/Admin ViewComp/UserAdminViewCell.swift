@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import SDWebImageSwiftUI
 
 struct UserAdminViewCell: View {
   
@@ -15,17 +14,20 @@ struct UserAdminViewCell: View {
   var body: some View {
     
     HStack(spacing: 16) {
-      WebImage(url: URL(string: user.profileImageUrl))
-        .resizable()
-        .scaledToFill()
-        .frame(width: 70, height: 70)
-        .clipped()
-        .cornerRadius(70)
-        .overlay(RoundedRectangle(cornerRadius: 70)
-                  .stroke(user.isAdmin ? Color(.yellow) : Color("Purple"),
-                          lineWidth: 2))
-        .shadow(radius: 5)
-      
+      AsyncImage(url: URL(string: user.profileImageUrl)){ image in
+        image
+          .resizable()
+          .scaledToFill()
+      } placeholder: {
+        ProgressView()
+      }
+      .frame(width: 70, height: 70)
+      .clipped()
+      .cornerRadius(70)
+      .overlay(RoundedRectangle(cornerRadius: 70)
+                .stroke(user.isAdmin ? Color(.yellow) : Color("Purple"),
+                        lineWidth: 2))
+      .shadow(radius: 5)
       Text(user.pseudo)
     }
   }

@@ -20,7 +20,8 @@ struct HelpPageView: View {
             HelpCenterViewCell(helpCenter: helpCenter)
               .padding()
               .frame(width: 370 ,height: 350)
-              .background(Color.white)
+              .background(Color(UIColor.tertiarySystemBackground))
+              .border(Color(UIColor.secondarySystemBackground), width: 2)
               .cornerRadius(20)
           }
         }

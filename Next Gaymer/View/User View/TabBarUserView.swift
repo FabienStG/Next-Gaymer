@@ -44,7 +44,7 @@ struct TabBarUserView: View {
           }
         
         CustomTabBar(animation: animation, size: size, bottomEdge: bottomEdge)
-          .background(Color.white)
+          .background(Color(UIColor.systemBackground))
       }
     }
     .ignoresSafeArea(.all, edges: .bottom)

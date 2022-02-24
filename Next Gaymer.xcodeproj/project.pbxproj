@@ -1027,9 +1027,9 @@
 		D1EB16E6279E02800043624F /* User View */ = {
 			isa = PBXGroup;
 			children = (
+				D1BFA1A3279F029100FF0B47 /* TabBarUserView.swift */,
 				D17A9F8427AE7E4E00AA0B08 /* User Chat View */,
 				D1BFA1A0279EFDEC00FF0B47 /* Profile View */,
-				D1BFA1A3279F029100FF0B47 /* TabBarUserView.swift */,
 			);
 			path = "User View";
 			sourceTree = "<group>";

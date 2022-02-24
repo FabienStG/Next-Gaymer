@@ -72,4 +72,3 @@ class MockedChatServicesFailed: ChatServices {
   
   func deleteRecentMessage(message: RecentMessage) {}
 }
-

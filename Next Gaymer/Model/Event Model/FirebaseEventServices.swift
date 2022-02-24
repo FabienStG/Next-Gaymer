@@ -130,6 +130,7 @@ class FirebaseEventServices: EventServices {
   
   /// Take the registered events array from the user profile, and loop every Id to return an array of events
   func fetchMyEvent(completionHandler: @escaping([EventCreated], String?) -> Void) {
+    
     let myGroup = DispatchGroup()
     var eventResult = [EventCreated]()
     guard let userId = auth.currentUser?.uid else { return }

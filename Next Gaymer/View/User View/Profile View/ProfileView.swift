@@ -77,7 +77,7 @@ struct ProfileView: View {
               profileModel.showConfirmation.toggle()
             } label: {
               ButtonTextView(status: $profileModel.requestStatus,
-                             text: NSLocalizedString("modify", comment: ""))
+                             text: NSLocalizedString("changeProfile", comment: ""))
             }
             .frame(maxWidth: .infinity, alignment: .center)
             .listRowBackground(Color(UIColor.systemGroupedBackground))

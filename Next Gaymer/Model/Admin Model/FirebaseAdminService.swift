@@ -6,7 +6,6 @@
 //
 
 import Firebase
-import FirebaseFirestoreSwift
 import Foundation
 //
 // MARK: - Firebase Admin Services

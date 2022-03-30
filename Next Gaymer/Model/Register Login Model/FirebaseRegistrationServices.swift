@@ -5,9 +5,7 @@
 //  Created by Fabien Saint Germain on 14/01/2022.
 //
 
-import UIKit
 import Firebase
-import FirebaseFirestoreSwift
 import GoogleSignIn
 import SwiftUI
 //

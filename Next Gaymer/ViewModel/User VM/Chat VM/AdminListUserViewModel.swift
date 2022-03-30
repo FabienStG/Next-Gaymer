@@ -5,7 +5,7 @@
 //  Created by Fabien Saint Germain on 05/02/2022.
 //
 
-import SwiftUI
+import Foundation
 //
 // MARK: - AdminList User VM
 //

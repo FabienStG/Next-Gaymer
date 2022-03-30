@@ -5,10 +5,7 @@
 //  Created by Fabien Saint Germain on 27/01/2022.
 //
 
-import UIKit
 import Firebase
-import FirebaseFirestore
-import FirebaseFirestoreSwift
 import SwiftUI
 //
 // MARK: - Firebase Event Services

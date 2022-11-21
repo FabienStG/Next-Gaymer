@@ -48,7 +48,7 @@ class FirebaseEventServices: EventServices {
         return completionHandler(true, url.absoluteString)
       }
     }
-      print("testGitSSh")
+      print("testGitSSh22")
   }
   
   /// Take all the informations from the event form registered by the user and the url from saved image, and save it in Firestore as new object

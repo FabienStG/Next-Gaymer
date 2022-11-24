@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import SDWebImageSwiftUI
 
 struct RecentMessageAdminViewCell: View {
   
@@ -14,8 +13,7 @@ struct RecentMessageAdminViewCell: View {
   
     var body: some View {
       HStack(spacing: 16) {
-        WebImage(url: URL(string: recentMessage.profileImageUrl))
-          .resizable()
+          AsyncImage(url: URL(string: recentMessage.profileImageUrl))
           .scaledToFill()
           .frame(width: 64, height: 64)
           .clipped()

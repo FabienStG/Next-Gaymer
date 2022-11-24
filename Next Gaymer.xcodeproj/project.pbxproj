@@ -112,7 +112,6 @@
 		D1BFA19F279EFDC200FF0B47 /* HelpPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BFA19E279EFDC200FF0B47 /* HelpPageView.swift */; };
 		D1BFA1A4279F029100FF0B47 /* TabBarUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BFA1A3279F029100FF0B47 /* TabBarUserView.swift */; };
 		D1C46FCE279B084400833440 /* StringConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C46FCD279B084400833440 /* StringConstant.swift */; };
-		D1C46FD1279B15C700833440 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = D1C46FD0279B15C700833440 /* SDWebImageSwiftUI */; };
 		D1C46FD3279B1EB200833440 /* UserForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C46FD2279B1EB200833440 /* UserForm.swift */; };
 		D1C46FD5279B1EC100833440 /* UserRegistered.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C46FD4279B1EC100833440 /* UserRegistered.swift */; };
 		D1CACA6A27A45D86002D56A7 /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = D1CACA6927A45D86002D56A7 /* FirebaseFunctions */; };
@@ -316,7 +315,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1C46FD1279B15C700833440 /* SDWebImageSwiftUI in Frameworks */,
 				D1EB16DC279DBF240043624F /* FirebaseFirestore in Frameworks */,
 				D1EB16DE279DBF240043624F /* FirebaseFirestoreSwift-Beta in Frameworks */,
 				D1CACA6A27A45D86002D56A7 /* FirebaseFunctions in Frameworks */,
@@ -998,7 +996,6 @@
 			name = "Next Gaymer";
 			packageProductDependencies = (
 				D1BF60752790A19A00F22AAF /* GoogleSignIn */,
-				D1C46FD0279B15C700833440 /* SDWebImageSwiftUI */,
 				D1EB16D9279DBF240043624F /* FirebaseAuth */,
 				D1EB16DB279DBF240043624F /* FirebaseFirestore */,
 				D1EB16DD279DBF240043624F /* FirebaseFirestoreSwift-Beta */,
@@ -1018,7 +1015,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1320;
-				LastUpgradeCheck = 1320;
+				LastUpgradeCheck = 1410;
 				TargetAttributes = {
 					D136114927BA5162000F94A3 = {
 						CreatedOnToolsVersion = 13.2.1;
@@ -1041,7 +1038,6 @@
 			mainGroup = D14B896927902C75005FC4F0;
 			packageReferences = (
 				D1BF60742790A19900F22AAF /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
-				D1C46FCF279B15C600833440 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				D1EB16D8279DBF240043624F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = D14B897327902C75005FC4F0 /* Products */;
@@ -1302,6 +1298,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -1363,6 +1360,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -1433,9 +1431,8 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = Launchscreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1443,6 +1440,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fabienstg.Next-Gaymer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1468,9 +1468,8 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = Launchscreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1478,6 +1477,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fabienstg.Next-Gaymer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1488,6 +1490,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -1565,9 +1568,8 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = Launchscreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1575,6 +1577,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fabienstg.Next-Gaymer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1625,14 +1630,6 @@
 				minimumVersion = 6.0.0;
 			};
 		};
-		D1C46FCF279B15C600833440 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
-			requirement = {
-				kind = upToNextMinorVersion;
-				minimumVersion = 2.0.0;
-			};
-		};
 		D1EB16D8279DBF240043624F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -1648,11 +1645,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D1BF60742790A19900F22AAF /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
 			productName = GoogleSignIn;
-		};
-		D1C46FD0279B15C700833440 /* SDWebImageSwiftUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D1C46FCF279B15C600833440 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
-			productName = SDWebImageSwiftUI;
 		};
 		D1CACA6927A45D86002D56A7 /* FirebaseFunctions */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -40,14 +40,14 @@ struct MainMessageView: View {
       .navigationBarTitleDisplayMode(.large)
       .toolbar {
         ToolbarItem(placement: .navigationBarTrailing) {
-          //if !(currentUser.currentUser?.isAdmin ?? false {
+          if !(currentUser.currentUser?.isAdmin ?? false) {
             NavigationLink {
               AdminListUserView()
             } label: {
               Image(systemName: "plus")
             }
           }
-        //}
+        }
       }
     }
     .navigationViewStyle(.stack)

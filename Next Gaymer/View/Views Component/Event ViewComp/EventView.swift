@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import SDWebImageSwiftUI
 
 struct EventView: View {
   
@@ -14,8 +13,7 @@ struct EventView: View {
   
     var body: some View {
       VStack {
-        WebImage(url: URL(string: event.imageUrl))
-          .resizable()
+          AsyncImage(url: URL(string: event.imageUrl))
           .scaledToFill()
           .frame(width: 250, height: 150)
           .cornerRadius(12)
